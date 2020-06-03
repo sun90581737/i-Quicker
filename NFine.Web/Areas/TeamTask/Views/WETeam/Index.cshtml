@@ -1,0 +1,531 @@
+﻿
+
+@{
+    ViewBag.Title = "WE班组";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+
+<script src="~/Content/js/bootstrap/bootstrap.js"></script>
+<link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Content/js/pages/dashboard.js"></script>
+<link href="~/Content/js/pages/AdminLTE.css" rel="stylesheet" />
+<link href="~/Content/js/pages/AdminLTE.min.css" rel="stylesheet" />
+<script src="~/Content/js/echarts/echarts.min.js"></script>
+<script src="~/Content/js/pages/app.js"></script>
+<script src="~/Content/js/pages/app.min.js"></script>
+@*<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>*@
+<script>
+    window.onload = function () {
+        OngridList();
+        gridList();
+        echart01();
+        echart02();
+
+        $("div").removeClass("ui-paging-info");//移除分页显示不全的文字
+    }
+    function OngridList() {
+        var $OngridList = $("#OngridList");
+        $OngridList.dataGrid({
+            url: "/TeamTask/WETeam/OnGetGridJson",
+            height: 520,
+            colModel: [
+                {
+                    label: '设备名', name: 'Equipment_Name', width: 100, align: 'left',
+                    formatter: function (cellvalue, row, index) {
+                        if (index.Equipment_Url != "") {
+                            return '<div style="width:100px;height:100px;background-color:' + index.Colour + ';"><p style="text-align:center;color:white;">' + index.Equipment_Name + '</p><img src="' + index.Equipment_Url + '" style="position: absolute; margin-left:13px;margin-top:-13px;" /></div>';
+                        }
+                        else {
+                            return '<div  style="width:100px;height:100px;" /></div>';
+                        }
+                    }
+                },
+                {
+                    label: '加工件', name: 'Workpieces_Url', width: 120, align: 'left',
+                    formatter: function (cellvalue, row, index) {
+                        if (index.Workpieces_Url != "") {
+                            return '<img src="' + index.Workpieces_Url + '"  style="width:90px;height:90px;margin-top: 5px;" />';
+                        }
+                        else {
+                            return '<div  style="width:90px;height:90px;" /></div>';
+                        }
+                    }
+                },
+                {
+                    label: '今日产量', name: 'Yield', width: 80, align: 'left',
+                    formatter: function (cellvalue, row, index) {
+                        if (index.Yield != "") {
+                            return '<span style="float:left;margin-left:22px;">' + index.Yield + '</span>';
+                        }
+                    }
+                },
+                {
+                    label: '稼动率', name: 'Jiadong', width: 80, align: 'left',
+                    formatter: function (cellvalue, row, index) {
+                        if (index.Jiadong != "") {
+                            return '<span style="float:left;margin-left:10px;">' + index.Jiadong + '</span>';
+                        }
+                    }
+                }
+            ],
+            pager: "#OngridPager",
+            sortname: 'Equipment_Name ASC',
+            viewrecords: true,
+        });
+    }
+    function gridList() {
+        var $gridList = $("#gridList");
+        $gridList.dataGrid({
+            url: "/TeamTask/WETeam/GetGridJson",
+            height: 140,
+            colModel: [
+                {
+                    label: '', name: '',  width: 30, align: 'left',
+                    formatter: function (cellvalue, row, index) {
+                        if (index.Colour != "") {
+                            return '<span style="padding:1px 8px;border-radius:50%;background:' + index.Colour + ';"></span>'
+                        }
+                    }
+                },
+                {
+                    label: '模具编号', name: 'Mold_No', width: 80, align: 'left',
+                    formatter: function (cellvalue, row, index) {
+                        if (index.Colour != "") {
+                            return '<font style="color:' + index.Colour + '">' + index.Mold_No + '</font>';
+                        }
+                        else { index.Mold_No }
+                    }
+                },
+                {
+                    label: '零件编号', name: 'Part_Number', width: 80, align: 'left',
+                    formatter: function (cellvalue, row, index) {
+                        if (index.Colour != "") {
+                            return '<font style="color:' + index.Colour + '">' + index.Part_Number + '</font>';
+                        }
+                        else { index.Part_Number }
+                    }
+                },
+                { label: '计划设备', name: 'Planned_Equipment', width: 80, align: 'left' },
+                {
+                    label: '开始时间', name: 'Start_Time', width: 140, align: 'left',
+                    formatter: "date", formatoptions: { srcformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s' }
+                },
+                {
+                    label: '结束时间', name: 'END_Time', width: 140, align: 'left',
+                    formatter: "date", formatoptions: { srcformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s' }
+                },
+                {
+                    label: '最晚开始时间', name: 'Latest_Start_Time', width: 140, align: 'left',
+                    //formatter: "date", formatoptions: {
+                    //    srcformat: 'Y/m/d H:i:s', newformat: 'Y/m/d H:i:s',
+                    //},
+                    formatter: function (cellvalue, row, index) {
+                        if (index.Colour != "") {
+                            return '<font style="color:' + index.Colour + '">' + index.Latest_Start_Time + '</font>';
+                        }
+                        else { index.Latest_Start_Time }
+                    }
+                },
+                { label: '标准工时', name: 'Working_Hours', width: 80, align: 'left' },
+                { label: '客户', name: 'Customer', width: 80, align: 'left' },
+                { label: '模仁材质', name: 'Mold_Kernel_Material', width: 80, align: 'left' },
+                { label: '类别', name: 'Category', width: 80, align: 'left' }
+            ],
+            pager: "#gridPager",
+            sortname: 'Start_Time desc',
+            viewrecords: true
+        });
+    }
+    function echart01() {
+        var CdatesDeviceName = new Array();//产能设备名
+        var CdatesDeviceNumber = new Array();//产能设备数量
+        var CdatesColour = new Array();//产能颜色
+
+        var FdatesDeviceName = new Array();//负荷设备名
+        var FdatesDeviceNumber = new Array();//负荷设备数量
+        var FdatesColour = new Array();//负荷颜色
+        $.ajax({
+            async: false,
+            url: "/TeamTask/WETeam/GetCapacityLoad",
+            type: "get",
+            dataType: "json",
+            success: function (da) {
+                $(da).each(function (index, item) {
+                    if (item.Task_Type == "产能")
+                    {
+                        CdatesDeviceName.push(item.Device_Name);
+                        CdatesDeviceNumber.push(item.Device_Number);
+                        CdatesColour.push(item.Colour);
+                    }
+                    else if (item.Task_Type == "负荷") {
+                        FdatesDeviceName.push(item.Device_Name);
+                        FdatesDeviceNumber.push(item.Device_Number);
+                        FdatesColour.push(item.Colour);
+                    } 
+                })
+            }
+        })
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart3'), "light");
+
+        var app = {};
+        var posList = [
+        'left', 'right', 'top', 'bottom',
+        'inside',
+        'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
+        'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
+        ];
+
+        app.configParameters = {
+            rotate: {
+                min: -90,
+                max: 90
+            },
+            align: {
+                options: {
+                    left: 'left',
+                    center: 'center',
+                    right: 'right'
+                }
+            },
+            verticalAlign: {
+                options: {
+                    top: 'top',
+                    middle: 'middle',
+                    bottom: 'bottom'
+                }
+            },
+            position: {
+                options: echarts.util.reduce(posList, function (map, pos) {
+                    map[pos] = pos;
+                    return map;
+                }, {})
+            },
+            distance: {
+                min: 0,
+                max: 100
+            }
+        };
+
+        app.config = {
+            rotate: 90,
+            align: 'left',
+            verticalAlign: 'middle',
+            position: 'insideBottom',
+            distance: 15,
+            onChange: function () {
+                var labelOption = {
+                    normal: {
+                        rotate: app.config.rotate,
+                        align: app.config.align,
+                        verticalAlign: app.config.verticalAlign,
+                        position: app.config.position,
+                        distance: app.config.distance
+                    }
+                };
+                myChart.setOption({
+                    series: [{
+                        label: labelOption
+                    }, {
+                        label: labelOption
+                    }, {
+                        label: labelOption
+                    }, {
+                        label: labelOption
+                    }]
+                });
+            }
+        };
+       
+        var labelOption = {
+            show: true,
+            position: app.config.position,
+            distance: app.config.distance,
+            align: app.config.align,
+            verticalAlign: app.config.verticalAlign,
+            rotate: app.config.rotate,
+            formatter: '{c}  {name|{a}}',
+            fontSize: 16,
+            rich: {
+                name: {
+                    textBorderColor: '#fff'
+                }
+            }
+        };
+
+        option = {
+            color: ['#6cce8f', '#e5323e'],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: ['产能', '负荷']
+            },
+            toolbox: {
+                show: true,
+                orient: 'vertical',
+                left: 'right',
+                top: 'center',
+                feature: {
+                    mark: { show: true },
+                    dataView: { show: true, readOnly: false },
+                    magicType: { show: true, type: ['line', 'bar', 'stack', 'tiled'] },
+                    restore: { show: true },
+                    saveAsImage: { show: true }
+                }
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    axisTick: { show: false },
+                    //data: ['GF01', 'GF02', 'GF03', 'GF04', 'GF05', 'GF06']
+                    data: CdatesDeviceName
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '产能',
+                    type: 'bar',
+                    label: labelOption,
+                    itemStyle: {
+                        normal: {
+                            // 随机显示
+                            //color:function(d){return "#"+Math.floor(Math.random()*(256*256*256-1)).toString(16);}
+                            // 定制显示（按顺序）
+                            color: function (params) {
+                              //var colorList = ['#FF0000','#00FF00','#0000FF','#FFFF00','#00FFFF','#FF00FF'];
+                                var colorList = CdatesColour;
+                                return colorList[params.dataIndex]
+                            }
+                        },
+                    },
+                    //data: [88, 86, 66, 66, 66, 32]
+                    data: CdatesDeviceNumber
+                },
+                {
+                    name: '负荷',
+                    type: 'bar',
+                    label: labelOption,
+                    itemStyle: {
+                        normal: {
+                            color: function (params) {
+                                var colorList = FdatesColour;
+                                return colorList[params.dataIndex]
+                            }
+                        },
+                    },
+                    //data: [100, 120, 78, 325, 221, 23]
+                    data: FdatesDeviceNumber
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+    function echart02() {
+        var listMonthDay = new Array();
+        var listAll = new Array();
+        var listDeviceName = new Array();
+        $.ajax({
+            async: false,
+            url: "/TeamTask/WETeam/GetTrend",
+            type: "get",
+            dataType: "json",
+            success: function (da) {
+                $(da).each(function (index, item)
+                {
+                    if (item.Month_Day!="") {
+                        listMonthDay.push(item.Month_Day);
+                        listDeviceName.push(item.Device_Name);
+                        listAll.push(item);
+                    }
+                })
+            }
+        })
+        ;
+        $.unique(listMonthDay);//日期
+        $.unique(listDeviceName.sort());//设备名字
+
+        var series = [];
+        $.each(listDeviceName, function (index, value)
+        {
+            var tempName = new Array();
+            var tempArry = new Array();
+            $.each(listAll, function (index1, value1)
+            {
+                if (value == value1.Device_Name) {
+                    tempName = value1.Device_Name;
+                    tempArry.push(value1.TrendRate);
+                }
+            });
+            series.push({
+                name: tempName,
+                type: 'line',
+                smooth: true,
+                stack: '总量' + index,
+                data: tempArry
+            })
+        });
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart4'), 'dark');
+
+        var option = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                //data: ['GF01', 'GF02', 'GF03', 'GF04']
+                data: listDeviceName
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                //data: ['2-28', '2-29', '3-1', '3-2', '3-3', '3-4', '3-5']
+                data: listMonthDay
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    show: true,
+                    interval: 'auto',
+                    formatter: '{value} %'
+                },
+                show: true
+            },
+            series: series
+            //series: [
+            //    {
+            //        name: 'GF01',
+            //        type: 'line',
+            //        smooth: true,
+            //        stack: '总量1',
+            //        data: [95, 95.8, 94.2, 93, 92, 91]
+            //    },
+            //    {
+            //        name: 'GF02',
+            //        type: 'line',
+            //        smooth: true,
+            //        stack: '总量2',
+            //        data: [86.5, 92.1, 85.7, 83.1, 73.4, 55.1]
+            //    },
+            //    {
+            //        name: 'GF03',
+            //        type: 'line',
+            //        smooth: true,
+            //        stack: '总量3',
+            //        data: [24.1, 67.2, 79.5, 86.4, 65.2, 82.5]
+            //    },
+            //    {
+            //        name: 'GF04',
+            //        type: 'line',
+            //        smooth: true,
+            //        stack: '总量4',
+            //        data: [55.2, 67.1, 69.2, 72.4, 53.9, 39.1]
+            //    }
+            //]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+    function funSBEdm() {
+        window.open("/TeamTask/WETeam/Form1");
+    }
+    function funRWEdm() {
+        window.open("/TeamTask/WETeam/Form2");
+    }
+    function funCNEdm() {
+        window.open("/TeamTask/WETeam/Form3");
+    }
+    function funQsEdm() {
+        window.open("/TeamTask/WETeam/Form4");
+    }
+</script>
+<style>
+    
+</style>
+<form id="form1">
+    <div class="row">
+        <section class="col-lg-6 connectedSortable" style="width:37%">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title">设备清单</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" onclick="funSBEdm()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="gridPanel" style="height:600px; margin:10px">
+                        <table id="OngridList"></table>
+                        <div id="OngridPager" style="text-align:center"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-lg-6 connectedSortable" style="width:62%">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title">任务清单</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" onclick="funRWEdm()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="gridPanel" style="height:210px;margin:10px">
+                        <table id="gridList"></table>
+                        <div id="gridPager" style="text-align:center"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-lg-6 connectedSortable" style="width:30%">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title">产能/负荷</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" onclick="funCNEdm()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div id="chart3" style="height:315px; margin:10px"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-lg-6 connectedSortable" style="width:32%">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title">稼动率趋势</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" onclick="funQsEdm()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div id="chart4" style="height:315px; margin:10px"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+</form>
+

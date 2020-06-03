@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "CNC设备清单";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+
+<script src="~/Content/js/bootstrap/bootstrap.js"></script>
+<link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Content/js/pages/dashboard.js"></script>
+<link href="~/Content/js/pages/AdminLTE.css" rel="stylesheet" />
+<link href="~/Content/js/pages/AdminLTE.min.css" rel="stylesheet" />
+<script src="~/Content/js/echarts/echarts.min.js"></script>
+<script src="~/Content/js/pages/app.js"></script>
+<script src="~/Content/js/pages/app.min.js"></script>
+
+<script>
+    window.onload = function () {
+        OngridList();
+    }
+    function OngridList() {
+        var $OngridList = $("#OngridList");
+        $OngridList.dataGrid({
+            url: "/TeamTask/CNCTeam/OnGetGridJson",
+            height: $(window).height() - 128,
+            colModel: [
+                {
+                    label: '设备名', name: 'Equipment_Name', width: 220, align: 'left',
+                    formatter: function (cellvalue, row, index) {
+                        if (index.Equipment_Url != "") {
+                            return '<div style="width:100px;height:100px;background-color:' + index.Colour + ';"><p style="text-align:center;color:white;">' + index.Equipment_Name + '</p><img src="' + index.Equipment_Url + '" style="position: absolute; margin-left:5px;margin-top:-22px;" /></div>';
+                        }
+                        else {
+                            return '<div  style="width:100px;height:100px;" /></div>';
+                        }
+                    }
+                },
+                {
+                    label: '加工件', name: 'Workpieces_Url', width: 220, align: 'left',
+                    formatter: function (cellvalue, row, index) {
+                        if (index.Workpieces_Url != "") {
+                            return '<img src="' + index.Workpieces_Url + '"  style="width:90px;height:90px;margin-top: 5px;" />';
+                        }
+                        else {
+                            return '<div  style="width:90px;height:90px;" /></div>';
+                        }
+                    }
+                },
+                {
+                    label: '今日产量', name: 'Yield', width: 120, align: 'left',
+                    formatter: function (cellvalue, row, index) {
+                        if (index.Yield != "") {
+                            return '<span style="float:left;margin-left:22px;">' + index.Yield + '</span>';
+                        }
+                    }
+                },
+                {
+                    label: '稼动率', name: 'Jiadong', width: 120, align: 'left',
+                    formatter: function (cellvalue, row, index) {
+                        if (index.Jiadong != "") {
+                            return '<span style="float:left;margin-left:10px;">' + index.Jiadong + '</span>';
+                        }
+                    }
+                }
+            ],
+            pager: "#OngridPager",
+            sortname: 'Equipment_Name ASC',
+            viewrecords: true,
+        });
+    }
+</script>
+<div class="row">
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">设备清单</h3>
+        </div>
+        <div class="tab-content">
+            <div class="gridPanel">
+                <table id="OngridList"></table>
+                <div id="OngridPager"></div>
+            </div>
+        </div>
+    </div>
+</div>

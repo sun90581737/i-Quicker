@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "EDM稼动率趋势";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+
+<script src="~/Content/js/bootstrap/bootstrap.js"></script>
+<link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Content/js/pages/dashboard.js"></script>
+<link href="~/Content/js/pages/AdminLTE.css" rel="stylesheet" />
+<link href="~/Content/js/pages/AdminLTE.min.css" rel="stylesheet" />
+<script src="~/Content/js/echarts/echarts.min.js"></script>
+<script src="~/Content/js/pages/app.js"></script>
+<script src="~/Content/js/pages/app.min.js"></script>
+
+<script>
+    window.onload = function () {
+        echart02();
+    }
+    function echart02() {
+        var listMonthDay = new Array();
+        var listAll = new Array();
+        var listDeviceName = new Array();
+        $.ajax({
+            async: false,
+            url: "/TeamTask/EdmTeam/GetTrend",
+            type: "get",
+            dataType: "json",
+            success: function (da) {
+                $(da).each(function (index, item) {
+                    if (item.Month_Day != "") {
+                        listMonthDay.push(item.Month_Day);
+                        listDeviceName.push(item.Device_Name);
+                        listAll.push(item);
+                    }
+                })
+            }
+        })
+        ;
+        $.unique(listMonthDay);//日期
+        $.unique(listDeviceName.sort());//设备名字
+
+        var series = [];
+        $.each(listDeviceName, function (index, value) {
+            var tempName = new Array();
+            var tempArry = new Array();
+            $.each(listAll, function (index1, value1) {
+                if (value == value1.Device_Name) {
+                    tempName = value1.Device_Name;
+                    tempArry.push(value1.TrendRate);
+                }
+            });
+            series.push({
+                name: tempName,
+                type: 'line',
+                smooth: true,
+                stack: '总量' + index,
+                data: tempArry
+            })
+        });
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart4'), 'dark');
+
+        var option = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                //data: ['GF01', 'GF02', 'GF03', 'GF04']
+                data: listDeviceName
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                //data: ['2-28', '2-29', '3-1', '3-2', '3-3', '3-4', '3-5']
+                data: listMonthDay
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    show: true,
+                    interval: 'auto',
+                    formatter: '{value} %'
+                },
+                show: true
+            },
+            series: series
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+</script>
+<div class="row">
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">稼动率趋势</h3>
+        </div>
+        <div class="tab-content">
+            <div id="chart4" style="height:650px; margin:10px"></div>
+        </div>
+    </div>
+</div>

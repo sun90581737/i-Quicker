@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+
+<script>
+        $(function () {
+            ShowSheng();
+        })
+        function ShowSheng() {
+            $.ajax({
+                url: "/SystemManage/Regional/GetTreeSelectJson",
+                type: "get",
+                dataType: "json",
+                success: function (da) {
+                    $(da).each(function (index, item) {
+                        $("#S1").append("<option value='" + item.id + "'>" + item.text + "</option>");
+                    })
+                }
+            })
+        }
+        function SelQu(t) {
+            $("#S2").empty();
+            var keyword = $(t).val();
+            $.ajax({
+                url: "/SystemManage/Regional/GetTreeSelectJsonCity",
+                data: { keyword: keyword },
+                dataType: "json",
+                async: false,
+                success: function (data) {
+                    $(data).each(function (index, item) {
+                        $("#S2").append("<option value='" + item.id + "'>" + item.text + "</option>");
+                    })
+                }
+            });
+        }
+</script>
+
+<div>
+    省市:<select id="S1" onchange="SelQu(this)"><option value="0">---请选择省市---</option></select>区镇:<select id="S2"><option value="0">---请选择区镇---</option></select>
+</div>

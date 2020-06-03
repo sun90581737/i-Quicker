@@ -1,0 +1,222 @@
+﻿@{
+    ViewBag.Title = "WE产能/负荷";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+
+<script src="~/Content/js/bootstrap/bootstrap.js"></script>
+<link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Content/js/pages/dashboard.js"></script>
+<link href="~/Content/js/pages/AdminLTE.css" rel="stylesheet" />
+<link href="~/Content/js/pages/AdminLTE.min.css" rel="stylesheet" />
+<script src="~/Content/js/echarts/echarts.min.js"></script>
+<script src="~/Content/js/pages/app.js"></script>
+<script src="~/Content/js/pages/app.min.js"></script>
+
+<script>
+    window.onload = function () {
+        echart01();
+    }
+    function echart01() {
+        var CdatesDeviceName = new Array();//产能设备名
+        var CdatesDeviceNumber = new Array();//产能设备数量
+        var CdatesColour = new Array();//产能颜色
+
+        var FdatesDeviceName = new Array();//负荷设备名
+        var FdatesDeviceNumber = new Array();//负荷设备数量
+        var FdatesColour = new Array();//负荷颜色
+        $.ajax({
+            async: false,
+            url: "/TeamTask/WETeam/GetCapacityLoad",
+            type: "get",
+            dataType: "json",
+            success: function (da) {
+                $(da).each(function (index, item) {
+                    if (item.Task_Type == "产能") {
+                        CdatesDeviceName.push(item.Device_Name);
+                        CdatesDeviceNumber.push(item.Device_Number);
+                        CdatesColour.push(item.Colour);
+                    }
+                    else if (item.Task_Type == "负荷") {
+                        FdatesDeviceName.push(item.Device_Name);
+                        FdatesDeviceNumber.push(item.Device_Number);
+                        FdatesColour.push(item.Colour);
+                    }
+                })
+            }
+        })
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart3'), "light");
+
+        var app = {};
+        var posList = [
+        'left', 'right', 'top', 'bottom',
+        'inside',
+        'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
+        'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
+        ];
+
+        app.configParameters = {
+            rotate: {
+                min: -90,
+                max: 90
+            },
+            align: {
+                options: {
+                    left: 'left',
+                    center: 'center',
+                    right: 'right'
+                }
+            },
+            verticalAlign: {
+                options: {
+                    top: 'top',
+                    middle: 'middle',
+                    bottom: 'bottom'
+                }
+            },
+            position: {
+                options: echarts.util.reduce(posList, function (map, pos) {
+                    map[pos] = pos;
+                    return map;
+                }, {})
+            },
+            distance: {
+                min: 0,
+                max: 100
+            }
+        };
+
+        app.config = {
+            rotate: 90,
+            align: 'left',
+            verticalAlign: 'middle',
+            position: 'insideBottom',
+            distance: 15,
+            onChange: function () {
+                var labelOption = {
+                    normal: {
+                        rotate: app.config.rotate,
+                        align: app.config.align,
+                        verticalAlign: app.config.verticalAlign,
+                        position: app.config.position,
+                        distance: app.config.distance
+                    }
+                };
+                myChart.setOption({
+                    series: [{
+                        label: labelOption
+                    }, {
+                        label: labelOption
+                    }, {
+                        label: labelOption
+                    }, {
+                        label: labelOption
+                    }]
+                });
+            }
+        };
+
+        var labelOption = {
+            show: true,
+            position: app.config.position,
+            distance: app.config.distance,
+            align: app.config.align,
+            verticalAlign: app.config.verticalAlign,
+            rotate: app.config.rotate,
+            formatter: '{c}  {name|{a}}',
+            fontSize: 16,
+            rich: {
+                name: {
+                    textBorderColor: '#fff'
+                }
+            }
+        };
+
+        option = {
+            color: ['#6cce8f', '#e5323e'],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: ['产能', '负荷']
+            },
+            toolbox: {
+                show: true,
+                orient: 'vertical',
+                left: 'right',
+                top: 'center',
+                feature: {
+                    mark: { show: true },
+                    dataView: { show: true, readOnly: false },
+                    magicType: { show: true, type: ['line', 'bar', 'stack', 'tiled'] },
+                    restore: { show: true },
+                    saveAsImage: { show: true }
+                }
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    axisTick: { show: false },
+                    //data: ['GF01', 'GF02', 'GF03', 'GF04', 'GF05', 'GF06']
+                    data: CdatesDeviceName
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '产能',
+                    type: 'bar',
+                    label: labelOption,
+                    itemStyle: {
+                        normal: {
+                            // 随机显示
+                            //color:function(d){return "#"+Math.floor(Math.random()*(256*256*256-1)).toString(16);}
+                            // 定制显示（按顺序）
+                            color: function (params) {
+                                //var colorList = ['#FF0000','#00FF00','#0000FF','#FFFF00','#00FFFF','#FF00FF'];
+                                var colorList = CdatesColour;
+                                return colorList[params.dataIndex]
+                            }
+                        },
+                    },
+                    //data: [88, 86, 66, 66, 66, 32]
+                    data: CdatesDeviceNumber
+                },
+                {
+                    name: '负荷',
+                    type: 'bar',
+                    label: labelOption,
+                    itemStyle: {
+                        normal: {
+                            color: function (params) {
+                                var colorList = FdatesColour;
+                                return colorList[params.dataIndex]
+                            }
+                        },
+                    },
+                    //data: [100, 120, 78, 325, 221, 23]
+                    data: FdatesDeviceNumber
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+</script>
+<div class="row">
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">产能/负荷</h3>
+        </div>
+        <div class="tab-content">
+            <div id="chart3" style="height:650px; margin:10px"></div>
+        </div>
+    </div>
+</div>
