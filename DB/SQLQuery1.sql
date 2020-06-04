@@ -241,3 +241,23 @@ INSERT INTO [dbo].[Sys_Trend] ([Month_Day],[Device_Name],[TrendRate],[Team])VALU
 SELECT * FROM	[Sys_Trend]  ORDER BY Device_Name
 
 
+CREATE table Sys_RunningState  --运行状态
+(  
+id int identity (1,1) primary key , 
+Picture_Tip varchar(50)  NULL, --图片内容描述不展示
+Picture_Url varchar(50)  NULL, --图片URL
+Describe1 varchar(200)  NULL,--文本描述1
+DescribeColor1 varchar(10)  NULL,--文本描述颜色1
+Describe2 varchar(200)  NULL,--文本描述2
+DescribeColor2 varchar(10)  NULL,--文本描述颜色2
+Describe3 varchar(200)  NULL,--文本描述3
+DescribeColor3 varchar(10)  NULL,--文本描述颜色3
+Describe4 varchar(200)  NULL,--文本描述4
+DescribeColor4 varchar(10)  NULL,--文本描述颜色4
+Describe5 varchar(200)  NULL,--文本描述5
+DescribeColor5 varchar(10)  NULL,--文本描述颜色5
+Describe6 varchar(200)  NULL,--文本描述6
+DescribeColor6 varchar(10)  NULL,--文本描述颜色6
+CreationTime DATETIME not null default getdate(),--创建时间
+IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)  
