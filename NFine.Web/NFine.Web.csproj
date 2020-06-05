@@ -115,6 +115,8 @@
     <Compile Include="App_Start\01 Handler\HandlerErrorAttribute.cs" />
     <Compile Include="App_Start\01 Handler\HandlerLoginAttribute.cs" />
     <Compile Include="App_Start\01 Handler\ControllerBase.cs" />
+    <Compile Include="Areas\AutomationLine\AutomationLineAreaRegistration.cs" />
+    <Compile Include="Areas\AutomationLine\Controllers\RunningStateController.cs" />
     <Compile Include="Areas\ExampleManage\Controllers\BarCodeController.cs" />
     <Compile Include="Areas\ExampleManage\Controllers\PrintController.cs" />
     <Compile Include="Areas\ExampleManage\Controllers\SendMailController.cs" />
@@ -187,6 +189,7 @@
     <Content Include="Content\img\product\cnc\GF06b.png" />
     <Content Include="Content\img\product\edm\GF01a.png" />
     <Content Include="Content\img\product\edm\GF01b.png" />
+    <Content Include="Content\img\product\runningstate\01.png" />
     <Content Include="Content\img\product\we\GF01a.png" />
     <Content Include="Content\img\product\we\GF01b.png" />
     <Content Include="Content\img\product\we\GF02a.png" />
@@ -331,6 +334,7 @@
     <Content Include="Content\js\pages\app.js" />
     <Content Include="Content\js\pages\app.min.js" />
     <Content Include="Content\js\pages\dashboard.js" />
+    <Content Include="Content\js\pages\jquery.contip.js" />
     <Content Include="Content\js\qrcode\jquery.qrcode.js" />
     <Content Include="Content\js\qrcode\qrcode.js" />
     <Content Include="Content\js\select2\select2.min.css" />
@@ -670,6 +674,8 @@
     <Content Include="Areas\TeamTask\Views\WETeam\Form2.cshtml" />
     <Content Include="Areas\TeamTask\Views\WETeam\Form3.cshtml" />
     <Content Include="Areas\TeamTask\Views\WETeam\Form4.cshtml" />
+    <Content Include="Areas\AutomationLine\Views\RunningState\Index.cshtml" />
+    <Content Include="Areas\AutomationLine\Views\Web.config" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
   </ItemGroup>
   <PropertyGroup>

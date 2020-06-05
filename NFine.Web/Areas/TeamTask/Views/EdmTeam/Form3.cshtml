@@ -16,6 +16,9 @@
     window.onload = function () {
         echart01();
     }
+    window.setInterval(function () {
+        echart01();
+    }, 1000 * 60);
     function echart01() {
         var CdatesDeviceName = new Array();//产能设备名
         var CdatesDeviceNumber = new Array();//产能设备数量

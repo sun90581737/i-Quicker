@@ -16,6 +16,9 @@
     window.onload = function () {
         gridList();
     }
+    var timer = window.setInterval(function () {
+        $("#gridList").trigger("reloadGrid");
+    }, 1000 * 60);
     function gridList() {
         var $gridList = $("#gridList");
         $gridList.dataGrid({
