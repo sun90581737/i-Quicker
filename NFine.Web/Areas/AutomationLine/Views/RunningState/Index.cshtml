@@ -9,186 +9,153 @@
     <script src="~/Content/js/pages/jquery.contip.js"></script>
     @*https://blog.csdn.net/u010810136/article/details/76585424*@
     <style type="text/css">
-        .row1 {
-            position: absolute;
-            left: 47%;
-            top: 13%;
-            margin: -100px 0 0 -180px;
-            width: 1px;
-            height: 1px;
-        }
-        .row2 {
-            position: absolute;
-            left: 60%;
-            top: 13%;
-            margin: -100px 0 0 -180px;
-            width: 1px;
-            height: 1px;
-        }
-         .row3 {
-            position: absolute;
-            left: 80%;
-            top: 13%;
-            margin: -100px 0 0 -180px;
-            width: 1px;
-            height: 1px;
-        }
-        .row4 {
-            position: absolute;
-            left: 40%;
-            top: 80%;
-            margin: -100px 0 0 -180px;
-            width: 1px;
-            height: 1px;
-        }
-        .row5 {
-            position: absolute;
-            left: 67%;
-            top: 94%;
-            margin: -100px 0 0 -180px;
-            width: 1px;
-            height: 1px;
-        }
-        .row6 {
-            position: absolute;
-            left: 76%;
-            top: 85%;
-            margin: -100px 0 0 -180px;
-            width: 1px;
-            height: 1px;
-        }
     </style>
 </head>
 <body>
-        <div class="row1">
-            <a class="one1"></a>
-        </div>
-        <div class="row2">
-            <a class="one2"></a>
-        </div>
-        <div class="row3">
-            <a class="one3"></a>
-        </div>
-        <div class="row4">
-            <a class="one4"></a>
-        </div>
-        <div class="row5">
-            <a class="one5"></a>
-        </div>
-        <div class="row6">
-            <a class="one6"></a>
-        </div>
-        <div style="text-align: center;">
-            <img src="" style="width:1100px;height:800px" ; />
-        </div>
     <script type="text/javascript">
-        window.onresize = function () {
-            if (window.outerHeigth == screen.heigth && window.outerWidth == screen.width) {
-            } else {
-            }
+
+        $(function () {
+            ImgLoading(true);
+        })
+
+        function S() {
+            window.setInterval(function () {
+                ImgLoading(false);
+            }, 1000 * 3);
         }
-        window.onload = function () {
-            ImgLoading();
-        }
-        window.setInterval(function () {
-            window.location.href = document.URL;
-        }, 1000 * 60);
-        function ImgLoading() {
+
+        var contip_1, contip_2, contip_3, contip_4, contip_5, contip_6;
+        function ImgLoading(first) {
             $.ajax({
                 async: false,
                 url: "/AutomationLine/RunningState/GetRunningState",
                 type: "get",
                 dataType: "json",
                 success: function (da) {
-                    $(da).each(function (index, item) {
-                        if (index == 0) {
-                            $("img").attr("src", item.Picture_Url);
-                            $('.one1').contip({
-                                align: 'top', // 气泡出现的位置， top right bottom left
-                                padding: 7,
-                                radius: 4, // 气泡圆角大小 px
-                                max_width: 222, // 气泡最大宽度 px
-                                rise: -238, // 气泡相对浮动位置，可为负值
-                                bg: item.DescribeColor1, // 背景颜色
-                                html: item.Describe1,
-                                live: true, // 总是显示
-                                opacity: 0.86, // 透明度
-                                show: true, // 是否默认显示
-                            });
-                            $('.one2').contip({
-                                align: 'top', // 气泡出现的位置， top right bottom left
-                                padding: 7,
-                                radius: 4, // 气泡圆角大小 px
-                                max_width: 222, // 气泡最大宽度 px
-                                rise: -140, // 气泡相对浮动位置，可为负值
-                                bg: item.DescribeColor2, // 背景颜色
-                                html: item.Describe2,
-                                live: true, // 总是显示
-                                opacity: 0.86, // 透明度
-                                show: true, // 是否默认显示
-                            });
-                            $('.one3').contip({
-                                align: 'top', // 气泡出现的位置， top right bottom left
-                                padding: 7,
-                                radius: 4, // 气泡圆角大小 px
-                                max_width: 222, // 气泡最大宽度 px
-                                rise: -140, // 气泡相对浮动位置，可为负值
-                                bg: item.DescribeColor3, // 背景颜色
-                                html: item.Describe3,
-                                live: true, // 总是显示
-                                opacity: 0.86, // 透明度
-                                show: true, // 是否默认显示
-                            });
-                            $('.one4').contip({
-                                align: 'left', // 气泡出现的位置， top right bottom left
-                                padding: 7,
-                                radius: 4, // 气泡圆角大小 px
-                                max_width: 222, // 气泡最大宽度 px
-                                rise: -50, // 气泡相对浮动位置，可为负值
-                                bg: item.DescribeColor4, // 背景颜色
-                                html: item.Describe4,
-                                live: true, // 总是显示
-                                opacity: 0.86, // 透明度
-                                show: true, // 是否默认显示
-                                v_size: 6, // 尖角的大小，像素
-                                v_pos: 0.5, // 尖角出现的位置
-                                v_px: -15, // 尖角出现的位置的偏移 px像素 可为负值
-                            });
-                            $('.one5').contip({
-                                align: 'bottom', // 气泡出现的位置， top right bottom left
-                                padding: 7,
-                                radius: 4, // 气泡圆角大小 px
-                                max_width: 222, // 气泡最大宽度 px
-                                rise: 10, // 气泡相对浮动位置，可为负值
-                                bg: item.DescribeColor5, // 背景颜色
-                                html: item.Describe5,
-                                live: true, // 总是显示
-                                opacity: 0.86, // 透明度
-                                show: true, // 是否默认显示
-                                v_size: 6, // 尖角的大小，像素
-                                v_pos: 0.5, // 尖角出现的位置
-                                v_px: 20, // 尖角出现的位置的偏移 px像素 可为负值
-                            });
-                            $('.one6').contip({
-                                align: 'bottom', // 气泡出现的位置， top right bottom left
-                                padding: 7,
-                                radius: 4, // 气泡圆角大小 px
-                                max_width: 222, // 气泡最大宽度 px
-                                rise: 0, // 气泡相对浮动位置，可为负值
-                                bg: item.DescribeColor6, // 背景颜色
-                                html: item.Describe6,
-                                live: true, // 总是显示
-                                opacity: 0.86, // 透明度
-                                show: true, // 是否默认显示
-                                v_size: 6, // 尖角的大小，像素
-                                v_pos: 0.5, // 尖角出现的位置
-                                v_px: 20, // 尖角出现的位置的偏移 px像素 可为负值
-                            });
-                        }
-                    })
+                    var item = da[0];
+                    if (first) {  // 第一次初始化 直接取值
+                        console.log("laod...");
+                        $("img").attr("src", item.Picture_Url);
+                        contip_1 = $('.one1').contip({
+                            recreate: true,
+                            name: "one1",
+                            align: 'top', // 气泡出现的位置， top right bottom left
+                            padding: 7,
+                            radius: 4, // 气泡圆角大小 px
+                            max_width: 222, // 气泡最大宽度 px
+                            rise: -330, // 气泡相对浮动位置，可为负值
+                            bg: item.DescribeColor1, // 背景颜色
+                            html: item.Describe1,
+                            live: true, // 总是显示
+                            opacity: 0.86, // 透明度
+                            show: true, // 是否默认显示
+
+                        });
+                        contip_2 = $('.one2').contip({
+                            recreate: true,
+                            name: 'one2',
+                            align: 'top', // 气泡出现的位置， top right bottom left
+                            padding: 7,
+                            radius: 4, // 气泡圆角大小 px
+                            max_width: 222, // 气泡最大宽度 px
+                            rise: -230, // 气泡相对浮动位置，可为负值
+                            bg: item.DescribeColor2, // 背景颜色
+                            html: item.Describe2,
+                            live: true, // 总是显示
+                            opacity: 0.86, // 透明度
+                            show: true, // 是否默认显示
+                        });
+                        contip_3 = $('.one3').contip({
+                            recreate: true,
+                            name: 'one3',
+                            align: 'top', // 气泡出现的位置， top right bottom left
+                            padding: 7,
+                            radius: 4, // 气泡圆角大小 px
+                            max_width: 222, // 气泡最大宽度 px
+                            rise: -210, // 气泡相对浮动位置，可为负值
+                            bg: item.DescribeColor3, // 背景颜色
+                            html: item.Describe3,
+                            live: true, // 总是显示
+                            opacity: 0.86, // 透明度
+                            show: true, // 是否默认显示
+                        });
+                        contip_4 = $('.one4').contip({
+                            recreate: true,
+                            name: 'one4',
+                            align: 'bottom', // 气泡出现的位置， top right bottom left
+                            padding: 7,
+                            radius: 4, // 气泡圆角大小 px
+                            max_width: 222, // 气泡最大宽度 px
+                            rise: 640, // 气泡相对浮动位置，可为负值
+                            bg: item.DescribeColor4, // 背景颜色
+                            html: item.Describe4,
+                            live: true, // 总是显示
+                            opacity: 0.86, // 透明度
+                            show: true, // 是否默认显示
+                            v_size: 6, // 尖角的大小，像素
+                            v_pos: 0.5, // 尖角出现的位置
+                            v_px: 20, // 尖角出现的位置的偏移 px像素 可为负值
+                        });
+                        contip_5 = $('.one5').contip({
+                            recreate: true,
+                            name: 'one5',
+                            align: 'bottom', // 气泡出现的位置， top right bottom left
+                            padding: 7,
+                            radius: 4, // 气泡圆角大小 px
+                            max_width: 222, // 气泡最大宽度 px
+                            rise: 600, // 气泡相对浮动位置，可为负值
+                            bg: item.DescribeColor5, // 背景颜色
+                            html: item.Describe5,
+                            live: true, // 总是显示
+                            opacity: 0.86, // 透明度
+                            show: true, // 是否默认显示
+                            v_size: 6, // 尖角的大小，像素
+                            v_pos: 0.5, // 尖角出现的位置
+                            v_px: 20, // 尖角出现的位置的偏移 px像素 可为负值
+                        });
+                        contip_6 = $('.one6').contip({
+                            recreate: true,
+                            name: 'one6',
+                            align: 'bottom', // 气泡出现的位置， top right bottom left
+                            padding: 7,
+                            radius: 4, // 气泡圆角大小 px
+                            max_width: 222, // 气泡最大宽度 px
+                            rise: 580, // 气泡相对浮动位置，可为负值
+                            bg: item.DescribeColor6, // 背景颜色
+                            html: item.Describe6,
+                            live: true, // 总是显示
+                            opacity: 0.86, // 透明度
+                            show: true, // 是否默认显示
+                            v_size: 6, // 尖角的大小，像素
+                            v_pos: 0.5, // 尖角出现的位置
+                            v_px: 20, // 尖角出现的位置的偏移 px像素 可为负值
+                        });
+                        S();
+                        return;
+                    }
+                    //更新数据
+                    console.log("change ..");
+                    $("img").attr("src", item.Picture_Url);
+                    contip_1.html({ html: item.Describe1, bg: item.DescribeColor1 });
+                    contip_2.html({ html: item.Describe2, bg: item.DescribeColor2 });
+                    contip_3.html({ html: item.Describe3, bg: item.DescribeColor3 });
+                    contip_4.html({ html: item.Describe4, bg: item.DescribeColor4 });
+                    contip_5.html({ html: item.Describe5, bg: item.DescribeColor5 });
+                    contip_6.html({ html: item.Describe6, bg: item.DescribeColor6 });
                 }
             })
         }
     </script>
+    <div id="OngridList">
+        <a class="one1" style="position: absolute;left: 47%; top: 0%;  margin: -100px 0 0 -180px; width: 1px; height: 1px;"></a>
+        <a class="one2" style="position: absolute;left: 60%; top: 0%;  margin: -100px 0 0 -180px; width: 1px; height: 1px;"></a>
+        <a class="one3" style="position: absolute;left: 80%; top: 0%;  margin: -100px 0 0 -180px; width: 1px; height: 1px;"></a>
+        <a class="one4" style="position: absolute;left: 49%; top: 0%;  margin: -100px 0 0 -180px; width: 1px; height: 1px;"></a>
+        <a class="one5" style="position: absolute;left: 67%; top: 0%;  margin: -100px 0 0 -180px; width: 1px; height: 1px;"></a>
+        <a class="one6" style="position: absolute;left: 76%; top: 0%;  margin: -100px 0 0 -180px; width: 1px; height: 1px;"></a>
+        <div style="text-align: center;">
+            <img src="" style="width:1100px;height:800px" ; />
+        </div>
+    </div>
 </body>
 </html>
