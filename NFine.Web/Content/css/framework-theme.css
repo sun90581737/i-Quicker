@@ -75,7 +75,7 @@ a:hover,a:focus{color:#475059;}
 #sidebar-nav .nav > li.common a{height:34px;line-height:20px;font-size: 11px;white-space: nowrap;}
 #sidebar-nav .nav > li.common a > span{white-space: nowrap;font-weight:initial;}
 #sidebar-nav .nav > li.common a>i{position:absolute;margin-top:4px;font-size: 1.125em;}
-#sidebar-nav .nav>li>a{color:#fff;height:44px;line-height:28px;transition:border-color 0.1s ease-in-out 0s,background-color 0.1s ease-in-out 0s,box-shadow 0.1s ease-in-out 0s;overflow:hidden;padding:8px 15px 8px 20px;border-left:0 solid transparent;}
+#sidebar-nav .nav>li>a{color:#fff;height:40px;line-height:28px;transition:border-color 0.1s ease-in-out 0s,background-color 0.1s ease-in-out 0s,box-shadow 0.1s ease-in-out 0s;overflow:hidden;padding:8px 15px 8px 20px;border-left:0 solid transparent;}
 #sidebar-nav .nav>li>a:hover{border-left-color:#1ABC9C}
 #sidebar-nav .nav>li>a>i{position:absolute;margin-top:8px;}
 #sidebar-nav .nav>li>a>span{margin-left:35px;font-weight:700;}

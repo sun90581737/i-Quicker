@@ -116,6 +116,7 @@
     <Compile Include="App_Start\01 Handler\HandlerLoginAttribute.cs" />
     <Compile Include="App_Start\01 Handler\ControllerBase.cs" />
     <Compile Include="Areas\AutomationLine\AutomationLineAreaRegistration.cs" />
+    <Compile Include="Areas\AutomationLine\Controllers\DataAcquisitionController.cs" />
     <Compile Include="Areas\AutomationLine\Controllers\RunningStateController.cs" />
     <Compile Include="Areas\ExampleManage\Controllers\BarCodeController.cs" />
     <Compile Include="Areas\ExampleManage\Controllers\PrintController.cs" />
@@ -187,6 +188,7 @@
     <Content Include="Content\img\product\cnc\GF05b.png" />
     <Content Include="Content\img\product\cnc\GF06a.png" />
     <Content Include="Content\img\product\cnc\GF06b.png" />
+    <Content Include="Content\img\product\collection\cnc1.png" />
     <Content Include="Content\img\product\edm\GF01a.png" />
     <Content Include="Content\img\product\edm\GF01b.png" />
     <Content Include="Content\img\product\runningstate\01.png" />
@@ -676,6 +678,7 @@
     <Content Include="Areas\TeamTask\Views\WETeam\Form4.cshtml" />
     <Content Include="Areas\AutomationLine\Views\RunningState\Index.cshtml" />
     <Content Include="Areas\AutomationLine\Views\Web.config" />
+    <Content Include="Areas\AutomationLine\Views\DataAcquisition\Index.cshtml" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
   </ItemGroup>
   <PropertyGroup>

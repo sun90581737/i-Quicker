@@ -1,0 +1,161 @@
+﻿@{
+    ViewBag.Title = "数据采集";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+<script src="~/Content/js/jquery/jquery-2.1.1.min.js"></script>
+
+
+<script src="~/Content/js/bootstrap/bootstrap.js"></script>
+<link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/js/pages/AdminLTE.css" rel="stylesheet" />
+<link href="~/Content/js/pages/AdminLTE.min.css" rel="stylesheet" />
+<style>
+    .container {
+        background-color: #330099;
+        border-radius: 43px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px 22px;
+        height: 160px;
+        width: 15px;
+    }
+    .circle {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 100%;
+        position: relative;
+        height: 40px;
+        width: 40px;
+    }
+    .circle::after {
+        border-right: 4px solid rgba(255, 255, 255, 0.6);
+        border-radius: 100%;
+        content: ' ';
+        position: absolute;
+        top: 5px;
+        left: 0px;
+        width: 30px;
+        height: 30px;
+    }
+    .circle.red {
+        background-color: #c0392b;
+        box-shadow: 0 0 20px 5px #c0392b;
+    }
+    .circle.yellow {
+        background-color: #f1c40f;
+        box-shadow: 0 0 20px 5px #f1c40f;
+    }
+    .circle.green {
+        background-color: green;
+        box-shadow: 0 0 20px 5px green;
+    }
+</style>
+
+
+<body>
+    <div class="row">
+        <section class="col-lg-6 connectedSortable" style="width:25%">
+            <div class="box box-default">
+                <div class="box-header with-border" style="background-color:#00FF00">
+                    <h6 style="font-weight:800;color:white; font-size:13px;display:inline-block;margin:0;line-height:1">CNC1发那科</h6>
+                    <h6 style="float:right;font-weight:800;color:white; font-size:13px;display:inline-block;margin:0;line-height:1">运行中</h6>
+                </div>
+                <div class="tab-content" style="background-color:#0000FF;height:160px">
+                    <div style="width:100px;height:100px;position:absolute;left:25%;top:25%;transform:translate(-25%,-25%);">
+                        <img style="width:100px;height:100px" src="~/Content/img/product/collection/cnc1.png" />
+                    </div>
+                    <div style="width:50%;float:right">
+                        <div class="container">
+                            <div class="circle yellow" color="yellow"></div>
+                            <div class="circle" color="green"></div>
+                            <div class="circle" color="red"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-header with-border" style="background-color:#0000FF;height:100%;border:1px solid #d2d6de;">
+                    <div style="float:left;width:50%">
+                        <div style="text-align:center;color:white; font-size:13px;">今日产量(件)</div>
+                        <br/>
+                        <div style="text-align:center;color:#00FF00; font-size:18px;font-weight:800;">10</div>
+                    </div>
+                    <div style="margin-left:50%;width:auto;">
+                        <div style="text-align:center;color:white; font-size:13px;">今日稼动率(%)</div>
+                        <br />
+                        <div style="text-align:center;color:#00FF00; font-size:18px;font-weight:800;">48.3</div>
+                    </div>
+                </div>
+                <div class="box-header with-border" style="background-color:#0000FF;height:200px;">
+                    <div style="float:left;width:50%">
+                        <div style="text-align:center;color:white; font-size:13px;">主轴转速(r/min)</div>
+                       
+                    </div>
+                    <div style="margin-left:50%;width:auto;">
+                        <div style="text-align:center;color:white; font-size:13px;">进给速度(mm/min)</div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="col-lg-6 connectedSortable" style="width:25%">
+            <div class="box box-default">
+                <div class="box-header with-border">
+
+                </div>
+                <div class="tab-content">
+                    <div class="gridPanel" style="height:600px; margin:2px">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="col-lg-6 connectedSortable" style="width:25%">
+            <div class="box box-default">
+                <div class="box-header with-border">
+
+                </div>
+                <div class="tab-content">
+                    <div class="gridPanel" style="height:600px; margin:2px">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="col-lg-6 connectedSortable" style="width:25%">
+            <div class="box box-default">
+                <div class="box-header with-border">
+
+                </div>
+                <div class="tab-content">
+                    <div class="gridPanel" style="height:600px; margin:2px">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <script>
+        const circles = document.querySelectorAll('.circle')
+        let activeLight = 0;
+
+        setInterval(() => {
+            changeLight();
+        }, 1000);
+
+        function changeLight() {
+            circles[activeLight].className = 'circle';
+            activeLight++;
+
+            if (activeLight > 2) {
+                activeLight = 0;
+            }
+
+            const currentLight = circles[activeLight]
+
+            currentLight.classList.add(currentLight.getAttribute('color'));
+        }
+    </script>
+</body>
+

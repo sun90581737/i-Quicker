@@ -4,6 +4,8 @@ insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon,
 insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('7fdc2982-da5e-4bcf-acee-c8763a49057a', '824e1ef5-0dd3-465c-95bb-38f9db54a203', Null, Null, 'EDM°à×é', Null, '/TeamTask/EdmTeam/Index', 'iframe', 'True', 'False', 'False', 'False', 'False', 2, Null, 'True', Null, '2020/6/1 10:42:40', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', '2020/6/2 13:04:37', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null)
 insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('2d2ae345-42ff-4d02-aca0-bd63b5bab929', '0', Null, Null, '×Ô¶¯»¯Ïß', 'fa fa-android', Null, 'expand', 'False', 'True', 'False', 'False', 'False', 17, Null, 'True', Null, '2020/6/4 15:09:40', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', '2020/6/5 15:40:28', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null)
 insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('102b8a83-5067-4323-a7be-cbac42a0e5c0', '2d2ae345-42ff-4d02-aca0-bd63b5bab929', Null, Null, 'ÔËÐÐ×´Ì¬', Null, '/AutomationLine/RunningState/Index', 'iframe', 'True', 'False', 'False', 'False', 'False', 1, Null, 'True', Null, '2020/6/4 15:28:33', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', '2020/6/4 15:28:57', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null)
+insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('09d5ad8d-ebdb-4eba-a3e0-2df65bcba8fd', '2d2ae345-42ff-4d02-aca0-bd63b5bab929', Null, Null, 'Êý¾Ý²É¼¯', Null, '/AutomationLine/DataAcquisition/Index', 'iframe', 'True', 'False', 'False', 'False', 'False', 3, Null, 'True', Null, '2020/6/9 9:30:13', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', '2020/6/9 10:52:45', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null)
+insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('ba066c87-090d-4802-8f90-c3d00b4d2e1b', '2d2ae345-42ff-4d02-aca0-bd63b5bab929', Null, Null, 'ÊÓÆµ¼à¿Ø', Null, Null, 'iframe', 'True', 'False', 'False', 'False', 'False', 2, Null, 'True', Null, '2020/6/8 9:04:54', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null, Null, Null)
 insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('ea520850-c1a8-47dc-8944-9c216844dbcb', '0', Null, Null, 'ÔËÓª¼à¿Ø', 'fa fa-bar-chart', Null, 'expand', 'False', 'True', 'False', 'False', 'False', 6, Null, 'True', Null, '2020/6/5 15:41:27', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', '2020/6/5 15:45:53', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null)
 insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('5b67105d-518e-4129-9540-b2474c777c6d', '0', Null, Null, 'ÏîÄ¿¹¤³Ì', 'fa fa-television', Null, 'expand', 'False', 'True', 'False', 'False', 'False', 7, Null, 'True', Null, '2020/6/5 15:47:36', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', '2020/6/5 15:52:42', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null)
 insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('c9a46956-c5e3-4263-bd05-e9bd3e122f70', '0', Null, Null, 'Æ·ÖÊÓÅ»¯', 'fa fa-balance-scale', Null, 'expand', 'False', 'True', 'False', 'False', 'False', 11, Null, 'True', Null, '2020/6/5 16:05:43', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', '2020/6/5 16:12:41', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null)
@@ -281,6 +283,24 @@ VALUES  ( '²âÊÔÏÔÊ¾','/Content/img/product/runningstate/01.png','CNC1ºÅ»ú<br>ÕýÔ
 		  'CMM<br>IK-201-001-F2<br>¼ì²âºÏ¸ñ22','#0000FF')
 	
 
-SELECT * FROM	Sys_RunningState
+CREATE TABLE Sys_DataAcquisition --Êý¾Ý²É¼¯
+(
+	id int identity (1,1) primary KEY,
+	DeviceName varchar(50)  NULL,--Éè±¸Ãû
+	DeviceRunStatus varchar(50) NULL,--Éè±¸ÔËÐÐ×´Ì¬
+	DeviceUrl varchar(50)  NULL,  --Éè±¸Url
+	DeviceLndicatorLight varchar(50)  NULL,  --Éè±¸Ö¸Ê¾µÆ
+	TodayOutput INT, --½ñÈÕ²úÁ¿
+	TodayJiadong FLOAT,--½ñÈÕ¼Ú¶¯ÂÊ
+	SpindleSpeed INT, --Ö÷Öá×ªËÙ
+	FeedSpeed INT,--½ø¸øËÙ¶È
+	SpindleRatio INT, -- Ö÷Öá±¶ÂÊ
+	FeedRatio INT, --½ø¸ø±¶ÂÊ
+	LoadRatio INT, --¸ºÔØ
+	CreationTime DATETIME not null default getdate(),--´´½¨Ê±¼ä
+	IsEffective int DEFAULT 1 -- 0 ÎÞÐ§ 1 ÓÐÐ§ 1ÏÔÊ¾
+)
 
+INSERT INTO [dbo].[Sys_DataAcquisition]([DeviceName],[DeviceRunStatus],[DeviceUrl],[DeviceLndicatorLight],[TodayOutput],[TodayJiadong],[SpindleSpeed],[FeedSpeed],[SpindleRatio],[FeedRatio],[LoadRatio])
+VALUES('CNC1·¢ÄÇ¿Æ','ÔËÐÐÖÐ','/Content/img/product/collection/cnc1.png','green',10,48.3,9790,110,100,70,6)
 
