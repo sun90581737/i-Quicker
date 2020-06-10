@@ -14,7 +14,7 @@ namespace NFine.Web.Areas.AutomationLine.Controllers
 
         [HttpGet]
         [HandlerAjaxOnly]
-        public ActionResult GetRunningState()
+        public ActionResult GetDataAcquisition()
         {
             var data = daApp.GetList().Where(p => p.IsEffective == 1);
             return Content(data.ToJson());

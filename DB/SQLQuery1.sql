@@ -289,7 +289,7 @@ CREATE TABLE Sys_DataAcquisition --数据采集
 	DeviceName varchar(50)  NULL,--设备名
 	DeviceRunStatus varchar(50) NULL,--设备运行状态
 	DeviceUrl varchar(50)  NULL,  --设备Url
-	DeviceLndicatorLight varchar(50)  NULL,  --设备指示灯
+	DeviceLndicatorLight varchar(50)  NULL,  --设备指示灯(只有固定red/yellow/green三种颜色否则灯不亮)
 	TodayOutput INT, --今日产量
 	TodayJiadong FLOAT,--今日稼动率
 	SpindleSpeed INT, --主轴转速
@@ -303,4 +303,10 @@ CREATE TABLE Sys_DataAcquisition --数据采集
 
 INSERT INTO [dbo].[Sys_DataAcquisition]([DeviceName],[DeviceRunStatus],[DeviceUrl],[DeviceLndicatorLight],[TodayOutput],[TodayJiadong],[SpindleSpeed],[FeedSpeed],[SpindleRatio],[FeedRatio],[LoadRatio])
 VALUES('CNC1发那科','运行中','/Content/img/product/collection/cnc1.png','green',10,48.3,9790,110,100,70,6)
+INSERT INTO [dbo].[Sys_DataAcquisition]([DeviceName],[DeviceRunStatus],[DeviceUrl],[DeviceLndicatorLight],[TodayOutput],[TodayJiadong],[SpindleSpeed],[FeedSpeed],[SpindleRatio],[FeedRatio],[LoadRatio])
+VALUES('CNC3米克朗P900','运行中','/Content/img/product/collection/cnc1.png','yellow',22,39.8,7800,1550,100,60,0)
+INSERT INTO [dbo].[Sys_DataAcquisition]([DeviceName],[DeviceRunStatus],[DeviceUrl],[DeviceLndicatorLight],[TodayOutput],[TodayJiadong],[SpindleSpeed],[FeedSpeed],[SpindleRatio],[FeedRatio],[LoadRatio])
+VALUES('CNC4米克朗P700','运行中','/Content/img/product/collection/cnc1.png','red',0,0.0,9750,1000,100,40,10)
+INSERT INTO [dbo].[Sys_DataAcquisition]([DeviceName],[DeviceRunStatus],[DeviceUrl],[DeviceLndicatorLight],[TodayOutput],[TodayJiadong],[SpindleSpeed],[FeedSpeed],[SpindleRatio],[FeedRatio],[LoadRatio])
+VALUES('CNC5发那科','运行中','/Content/img/product/collection/cnc1.png','green',10,48.3,9790,110,100,70,6)
 
