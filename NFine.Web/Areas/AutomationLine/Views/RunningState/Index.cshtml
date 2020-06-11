@@ -9,153 +9,171 @@
     <script src="~/Content/js/pages/jquery.contip.js"></script>
     @*https://blog.csdn.net/u010810136/article/details/76585424*@
     <style type="text/css">
+        .tip {
+            z-index: 10000;
+            position: absolute;
+            opacity: 0.86;
+            background: rgb(255, 0, 0);
+            padding: 7px;
+            border-radius: 4px;
+            display: block;
+            visibility: visible;
+            color: #fff;
+        }
+        .tip-text {
+            max-width: 222px;
+        }
+        .tip-text > p {
+            margin: 0;
+            padding: 2px;
+        }
+        .tip-arrow {
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            border-width: 6px;
+            border-style: solid;
+            border-color: rgb(255, 0, 0) transparent transparent;
+            border-image: initial;
+            left: 50%;
+            bottom: -12px;
+        }
+        .tip-arrows {
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            border-width: 6px;
+            border-style: solid;
+            border-color: transparent transparent rgb(51, 204, 153);
+            border-image: initial;
+            left: 59.5px;
+            top: -12px;
+        }
+        .tip-1 {
+            left: 27%;
+            top: 17%;
+        }
+
+        .tip-2 {
+            left: 42%;
+            top: 6%;
+        }
+        .tip-3 {
+            left: 64%;
+            top: 5%;
+        }
+        .tip-4 {
+            left: 27%;
+            top: 67%;
+        }
+        .tip-5 {
+            left: 48%;
+            top: 63%;
+        }
+         .tip-6 {
+            left: 58%;
+            top: 56%;
+        }
     </style>
 </head>
 <body>
-    <script type="text/javascript">
-
-        $(function () {
-            ImgLoading(true);
-        })
-
-        function S() {
-            window.setInterval(function () {
-                ImgLoading(false);
-            }, 1000 * 60);
-        }
-
-        var contip_1, contip_2, contip_3, contip_4, contip_5, contip_6;
-        function ImgLoading(first) {
-            $.ajax({
-                async: false,
-                url: "/AutomationLine/RunningState/GetRunningState",
-                type: "get",
-                dataType: "json",
-                success: function (da) {
-                    var item = da[0];
-                    if (first) {  // 第一次初始化 直接取值
-                        console.log("laod...");
-                        $("img").attr("src", item.Picture_Url);
-                        contip_1 = $('.one1').contip({
-                            recreate: true,
-                            name: "one1",
-                            align: 'top', // 气泡出现的位置， top right bottom left
-                            padding: 7,
-                            radius: 4, // 气泡圆角大小 px
-                            max_width: 222, // 气泡最大宽度 px
-                            rise: -330, // 气泡相对浮动位置，可为负值
-                            bg: item.DescribeColor1, // 背景颜色
-                            html: item.Describe1,
-                            live: true, // 总是显示
-                            opacity: 0.86, // 透明度
-                            show: true, // 是否默认显示
-
-                        });
-                        contip_2 = $('.one2').contip({
-                            recreate: true,
-                            name: 'one2',
-                            align: 'top', // 气泡出现的位置， top right bottom left
-                            padding: 7,
-                            radius: 4, // 气泡圆角大小 px
-                            max_width: 222, // 气泡最大宽度 px
-                            rise: -230, // 气泡相对浮动位置，可为负值
-                            bg: item.DescribeColor2, // 背景颜色
-                            html: item.Describe2,
-                            live: true, // 总是显示
-                            opacity: 0.86, // 透明度
-                            show: true, // 是否默认显示
-                        });
-                        contip_3 = $('.one3').contip({
-                            recreate: true,
-                            name: 'one3',
-                            align: 'top', // 气泡出现的位置， top right bottom left
-                            padding: 7,
-                            radius: 4, // 气泡圆角大小 px
-                            max_width: 222, // 气泡最大宽度 px
-                            rise: -210, // 气泡相对浮动位置，可为负值
-                            bg: item.DescribeColor3, // 背景颜色
-                            html: item.Describe3,
-                            live: true, // 总是显示
-                            opacity: 0.86, // 透明度
-                            show: true, // 是否默认显示
-                        });
-                        contip_4 = $('.one4').contip({
-                            recreate: true,
-                            name: 'one4',
-                            align: 'bottom', // 气泡出现的位置， top right bottom left
-                            padding: 7,
-                            radius: 4, // 气泡圆角大小 px
-                            max_width: 222, // 气泡最大宽度 px
-                            rise: 640, // 气泡相对浮动位置，可为负值
-                            bg: item.DescribeColor4, // 背景颜色
-                            html: item.Describe4,
-                            live: true, // 总是显示
-                            opacity: 0.86, // 透明度
-                            show: true, // 是否默认显示
-                            v_size: 6, // 尖角的大小，像素
-                            v_pos: 0.5, // 尖角出现的位置
-                            v_px: 20, // 尖角出现的位置的偏移 px像素 可为负值
-                        });
-                        contip_5 = $('.one5').contip({
-                            recreate: true,
-                            name: 'one5',
-                            align: 'bottom', // 气泡出现的位置， top right bottom left
-                            padding: 7,
-                            radius: 4, // 气泡圆角大小 px
-                            max_width: 222, // 气泡最大宽度 px
-                            rise: 600, // 气泡相对浮动位置，可为负值
-                            bg: item.DescribeColor5, // 背景颜色
-                            html: item.Describe5,
-                            live: true, // 总是显示
-                            opacity: 0.86, // 透明度
-                            show: true, // 是否默认显示
-                            v_size: 6, // 尖角的大小，像素
-                            v_pos: 0.5, // 尖角出现的位置
-                            v_px: 20, // 尖角出现的位置的偏移 px像素 可为负值
-                        });
-                        contip_6 = $('.one6').contip({
-                            recreate: true,
-                            name: 'one6',
-                            align: 'bottom', // 气泡出现的位置， top right bottom left
-                            padding: 7,
-                            radius: 4, // 气泡圆角大小 px
-                            max_width: 222, // 气泡最大宽度 px
-                            rise: 580, // 气泡相对浮动位置，可为负值
-                            bg: item.DescribeColor6, // 背景颜色
-                            html: item.Describe6,
-                            live: true, // 总是显示
-                            opacity: 0.86, // 透明度
-                            show: true, // 是否默认显示
-                            v_size: 6, // 尖角的大小，像素
-                            v_pos: 0.5, // 尖角出现的位置
-                            v_px: 20, // 尖角出现的位置的偏移 px像素 可为负值
-                        });
-                        S();
-                        return;
-                    }
-                    //更新数据
-                    console.log("change ..");
-                    $("img").attr("src", item.Picture_Url);
-                    contip_1.html({ html: item.Describe1, bg: item.DescribeColor1 });
-                    contip_2.html({ html: item.Describe2, bg: item.DescribeColor2 });
-                    contip_3.html({ html: item.Describe3, bg: item.DescribeColor3 });
-                    contip_4.html({ html: item.Describe4, bg: item.DescribeColor4 });
-                    contip_5.html({ html: item.Describe5, bg: item.DescribeColor5 });
-                    contip_6.html({ html: item.Describe6, bg: item.DescribeColor6 });
-                }
-            })
-        }
-    </script>
     <div id="OngridList">
-        <a class="one1" style="position: absolute;left: 47%; top: 0%;  margin: -100px 0 0 -180px; width: 1px; height: 1px;"></a>
-        <a class="one2" style="position: absolute;left: 60%; top: 0%;  margin: -100px 0 0 -180px; width: 1px; height: 1px;"></a>
-        <a class="one3" style="position: absolute;left: 80%; top: 0%;  margin: -100px 0 0 -180px; width: 1px; height: 1px;"></a>
-        <a class="one4" style="position: absolute;left: 49%; top: 0%;  margin: -100px 0 0 -180px; width: 1px; height: 1px;"></a>
-        <a class="one5" style="position: absolute;left: 67%; top: 0%;  margin: -100px 0 0 -180px; width: 1px; height: 1px;"></a>
-        <a class="one6" style="position: absolute;left: 76%; top: 0%;  margin: -100px 0 0 -180px; width: 1px; height: 1px;"></a>
-        <div style="text-align: center;">
-            <img src="" style="width:1100px;height:800px" ; />
+        <div class="tip tip-1">
+            <div class="tip-text"></div>
+            <span class="tip-arrow"></span>
+        </div>
+        <div class="tip tip-2">
+            <div class="tip-text"></div>
+            <span class="tip-arrow"></span>
+        </div>
+        <div class="tip tip-3">
+            <div class="tip-text"></div>
+            <span class="tip-arrow"></span>
+        </div>
+        <div class="tip tip-4">
+            <div class="tip-text"></div>
+            <span class="tip-arrows"></span>
+        </div>
+        <div class="tip tip-5">
+            <div class="tip-text"></div>
+            <span class="tip-arrows"></span>
+        </div>
+        <div class="tip tip-6">
+            <div class="tip-text"></div>
+            <span class="tip-arrows"></span>
         </div>
     </div>
 </body>
 </html>
+
+<script type="text/javascript">
+    // { el:"",text:"",color:""}
+    var tunningTip = function (opts) {
+        var el = ".tip-" + opts.el;
+        $(el).children("div[class='tip-text']").html(opts.text);
+        $(el).css("background", opts.color);
+        $(el).children("span[class='tip-arrow']").css("border-color", opts.color + " transparent transparent");
+    }
+    var tunningTips = function (opts) {
+        var el = ".tip-" + opts.el;
+        $(el).children("div[class='tip-text']").html(opts.text);
+        $(el).css("background", opts.color);
+        $(el).children("span[class='tip-arrows']").css("border-color", " transparent transparent" + opts.color);
+    }
+    $(function () {
+        ImgLoading(true);
+    })
+    function S() {
+        window.setInterval(function () {
+            ImgLoading(false);
+        }, 1000 * 10);
+    }
+    function ImgLoading(first) {
+        $.ajax({
+            async: false,
+            url: "/AutomationLine/RunningState/GetRunningState",
+            type: "get",
+            dataType: "json",
+            success: function (da) {
+                var item = da[0];
+                tunningTip({
+                    el: "1",
+                    text: item.Describe1,
+                    color: item.DescribeColor1,
+                });
+                tunningTip({
+                    el: "2",
+                    text: item.Describe2,
+                    color: item.DescribeColor2,
+                });
+                tunningTip({
+                    el: "3",
+                    text: item.Describe3,
+                    color: item.DescribeColor3,
+                });
+                tunningTips({
+                    el: "4",
+                    text: item.Describe4,
+                    color: item.DescribeColor4,
+                });
+                tunningTips({
+                    el: "5",
+                    text: item.Describe5,
+                    color: item.DescribeColor5,
+                });
+                tunningTips({
+                    el: "6",
+                    text: item.Describe6,
+                    color: item.DescribeColor6,
+                });
+                if (first) {  // 第一次初始化 直接取值
+                    console.log("laod...");
+                    $("#OngridList").css("background", "url(" + item.Picture_Url + ")");
+                    $("#OngridList").css({"width":"1100px","height":"800px","position": "relative","margin": "auto","background-size": "100%"});
+                    S();
+                }
+            }
+        })
+    }
+</script>
+
