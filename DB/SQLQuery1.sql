@@ -283,7 +283,7 @@ VALUES  ( '²âÊÔÏÔÊ¾','/Content/img/product/runningstate/01.png','CNC1ºÅ»ú<br>ÕıÔ
 		  'CMM<br>IK-201-001-F2<br>¼ì²âºÏ¸ñ22','#0000FF')
 	
 
-CREATE TABLE Sys_DataAcquisition --Êı¾İ²É¼¯
+CREATE TABLE Sys_DataAcquisition --Êı¾İ²É¼¯ Ò»´ÎÕ¹Ê¾4ÌõÊı¾İ¡£
 (
 	id int identity (1,1) primary KEY,
 	DeviceName varchar(50)  NULL,--Éè±¸Ãû
