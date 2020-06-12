@@ -124,6 +124,8 @@
     <Compile Include="Areas\ExampleManage\Controllers\SendMessagesController.cs" />
     <Compile Include="Areas\ExampleManage\Controllers\SignetController.cs" />
     <Compile Include="Areas\ExampleManage\ExampleManageAreaRegistration.cs" />
+    <Compile Include="Areas\OperationMonitoring\Controllers\BusinessOverviewController.cs" />
+    <Compile Include="Areas\OperationMonitoring\OperationMonitoringAreaRegistration.cs" />
     <Compile Include="Areas\ReportManage\Controllers\EchartsController.cs" />
     <Compile Include="Areas\ReportManage\Controllers\HighchartsController.cs" />
     <Compile Include="Areas\ReportManage\ReportManageAreaRegistration.cs" />
@@ -679,6 +681,8 @@
     <Content Include="Areas\AutomationLine\Views\RunningState\Index.cshtml" />
     <Content Include="Areas\AutomationLine\Views\Web.config" />
     <Content Include="Areas\AutomationLine\Views\DataAcquisition\Index.cshtml" />
+    <Content Include="Areas\OperationMonitoring\Views\Web.config" />
+    <Content Include="Areas\OperationMonitoring\Views\BusinessOverview\Index.cshtml" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
   </ItemGroup>
   <PropertyGroup>
