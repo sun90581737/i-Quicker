@@ -15,6 +15,7 @@
     window.onload = function () {
         loadOne1a();
         loadOne1b();
+        loadTwo();
     }
     function loadOne1a() {
         var myChart = echarts.init(document.getElementById('chart1a'));
@@ -152,6 +153,78 @@
         };
         myChart.setOption(option);
     }
+    function loadTwo() {
+
+        var myChart = echarts.init(document.getElementById('chart2'));
+        var colors = ['#5793f3', '#d14a61', '#675bba'];
+
+        var option = {
+            color: colors,
+            tooltip: {
+                trigger: 'none',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            grid: {
+                top: 70,
+                bottom: 50
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    axisTick: {
+                        alignWithLabel: true
+                    },
+                    axisLine: {
+                        onZero: false,
+                        lineStyle: {
+                            color: colors[1]
+                        }
+                    },
+                    axisPointer: {
+                        label: {
+                            formatter: function (params) {
+                                return '交期达成率  ' + params.value + (params.seriesData.length ? '：' + params.seriesData[0].data : '')+ '%';
+                            }
+                        }
+                    },
+                    data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    axisLabel: {
+                        show: true,
+                        interval: 'auto',
+                        formatter: '{value} %'
+                    },
+                    show: true
+                }
+            ],
+            series: [
+                {
+                    name: '交期达成率',
+                    type: 'line',
+                    smooth: true,
+                    data: [80, 76, 86, 96, 92, 99, 88, 90, 95, 80, 95, 88],
+                    // 显示数值
+                    itemStyle: {
+                        normal: {
+                            label:{
+                                  show: true,
+                                  formatter: '{c}%',
+                                  position: 'bottom',
+                                  color: "#505050"
+                            }
+                        }
+                    }
+                }
+            ]
+        };
+       myChart.setOption(option);
+    }
 </script>
 
 <body>
@@ -161,7 +234,7 @@
                 <div class="box-header with-border">
                     <h4 class="box-title">生产成本</h4>
                     <select id="select" style="border: solid 1px #000;">
-                        <option value="7">一周</option>
+                        <option value="7" selected = "selected">一周</option>
                         <option value="14">两周</option>
                         <option value="21">三周</option>
                         <option value="30">一个月</option>
