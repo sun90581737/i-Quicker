@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NFine.Application.OperationMonitoring;
+using NFine.Code;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,32 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
 {
     public class BusinessOverviewController : ControllerBase
     {
-            
+        private TotalCycleCostApp tccApp = new TotalCycleCostApp();
+        private CostByDepartmentApp cbdApp = new CostByDepartmentApp();
+        private DeliveryCompletionRateApp dcrApp = new DeliveryCompletionRateApp();
+
+        [HttpGet]
+        [HandlerAjaxOnly]
+        public ActionResult GetDataTotalCycleCost(string keyValue)
+        {
+            var data = tccApp.GetList().Where(p => p.IsEffective == 1 && p.PrType== Convert.ToInt32(keyValue));
+            return Content(data.ToJson());
+        }
+
+        [HttpGet]
+        [HandlerAjaxOnly]
+        public ActionResult GetDataCostByDepartment(string keyValue)
+        {
+            var data = cbdApp.GetList().Where(p => p.IsEffective == 1 && p.PrType == Convert.ToInt32(keyValue));
+            return Content(data.ToJson());
+        }
+
+        [HttpGet]
+        [HandlerAjaxOnly]
+        public ActionResult GetDataDeliveryCompletionRate()
+        {
+            var data = dcrApp.GetList().Where(p => p.IsEffective == 1);
+            return Content(data.ToJson());
+        }
     }
 }

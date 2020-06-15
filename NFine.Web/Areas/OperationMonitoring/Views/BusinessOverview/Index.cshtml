@@ -17,12 +17,40 @@
         loadOne1b();
         loadTwo();
     }
+    function selectType(obj) {
+        loadOne1a();
+        loadOne1b();
+    }
     function loadOne1a() {
+        var listName = new Array();
+        var TotalCost = 0;
+        var str =[];
+        var keyValue = $('#Type_id option:selected').val();
+        $.ajax({
+            url: "/OperationMonitoring/BusinessOverview/GetDataTotalCycleCost",
+            data: { keyValue: keyValue },
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    if (index == 0) {
+                        TotalCost = item.TotalCost;
+                    }
+                    listName.push(item.Name);
+                    var str3 = new Object();
+                    str3.name = item.Name;
+                    str3.value = item.Cost;
+                    str[index] = str3;
+
+                })
+            }
+        });
+
         var myChart = echarts.init(document.getElementById('chart1a'));
         // 指定图表的配置项和数据
         var option = {
             title: {//标题组件
-                text: '￥' + 266.36 + '万',
+                text: '￥' + TotalCost + '万',
                 top: '45%',
                 left: '35%',
                 textStyle: {
@@ -44,7 +72,7 @@
                 y: 'top',   //图例在垂直方向上面显示居中
                 itemWidth: 10,  //图例标记的图形宽度
                 itemHeight: 10, //图例标记的图形高度
-                data: ['物料', '外协', '自制', '异常'],
+                data: listName,//['物料', '外协', '自制', '异常'],
                 textStyle: {    //图例文字的样式
                     color: '#333',  //文字颜色
                     fontSize: 12    //文字大小
@@ -78,18 +106,33 @@
                             }
                         }
                     },
-                    data: [
-                        { value: 27, name: '物料' },
-                        { value: 18, name: '外协' },
-                        { value: 53, name: '自制' },
-                        { value: 2, name: '异常' }
-                    ]
+                    data: str//[ { value: 27, name: '物料' }, { value: 18, name: '外协' }, { value: 53, name: '自制' }, { value: 2, name: '异常' } ]
                 }
             ]
         };
         myChart.setOption(option);
     }
     function loadOne1b() {
+        var listName = new Array();
+        var str = [];
+        var keyValue = $('#Type_id option:selected').val();
+        $.ajax({
+            url: "/OperationMonitoring/BusinessOverview/GetDataCostByDepartment",
+            data: { keyValue: keyValue },
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    listName.push(item.Name);
+                    var str3 = new Object();
+                    str3.name = item.Name;
+                    str3.value = item.Cost;
+                    str[index] = str3;
+
+                })
+            }
+        });
+
         var myChart = echarts.init(document.getElementById('chart1b'));
         var option = {
             //title: {
@@ -106,7 +149,7 @@
                 left: 'left',
                 itemWidth: 10,  //图例标记的图形宽度
                 itemHeight: 10, //图例标记的图形高度
-                data: ['CNC', 'EDM', 'WEDM', '车铣磨抛']
+                data: listName//['CNC', 'EDM', 'WEDM', '车铣磨抛']
             },
             color: ['#FFFF99', '#CCCC66', '#00CC99', '#FF3333'],
             series: [
@@ -115,12 +158,8 @@
                     type: 'pie',
                     radius: '65%',
                     center: ['50%', '50%'],
-                    data: [
-                        { value: 23, name: 'CNC' },
-                        { value: 26, name: 'EDM' },
-                        { value: 17, name: 'WEDM' },
-                        { value: 34, name: '车铣磨抛' },
-                    ],
+                    data: str//[{ value: 23, name: 'CNC' },{ value: 26, name: 'EDM' },{ value: 17, name: 'WEDM' },{ value: 34, name: '车铣磨抛' },]
+                    ,
                     itemStyle: {  //图形样式
                         normal: { //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
                             label: {  //饼图图形上的文本标签
@@ -154,7 +193,21 @@
         myChart.setOption(option);
     }
     function loadTwo() {
+        var ListMonth = new Array();
+        var ListDeliveryRate = new Array();
 
+        $.ajax({
+            async: false,
+            url: "/OperationMonitoring/BusinessOverview/GetDataDeliveryCompletionRate",
+            type: "get",
+            dataType: "json",
+            success: function (da) {
+                $(da).each(function (index, item) {
+                    ListMonth.push(item.Month);
+                    ListDeliveryRate.push(item.DeliveryRate);
+                })
+            }
+        })
         var myChart = echarts.init(document.getElementById('chart2'));
         var colors = ['#5793f3', '#d14a61', '#675bba'];
 
@@ -167,8 +220,8 @@
                 }
             },
             grid: {
-                top: 70,
-                bottom: 50
+                top: 10,
+                bottom: 100
             },
             xAxis: [
                 {
@@ -189,7 +242,7 @@
                             }
                         }
                     },
-                    data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+                    data: ListMonth//['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
                 }
             ],
             yAxis: [
@@ -208,7 +261,7 @@
                     name: '交期达成率',
                     type: 'line',
                     smooth: true,
-                    data: [80, 76, 86, 96, 92, 99, 88, 90, 95, 80, 95, 88],
+                    data: ListDeliveryRate,//[80, 76, 86, 96, 92, 99, 88, 90, 95, 80, 95, 88],
                     // 显示数值
                     itemStyle: {
                         normal: {
@@ -233,13 +286,13 @@
             <div class="box box-default">
                 <div class="box-header with-border">
                     <h4 class="box-title">生产成本</h4>
-                    <select id="select" style="border: solid 1px #000;">
-                        <option value="7" selected = "selected">一周</option>
-                        <option value="14">两周</option>
-                        <option value="21">三周</option>
-                        <option value="30">一个月</option>
-                        <option value="180">半年</option>
-                        <option value="365">一年</option>
+                    <select id="Type_id" name="Type" style="border: solid 1px #000;"  onchange="selectType(this)">
+                        <option value="1" selected = "selected">一周</option>
+                        <option value="2">两周</option>
+                        <option value="3">三周</option>
+                        <option value="4">一个月</option>
+                        <option value="5">半年</option>
+                        <option value="6">一年</option>
                     </select>
                     <div class="box-tools pull-right">
                         <button type="button" onclick="funOne()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
@@ -247,12 +300,12 @@
                 </div>
                 <div class="tab-content" style="height:100%;">
                     <div style="float:left;width:50%">
-                        <div  style="text-align:center;color:#505050;font-size:15px;">周期总生产成本</div>
-                        <div id="chart1a" style="height:315px; margin:10px"></div>
+                        <div  style="text-align:center;font-size:13px;">周期总生产成本</div>
+                        <div id="chart1a" style="height:372px; margin:10px"></div>
                     </div>
                     <div style="margin-left:50%;width:auto;">
-                        <div style="text-align:center;color:#505050;font-size:15px;">自制成本按部门分类</div>
-                        <div id="chart1b" style="height:315px; margin:10px"></div>
+                        <div style="text-align:center;font-size:13px;">自制成本按部门分类</div>
+                        <div id="chart1b" style="height:372px; margin:10px"></div>
                     </div>
                 </div>
             </div>
@@ -266,9 +319,15 @@
                         <button type="button" onclick="funTwo()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
                     </div>
                 </div>
-                <div class="tab-content">
-                    <div style="text-align:center;color:#505050;font-size:15px;">交期达成率趋势</div>
-                    <div id="chart2" style="height:315px; margin:10px"></div>
+                <div class="tab-content" style="height:100%;">
+                    <div style="height:25%">
+                        <div style="text-align:center;font-size:13px;">交期达成率趋势</div>
+                        <div id="chart2" style="height:200px; margin:10px"></div>
+                    </div>
+                    <div style="margin-top:25%;height:auto;">
+                        <div style="text-align:center;font-size:13px;">在制模具进度</div>
+                       
+                    </div>
                 </div>
             </div>
         </section>
