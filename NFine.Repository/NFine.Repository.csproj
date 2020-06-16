@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="AutomationLine\DataAcquisitionRepository.cs" />
     <Compile Include="AutomationLine\RunningStateRepository.cs" />
+    <Compile Include="OperationMonitoring\BOCapacityLoadRepository.cs" />
     <Compile Include="OperationMonitoring\CostByDepartmentRepository.cs" />
     <Compile Include="OperationMonitoring\DeliveryCompletionRateRepository.cs" />
     <Compile Include="OperationMonitoring\MoldMakingProgressRepository.cs" />

@@ -46,6 +46,7 @@
     <Compile Include="01 Infrastructure\IModificationAudited.cs" />
     <Compile Include="03 Entity\AutomationLine\DataAcquisitionEntity.cs" />
     <Compile Include="03 Entity\AutomationLine\RunningStateEntity.cs" />
+    <Compile Include="03 Entity\OperationMonitoring\BOCapacityLoadEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\CostByDepartmentEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\DeliveryCompletionRateEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\MoldMakingProgressEntity.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="03 Entity\TeamTask\TrendEntity.cs" />
     <Compile Include="04 IRepository\AutomationLine\IDataAcquisitionRepository.cs" />
     <Compile Include="04 IRepository\AutomationLine\IRunningStateRepository.cs" />
+    <Compile Include="04 IRepository\OperationMonitoring\IBOCapacityLoadRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\ICostByDepartmentRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\IDeliveryCompletionRateRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\IMoldMakingProgressRepository.cs" />

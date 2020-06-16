@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="01 Infrastructure\DbLogType.cs" />
+    <Compile Include="OperationMonitoring\BOCapacityLoadApp.cs" />
     <Compile Include="OperationMonitoring\CostByDepartmentApp.cs" />
     <Compile Include="AutomationLine\DataAcquisitionApp.cs" />
     <Compile Include="AutomationLine\RunningStateApp.cs" />

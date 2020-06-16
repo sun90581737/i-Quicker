@@ -19,7 +19,7 @@ insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon,
 insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('0f5597c5-2b94-4237-b0b4-ee7b7a32e45a', 'ea520850-c1a8-47dc-8944-9c216844dbcb', Null, Null, '经营概览', Null, '/OperationMonitoring/BusinessOverview/Index', 'iframe', 'True', 'False', 'False', 'False', 'False', 1, Null, 'True', Null, '2020/6/12 10:46:41', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', '2020/6/12 10:57:56', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null)
 
 
-CREATE table Sys_TaskList  --任务清单
+CREATE table Sys_TaskList  --班组:任务清单
 (  
 id int identity (1,1) primary key , 
 Mold_No varchar(50)  NULL, --模具编号
@@ -74,7 +74,7 @@ VALUES ('IK19003' ,'X92' ,'GF04' ,GETDATE() ,GETDATE() ,GETDATE() ,4 ,'INNER' ,8
 INSERT INTO [NFineBase].[dbo].[Sys_TaskList]([Mold_No] ,[Part_Number] ,[Planned_Equipment] ,[Start_Time] ,[END_Time] ,[Latest_Start_Time]
 ,[Working_Hours] ,[Customer] ,[Mold_Kernel_Material] ,[Category] ,[Team] ,[Colour])
 VALUES ('IK19004' ,'M01' ,'GF02' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,8407 ,2 ,'WE' ,'#CC0000')
-CREATE table Sys_EquipmentList  --设备清单
+CREATE table Sys_EquipmentList  --班组:设备清单
 (  
 id int identity (1,1) primary KEY,
 Equipment_Name varchar(50)  NULL,--设备名
@@ -121,7 +121,7 @@ INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpiec
 VALUES('GF05','/Content/img/product/we/GF05a.png','/Content/img/product/we/GF05b.png','6','85%','WE' ,'#C4C400')
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
 VALUES('GF06','/Content/img/product/we/GF06a.png','/Content/img/product/we/GF06b.png','4','95%','WE' ,'#FF5809')
-CREATE TABLE Sys_CapacityLoad --产能/负荷
+CREATE TABLE Sys_CapacityLoad --班组:产能/负荷
 (
 	id int identity (1,1) primary KEY,
 	Task_Type varchar(50)  NULL,--类别：产能/负荷
@@ -170,7 +170,7 @@ INSERT INTO [dbo].[Sys_CapacityLoad] ([Task_Type] ,[Device_Name] ,[Device_Number
 INSERT INTO [dbo].[Sys_CapacityLoad] ([Task_Type] ,[Device_Name] ,[Device_Number] ,[Team] ,[Colour])VALUES ('负荷','GF04',100,'WE','#FF2D2D')
 INSERT INTO [dbo].[Sys_CapacityLoad] ([Task_Type] ,[Device_Name] ,[Device_Number] ,[Team] ,[Colour])VALUES ('负荷','GF05',50,'WE','#FF2D2D')
 INSERT INTO [dbo].[Sys_CapacityLoad] ([Task_Type] ,[Device_Name] ,[Device_Number] ,[Team] ,[Colour])VALUES ('负荷','GF06',90,'WE','#F9F900')
-CREATE TABLE Sys_Trend --稼动率趋势
+CREATE TABLE Sys_Trend --班组:稼动率趋势
 (
 	id int identity (1,1) primary KEY,
 	Month_Day varchar(20)  NULL, --日期
@@ -396,3 +396,39 @@ INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,Pl
 INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19006','T5','修模','加工中','后盖',GETDATE(),0)
 INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19007','T6','新模','加工中','前盖',GETDATE(),50)
 
+CREATE TABLE Sys_BOCapacityLoad --经营概览:产能/负载
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	PrType INT, --下拉框类型(一周:1、两周:2、三周:3、一个月:4、半年:5、一年:6)
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('CNC','产能',95,1)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('CNC','产能缺口',22,1)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('CNC','车铣刨磨',117,1)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('EDM','产能',88,1)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('EDM','产能缺口',50,1)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('EDM','车铣刨磨',138,1)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('WEDM','产能',50,1)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('WEDM','产能缺口',0,1)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('WEDM','车铣刨磨',30,1)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('磨床','产能',30,1)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('磨床','产能缺口',0,1)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('磨床','车铣刨磨',25,1)
+
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('CNC','产能',10,2)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('CNC','产能缺口',20,2)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('CNC','车铣刨磨',30,2)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('EDM','产能',20,2)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('EDM','产能缺口',30,2)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('EDM','车铣刨磨',40,2)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('WEDM','产能',40,2)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('WEDM','产能缺口',50,2)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('WEDM','车铣刨磨',60,2)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('磨床','产能',80,2)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('磨床','产能缺口',90,2)
+INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('磨床','车铣刨磨',1,2)

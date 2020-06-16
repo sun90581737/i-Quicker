@@ -14,6 +14,7 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
         private CostByDepartmentApp cbdApp = new CostByDepartmentApp();
         private DeliveryCompletionRateApp dcrApp = new DeliveryCompletionRateApp();
         private MoldMakingProgressApp mmpApp = new MoldMakingProgressApp();
+        private BOCapacityLoadApp boclApp = new BOCapacityLoadApp();
 
         [HttpGet]
         [HandlerAjaxOnly]
@@ -50,6 +51,14 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
                 page = pagination.page,
                 records = pagination.records
             };
+            return Content(data.ToJson());
+        }
+
+        [HttpGet]
+        [HandlerAjaxOnly]
+        public ActionResult GetDataBOCapacityLoad(string keyValue)
+        {
+            var data = boclApp.GetList().Where(p => p.IsEffective == 1 && p.PrType == Convert.ToInt32(keyValue));
             return Content(data.ToJson());
         }
     }

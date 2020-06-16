@@ -20,10 +20,14 @@
         loadOne1b();
         loadTwo();
         gridList();
+        loadThree();
     }
     function selectType(obj) {
         loadOne1a();
         loadOne1b();
+    }
+    function selectTypes(obj) {
+        loadThree();
     }
     function loadOne1a() {
         var listName = new Array();
@@ -309,6 +313,120 @@
             viewrecords: true
         });
     }
+    function loadThree()
+    {
+        var listDeviceType = new Array();
+        var listDeviceName = new Array();
+        var listAll = new Array();
+        var keyValue = $('#Types_id option:selected').val();
+        $.ajax({
+            url: "/OperationMonitoring/BusinessOverview/GetDataBOCapacityLoad",
+            data: { keyValue: keyValue },
+            dataType: "json",
+            async: false,
+            success: function (da) {
+                $(da).each(function (index, item) {
+                    listDeviceType.push(item.DeviceType);
+                    listDeviceName.push(item.DeviceName);
+                    listAll.push(item);
+                })
+            }
+        })
+        debugger;
+        $.unique(listDeviceType);
+        $.unique(listDeviceName.sort());
+
+        var series = [];
+        $.each(listDeviceName, function (index, value) {
+            var tempName = new Array();
+            var tempArry = new Array();
+            $.each(listAll, function (index1, value1) {
+                if (value == value1.DeviceName) {
+                    tempName = value1.DeviceName;
+                    tempArry.push(value1.Number);
+                }
+            });
+            series.push({
+                name: tempName,
+                type: tempName == "车铣刨磨" ? 'line' : 'bar',
+                stack: '广告',
+                data: tempArry
+            })
+        });
+
+        var myChart = echarts.init(document.getElementById('chart3'));
+
+        var option = {
+            color: ['#6cce8f', '#e5323e', '#FFFF00'],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    crossStyle: {
+                        color: '#999'
+                    }
+                }
+            },
+            toolbox: {
+                show: true,
+                orient: 'vertical',
+                left: 'right',
+                top: 'center',
+                feature: {
+                    mark: { show: true },
+                    dataView: { show: true, readOnly: false },
+                    magicType: { show: true, type: ['line', 'bar'] },
+                    restore: { show: true },
+                    saveAsImage: { show: true }
+                }
+            },
+            legend: {
+                data: listDeviceName
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: listDeviceType,
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    axisLabel: {
+                        show: true,
+                        interval: 'auto',
+                        formatter: '{value} %'
+                    },
+                    show: true
+                }
+            ],
+            series: series
+            //series: [
+            //    {
+            //        name: '产能',
+            //        type: 'bar',
+            //        stack: '广告',
+            //        data: [95,88, 50,30]
+            //    },
+            //    {
+            //        name: '产能缺口',
+            //        type: 'bar',
+            //        stack: '广告',
+            //        data: [22, 50, 0,0]
+            //    },
+            //    {
+            //        name: '车铣刨磨',
+            //        type: 'line',
+            //        stack: '广告',
+            //        data: [117,138, 30,25]
+            //    }
+            //]
+        };
+        myChart.setOption(option, true);
+    }
 </script>
 
 <body>
@@ -332,11 +450,11 @@
                 <div class="tab-content" style="height:100%;">
                     <div style="float:left;width:50%">
                         <div  style="text-align:center;font-size:13px;">周期总生产成本</div>
-                        <div id="chart1a" style="height:315px; margin:10px"></div>
+                        <div id="chart1a" style="height:325px; "></div>
                     </div>
                     <div style="margin-left:50%;width:auto;">
                         <div style="text-align:center;font-size:13px;">自制成本按部门分类</div>
-                        <div id="chart1b" style="height:315px; margin:10px"></div>
+                        <div id="chart1b" style="height:325px; "></div>
                     </div>
                 </div>
             </div>
@@ -353,7 +471,7 @@
                 <div class="tab-content" style="height:100%;">
                     <div style="height:170px">
                         <div style="text-align:center;font-size:13px;">交期达成率趋势</div>
-                        <div id="chart2" style="height:200px; margin:10px"></div>
+                        <div id="chart2" style="height:200px;"></div>
                     </div>
                     <div class="gridPanel" style="height:90%;margin:20px;width:98%">
                         <table id="gridList"></table>
@@ -366,12 +484,20 @@
             <div class="box box-default">
                 <div class="box-header with-border">
                     <h4 class="box-title">产能/负载</h4>
+                    <select id="Types_id" name="Types" style="border: solid 1px #000;" onchange="selectTypes(this)">
+                        <option value="1" selected="selected">一周</option>
+                        <option value="2">两周</option>
+                        <option value="3">三周</option>
+                        <option value="4">一个月</option>
+                        <option value="5">半年</option>
+                        <option value="6">一年</option>
+                    </select>
                     <div class="box-tools pull-right">
                         <button type="button" onclick="funThree()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
                     </div>
                 </div>
                 <div class="tab-content">
-                    <div id="chart3" style="height:315px; margin:10px"></div>
+                    <div id="chart3" style="height:325px;"></div>
                 </div>
             </div>
         </section>
