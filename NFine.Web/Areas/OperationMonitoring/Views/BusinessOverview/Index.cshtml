@@ -16,6 +16,7 @@
         loadOne1a();
         loadOne1b();
         loadTwo();
+        gridList();
     }
     function selectType(obj) {
         loadOne1a();
@@ -278,6 +279,28 @@
         };
        myChart.setOption(option);
     }
+    function gridList() {
+        var $gridList = $("#gridList");
+        $gridList.dataGrid({
+            url: "/OperationMonitoring/BusinessOverview/GetGridJson",
+            height: 100,
+            colModel: [
+                { label: '模具编号', name: 'MoldNo', width: 80, align: 'left' },
+                { label: '试模', name: 'MoldTest', width: 60, align: 'left' },
+                { label: '类型', name: 'Type', width: 60, align: 'left' },
+                { label: '状态', name: 'State', width: 70, align: 'left' },
+                { label: '产品名称', name: 'ProductName', width: 80, align: 'left' },
+                {
+                    label: '计划交期', name: 'PlannedDeliveryDate', width: 120, align: 'left',
+                    formatter: "date", formatoptions: { srcformat: 'Y/m/d', newformat: 'Y/m/d' }
+                },
+                { label: '预警', name: 'EarlyWarning', width: 120, align: 'left' }
+            ],
+            //pager: "#gridPager",
+            sortname: 'MoldNo desc',
+            viewrecords: true
+        });
+    }
 </script>
 
 <body>
@@ -301,11 +324,11 @@
                 <div class="tab-content" style="height:100%;">
                     <div style="float:left;width:50%">
                         <div  style="text-align:center;font-size:13px;">周期总生产成本</div>
-                        <div id="chart1a" style="height:372px; margin:10px"></div>
+                        <div id="chart1a" style="height:315px; margin:10px"></div>
                     </div>
                     <div style="margin-left:50%;width:auto;">
                         <div style="text-align:center;font-size:13px;">自制成本按部门分类</div>
-                        <div id="chart1b" style="height:372px; margin:10px"></div>
+                        <div id="chart1b" style="height:315px; margin:10px"></div>
                     </div>
                 </div>
             </div>
@@ -320,16 +343,15 @@
                     </div>
                 </div>
                 <div class="tab-content" style="height:100%;">
-                    <div style="height:25%">
+                    <div style="height:170px">
                         <div style="text-align:center;font-size:13px;">交期达成率趋势</div>
                         <div id="chart2" style="height:200px; margin:10px"></div>
                     </div>
-                    <div style="margin-top:25%;height:auto;">
+                    <div class="gridPanel" style="height:90%;margin:20px;width:100%">
+                        <table id="gridList"></table>
                         <div style="text-align:center;font-size:13px;">在制模具进度</div>
-                       
                     </div>
                 </div>
-            </div>
         </section>
 
         <section class="col-lg-6 connectedSortable" style="width:35%">

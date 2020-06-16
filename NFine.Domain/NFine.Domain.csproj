@@ -48,6 +48,7 @@
     <Compile Include="03 Entity\AutomationLine\RunningStateEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\CostByDepartmentEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\DeliveryCompletionRateEntity.cs" />
+    <Compile Include="03 Entity\OperationMonitoring\MoldMakingProgressEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\TotalCycleCostEntity.cs" />
     <Compile Include="03 Entity\SystemManage\AreaEntity.cs" />
     <Compile Include="03 Entity\SystemManage\ModuleButtonEntity.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="04 IRepository\AutomationLine\IRunningStateRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\ICostByDepartmentRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\IDeliveryCompletionRateRepository.cs" />
+    <Compile Include="04 IRepository\OperationMonitoring\IMoldMakingProgressRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\ITotalCycleCostRepository.cs" />
     <Compile Include="04 IRepository\SystemManage\IAreaRepository.cs" />
     <Compile Include="04 IRepository\SystemManage\IItemsDetailRepository.cs" />

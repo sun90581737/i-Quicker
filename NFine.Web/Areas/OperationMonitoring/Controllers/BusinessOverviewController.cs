@@ -13,6 +13,7 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
         private TotalCycleCostApp tccApp = new TotalCycleCostApp();
         private CostByDepartmentApp cbdApp = new CostByDepartmentApp();
         private DeliveryCompletionRateApp dcrApp = new DeliveryCompletionRateApp();
+        private MoldMakingProgressApp mmpApp = new MoldMakingProgressApp();
 
         [HttpGet]
         [HandlerAjaxOnly]
@@ -35,6 +36,20 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
         public ActionResult GetDataDeliveryCompletionRate()
         {
             var data = dcrApp.GetList().Where(p => p.IsEffective == 1);
+            return Content(data.ToJson());
+        }
+
+        [HttpGet]
+        [HandlerAjaxOnly]
+        public ActionResult GetGridJson(Pagination pagination, string queryJson)
+        {
+            var data = new
+            {
+                rows = mmpApp.GetList(pagination, queryJson),
+                total = pagination.total,
+                page = pagination.page,
+                records = pagination.records
+            };
             return Content(data.ToJson());
         }
     }

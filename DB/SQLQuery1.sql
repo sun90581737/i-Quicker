@@ -374,3 +374,26 @@ INSERT INTO Sys_DeliveryCompletionRate(Month,DeliveryRate)VALUES(9,95)
 INSERT INTO Sys_DeliveryCompletionRate(Month,DeliveryRate)VALUES(10,80)
 INSERT INTO Sys_DeliveryCompletionRate(Month,DeliveryRate)VALUES(11,95)
 INSERT INTO Sys_DeliveryCompletionRate(Month,DeliveryRate)VALUES(12,88)
+
+CREATE table Sys_MoldMakingProgress  --经营概览:制模具进度
+(  
+id int identity (1,1) primary key , 
+MoldNo varchar(50)  NULL, --模具编号
+MoldTest  varchar(50)  NULL,--试模
+Type varchar(50)  NULL,--类型
+State varchar(50)  NULL,--状态
+ProductName varchar(50)  NULL,--产品名称
+PlannedDeliveryDate DATE, --计划交期
+EarlyWarning INT,--预警
+IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+
+INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19001','T0','新模','加工中','后盖',GETDATE(),20)
+INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19002','T1','修模','加工中','前盖',GETDATE(),40)
+INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19003','T2','新模','加工中','外壳',GETDATE(),60)
+INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19004','T3','修模','加工中','侧边',GETDATE(),80)
+INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19005','T4','新模','加工中','边框',GETDATE(),100)
+INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19006','T5','修模','加工中','后盖',GETDATE(),0)
+INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19007','T6','新模','加工中','前盖',GETDATE(),50)
+
+
