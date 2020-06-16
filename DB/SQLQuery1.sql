@@ -396,4 +396,3 @@ INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,Pl
 INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19006','T5','修模','加工中','后盖',GETDATE(),0)
 INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19007','T6','新模','加工中','前盖',GETDATE(),50)
 
-
