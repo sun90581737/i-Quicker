@@ -53,6 +53,7 @@
     <Compile Include="OperationMonitoring\BOCapacityLoadMap.cs" />
     <Compile Include="OperationMonitoring\CostByDepartmentMap.cs" />
     <Compile Include="OperationMonitoring\DeliveryCompletionRateMap.cs" />
+    <Compile Include="OperationMonitoring\KeyCustomersMap.cs" />
     <Compile Include="OperationMonitoring\MoldMakingProgressMap.cs" />
     <Compile Include="OperationMonitoring\TotalCycleCostMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

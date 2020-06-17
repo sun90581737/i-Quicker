@@ -4,7 +4,7 @@
 }
 @*<script src="~/Content/js/jquery/jquery-2.1.1.min.js"></script>*@
 <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
-@*<script src="~/Content/js/echarts/echarts.min.js"></script>版本有点小差异*@
+@*<script src="~/Content/js/echarts/echarts.min.js"></script>*@
 <script src="~/Content/js/bootstrap/bootstrap.js"></script>
 <link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
 <link href="~/Content/js/pages/AdminLTE.css" rel="stylesheet" />
@@ -21,6 +21,7 @@
         loadTwo();
         gridList();
         loadThree();
+        loadFour();
     }
     function selectType(obj) {
         loadOne1a();
@@ -332,7 +333,7 @@
                 })
             }
         })
-        debugger;
+
         $.unique(listDeviceType);
         $.unique(listDeviceName.sort());
 
@@ -427,6 +428,82 @@
         };
         myChart.setOption(option, true);
     }
+    function loadFour()
+    {
+        var listName = new Array();
+        var str = [];
+        $.ajax({
+            url: "/OperationMonitoring/BusinessOverview/GetDataKeyCustomers",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    listName.push(item.Name);
+                    var str3 = new Object();
+                    str3.name = item.Name;
+                    str3.value = item.Number;
+                    str[index] = str3;
+                })
+            }
+        });
+        var myChart1 = echarts.init(document.getElementById('chart4a'));
+        var option1 = {
+            //title: {
+            //    text: '某站点用户访问来源',
+            //    subtext: '纯属虚构',
+            //    left: 'center'
+            //},
+            tooltip: {
+                trigger: 'item',
+                formatter: "{b} : ({c}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                itemWidth: 10,  //图例标记的图形宽度
+                itemHeight: 10, //图例标记的图形高度
+                data: listName
+            },
+            //color: ['#FFFF99', '#CCCC66', '#00CC99', '#FF3333'],
+            series: [
+                {
+                    name: '访问来源',
+                    type: 'pie',
+                    radius: '65%',
+                    center: ['50%', '50%'],
+                    data: str,
+                    itemStyle: {  //图形样式
+                        normal: { //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+                            label: {  //饼图图形上的文本标签
+                                show: true,  //平常不显示
+                                formatter: '{c}%',
+                                position: 'inner'
+                            },
+                            labelLine: {     //标签的视觉引导线样式
+                                show: false  //平常不显示
+                            }
+                        },
+                        emphasis: {   //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+                            label: {  //饼图图形上的文本标签
+                                show: true,
+                                position: 'center',
+                                textStyle: {
+                                    fontSize: '20',
+                                    fontWeight: 'bold'
+                                }
+                            },
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                }
+            ]
+        };
+        myChart1.setOption(option1);
+    }
 </script>
 
 <body>
@@ -478,6 +555,7 @@
                         <div style="text-align:center;font-size:13px;">在制模具进度</div>
                     </div>
                 </div>
+            </div>
         </section>
 
         <section class="col-lg-6 connectedSortable" style="width:35%">
@@ -507,11 +585,18 @@
                 <div class="box-header with-border">
                     <h4 class="box-title">客户分布</h4>
                     <div class="box-tools pull-right">
-                        <button type="button" onclick="funThree()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
+                        <button type="button" onclick="funFour()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
                     </div>
                 </div>
-                <div class="tab-content">
-                    <div id="chart4" style="height:315px; margin:10px"></div>
+                <div class="tab-content" style="height:100%;">
+                    <div style="float:left;width:35%">
+                        <div style="text-align:center;font-size:13px;">主要客户</div>
+                        <div id="chart4a" style="height:308px; "></div>
+                    </div>
+                    <div style="margin-left:65%;width:auto;">
+                        <div style="text-align:center;font-size:13px;">全球分布</div>
+                        <div id="chart4b" style="height:308px; "></div>
+                    </div>
                 </div>
             </div>
         </section>

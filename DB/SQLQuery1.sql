@@ -432,3 +432,18 @@ INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  (
 INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('磨床','产能',80,2)
 INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('磨床','产能缺口',90,2)
 INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('磨床','车铣刨磨',1,2)
+
+CREATE TABLE Sys_KeyCustomers --经营概览:主要客户
+(
+	id int identity (1,1) primary KEY,
+	Name varchar(50)  NULL,--客户名称
+	Number INT , --数量
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT dbo.Sys_KeyCustomers(Name,Number)VALUES  ('TK',20)
+INSERT dbo.Sys_KeyCustomers(Name,Number)VALUES  ('TP-Link',40) 
+INSERT dbo.Sys_KeyCustomers(Name,Number)VALUES  ('LOGITEC',40)
+INSERT dbo.Sys_KeyCustomers(Name,Number)VALUES  ('ThinkPad',55)
+INSERT dbo.Sys_KeyCustomers(Name,Number)VALUES  ('YG',10)
+INSERT dbo.Sys_KeyCustomers(Name,Number)VALUES  ('Apple',70)

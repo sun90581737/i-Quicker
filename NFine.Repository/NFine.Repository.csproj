@@ -44,6 +44,7 @@
     <Compile Include="OperationMonitoring\BOCapacityLoadRepository.cs" />
     <Compile Include="OperationMonitoring\CostByDepartmentRepository.cs" />
     <Compile Include="OperationMonitoring\DeliveryCompletionRateRepository.cs" />
+    <Compile Include="OperationMonitoring\KeyCustomersRepository.cs" />
     <Compile Include="OperationMonitoring\MoldMakingProgressRepository.cs" />
     <Compile Include="OperationMonitoring\TotalCycleCostRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
