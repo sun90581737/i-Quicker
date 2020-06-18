@@ -684,6 +684,10 @@
     <Content Include="Areas\AutomationLine\Views\DataAcquisition\Index.cshtml" />
     <Content Include="Areas\OperationMonitoring\Views\Web.config" />
     <Content Include="Areas\OperationMonitoring\Views\BusinessOverview\Index.cshtml" />
+    <Content Include="Areas\OperationMonitoring\Views\BusinessOverview\Form1.cshtml" />
+    <Content Include="Areas\OperationMonitoring\Views\BusinessOverview\Form2.cshtml" />
+    <Content Include="Areas\OperationMonitoring\Views\BusinessOverview\Form3.cshtml" />
+    <Content Include="Areas\OperationMonitoring\Views\BusinessOverview\Form4.cshtml" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
   </ItemGroup>
   <PropertyGroup>
