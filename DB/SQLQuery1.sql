@@ -385,16 +385,17 @@ State varchar(50)  NULL,--状态
 ProductName varchar(50)  NULL,--产品名称
 PlannedDeliveryDate DATE, --计划交期
 EarlyWarning INT,--预警
+EarlyWarningColor VARCHAR(10),--预警颜色
 IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 ) 
 
-INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19001','T0','新模','加工中','后盖',GETDATE(),20)
-INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19002','T1','修模','加工中','前盖',GETDATE(),40)
-INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19003','T2','新模','加工中','外壳',GETDATE(),60)
-INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19004','T3','修模','加工中','侧边',GETDATE(),80)
-INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19005','T4','新模','加工中','边框',GETDATE(),100)
-INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19006','T5','修模','加工中','后盖',GETDATE(),0)
-INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning)VALUES  ( 'IK19007','T6','新模','加工中','前盖',GETDATE(),50)
+INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning,EarlyWarningColor)VALUES  ( 'IK19001','T0','新模','加工中','后盖',GETDATE(),20,'#009933')
+INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning,EarlyWarningColor)VALUES  ( 'IK19002','T1','修模','加工中','前盖',GETDATE(),40,'#990000')
+INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning,EarlyWarningColor)VALUES  ( 'IK19003','T2','新模','加工中','外壳',GETDATE(),60,'#FF0033')
+INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning,EarlyWarningColor)VALUES  ( 'IK19004','T3','修模','加工中','侧边',GETDATE(),80,'#CCFF33')
+INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning,EarlyWarningColor)VALUES  ( 'IK19005','T4','新模','加工中','边框',GETDATE(),100,'#FF00FF')
+INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning,EarlyWarningColor)VALUES  ( 'IK19006','T5','修模','加工中','后盖',GETDATE(),0,'#6600FF')
+INSERT INTO dbo.Sys_MoldMakingProgress(MoldNo,MoldTest,Type,State,ProductName,PlannedDeliveryDate,EarlyWarning,EarlyWarningColor)VALUES  ( 'IK19007','T6','新模','加工中','前盖',GETDATE(),50,'#0033FF')
 
 CREATE TABLE Sys_BOCapacityLoad --经营概览:产能/负载
 (
