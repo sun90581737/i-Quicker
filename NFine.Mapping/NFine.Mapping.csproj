@@ -53,6 +53,10 @@
     <Compile Include="OperationMonitoring\BOCapacityLoadMap.cs" />
     <Compile Include="OperationMonitoring\CostByDepartmentMap.cs" />
     <Compile Include="OperationMonitoring\DeliveryCompletionRateMap.cs" />
+    <Compile Include="OperationMonitoring\EHDelayMoldListMap.cs" />
+    <Compile Include="OperationMonitoring\EHDeliveryCompletionRateMap.cs" />
+    <Compile Include="OperationMonitoring\EHNumberMoldsDeliveredMap.cs" />
+    <Compile Include="OperationMonitoring\EHProductionScheduleMap.cs" />
     <Compile Include="OperationMonitoring\KeyCustomersMap.cs" />
     <Compile Include="OperationMonitoring\MoldMakingProgressMap.cs" />
     <Compile Include="OperationMonitoring\TotalCycleCostMap.cs" />

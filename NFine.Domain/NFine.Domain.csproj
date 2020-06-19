@@ -49,6 +49,10 @@
     <Compile Include="03 Entity\OperationMonitoring\BOCapacityLoadEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\CostByDepartmentEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\DeliveryCompletionRateEntity.cs" />
+    <Compile Include="03 Entity\OperationMonitoring\EHDelayMoldListEntity.cs" />
+    <Compile Include="03 Entity\OperationMonitoring\EHDeliveryCompletionRateEntity.cs" />
+    <Compile Include="03 Entity\OperationMonitoring\EHNumberMoldsDeliveredEntity.cs" />
+    <Compile Include="03 Entity\OperationMonitoring\EHProductionScheduleEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\KeyCustomersEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\MoldMakingProgressEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\TotalCycleCostEntity.cs" />
@@ -72,6 +76,10 @@
     <Compile Include="04 IRepository\OperationMonitoring\IBOCapacityLoadRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\ICostByDepartmentRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\IDeliveryCompletionRateRepository.cs" />
+    <Compile Include="04 IRepository\OperationMonitoring\IEHDelayMoldListRepository.cs" />
+    <Compile Include="04 IRepository\OperationMonitoring\IEHDeliveryCompletionRateRepository.cs" />
+    <Compile Include="04 IRepository\OperationMonitoring\IEHNumberMoldsDeliveredRepository.cs" />
+    <Compile Include="04 IRepository\OperationMonitoring\IEHProductionScheduleRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\IKeyCustomersRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\IMoldMakingProgressRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\ITotalCycleCostRepository.cs" />

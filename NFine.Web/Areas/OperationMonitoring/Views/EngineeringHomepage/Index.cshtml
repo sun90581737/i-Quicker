@@ -2,9 +2,10 @@
     ViewBag.Title = "工程主页";
     Layout = "~/Views/Shared/_Index.cshtml";
 }
-<script src="~/Content/js/pages/app.js"></script>
+@*<script src="~/Content/js/pages/app.js"></script>
 <script src="~/Content/js/pages/app.min.js"></script>
-<script src="~/Content/js/pages/dashboard.js"></script>
+<script src="~/Content/js/pages/dashboard.js"></script>*@
+<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 <script src="~/Content/js/bootstrap/bootstrap.js"></script>
 <link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
 <link href="~/Content/js/pages/AdminLTE.css" rel="stylesheet" />
@@ -13,9 +14,11 @@
 </style>
 <script>
     window.onload = function () {
-        LoadOneA();
+        loadOneA();
+        loadTwoA();
+        loadThreeA();
     }
-    function LoadOneA()
+    function loadOneA()
     {
         $.ajax({
             async: false,
@@ -41,6 +44,171 @@
                 $("#h1").css({ "color": item.ScheduleDelayColor });
             }
         })
+    }
+    function loadTwoA() {
+        var ListMonth = new Array();
+        var ListDeliveryRate = new Array();
+
+        $.ajax({
+            async: false,
+            url: "/OperationMonitoring/EngineeringHomepage/GetDataEHDeliveryCompletionRate",
+            type: "get",
+            dataType: "json",
+            success: function (da) {
+                $(da).each(function (index, item) {
+                    ListMonth.push(item.Month);
+                    ListDeliveryRate.push(item.DeliveryRate);
+                })
+            }
+        })
+        var myChart = echarts.init(document.getElementById('chart1'));
+        var colors = ['#5793f3', '#d14a61', '#675bba'];
+
+        var option = {
+            color: colors,
+            tooltip: {
+                trigger: 'none',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            grid: {
+                top: 10,
+                bottom: 100
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    axisTick: {
+                        alignWithLabel: true
+                    },
+                    axisLine: {
+                        onZero: false,
+                        lineStyle: {
+                            color: colors[1]
+                        }
+                    },
+                    axisPointer: {
+                        label: {
+                            formatter: function (params) {
+                                return '交期达成率  ' + params.value + (params.seriesData.length ? '：' + params.seriesData[0].data : '') + '%';
+                            }
+                        }
+                    },
+                    data: ListMonth//['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    axisLabel: {
+                        show: true,
+                        interval: 'auto',
+                        formatter: '{value} %'
+                    },
+                    show: true
+                }
+            ],
+            series: [
+                {
+                    name: '交期达成率',
+                    type: 'line',
+                    smooth: true,
+                    data: ListDeliveryRate,//[80, 76, 86, 96, 92, 99, 88, 90, 95, 80, 95, 88],
+                    // 显示数值
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                show: true,
+                                formatter: '{c}%',
+                                position: 'bottom',
+                                color: "#505050"
+                            }
+                        }
+                    }
+                }
+            ]
+        };
+        myChart.setOption(option);
+    }
+    function loadThreeA() {
+        var listName = new Array();
+        var str = [];
+
+        $.ajax({
+            async: false,
+            url: "/OperationMonitoring/EngineeringHomepage/GetDataEHProductionSchedule",
+            type: "get",
+            dataType: "json",
+            success: function (da) {
+                $(da).each(function (index, item) {
+                    listName.push(item.Name);
+                    var str3 = new Object();
+                    str3.name = item.Name;
+                    str3.value = item.Number;
+                    str[index] = str3;
+                })
+            }
+        })
+
+        var myChart = echarts.init(document.getElementById('chart2a'));
+        var option = {
+            //title: {
+            //    text: '某站点用户访问来源',
+            //    subtext: '纯属虚构',
+            //    left: 'center'
+            //},
+            tooltip: {
+                trigger: 'item',
+                formatter: "{b} : ({c}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                itemWidth: 10,  //图例标记的图形宽度
+                itemHeight: 10, //图例标记的图形高度
+                data: listName//['CNC', 'EDM', 'WEDM', '车铣磨抛']
+            },
+            color: ['#FFFF99', '#CCCC66', '#00CC99', '#FF3333'],
+            series: [
+                {
+                    name: '访问来源',
+                    type: 'pie',
+                    radius: '65%',
+                    center: ['50%', '50%'],
+                    data: str//[{ value: 23, name: 'CNC' },{ value: 26, name: 'EDM' },{ value: 17, name: 'WEDM' },{ value: 34, name: '车铣磨抛' },]
+                    ,
+                    itemStyle: {  //图形样式
+                        normal: { //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+                            label: {  //饼图图形上的文本标签
+                                show: true,  //平常不显示
+                                formatter: '{c}%',
+                                position: 'inner'
+                            },
+                            labelLine: {     //标签的视觉引导线样式
+                                show: false  //平常不显示
+                            }
+                        },
+                        emphasis: {   //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+                            label: {  //饼图图形上的文本标签
+                                show: true,
+                                position: 'center',
+                                textStyle: {
+                                    fontSize: '20',
+                                    fontWeight: 'bold'
+                                }
+                            },
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                }
+            ]
+        };
+        myChart.setOption(option);
     }
 </script>
 <body>
@@ -123,11 +291,11 @@
                     <div class="tab-content" style="height:100%;">
                         <div style="height:170px">
                             <div style="text-align:center;font-size:13px;">交期达成率趋势</div>
-                            <div id="chart2" style="height:200px;"></div>
+                            <div id="chart1" style="height:200px;"></div>
                         </div>
-                        <div class="gridPanel" style="height:90%;margin:20px;width:98%">
-                            <table id="gridList"></table>
+                        <div  style="height:90%;margin:20px;width:98%">
                             <div style="text-align:center;font-size:13px;">上月交付模具数量</div>
+                            <div id="chart2b"></div>
                         </div>
                     </div>
                 </div>
@@ -143,11 +311,11 @@
                     <div class="tab-content" style="height:100%;">
                         <div style="float:left;width:50%">
                             <div style="text-align:center;font-size:13px;">生产进度</div>
-                            <div id="chart1a" style="height:325px; "></div>
+                            <div id="chart2a" style="height:325px; "></div>
                         </div>
-                        <div style="margin-left:50%;width:auto;">
+                        <div class="gridPanel" style="margin-left:50%;width:auto;">
                             <div style="text-align:center;font-size:13px;">延期模具列表</div>
-                            <div id="chart1b" style="height:325px; "></div>
+                            <table id="gridList" style="height:325px; "></table>
                         </div>
                     </div>
                 </div>

@@ -450,7 +450,6 @@ INSERT dbo.Sys_KeyCustomers(Name,Number)VALUES  ('ThinkPad',55)
 INSERT dbo.Sys_KeyCustomers(Name,Number)VALUES  ('YG',10)
 INSERT dbo.Sys_KeyCustomers(Name,Number)VALUES  ('Apple',70)
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 CREATE TABLE Sys_UserEngineering --工程主页:员工工程表
 (
 	id int identity (1,1) primary KEY,

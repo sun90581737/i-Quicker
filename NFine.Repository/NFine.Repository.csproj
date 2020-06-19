@@ -44,6 +44,10 @@
     <Compile Include="OperationMonitoring\BOCapacityLoadRepository.cs" />
     <Compile Include="OperationMonitoring\CostByDepartmentRepository.cs" />
     <Compile Include="OperationMonitoring\DeliveryCompletionRateRepository.cs" />
+    <Compile Include="OperationMonitoring\EHDelayMoldListRepository.cs" />
+    <Compile Include="OperationMonitoring\EHDeliveryCompletionRateRepository.cs" />
+    <Compile Include="OperationMonitoring\EHNumberMoldsDeliveredRepository.cs" />
+    <Compile Include="OperationMonitoring\EHProductionScheduleRepository.cs" />
     <Compile Include="OperationMonitoring\KeyCustomersRepository.cs" />
     <Compile Include="OperationMonitoring\MoldMakingProgressRepository.cs" />
     <Compile Include="OperationMonitoring\TotalCycleCostRepository.cs" />
