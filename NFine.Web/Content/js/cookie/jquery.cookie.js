@@ -59,6 +59,7 @@ jQuery.cookie = function(name, value, options) {
             value = '';
             options.expires = -1;
         }
+        debugger;
         var expires = '';
         if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {
             var date;

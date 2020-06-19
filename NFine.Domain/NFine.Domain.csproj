@@ -52,6 +52,7 @@
     <Compile Include="03 Entity\OperationMonitoring\KeyCustomersEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\MoldMakingProgressEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\TotalCycleCostEntity.cs" />
+    <Compile Include="03 Entity\OperationMonitoring\UserEngineeringEntity.cs" />
     <Compile Include="03 Entity\SystemManage\AreaEntity.cs" />
     <Compile Include="03 Entity\SystemManage\ModuleButtonEntity.cs" />
     <Compile Include="03 Entity\SystemManage\ModuleEntity.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="04 IRepository\OperationMonitoring\IKeyCustomersRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\IMoldMakingProgressRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\ITotalCycleCostRepository.cs" />
+    <Compile Include="04 IRepository\OperationMonitoring\IUserEngineeringRepository.cs" />
     <Compile Include="04 IRepository\SystemManage\IAreaRepository.cs" />
     <Compile Include="04 IRepository\SystemManage\IItemsDetailRepository.cs" />
     <Compile Include="04 IRepository\SystemManage\IItemsRepository.cs" />

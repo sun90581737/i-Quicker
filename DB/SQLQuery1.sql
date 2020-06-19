@@ -17,6 +17,7 @@ insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon,
 insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('c7cbf256-f8c5-4a07-b291-01cb612396c9', '0', Null, Null, '工艺排程', 'fa fa-calendar', Null, 'expand', 'False', 'True', 'False', 'False', 'False', 8, Null, 'True', Null, '2020/6/5 15:56:29', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null, Null, Null)
 insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('52dd1989-4ff6-4e26-b5a0-9b7cb0644b0a', '0', Null, Null, '生产管理', 'fa fa-bullhorn', Null, 'expand', 'False', 'True', 'False', 'False', 'False', 9, Null, 'True', Null, '2020/6/5 15:58:45', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null, Null, Null)
 insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('0f5597c5-2b94-4237-b0b4-ee7b7a32e45a', 'ea520850-c1a8-47dc-8944-9c216844dbcb', Null, Null, '经营概览', Null, '/OperationMonitoring/BusinessOverview/Index', 'iframe', 'True', 'False', 'False', 'False', 'False', 1, Null, 'True', Null, '2020/6/12 10:46:41', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', '2020/6/12 10:57:56', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null)
+insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('ccca25fe-eee4-44ae-942b-eb00002a7dd2', 'ea520850-c1a8-47dc-8944-9c216844dbcb', Null, Null, '工程主页', Null, '/OperationMonitoring/EngineeringHomepage/Index', 'iframe', 'True', 'False', 'False', 'False', 'False', 2, Null, 'True', Null, '2020/6/19 9:31:01', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', '2020/6/19 9:41:53', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null)
 
 
 CREATE table Sys_TaskList  --班组:任务清单
@@ -448,3 +449,88 @@ INSERT dbo.Sys_KeyCustomers(Name,Number)VALUES  ('LOGITEC',40)
 INSERT dbo.Sys_KeyCustomers(Name,Number)VALUES  ('ThinkPad',55)
 INSERT dbo.Sys_KeyCustomers(Name,Number)VALUES  ('YG',10)
 INSERT dbo.Sys_KeyCustomers(Name,Number)VALUES  ('Apple',70)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE Sys_UserEngineering --工程主页:员工工程表
+(
+	id int identity (1,1) primary KEY,
+	Account varchar(50)  NULL,--关联Sys_User.F_Account
+	CustomerAmount INT,--负责客户数量
+	CustomerAmountColor VARCHAR(10),
+    DeliveryCompletionRate INT,-- 交期达成率(月)
+	DeliveryCompletionRateColor VARCHAR(10),
+	OnTimeDeliveryMold INT,--按期交付模具(月)
+	OnTimeDeliveryMoldColor VARCHAR(10),
+	LateDeliveryMold INT,--延期交付模具(月)
+	LateDeliveryMoldColor VARCHAR(10),
+	MoldInProcess INT, --在制模具
+	MoldInProcessColor VARCHAR(10),
+	NormalProgress INT,--正常进度
+	NormalProgressColor VARCHAR(10),
+	ScheduleDelay INT,--进度延误
+	ScheduleDelayColor VARCHAR(10),
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_UserEngineering(Account,CustomerAmount,CustomerAmountColor,DeliveryCompletionRate,DeliveryCompletionRateColor,OnTimeDeliveryMold,OnTimeDeliveryMoldColor,LateDeliveryMold,LateDeliveryMoldColor,MoldInProcess,MoldInProcessColor,NormalProgress,NormalProgressColor,ScheduleDelay,ScheduleDelayColor)VALUES('admin',5,'#006600',89,'#006666',9,'#3300CC',2,'#CC0000',10,'#CCFFCC',7,'#FFFF00',3,'#FF66FF')
+
+CREATE TABLE Sys_EHDeliveryCompletionRate --工程主页:交期达成率趋势
+(
+	id int identity (1,1) primary KEY,
+	Month varchar(50)  NULL,--月
+	DeliveryRate INT , --交付率
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_EHDeliveryCompletionRate(Month,DeliveryRate)VALUES(1,80)
+INSERT INTO Sys_EHDeliveryCompletionRate(Month,DeliveryRate)VALUES(2,76)
+INSERT INTO Sys_EHDeliveryCompletionRate(Month,DeliveryRate)VALUES(3,86)
+INSERT INTO Sys_EHDeliveryCompletionRate(Month,DeliveryRate)VALUES(4,96)
+INSERT INTO Sys_EHDeliveryCompletionRate(Month,DeliveryRate)VALUES(5,92)
+INSERT INTO Sys_EHDeliveryCompletionRate(Month,DeliveryRate)VALUES(6,99)
+INSERT INTO Sys_EHDeliveryCompletionRate(Month,DeliveryRate)VALUES(7,88)
+INSERT INTO Sys_EHDeliveryCompletionRate(Month,DeliveryRate)VALUES(8,90)
+INSERT INTO Sys_EHDeliveryCompletionRate(Month,DeliveryRate)VALUES(9,95)
+INSERT INTO Sys_EHDeliveryCompletionRate(Month,DeliveryRate)VALUES(10,80)
+INSERT INTO Sys_EHDeliveryCompletionRate(Month,DeliveryRate)VALUES(11,95)
+INSERT INTO Sys_EHDeliveryCompletionRate(Month,DeliveryRate)VALUES(12,88)
+
+CREATE TABLE Sys_EHNumberMoldsDelivered --工程主页:上月交付模具数量
+(
+	id int identity (1,1) primary KEY,
+	Type varchar(50)  NULL,--(按期/延期)
+	Number INT , --数量
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_EHNumberMoldsDelivered(Type,Number)VALUES('按期',9)
+INSERT INTO Sys_EHNumberMoldsDelivered(Type,Number)VALUES('延期',2)
+
+CREATE TABLE Sys_EHProductionSchedule --工程主页:生产进度
+(
+	id int identity (1,1) primary KEY,
+	Name varchar(50)  NULL,--客户名称
+	Number INT , --数量
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT dbo.Sys_EHProductionSchedule(Name,Number)VALUES  ('进度正常',70)
+INSERT dbo.Sys_EHProductionSchedule(Name,Number)VALUES  ('已过交期',10) 
+INSERT dbo.Sys_EHProductionSchedule(Name,Number)VALUES  ('生产延误',20)
+
+CREATE TABLE Sys_EHDelayMoldList  --工程主页:延期模具列表
+(
+	id int identity (1,1) primary key , 
+	MoldNo varchar(50)  NULL, --模具编号
+	Customers  varchar(50)  NULL,--客户
+	Type varchar(50)  NULL,--类型
+	PlannedDeliveryDate DATE, --计划交期
+	EarlyWarning INT,--预警
+	EarlyWarningColor VARCHAR(10),--预警颜色
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_EHDelayMoldList(MoldNo,Customers,Type,PlannedDeliveryDate,EarlyWarning,EarlyWarningColor)VALUES('IK19001','TH','交期',GETDATE(),50,'#0033FF')
+INSERT INTO Sys_EHDelayMoldList(MoldNo,Customers,Type,PlannedDeliveryDate,EarlyWarning,EarlyWarningColor)VALUES('IK19002','TK','生产',GETDATE(),10,'#FF00FF')
+INSERT INTO Sys_EHDelayMoldList(MoldNo,Customers,Type,PlannedDeliveryDate,EarlyWarning,EarlyWarningColor)VALUES('IK19003','TH','生产',GETDATE(),60,'#6600FF')
+
+

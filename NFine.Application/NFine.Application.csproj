@@ -52,6 +52,7 @@
     <Compile Include="OperationMonitoring\KeyCustomersApp.cs" />
     <Compile Include="OperationMonitoring\MoldMakingProgressApp.cs" />
     <Compile Include="OperationMonitoring\TotalCycleCostApp.cs" />
+    <Compile Include="OperationMonitoring\UserEngineeringApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemManage\ItemsApp.cs" />
     <Compile Include="SystemManage\ItemsDetailApp.cs" />
