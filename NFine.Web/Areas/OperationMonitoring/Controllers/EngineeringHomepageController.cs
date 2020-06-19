@@ -14,6 +14,7 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
         private UserEngineeringApp ueApp = new UserEngineeringApp();
         private EHDeliveryCompletionRateApp EHdcrApp = new EHDeliveryCompletionRateApp();
         private EHProductionScheduleApp EHpsApp = new EHProductionScheduleApp();
+        private EHDelayMoldListApp EHdmlApp = new EHDelayMoldListApp();
 
         [HttpGet]
         [HandlerAjaxOnly]
@@ -36,6 +37,20 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
         public ActionResult GetDataEHProductionSchedule()
         {
             var data = EHpsApp.GetList().Where(p => p.IsEffective == 1);
+            return Content(data.ToJson());
+        }
+
+        [HttpGet]
+        [HandlerAjaxOnly]
+        public ActionResult GetGridJson(Pagination pagination, string queryJson)
+        {
+            var data = new
+            {
+                rows = EHdmlApp.GetList(pagination, queryJson),
+                total = pagination.total,
+                page = pagination.page,
+                records = pagination.records
+            };
             return Content(data.ToJson());
         }
     }

@@ -2,9 +2,6 @@
     ViewBag.Title = "工程主页";
     Layout = "~/Views/Shared/_Index.cshtml";
 }
-@*<script src="~/Content/js/pages/app.js"></script>
-<script src="~/Content/js/pages/app.min.js"></script>
-<script src="~/Content/js/pages/dashboard.js"></script>*@
 <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 <script src="~/Content/js/bootstrap/bootstrap.js"></script>
 <link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
@@ -17,9 +14,9 @@
         loadOneA();
         loadTwoA();
         loadThreeA();
+        gridList();
     }
-    function loadOneA()
-    {
+    function loadOneA() {
         $.ajax({
             async: false,
             url: "/OperationMonitoring/EngineeringHomepage/GetDataUserEngineeringList",
@@ -210,6 +207,31 @@
         };
         myChart.setOption(option);
     }
+    function gridList() {
+        var $gridList = $("#gridList");
+        $gridList.dataGrid({
+            url: "/OperationMonitoring/EngineeringHomepage/GetGridJson",
+            height: 247,
+            colModel: [
+                { label: '模具编号', name: 'MoldNo', width: 80, align: 'left' },
+                { label: '客户', name: 'Customers', width: 60, align: 'left' },
+                { label: '类型', name: 'Type', width: 60, align: 'left' },
+                {
+                    label: '计划交期', name: 'PlannedDeliveryDate', width: 80, align: 'left',
+                    formatter: "date", formatoptions: { srcformat: 'Y/m/d', newformat: 'Y/m/d' }
+                },
+                {
+                    label: '预警', name: 'EarlyWarning', width: 90, align: 'left',
+                    formatter: function (cellvalue, row, index) {
+                        return '<div style="top: 0%;left: 50%; transform: translate(-0%, -50%);"> <div style="border: 1px #000000 solid;margin:0 auto;position: relative;width:80%; height: 5px;background-color: #f9e1e3; border-radius: 3px;"><div style="white-space: pre-line;width: ' + index.EarlyWarning + '%;height: 100%;background-color:' + index.EarlyWarningColor + ';border-radius: 3px;"></div></div></div>'
+                    }
+                },
+            ],
+            //pager: "#gridPager",
+            sortname: 'MoldNo desc',
+            viewrecords: true
+        });
+    }
 </script>
 <body>
     <div class="row">
@@ -293,14 +315,14 @@
                             <div style="text-align:center;font-size:13px;">交期达成率趋势</div>
                             <div id="chart1" style="height:200px;"></div>
                         </div>
-                        <div  style="height:90%;margin:20px;width:98%">
+                        <div style="height:90%;margin:20px;width:98%">
                             <div style="text-align:center;font-size:13px;">上月交付模具数量</div>
                             <div id="chart2b"></div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="col-lg-6 connectedSortable" style="width:50%">
+            <section class="col-lg-6 connectedSortable" style="width:50%;">
                 <div class="box box-default">
                     <div class="box-header with-border">
                         <h4 class="box-title">在制进度正常、延误比例</h4>
@@ -308,14 +330,14 @@
                             <button type="button" onclick="funOne()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
                         </div>
                     </div>
-                    <div class="tab-content" style="height:100%;">
-                        <div style="float:left;width:50%">
+                    <div class="tab-content" style="height:300px;">
+                        <div style="float:left;width:35%">
                             <div style="text-align:center;font-size:13px;">生产进度</div>
-                            <div id="chart2a" style="height:325px; "></div>
+                            <div id="chart2a" style="height:300px; "></div>
                         </div>
-                        <div class="gridPanel" style="margin-left:50%;width:auto;">
+                        <div class="gridPanel" style="margin-left:35%;">
                             <div style="text-align:center;font-size:13px;">延期模具列表</div>
-                            <table id="gridList" style="height:325px; "></table>
+                            <table id="gridList"></table>
                         </div>
                     </div>
                 </div>
