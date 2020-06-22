@@ -16,6 +16,7 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
         private EHProductionScheduleApp EHpsApp = new EHProductionScheduleApp();
         private EHDelayMoldListApp EHdmlApp = new EHDelayMoldListApp();
         private EHNumberMoldsDeliveredApp EHnmdApp = new EHNumberMoldsDeliveredApp();
+        private CustomerListApp clApp = new CustomerListApp();
 
         [HttpGet]
         [HandlerAjaxOnly]
@@ -61,6 +62,28 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
                 records = pagination.records
             };
             return Content(data.ToJson());
+        }
+
+        [HttpGet]
+        [HandlerAjaxOnly]
+        public ActionResult GetTreeJson()
+        {
+            var data = clApp.GetList();
+            var treeList = new List<TreeViewModel>();
+            foreach (CustomerListEntity item in data)
+            {
+                TreeViewModel tree = new TreeViewModel();
+                bool hasChildren = data.Count(t => t.ParentId == item.Id) == 0 ? false : true;
+                tree.id = item.Id.ToString();
+                tree.text = item.FullName;
+                tree.value = item.EnCode;
+                tree.parentId = item.ParentId.ToString();
+                tree.isexpand = true;
+                tree.complete = true;
+                tree.hasChildren = hasChildren;
+                treeList.Add(tree);
+            }
+            return Content(treeList.TreeViewJson());
         }
     }
 }
