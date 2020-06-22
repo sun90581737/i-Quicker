@@ -533,3 +533,37 @@ INSERT INTO Sys_EHDelayMoldList(MoldNo,Customers,Type,PlannedDeliveryDate,EarlyW
 INSERT INTO Sys_EHDelayMoldList(MoldNo,Customers,Type,PlannedDeliveryDate,EarlyWarning,EarlyWarningColor)VALUES('IK19003','TH','生产',GETDATE(),60,'#6600FF')
 
 
+CREATE TABLE Sys_CustomerList --客户清单
+(
+	Id int identity (1,1) primary KEY,  --主表Id
+	ParentId INT,						--父级
+	EnCode VARCHAR(50),					--编码（自定义）
+	FullName NVARCHAR(200),             --名称
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+CREATE TABLE Sys_CustomerListDetail --客户清单明细
+(
+	Id int identity (1,1) primary KEY,  --明细Id
+	ListId INT,							--主表主键
+	MoldName VARCHAR(50),				--模具名称
+	MoldNo VARCHAR(50),					--模具编号
+	TN VARCHAR(50),						--TN
+	MoldType VARCHAR(50),				--类型
+	MoldState  VARCHAR(50),				--状态
+	Priority VARCHAR(50),				--优先级
+	MoldDate DATE,						--试模日期
+	MoldFactory VARCHAR(50),			--试模厂
+	MoldMaterial VARCHAR(50),			--模仁材质
+	Category VARCHAR(10),				--类别
+	Colour varchar(50)  NULL,			--灯的颜色
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1			--0 无效 1 有效 1显示
+)
+
+INSERT INTO Sys_CustomerList(ParentId,EnCode,FullName)VALUES(0,'APPLE','客户APPLE')
+INSERT INTO Sys_CustomerList(ParentId,EnCode,FullName)VALUES(1,'01','订单LD200301<br>订单名称:X968<br>接单日期:2020/03/01<br>订单状态:进行中')
+INSERT INTO Sys_CustomerList(ParentId,EnCode,FullName)VALUES(1,'02','订单LD200302<br>订单名称:X968<br>接单日期:2020/03/01<br>订单状态:进行中')
+
+INSERT INTO Sys_CustomerListDetail(ListId,MoldName,MoldNo,TN,MoldType,MoldState,Priority,MoldDate,MoldFactory,MoldMaterial,Category,Colour)VALUES(1,'DAIL_DACE','IK19001','T0','新模','加工中','A',GETDATE(),'INNER','8407','2','#CC0000')
+INSERT INTO Sys_CustomerListDetail(ListId,MoldName,MoldNo,TN,MoldType,MoldState,Priority,MoldDate,MoldFactory,MoldMaterial,Category,Colour)VALUES(1,'DAIL_CLIP','IK19002','T1','修模','加工中','A',GETDATE(),'INNER','8407','2','#01B468')

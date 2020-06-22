@@ -43,6 +43,8 @@
     <Compile Include="AutomationLine\RunningStateRepository.cs" />
     <Compile Include="OperationMonitoring\BOCapacityLoadRepository.cs" />
     <Compile Include="OperationMonitoring\CostByDepartmentRepository.cs" />
+    <Compile Include="OperationMonitoring\CustomerListDetailRepository.cs" />
+    <Compile Include="OperationMonitoring\CustomerListRepository.cs" />
     <Compile Include="OperationMonitoring\DeliveryCompletionRateRepository.cs" />
     <Compile Include="OperationMonitoring\EHDelayMoldListRepository.cs" />
     <Compile Include="OperationMonitoring\EHDeliveryCompletionRateRepository.cs" />

@@ -48,6 +48,8 @@
     <Compile Include="OperationMonitoring\CostByDepartmentApp.cs" />
     <Compile Include="AutomationLine\DataAcquisitionApp.cs" />
     <Compile Include="AutomationLine\RunningStateApp.cs" />
+    <Compile Include="OperationMonitoring\CustomerListApp.cs" />
+    <Compile Include="OperationMonitoring\CustomerListDetailApp.cs" />
     <Compile Include="OperationMonitoring\DeliveryCompletionRateApp.cs" />
     <Compile Include="OperationMonitoring\EHDelayMoldListApp.cs" />
     <Compile Include="OperationMonitoring\EHDeliveryCompletionRateApp.cs" />

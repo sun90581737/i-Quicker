@@ -52,6 +52,8 @@
     <Compile Include="AutomationLine\RunningStateMap.cs" />
     <Compile Include="OperationMonitoring\BOCapacityLoadMap.cs" />
     <Compile Include="OperationMonitoring\CostByDepartmentMap.cs" />
+    <Compile Include="OperationMonitoring\CustomerListDetailMap.cs" />
+    <Compile Include="OperationMonitoring\CustomerListMap.cs" />
     <Compile Include="OperationMonitoring\DeliveryCompletionRateMap.cs" />
     <Compile Include="OperationMonitoring\EHDelayMoldListMap.cs" />
     <Compile Include="OperationMonitoring\EHDeliveryCompletionRateMap.cs" />
