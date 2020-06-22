@@ -502,8 +502,8 @@ CREATE TABLE Sys_EHNumberMoldsDelivered --工程主页:上月交付模具数量
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )
-INSERT INTO Sys_EHNumberMoldsDelivered(Type,Number)VALUES('按期',9)
-INSERT INTO Sys_EHNumberMoldsDelivered(Type,Number)VALUES('延期',2)
+INSERT INTO Sys_EHNumberMoldsDelivered(Type,Number)VALUES('按期',80)
+INSERT INTO Sys_EHNumberMoldsDelivered(Type,Number)VALUES('延期',20)
 
 CREATE TABLE Sys_EHProductionSchedule --工程主页:生产进度
 (

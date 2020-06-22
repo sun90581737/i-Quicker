@@ -15,6 +15,7 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
         private EHDeliveryCompletionRateApp EHdcrApp = new EHDeliveryCompletionRateApp();
         private EHProductionScheduleApp EHpsApp = new EHProductionScheduleApp();
         private EHDelayMoldListApp EHdmlApp = new EHDelayMoldListApp();
+        private EHNumberMoldsDeliveredApp EHnmdApp = new EHNumberMoldsDeliveredApp();
 
         [HttpGet]
         [HandlerAjaxOnly]
@@ -29,6 +30,14 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
         public ActionResult GetDataEHDeliveryCompletionRate()
         {
             var data = EHdcrApp.GetList().Where(p => p.IsEffective == 1);
+            return Content(data.ToJson());
+        }
+
+        [HttpGet]
+        [HandlerAjaxOnly]
+        public ActionResult GetDataEHNumberMoldsDelivered()
+        {
+            var data = EHnmdApp.GetList().Where(p => p.IsEffective == 1);
             return Content(data.ToJson());
         }
 
