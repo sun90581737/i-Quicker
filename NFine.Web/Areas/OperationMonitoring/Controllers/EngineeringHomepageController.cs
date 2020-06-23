@@ -86,7 +86,53 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
             }
             return Content(treeList.TreeViewJson());
         }
-
+        [HttpGet]
+        [HandlerAjaxOnly]
+        public ActionResult GetTreeDetailJson(string value)
+        {
+            var temp = 0;
+            List<CustomerListEntity> ListNew = new List<CustomerListEntity>();
+            //父级
+            List<CustomerListEntity> ListF = clApp.GetList().Where(p => p.ParentId == 0).ToList();
+            //子级
+            List<CustomerListEntity> ListZ = clApp.GetList().Where(p => p.FullName.IndexOf(value) >= 0).ToList();
+            foreach (var item in ListF)
+            {
+                temp = 1;
+                ListNew.Add(item);
+                foreach (var item2 in ListZ)
+                {
+                    if (item2.ParentId == item.Id)
+                    {
+                        temp = 2;
+                        ListNew.Add(item2);
+                    }
+                }
+                if (temp == 1)
+                {
+                    ListNew.Remove(item);
+                }
+            }
+            if (temp == 0)
+            {
+                ListNew = new List<CustomerListEntity>();
+            }
+            var treeList = new List<TreeViewModel>();
+            foreach (CustomerListEntity item in ListNew)
+            {
+                TreeViewModel tree = new TreeViewModel();
+                bool hasChildren = ListNew.Count(t => t.ParentId == item.Id) == 0 ? false : true;
+                tree.id = item.Id.ToString();
+                tree.text = item.FullName;
+                tree.value = item.EnCode;
+                tree.parentId = item.ParentId.ToString();
+                tree.isexpand = true;
+                tree.complete = true;
+                tree.hasChildren = hasChildren;
+                treeList.Add(tree);
+            }
+            return Content(treeList.TreeViewJson());
+        }
         [HttpGet]
         [HandlerAjaxOnly]
         public ActionResult GetDetailGridJson(string itemId)

@@ -536,7 +536,7 @@ INSERT INTO Sys_EHDelayMoldList(MoldNo,Customers,Type,PlannedDeliveryDate,EarlyW
 CREATE TABLE Sys_CustomerList --客户清单
 (
 	Id int identity (1,1) primary KEY,  --主表Id
-	ParentId INT,						--父级
+	ParentId INT,						--父级  0父节点 大于0对应ID 子节点
 	EnCode VARCHAR(50),					--编码（自定义）
 	FullName NVARCHAR(200),             --名称
 	CreationTime DATETIME not null default getdate(),--创建时间
@@ -569,3 +569,5 @@ INSERT INTO Sys_CustomerList(ParentId,EnCode,FullName)VALUES(5,'01','订单LD20030
 
 INSERT INTO Sys_CustomerListDetail(ListId,MoldName,MoldNo,TN,MoldType,MoldState,Priority,MoldDate,MoldFactory,MoldMaterial,Category,Colour)VALUES(3,'DAIL_DACE','IK19001','T0','新模','加工中','A',GETDATE(),'INNER','8407','2','#CC0000')
 INSERT INTO Sys_CustomerListDetail(ListId,MoldName,MoldNo,TN,MoldType,MoldState,Priority,MoldDate,MoldFactory,MoldMaterial,Category,Colour)VALUES(3,'DAIL_CLIP','IK19002','T1','修模','加工中','A',GETDATE(),'INNER','8407','2','#01B468')
+
+

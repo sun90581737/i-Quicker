@@ -404,13 +404,18 @@
         $("#itemTree").treeview({
             url: "/OperationMonitoring/EngineeringHomepage/GetTreeJson",
             onnodeclick: function (item) {
-                $("#txt_keyword").val('');
-                $('#btn_search').trigger("click");
+                //$("#txt_keyword").val('');
+                $('#btn_hidden').trigger("click");
             }
         });
 
         $("#btn_search").click(function () {
-
+            $("#itemTree").treeview({
+                url: "/OperationMonitoring/EngineeringHomepage/GetTreeDetailJson?value=" + $("#txt_keyword").val(),
+                onnodeclick: function (item) {
+                    $('#btn_hidden').trigger("click");
+                }
+            });
         });
     }
     function gridListOn() {
@@ -441,7 +446,7 @@
                 { label: '类别', name: 'Category', width: 80, align: 'left', sortable: false }
             ]
         });
-        $("#btn_search").click(function () {
+        $("#btn_hidden").click(function () {
             $gridListOn.jqGrid('setGridParam', {
                 url: "/OperationMonitoring/EngineeringHomepage/GetDetailGridJson",
                 postData: { itemId: $("#itemTree").getCurrentNode().id},
@@ -575,9 +580,10 @@
                                     <tr>
                                         <td>
                                             <div class="input-group">
-                                                <input id="txt_keyword" type="text" class="form-control" placeholder="搜索" style="width: 150px;box-shadow: none;height: 29px;line-height: 29px;padding-top: 0px;padding-bottom: 0px;padding-right: 0px;padding-left: 7px;resize: none;">
+                                                <input id="txt_keyword" type="text" class="form-control" placeholder="搜索" style="width: 138px;box-shadow: none;height: 29px;line-height: 29px;padding-top: 0px;padding-bottom: 0px;padding-right: 0px;padding-left: 7px;resize: none;">
                                                 <span class="input-group-btn">
-                                                    <button id="btn_search" type="button" class="btn  btn-primary" style="padding: 0px 0px;font-size: 14px;height: 29px;min-width: 30px;"><i class="fa fa-search"></i></button>
+                                                    <button id="btn_search" type="button" class="btn  btn-primary" style="padding: 0px 0px;font-size: 14px;height: 29px;min-width: 29px;"><i class="fa fa-search"></i></button>
+                                                    <button id="btn_hidden" type="button" style="visibility: hidden;"></button>
                                                 </span>
                                             </div>
                                         </td>
