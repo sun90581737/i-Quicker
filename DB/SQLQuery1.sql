@@ -567,5 +567,5 @@ INSERT INTO Sys_CustomerList(ParentId,EnCode,FullName)VALUES(1,'02','订单LD20030
 INSERT INTO Sys_CustomerList(ParentId,EnCode,FullName)VALUES(0,'LOGITEC','客户LOGITEC')
 INSERT INTO Sys_CustomerList(ParentId,EnCode,FullName)VALUES(5,'01','订单LD200301<br>订单名称:X968<br>接单日期:2020/03/01<br>订单状态:进行中')
 
-INSERT INTO Sys_CustomerListDetail(ListId,MoldName,MoldNo,TN,MoldType,MoldState,Priority,MoldDate,MoldFactory,MoldMaterial,Category,Colour)VALUES(1,'DAIL_DACE','IK19001','T0','新模','加工中','A',GETDATE(),'INNER','8407','2','#CC0000')
-INSERT INTO Sys_CustomerListDetail(ListId,MoldName,MoldNo,TN,MoldType,MoldState,Priority,MoldDate,MoldFactory,MoldMaterial,Category,Colour)VALUES(1,'DAIL_CLIP','IK19002','T1','修模','加工中','A',GETDATE(),'INNER','8407','2','#01B468')
+INSERT INTO Sys_CustomerListDetail(ListId,MoldName,MoldNo,TN,MoldType,MoldState,Priority,MoldDate,MoldFactory,MoldMaterial,Category,Colour)VALUES(3,'DAIL_DACE','IK19001','T0','新模','加工中','A',GETDATE(),'INNER','8407','2','#CC0000')
+INSERT INTO Sys_CustomerListDetail(ListId,MoldName,MoldNo,TN,MoldType,MoldState,Priority,MoldDate,MoldFactory,MoldMaterial,Category,Colour)VALUES(3,'DAIL_CLIP','IK19002','T1','修模','加工中','A',GETDATE(),'INNER','8407','2','#01B468')

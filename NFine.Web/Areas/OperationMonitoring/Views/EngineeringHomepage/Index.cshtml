@@ -391,7 +391,7 @@
                 {
                     label: '预警', name: 'EarlyWarning', width: 90, align: 'left',
                     formatter: function (cellvalue, row, index) {
-                        return '<div style="top: 0%;left: 50%; transform: translate(-0%, -50%);"> <div style="border: 1px #000000 solid;margin:0 auto;position: relative;width:80%; height: 5px;background-color: #f9e1e3; border-radius: 3px;"><div style="white-space: pre-line;width: ' + index.EarlyWarning + '%;height: 100%;background-color:' + index.EarlyWarningColor + ';border-radius: 3px;"></div></div></div>'
+                        return '<div style="top: 10%;left: 40%; transform: translate(-10%, -40%);"> <div style="border: 1px #000000 solid;margin:0 auto;position: relative;width:80%; height: 5px;background-color: #f9e1e3; border-radius: 3px;"><div style="white-space: pre-line;width: ' + index.EarlyWarning + '%;height: 100%;background-color:' + index.EarlyWarningColor + ';border-radius: 3px;"></div></div></div>'
                     }
                 },
             ],
@@ -400,7 +400,6 @@
             viewrecords: true
         });
     }
-
     function treeView() {
         $("#itemTree").treeview({
             url: "/OperationMonitoring/EngineeringHomepage/GetTreeJson",
@@ -414,11 +413,10 @@
 
         });
     }
-
     function gridListOn() {
         var $gridListOn = $("#gridListOn");
         $gridListOn.dataGrid({
-            height: $(window).height() - 96,
+            height: 350,
             colModel: [
                 {
                     label: '', name: '', width: 30, align: 'left',
@@ -428,11 +426,11 @@
                         }
                     }
                 },
-                { label: '模具名称', name: 'MoldName', width: 120, align: 'left' },
-                { label: '模具编号', name: 'MoldNo', width: 120, align: 'left' },
+                { label: '模具名称', name: 'MoldName', width: 140, align: 'left' },
+                { label: '模具编号', name: 'MoldNo', width: 140, align: 'left' },
                 { label: 'TN', name: 'TN', width: 60, align: 'left' },
                 { label: '类型', name: 'MoldType', width: 60, align: 'left' },
-                { label: '状态', name: 'MoldState', width: 80, align: 'left' },
+                { label: '状态', name: 'MoldState', width: 100, align: 'left' },
                 { label: '优先级', name: 'Priority', width: 80, align: 'left' },
                 {
                     label: '试模日期', name: 'MoldDate', width: 120, align: 'left',
@@ -588,7 +586,7 @@
                             </div>
                             <div id="itemTree"></div>
                         </div>
-                        <div class="ui-layout-center">
+                        <div class="ui-layout-center" >
                             <div class="gridPanel">
                                 <table id="gridListOn"></table>
                             </div>
