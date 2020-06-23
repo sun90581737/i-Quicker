@@ -17,6 +17,7 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
         private EHDelayMoldListApp EHdmlApp = new EHDelayMoldListApp();
         private EHNumberMoldsDeliveredApp EHnmdApp = new EHNumberMoldsDeliveredApp();
         private CustomerListApp clApp = new CustomerListApp();
+        private CustomerListDetailApp cldApp = new CustomerListDetailApp();
 
         [HttpGet]
         [HandlerAjaxOnly]
@@ -84,6 +85,14 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
                 treeList.Add(tree);
             }
             return Content(treeList.TreeViewJson());
+        }
+
+        [HttpGet]
+        [HandlerAjaxOnly]
+        public ActionResult GetDetailGridJson(string itemId)
+        {
+            var data = cldApp.GetList(itemId);
+            return Content(data.ToJson());
         }
     }
 }
