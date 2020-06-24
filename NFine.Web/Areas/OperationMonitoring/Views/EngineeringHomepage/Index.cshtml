@@ -421,7 +421,7 @@
     function gridListOn() {
         var $gridListOn = $("#gridListOn");
         $gridListOn.dataGrid({
-            height: 350,
+            height: 225,
             colModel: [
                 {
                     label: '', name: '', width: 30, align: 'left',
@@ -452,6 +452,15 @@
                 postData: { itemId: $("#itemTree").getCurrentNode().id},
             }).trigger('reloadGrid');
         });
+    }
+    function funOne() {
+        window.open("/OperationMonitoring/EngineeringHomepage/Form1");
+    }
+    function funTwo() {
+        window.open("/OperationMonitoring/EngineeringHomepage/Form2");
+    }
+    function funThree() {
+        window.open("/OperationMonitoring/EngineeringHomepage/Form3");
     }
 </script>
 <body>
@@ -528,7 +537,7 @@
                     <div class="box-header with-border">
                         <h4 class="box-title">交期达成率</h4>
                         <div class="box-tools pull-right">
-                            <button type="button" onclick="funTwo()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
+                            <button type="button" onclick="funOne()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
                         </div>
                     </div>
                     <div class="tab-content" style="height:100%;">
@@ -548,7 +557,7 @@
                     <div class="box-header with-border">
                         <h4 class="box-title">在制进度正常、延误比例</h4>
                         <div class="box-tools pull-right">
-                            <button type="button" onclick="funOne()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
+                            <button type="button" onclick="funTwo()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
                         </div>
                     </div>
                     <div class="tab-content" style="height:300px;">
@@ -570,10 +579,10 @@
                     <div class="box-header with-border">
                         <h4 class="box-title">客户清单</h4>
                         <div class="box-tools pull-right">
-                            <button type="button" onclick="funOne()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
+                            <button type="button" onclick="funThree()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
                         </div>
                     </div>
-                    <div class="ui-layout" id="layout" style="height: 400px; ">
+                    <div class="ui-layout" id="layout" style="height: 275px; ">
                         <div class="ui-layout-west">
                             <div class="search">
                                 <table>

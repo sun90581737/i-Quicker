@@ -690,6 +690,9 @@
     <Content Include="Areas\OperationMonitoring\Views\BusinessOverview\Form3.cshtml" />
     <Content Include="Areas\OperationMonitoring\Views\BusinessOverview\Form4.cshtml" />
     <Content Include="Areas\OperationMonitoring\Views\EngineeringHomepage\Index.cshtml" />
+    <Content Include="Areas\OperationMonitoring\Views\EngineeringHomepage\Form1.cshtml" />
+    <Content Include="Areas\OperationMonitoring\Views\EngineeringHomepage\Form2.cshtml" />
+    <Content Include="Areas\OperationMonitoring\Views\EngineeringHomepage\Form3.cshtml" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
   </ItemGroup>
   <PropertyGroup>
