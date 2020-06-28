@@ -54,6 +54,12 @@
     <Compile Include="OperationMonitoring\MoldMakingProgressRepository.cs" />
     <Compile Include="OperationMonitoring\TotalCycleCostRepository.cs" />
     <Compile Include="OperationMonitoring\UserEngineeringRepository.cs" />
+    <Compile Include="ProductionManage\PMHomeCapacityLoadRepository.cs" />
+    <Compile Include="ProductionManage\PMHomeDelayMoldRepository.cs" />
+    <Compile Include="ProductionManage\PMHomeJiadongRateRepository.cs" />
+    <Compile Include="ProductionManage\PMHomeMoldProgressRepository.cs" />
+    <Compile Include="ProductionManage\PMHomeOutsourcingDetailRepository.cs" />
+    <Compile Include="ProductionManage\PMHomeOutsourcingRateRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemManage\ItemsDetailRepository.cs" />
     <Compile Include="SystemManage\ItemsRepository.cs" />

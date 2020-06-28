@@ -18,6 +18,7 @@ insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon,
 insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('52dd1989-4ff6-4e26-b5a0-9b7cb0644b0a', '0', Null, Null, '生产管理', 'fa fa-bullhorn', Null, 'expand', 'False', 'True', 'False', 'False', 'False', 9, Null, 'True', Null, '2020/6/5 15:58:45', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null, Null, Null)
 insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('0f5597c5-2b94-4237-b0b4-ee7b7a32e45a', 'ea520850-c1a8-47dc-8944-9c216844dbcb', Null, Null, '经营概览', Null, '/OperationMonitoring/BusinessOverview/Index', 'iframe', 'True', 'False', 'False', 'False', 'False', 1, Null, 'True', Null, '2020/6/12 10:46:41', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', '2020/6/12 10:57:56', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null)
 insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('ccca25fe-eee4-44ae-942b-eb00002a7dd2', 'ea520850-c1a8-47dc-8944-9c216844dbcb', Null, Null, '工程主页', Null, '/OperationMonitoring/EngineeringHomepage/Index', 'iframe', 'True', 'False', 'False', 'False', 'False', 2, Null, 'True', Null, '2020/6/19 9:31:01', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', '2020/6/19 9:41:53', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null)
+insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon, F_UrlAddress, F_Target, F_IsMenu, F_IsExpand, F_IsPublic, F_AllowEdit, F_AllowDelete, F_SortCode, F_DeleteMark, F_EnabledMark, F_Description, F_CreatorTime, F_CreatorUserId, F_LastModifyTime, F_LastModifyUserId, F_DeleteTime, F_DeleteUserId) values ('0a6a468b-4e19-4fbf-8ed8-15777d676cb7', '52dd1989-4ff6-4e26-b5a0-9b7cb0644b0a', Null, Null, '生管主页', Null, '/ProductionManage/ProductionManageHome/Index', 'iframe', 'True', 'False', 'False', 'False', 'False', 1, Null, 'True', Null, '2020/6/28 10:20:28', '9f2ec079-7d0f-4fe2-90ab-8b09a8302aba', Null, Null, Null, Null)
 
 
 CREATE table Sys_TaskList  --班组:任务清单
@@ -571,3 +572,151 @@ INSERT INTO Sys_CustomerListDetail(ListId,MoldName,MoldNo,TN,MoldType,MoldState,
 INSERT INTO Sys_CustomerListDetail(ListId,MoldName,MoldNo,TN,MoldType,MoldState,Priority,MoldDate,MoldFactory,MoldMaterial,Category,Colour)VALUES(3,'DAIL_CLIP','IK19002','T1','修模','加工中','A',GETDATE(),'INNER','8407','2','#01B468')
 
 
+
+CREATE TABLE Sys_PMHomeMoldProgress --生管主页:模具进度
+(
+	id int identity (1,1) primary KEY,
+	ProgressStatus varchar(50)  NULL,--进度状态
+	Cost INT , --成本
+	Display varchar(50),--(值保持一致，读取其中一个)
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT dbo.Sys_PMHomeMoldProgress(ProgressStatus,Cost,Display)VALUES  ('进度正常',23,28)
+INSERT dbo.Sys_PMHomeMoldProgress(ProgressStatus,Cost,Display)VALUES  ('进度延误',5,28)
+
+
+CREATE table Sys_PMHomeDelayMold  --生管主页:延期模具
+(  
+id int identity (1,1) primary key , 
+MoldNo varchar(50)  NULL, --模具编号
+Edition varchar(50)  NULL,--版本
+Type varchar(50)  NULL,--类型
+PlannedDeliveryDate DATE, --计划交期
+Progress INT,--进度
+ProgressColor VARCHAR(10),--进度颜色
+IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO dbo.Sys_PMHomeDelayMold(MoldNo,Edition,Type,PlannedDeliveryDate,Progress,ProgressColor)VALUES  ( 'IK19001','T0','新模',GETDATE(),20,'#009933')
+INSERT INTO dbo.Sys_PMHomeDelayMold(MoldNo,Edition,Type,PlannedDeliveryDate,Progress,ProgressColor)VALUES  ( 'IK19002','T1','修模',GETDATE(),40,'#0000FF')
+INSERT INTO dbo.Sys_PMHomeDelayMold(MoldNo,Edition,Type,PlannedDeliveryDate,Progress,ProgressColor)VALUES  ( 'IK19003','T2','修模',GETDATE(),60,'#FF00FF')
+INSERT INTO dbo.Sys_PMHomeDelayMold(MoldNo,Edition,Type,PlannedDeliveryDate,Progress,ProgressColor)VALUES  ( 'IK19004','T3','修模',GETDATE(),80,'#D80000')
+
+CREATE TABLE Sys_PMHomeCapacityLoad --生管主页:产能/负载
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	PrType INT, --下拉框类型(一周:1、两周:2、三周:3、一个月:4、半年:5、一年:6)
+	Colour varchar(50)  NULL,  --颜色
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('CNC钢料A组','产能',88,1,'#01B468')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('CNC钢料A组','负荷',100,1,'#F9F900')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('CNC钢料B组','产能',66,1,'#FF2D2D')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('CNC钢料B组','负荷',120,1,'#F9F900')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('CNC电极组','产能',66,1,'#01B468')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('CNC电极组','负荷',78,1,'#F9F900')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('EDM放电A组','产能',66,1,'#F9F900')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('EDM放电A组','负荷',325,1,'#F9F900')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('EDM放电B组','产能',66,1,'#F9F900')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('EDM放电B组','负荷',221,1,'#F9F900')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('钳工A组','产能',32,1,'#F9F900')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('钳工A组','负荷',23,1,'#F9F900')
+
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('CNC钢料A组','产能',11,2,'#F9F900')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('CNC钢料A组','负荷',22,2,'#F9F900')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('CNC钢料B组','产能',66,2,'#F9F900')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('CNC钢料B组','负荷',120,2,'#F9F900')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('CNC电极组','产能',66,2,'#F9F900')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('CNC电极组','负荷',78,2,'#F9F900')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('EDM放电A组','产能',66,2,'#F9F900')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('EDM放电A组','负荷',111,2,'#F9F900')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('EDM放电B组','产能',66,2,'#01B468')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('EDM放电B组','负荷',221,2,'#01B468')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('钳工A组','产能',32,2,'#01B468')
+INSERT INTO dbo.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,PrType,Colour)VALUES  ('钳工A组','负荷',89,2,'#01B468')
+
+CREATE TABLE Sys_PMHomeOutsourcingRate --生管主页:外协按期交付率
+(
+	id int identity (1,1) primary KEY,
+	Type varchar(50)  NULL,--类型
+	Cost INT , --成本
+	GroupType varchar(50)  NULL, --外协按期交付率(WX)/物料按期交付率(WL)
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT dbo.Sys_PMHomeOutsourcingRate(Type,Cost,GroupType)VALUES('按期',88,'WX')
+INSERT dbo.Sys_PMHomeOutsourcingRate(Type,Cost,GroupType)VALUES('延期',12,'WX') 
+INSERT dbo.Sys_PMHomeOutsourcingRate(Type,Cost,GroupType)VALUES('按期',98,'WL')
+INSERT dbo.Sys_PMHomeOutsourcingRate(Type,Cost,GroupType)VALUES('延期',2,'WL') 
+
+CREATE table Sys_PMHomeOutsourcingDetail  --生管主页:外协按期交付追踪
+(  
+id int identity (1,1) primary key , 
+OutsourcingNo varchar(50)  NULL, --外协单号
+ModuleNumber varchar(50)  NULL,--模号
+WorkpieceNo varchar(50)  NULL,--工件号
+WorkingProcedure varchar(50)  NULL,--委外工序
+Supplier varchar(50)  NULL,--供应商
+PlannedDeliveryDate DATE, --计划交期
+DaysOfExtension INT,--延期天数
+DaysOfExtensionColor VARCHAR(10),--延期天数颜色
+GroupType varchar(50)  NULL, --外协按期交付率(WX)/物料按期交付率(WL)
+CreationTime DATETIME not null default getdate(),--创建时间
+IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('WX200302001','20KK02003','201_1','铣床','DJ',GETDATE(),6,'#D80000','WX')
+INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('WX200302002','20KK04013','202_2','热处理','KS',GETDATE(),3,'#CCFF33','WX')
+INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('WX200302003','20KK04023','202_2','热处理','KS',GETDATE(),4,'#CCFF33','WX')
+INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('WX200302004','20KK04033','202_2','热处理','KS',GETDATE(),4,'#CCFF33','WX')
+INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('WX200302005','20KK04043','202_2','热处理','KS',GETDATE(),5,'#CCFF33','WX')
+INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('WX200302006','20KK04053','202_2','热处理','KS',GETDATE(),5,'#CCFF33','WX')
+INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('WX200302007','20KK04063','202_2','热处理','KS',GETDATE(),7,'#CCFF33','WX')
+INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('WX200302008','20KK04073','202_2','热处理','KS',GETDATE(),5,'#CCFF33','WX')
+
+INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('CG200302033','20KK02003','201_1','原材料','KJJS',GETDATE(),6,'#D80000','WL')
+INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('CG200302002','20KK04013','202_2','原材料','KJJS',GETDATE(),3,'#CCFF33','WL')
+INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('CG200302003','20KK04023','202_2','原材料','KJJS',GETDATE(),4,'#CCFF33','WL')
+INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('CG200302004','20KK04033','202_2','原材料','KJJS',GETDATE(),4,'#CCFF33','WL')
+INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('CG200302005','20KK04043','202_2','原材料','KJJS',GETDATE(),5,'#CCFF33','WL')
+INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('CG200302006','20KK04053','202_2','原材料','KJJS',GETDATE(),5,'#CCFF33','WL')
+INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('CG200302007','20KK04063','202_2','原材料','KJJS',GETDATE(),7,'#CCFF33','WL')
+INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('CG200302008','20KK04073','202_2','原材料','KJJS',GETDATE(),5,'#CCFF33','WL')
+
+CREATE TABLE Sys_PMHomeJiadongRate --生管主页:稼动率趋势
+(
+	id int identity (1,1) primary KEY,
+	Month_Day varchar(20)  NULL, --日期
+	Device_Name varchar(50)  NULL,--设备名
+	TrendRate FLOAT,--趋势数
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('2-28','CNC钢料A',89)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('2-28','CNC钢料B',92)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('2-28','CNC电极',95)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('2-28','EDM',85)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-1','CNC钢料A',91)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-1','CNC钢料B',94)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-1','CNC电极',98)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-1','EDM',83)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-2','CNC钢料A',92)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-2','CNC钢料B',96)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-2','CNC电极',99)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-2','EDM',84)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-3','CNC钢料A',94)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-3','CNC钢料B',95)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-3','CNC电极',96)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-3','EDM',88)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-4','CNC钢料A',92)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-4','CNC钢料B',93)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-4','CNC电极',96)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-4','EDM',87)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-5','CNC钢料A',93)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-5','CNC钢料B',91)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-5','CNC电极',97)
+INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-5','EDM',86)

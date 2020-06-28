@@ -59,6 +59,12 @@
     <Compile Include="03 Entity\OperationMonitoring\MoldMakingProgressEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\TotalCycleCostEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\UserEngineeringEntity.cs" />
+    <Compile Include="03 Entity\ProductionManage\PMHomeCapacityLoadEntity.cs" />
+    <Compile Include="03 Entity\ProductionManage\PMHomeDelayMoldEntity.cs" />
+    <Compile Include="03 Entity\ProductionManage\PMHomeJiadongRateEntity.cs" />
+    <Compile Include="03 Entity\ProductionManage\PMHomeMoldProgressEntity.cs" />
+    <Compile Include="03 Entity\ProductionManage\PMHomeOutsourcingDetailEntity.cs" />
+    <Compile Include="03 Entity\ProductionManage\PMHomeOutsourcingRateEntity.cs" />
     <Compile Include="03 Entity\SystemManage\AreaEntity.cs" />
     <Compile Include="03 Entity\SystemManage\ModuleButtonEntity.cs" />
     <Compile Include="03 Entity\SystemManage\ModuleEntity.cs" />
@@ -88,6 +94,12 @@
     <Compile Include="04 IRepository\OperationMonitoring\IMoldMakingProgressRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\ITotalCycleCostRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\IUserEngineeringRepository.cs" />
+    <Compile Include="04 IRepository\ProductionManage\IPMHomeCapacityLoadRepository.cs" />
+    <Compile Include="04 IRepository\ProductionManage\IPMHomeDelayMoldRepository.cs" />
+    <Compile Include="04 IRepository\ProductionManage\IPMHomeJiadongRateRepository.cs" />
+    <Compile Include="04 IRepository\ProductionManage\IPMHomeMoldProgressRepository.cs" />
+    <Compile Include="04 IRepository\ProductionManage\IPMHomeOutsourcingDetailRepository.cs" />
+    <Compile Include="04 IRepository\ProductionManage\IPMHomeOutsourcingRateRepository.cs" />
     <Compile Include="04 IRepository\SystemManage\IAreaRepository.cs" />
     <Compile Include="04 IRepository\SystemManage\IItemsDetailRepository.cs" />
     <Compile Include="04 IRepository\SystemManage\IItemsRepository.cs" />

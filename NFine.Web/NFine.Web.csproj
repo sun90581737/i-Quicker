@@ -127,6 +127,8 @@
     <Compile Include="Areas\OperationMonitoring\Controllers\BusinessOverviewController.cs" />
     <Compile Include="Areas\OperationMonitoring\Controllers\EngineeringHomepageController.cs" />
     <Compile Include="Areas\OperationMonitoring\OperationMonitoringAreaRegistration.cs" />
+    <Compile Include="Areas\ProductionManage\ProductionManageAreaRegistration.cs" />
+    <Compile Include="Areas\ProductionManage\Controllers\ProductionManageHomeController.cs" />
     <Compile Include="Areas\ReportManage\Controllers\EchartsController.cs" />
     <Compile Include="Areas\ReportManage\Controllers\HighchartsController.cs" />
     <Compile Include="Areas\ReportManage\ReportManageAreaRegistration.cs" />
@@ -274,6 +276,7 @@
     <Content Include="Content\js\dialog\img\loading-0.gif" />
     <Content Include="Content\js\dialog\img\loading-1.gif" />
     <Content Include="Content\js\dialog\img\loading-2.gif" />
+    <Content Include="Content\js\echarts\4.3\echarts.js" />
     <Content Include="Content\js\echarts\echarts-all.js" />
     <Content Include="Content\js\echarts\echarts.js" />
     <Content Include="Content\js\echarts\echarts.min.js" />
@@ -693,6 +696,8 @@
     <Content Include="Areas\OperationMonitoring\Views\EngineeringHomepage\Form1.cshtml" />
     <Content Include="Areas\OperationMonitoring\Views\EngineeringHomepage\Form2.cshtml" />
     <Content Include="Areas\OperationMonitoring\Views\EngineeringHomepage\Form3.cshtml" />
+    <Content Include="Areas\ProductionManage\Views\Web.config" />
+    <Content Include="Areas\ProductionManage\Views\ProductionManageHome\Index.cshtml" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
   </ItemGroup>
   <PropertyGroup>
