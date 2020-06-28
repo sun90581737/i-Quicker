@@ -154,6 +154,7 @@
     <Compile Include="Areas\TeamTask\Controllers\WETeamController.cs" />
     <Compile Include="Areas\TeamTask\TeamTaskAreaRegistration.cs" />
     <Compile Include="Controllers\ClientsDataController.cs" />
+    <Compile Include="Controllers\FastLoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -699,6 +700,7 @@
     <Content Include="Areas\ProductionManage\Views\Web.config" />
     <Content Include="Areas\ProductionManage\Views\ProductionManageHome\Index.cshtml" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
+    <Content Include="Views\FastLogin\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
