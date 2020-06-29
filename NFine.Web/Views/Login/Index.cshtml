@@ -75,19 +75,19 @@
                     var $username = $("#txt_account");
                     var $password = $("#txt_password");
                     var $code = $("#txt_code");
-                    //if ($username.val() == "") {
-                    //    $username.focus();
-                    //    $.login.formMessage('请输入用户名/手机号/邮箱。');
-                    //    return false;
-                    //} else if ($password.val() == "") {
-                    //    $password.focus();
-                    //    $.login.formMessage('请输入登录密码。');
-                    //    return false;
-                    //} else if ($code.val() == "") {
-                    //    $code.focus();
-                    //    $.login.formMessage('请输入验证码。');
-                    //    return false;
-                    //} else {
+                    if ($username.val() == "") {
+                        $username.focus();
+                        $.login.formMessage('请输入用户名/手机号/邮箱。');
+                        return false;
+                    } else if ($password.val() == "") {
+                        $password.focus();
+                        $.login.formMessage('请输入登录密码。');
+                        return false;
+                    } else if ($code.val() == "") {
+                        $code.focus();
+                        $.login.formMessage('请输入验证码。');
+                        return false;
+                    } else {
                         $("#login_button").attr('disabled', 'disabled').find('span').html("loading...");
                         $.ajax({
                             url: "/Login/CheckLogin",
@@ -108,7 +108,7 @@
                                 }
                             }
                         });
-                  //  }
+                    }
                 },
                 init: function () {
                     $('.wrapper').height($(window).height());

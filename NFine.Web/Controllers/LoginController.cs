@@ -57,13 +57,10 @@ namespace NFine.Web.Controllers
             logEntity.F_Type = DbLogType.Login.ToString();
             try
             {
-                //if (Session["nfine_session_verifycode"].IsEmpty() || Md5.md5(code.ToLower(), 16) != Session["nfine_session_verifycode"].ToString())
-                //{
-                //    throw new Exception("验证码错误，请重新输入");
-                //}
-                username = "admin";
-                password = "4a7d1ed414474e4033ac29ccb8653d9b";
-
+                if (Session["nfine_session_verifycode"].IsEmpty() || Md5.md5(code.ToLower(), 16) != Session["nfine_session_verifycode"].ToString())
+                {
+                    throw new Exception("验证码错误，请重新输入");
+                }
                 UserEntity userEntity = new UserApp().CheckLogin(username, password);
                 if (userEntity != null)
                 {

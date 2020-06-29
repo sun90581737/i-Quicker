@@ -11,7 +11,7 @@ namespace NFine.Domain._03_Entity.ProductionManage
         public int id { get; set; }	
         public string Month_Day { get; set; }
         public string Device_Name { get; set; }
-        public decimal TrendRate { get; set; }
+        public double TrendRate { get; set; }
         public DateTime CreationTime { get; set; }
         public int IsEffective { get; set; }
     }
