@@ -699,6 +699,10 @@
     <Content Include="Areas\OperationMonitoring\Views\EngineeringHomepage\Form3.cshtml" />
     <Content Include="Areas\ProductionManage\Views\Web.config" />
     <Content Include="Areas\ProductionManage\Views\ProductionManageHome\Index.cshtml" />
+    <Content Include="Areas\ProductionManage\Views\ProductionManageHome\Form1.cshtml" />
+    <Content Include="Areas\ProductionManage\Views\ProductionManageHome\Form2.cshtml" />
+    <Content Include="Areas\ProductionManage\Views\ProductionManageHome\Form3.cshtml" />
+    <Content Include="Areas\ProductionManage\Views\ProductionManageHome\Form4.cshtml" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
     <Content Include="Views\FastLogin\Index.cshtml" />
   </ItemGroup>
