@@ -217,73 +217,113 @@
             }
         })
         var myChart = echarts.init(document.getElementById('chart2'));
-        var colors = ['#5793f3', '#d14a61', '#675bba'];
+       
+        var myColor = ['#45fda5', '#3ffd55', '#11da01', '#118b43', '#c3eb18', '#dfde14', '#eac736', '#ed5501', '#9d0700', '#e80c00'];
 
         var option = {
-            color: colors,
-            tooltip: {
-                trigger: 'none',
-                axisPointer: {
-                    type: 'cross'
-                }
-            },
+            backgroundColor: 'white',
             grid: {
                 top: 10,
-                bottom: 100
+                left: 15,
+                right: 15,
+                bottom: 50,
+                containLabel: true //轴上的数值
             },
-            xAxis: [
-                {
-                    type: 'category',
-                    axisTick: {
-                        alignWithLabel: true
-                    },
-                    axisLine: {
-                        onZero: false,
-                        lineStyle: {
-                            color: colors[1]
+            xAxis: {
+                type: 'category',
+                splitLine: false,
+                boundaryGap: false,
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: myColor[0]
+                    }
+                },
+                axisTick: {
+                    lineStyle: {
+                        color: myColor[0]
+                    }
+                },
+                axisPointer: {
+                    label: {
+                        formatter: function (params) {
+                            return '交期达成率  ' + params.value + (params.seriesData.length ? '：' + params.seriesData[0].data : '') + '%';
                         }
+                    }
+                },
+                data: ListMonth
+            },
+            yAxis: {
+                //type: 'value',
+                //min: 0,
+                //splitLine: false,
+                //axisLine: {
+                //    show: false
+                //},
+                //axisTick: {
+                //    show: false
+                //},
+                interval: 20,
+                axisLabel: {
+                    formatter: function (value) {
+                        return value + "%-";
                     },
+                    textStyle: {
+                        color: function (value) {
+                            //注意：当值大于999(三位)时，会以“1,000”形式，所以要做以下处理
+                            value = parseInt(value.replace(/,/g, ""));
+                            var idx = parseInt(value / 10);
+                            return myColor[idx > 9 ? 9 : idx];
+                        }
+                    }
+                },
+                type: 'value',
+                //axisLabel: {
+                //    show: true,
+                //    interval: 'auto',
+                //    formatter: '{value}%',
+                //    textStyle: {
+                //        color: myColor
+                //    }
+                //},
+                show: true
+            },
+            visualMap: {
+                show: false,
+                calculable: true,
+                min: 0,
+                max: 100,
+                inRange: {
+                    color: myColor
+                }
+            },
+                tooltip: {
+                    trigger: 'none',
                     axisPointer: {
+                        type: 'cross'
+                    }
+                },
+            series: [{
+                name: '交期达成率',
+                type: 'line',
+                //symbol: 'none', //这句就是去掉折线上的点的
+                smooth: true, //这句就是让曲线变平滑的
+                hoverAnimation: true,
+                data: ListDeliveryRate,
+                // 显示数值
+                itemStyle: {
+                    normal: {
                         label: {
-                            formatter: function (params) {
-                                return '交期达成率  ' + params.value + (params.seriesData.length ? '：' + params.seriesData[0].data : '')+ '%';
-                            }
-                        }
-                    },
-                    data: ListMonth//['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'value',
-                    axisLabel: {
-                        show: true,
-                        interval: 'auto',
-                        formatter: '{value} %'
-                    },
-                    show: true
-                }
-            ],
-            series: [
-                {
-                    name: '交期达成率',
-                    type: 'line',
-                    smooth: true,
-                    data: ListDeliveryRate,//[80, 76, 86, 96, 92, 99, 88, 90, 95, 80, 95, 88],
-                    // 显示数值
-                    itemStyle: {
-                        normal: {
-                            label:{
-                                  show: true,
-                                  formatter: '{c}%',
-                                  position: 'bottom',
-                                  color: "#505050"
-                            }
+                            show: true,
+                            formatter: '{c}%',
+                            position: 'bottom',
+                            color: "#505050"
                         }
                     }
                 }
-            ]
+            }]
         };
+
        myChart.setOption(option);
     }
     function gridList() {
