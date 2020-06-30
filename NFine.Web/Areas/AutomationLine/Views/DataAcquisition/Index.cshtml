@@ -431,7 +431,12 @@
                     }
                 ]
             };
-            myChart.setOption(option);
+            myChart.setOption(option, true);
+            clearInterval(timeTicket);
+            var timeTicket = setInterval(function () {
+                option.series[0].data[0].value = (Math.random() * 10000).toFixed(2) - 0;
+                myChart.setOption(option, true);
+            }, 2000)
         }
         function loadFeed(divId, tempCount) {
             var myChart = echarts.init(document.getElementById(divId));
@@ -482,7 +487,15 @@
                 ]
             };
             myChart.setOption(option);
+            clearInterval(timeTicket);
+            var timeTicket = setInterval(function () {
+                option.series[0].data[0].value = (Math.random() * 10000).toFixed(2) - 0;
+                myChart.setOption(option, true);
+            }, 2000)
         }
+        //window.setInterval(function () {
+        //    LoadAllData();
+        //}, 1000 * 2);
     </script>
 </body>
 
