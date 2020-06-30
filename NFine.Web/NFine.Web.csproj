@@ -129,6 +129,8 @@
     <Compile Include="Areas\OperationMonitoring\OperationMonitoringAreaRegistration.cs" />
     <Compile Include="Areas\ProductionManage\ProductionManageAreaRegistration.cs" />
     <Compile Include="Areas\ProductionManage\Controllers\ProductionManageHomeController.cs" />
+    <Compile Include="Areas\QualityOptimization\Controllers\QualityEngineeringController.cs" />
+    <Compile Include="Areas\QualityOptimization\QualityOptimizationAreaRegistration.cs" />
     <Compile Include="Areas\ReportManage\Controllers\EchartsController.cs" />
     <Compile Include="Areas\ReportManage\Controllers\HighchartsController.cs" />
     <Compile Include="Areas\ReportManage\ReportManageAreaRegistration.cs" />
@@ -703,6 +705,8 @@
     <Content Include="Areas\ProductionManage\Views\ProductionManageHome\Form2.cshtml" />
     <Content Include="Areas\ProductionManage\Views\ProductionManageHome\Form3.cshtml" />
     <Content Include="Areas\ProductionManage\Views\ProductionManageHome\Form4.cshtml" />
+    <Content Include="Areas\QualityOptimization\Views\Web.config" />
+    <Content Include="Areas\QualityOptimization\Views\QualityEngineering\Index.cshtml" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
     <Content Include="Views\FastLogin\Index.cshtml" />
   </ItemGroup>

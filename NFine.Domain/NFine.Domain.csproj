@@ -65,6 +65,11 @@
     <Compile Include="03 Entity\ProductionManage\PMHomeMoldProgressEntity.cs" />
     <Compile Include="03 Entity\ProductionManage\PMHomeOutsourcingDetailEntity.cs" />
     <Compile Include="03 Entity\ProductionManage\PMHomeOutsourcingRateEntity.cs" />
+    <Compile Include="03 Entity\QualityOptimization\QualityOExceptionalDetailEntity.cs" />
+    <Compile Include="03 Entity\QualityOptimization\QualityOExceptionalResultsEntity.cs" />
+    <Compile Include="03 Entity\QualityOptimization\QualityOHandleExceptionalResultsEntity.cs" />
+    <Compile Include="03 Entity\QualityOptimization\QualityOPassRateTrendEntity.cs" />
+    <Compile Include="03 Entity\QualityOptimization\QualityOTeamPassRateEntity.cs" />
     <Compile Include="03 Entity\SystemManage\AreaEntity.cs" />
     <Compile Include="03 Entity\SystemManage\ModuleButtonEntity.cs" />
     <Compile Include="03 Entity\SystemManage\ModuleEntity.cs" />
@@ -100,6 +105,11 @@
     <Compile Include="04 IRepository\ProductionManage\IPMHomeMoldProgressRepository.cs" />
     <Compile Include="04 IRepository\ProductionManage\IPMHomeOutsourcingDetailRepository.cs" />
     <Compile Include="04 IRepository\ProductionManage\IPMHomeOutsourcingRateRepository.cs" />
+    <Compile Include="04 IRepository\QualityOptimization\IQualityOExceptionalDetailRepository.cs" />
+    <Compile Include="04 IRepository\QualityOptimization\IQualityOExceptionalResultsRepository.cs" />
+    <Compile Include="04 IRepository\QualityOptimization\IQualityOHandleExceptionalResultsRepository.cs" />
+    <Compile Include="04 IRepository\QualityOptimization\IQualityOPassRateTrendRepository.cs" />
+    <Compile Include="04 IRepository\QualityOptimization\IQualityOTeamPassRateRepository.cs" />
     <Compile Include="04 IRepository\SystemManage\IAreaRepository.cs" />
     <Compile Include="04 IRepository\SystemManage\IItemsDetailRepository.cs" />
     <Compile Include="04 IRepository\SystemManage\IItemsRepository.cs" />

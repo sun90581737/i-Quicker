@@ -1,0 +1,475 @@
+﻿@{
+    ViewBag.Title = "品质工程";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+<script src="~/Content/js/echarts/4.3/echarts.js"></script>
+<script src="~/Content/js/bootstrap/bootstrap.js"></script>
+<link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/js/pages/AdminLTE.css" rel="stylesheet" />
+<link href="~/Content/js/pages/AdminLTE.min.css" rel="stylesheet" />
+<script>
+    window.onload = function () {
+        loadOne();
+        loadTwo();
+        gridList();
+        loadThree();
+    }
+    function loadOne() {
+        var listDeviceType = new Array();
+        var listDeviceName = new Array();
+        var listAll = new Array();
+        var datesColour = new Array();
+        $.ajax({
+            url: "/QualityOptimization/QualityEngineering/GetDataQualityOTeamPassRate",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    datesColour.push(item.Colour);
+                    listDeviceType.push(item.DeviceType);
+                    listDeviceName.push(item.DeviceName);
+                    listAll.push(item);
+                })
+            }
+        });
+
+
+
+        $.unique(listDeviceType);
+        $.unique(listDeviceName.sort());
+
+        var series = [];
+        $.each(listDeviceName, function (index, value) {
+            var tempName = new Array();
+            var tempArry = new Array();
+            $.each(listAll, function (index1, value1) {
+                if (value == value1.DeviceName) {
+                    tempName = value1.DeviceName;
+                    tempArry.push(value1.Number);
+                }
+            });
+            series.push({
+                name: tempName,
+                type: 'bar',
+                label: labelOption,
+                barWidth: 30,//柱图宽度
+                itemStyle: {
+                    normal: {
+                        // 定制显示（按顺序）
+                        color: function (params) {
+                            var colorList = datesColour;
+                            return colorList[params.dataIndex]
+                        },
+                        label: {
+                            show: true,		//开启显示
+                            position: 'top',	//在上方显示
+                            textStyle: {	    //数值样式
+                                color: 'black',
+                                fontSize: 14
+                            }
+                        }
+                    },
+                },
+                data: tempArry
+            })
+        });
+
+        var myChart = echarts.init(document.getElementById('chart1'));
+
+        var app = {};
+        var posList = [
+        'left', 'right', 'top', 'bottom',
+        'inside',
+        'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
+        'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
+        ];
+
+        app.configParameters = {
+            rotate: {
+                min: -90,
+                max: 90
+            },
+            align: {
+                options: {
+                    left: 'left',
+                    center: 'center',
+                    right: 'right'
+                }
+            },
+            verticalAlign: {
+                options: {
+                    top: 'top',
+                    middle: 'middle',
+                    bottom: 'bottom'
+                }
+            },
+            position: {
+                options: echarts.util.reduce(posList, function (map, pos) {
+                    map[pos] = pos;
+                    return map;
+                }, {})
+            },
+            distance: {
+                min: 0,
+                max: 100
+            }
+        };
+
+        app.config = {
+            rotate: 90,
+            align: 'left',
+            verticalAlign: 'middle',
+            position: 'insideBottom',
+            distance: 15,
+            onChange: function () {
+                var labelOption = {
+                    normal: {
+                        rotate: app.config.rotate,
+                        align: app.config.align,
+                        verticalAlign: app.config.verticalAlign,
+                        position: app.config.position,
+                        distance: app.config.distance
+                    }
+                };
+                myChart.setOption({
+                    series: [{
+                        label: labelOption
+                    }, {
+                        label: labelOption
+                    }, {
+                        label: labelOption
+                    }, {
+                        label: labelOption
+                    }]
+                });
+            }
+        };
+
+        var labelOption = {
+            show: true,
+            position: app.config.position,
+            distance: app.config.distance,
+            align: app.config.align,
+            verticalAlign: app.config.verticalAlign,
+            rotate: app.config.rotate,
+            formatter: '{c}  {name|{a}}',
+            fontSize: 16,
+            rich: {
+                name: {
+                    textBorderColor: '#fff'
+                }
+            }
+        };
+
+        option = {
+            color: ['#6cce8f', '#e5323e'],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: listDeviceName
+            },
+            toolbox: {
+                show: true,
+                orient: 'vertical',
+                left: 'right',
+                top: 'center',
+                feature: {
+                    mark: { show: true },
+                    dataView: { show: true, readOnly: false },
+                    magicType: { show: true, type: ['line', 'bar', 'stack', 'tiled'] },
+                    restore: { show: true },
+                    saveAsImage: { show: true }
+                }
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    axisTick: { show: false },
+                    data: listDeviceType,
+                    axisLabel: {
+                        //X轴刻度配置
+                        interval: 0 //0：表示全部显示不间隔；auto:表示自动根据刻度个数和宽度自动设置间隔个数
+                        , rotate: 30
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: series
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option, true);
+    }
+    function loadTwo() {
+        var listName = new Array();
+        var str = [];
+        $.ajax({
+            url: "/QualityOptimization/QualityEngineering/GetDataQualityOExceptionalResults",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    listName.push(item.Type);
+                    var str3 = new Object();
+                    str3.name = item.Type;
+                    str3.value = item.Cost;
+                    str[index] = str3;
+                })
+            }
+        });
+        var myChart1 = echarts.init(document.getElementById('chart2'));
+        var option1 = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{b} : ({c}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                itemWidth: 10,  //图例标记的图形宽度
+                itemHeight: 10, //图例标记的图形高度
+                data: listName
+            },
+            color: ['#00CC99', '#FF3333', '#00FFFF', '#FFCC66'],
+            series: [
+                {
+                    name: '访问来源',
+                    type: 'pie',
+                    radius: '65%',
+                    center: ['50%', '50%'],
+                    data: str,
+                    itemStyle: {  //图形样式
+                        normal: { //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+                            label: {  //饼图图形上的文本标签
+                                show: true,  //平常不显示
+                                formatter: '{c}%',
+                                position: 'inner'
+                            },
+                            labelLine: {     //标签的视觉引导线样式
+                                show: false  //平常不显示
+                            }
+                        },
+                        emphasis: {   //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+                            label: {  //饼图图形上的文本标签
+                                show: true,
+                                position: 'center',
+                                textStyle: {
+                                    fontSize: '20',
+                                    fontWeight: 'bold'
+                                }
+                            },
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                }
+            ]
+        };
+        myChart1.setOption(option1);
+    }
+    function gridList() {
+        var $gridList = $("#gridList1");
+        $gridList.dataGrid({
+            url: "/QualityOptimization/QualityEngineering/GetGridJson",
+            height: 290,
+            colModel: [
+                { label: '项目单号', name: 'ProjectNo', width: 85, align: 'left' },
+                { label: '模号', name: 'ModuleNumber', width: 85, align: 'left' },
+                { label: '工件号', name: 'WorkpieceNo', width: 50, align: 'left' },
+                { label: '异常工序', name: 'ExceptionalProcedure', width: 60, align: 'left' },
+                {
+                    label: '处理方式', name: 'TreatmentMethod', width: 60, align: 'left',
+                    formatter: function (cellvalue, row, index) {
+                        if (index.Colour != "") {
+                            return '<font style="color:' + index.Colour + '">' + index.TreatmentMethod + '</font>';
+                        }
+                        else { return '<font>' + index.TreatmentMethod + '</font>'; }
+                    }
+                },
+            ],
+            //pager: "#gridPager",
+            sortname: 'ModuleNumber desc',
+            viewrecords: true
+        });
+    }
+    function loadThree() {
+        var listMonthDay = new Array();
+        var listAll = new Array();
+        var listDeviceName = new Array();
+        $.ajax({
+            url: "/QualityOptimization/QualityEngineering/GetDataQualityOPassRateTrend",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    if (item.Month_Day != "") {
+                        listMonthDay.push(item.Month_Day);
+                        listDeviceName.push(item.Device_Name);
+                        listAll.push(item);
+                    }
+                })
+            }
+        });
+        $.unique(listMonthDay);//日期
+        $.unique(listDeviceName.sort());//设备名字
+
+        var series = [];
+        $.each(listDeviceName, function (index, value) {
+            var tempName = new Array();
+            var tempArry = new Array();
+            $.each(listAll, function (index1, value1) {
+                if (value == value1.Device_Name) {
+                    tempName = value1.Device_Name;
+                    tempArry.push(value1.TrendRate);
+                }
+            });
+            series.push({
+                name: tempName,
+                type: 'line',
+                smooth: true,
+                stack: '总量' + index,
+                data: tempArry,
+                symbol: 'circle',
+                showSymbol: true,//折点设定为实心点
+                symbolSize: 10,   //设定实心点的大小
+                // 显示数值
+                itemStyle: {
+                    normal: {
+                        //label: {
+                        //    show: true,
+                        //    formatter: '{c}%',
+                        //    position: 'bottom',
+                        //    color: "#505050"
+                        //},
+                        lineStyle: {
+                            width: 5//设置线条粗细
+                        }
+                    }
+                }
+            })
+        });
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart3'));
+
+        var option = {
+            color: ['#5a6f8e', '#ffc000', '#70ad47'],
+            tooltip: {
+                trigger: 'axis',
+                formatter:function(params) {  
+                    var relVal = params[0].name;  
+                    for (var i = 0, l = params.length; i < l; i++) {  
+                        relVal += '<br/>' + params[i].marker + params[i].seriesName + ' : ' + params[i].value+"%";
+                    }
+                    return relVal;  
+                }
+            },
+            legend: {
+                data: listDeviceName
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: listMonthDay
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    show: true,
+                    interval: 'auto',
+                    formatter: '{value} %'
+                },
+                show: true
+            },
+            series: series
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+</script>
+<body>
+    <div class="row">
+        <section class="col-lg-6 connectedSortable" style="width:50%">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h4 class="box-title">班组合格率</h4>
+                    <div class="box-tools pull-right">
+                        <button type="button" onclick="funOne()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div id="chart1" style="height:325px;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-lg-6 connectedSortable" style="width:50%">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h4 class="box-title">处理结果</h4>
+                    <div class="box-tools pull-right">
+                        <button type="button" onclick="funTwo()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="tab-content" style="height:100%;">
+                    <div style="float:left;width:38%">
+                        <div style="text-align:center;font-size:13px;">异常处理结果统计</div>
+                        <div id="chart2" style="height:325px;"></div>
+                    </div>
+                    <div style="margin-left:38%;width:auto;">
+                        <table id="gridList1"></table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-lg-6 connectedSortable" style="width:50%">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h4 class="box-title">班组合格率走势</h4>
+                    <div class="box-tools pull-right">
+                        <button type="button" onclick="funThree()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div id="chart3" style="height:345px;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-lg-6 connectedSortable" style="width:50%">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h4 class="box-title">待处理/已处理异常统计</h4>
+                    <div class="box-tools pull-right">
+                        <button type="button" onclick="funFour()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div id="chart4" style="height:345px;"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>

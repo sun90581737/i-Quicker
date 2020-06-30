@@ -61,6 +61,11 @@
     <Compile Include="ProductionManage\PMHomeOutsourcingDetailRepository.cs" />
     <Compile Include="ProductionManage\PMHomeOutsourcingRateRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QualityOptimization\QualityOExceptionalDetailRepository.cs" />
+    <Compile Include="QualityOptimization\QualityOExceptionalResultsRepository.cs" />
+    <Compile Include="QualityOptimization\QualityOHandleExceptionalResultsRepository.cs" />
+    <Compile Include="QualityOptimization\QualityOPassRateTrendRepository.cs" />
+    <Compile Include="QualityOptimization\QualityOTeamPassRateRepository.cs" />
     <Compile Include="SystemManage\ItemsDetailRepository.cs" />
     <Compile Include="SystemManage\ItemsRepository.cs" />
     <Compile Include="SystemManage\ModuleButtonRepository.cs" />

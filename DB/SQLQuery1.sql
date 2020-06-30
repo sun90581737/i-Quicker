@@ -720,3 +720,121 @@ INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])V
 INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-5','CNC钢料B',91)
 INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-5','CNC电极',97)
 INSERT INTO [dbo].Sys_PMHomeJiadongRate ([Month_Day],[Device_Name],[TrendRate])VALUES ('3-5','EDM',86)
+
+CREATE TABLE Sys_QualityOTeamPassRate --品质工程：班组合格率
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--合格率
+	Colour varchar(50)  NULL,  --颜色
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO dbo.Sys_QualityOTeamPassRate(DeviceType,DeviceName,Number,Colour)VALUES  ('CNC钢料A组','合格率',98,'#01B468')
+INSERT INTO dbo.Sys_QualityOTeamPassRate(DeviceType,DeviceName,Number,Colour)VALUES  ('CNC钢料B组','合格率',95,'#01B468')
+INSERT INTO dbo.Sys_QualityOTeamPassRate(DeviceType,DeviceName,Number,Colour)VALUES  ('CNC电极组','合格率',98,'#01B468')
+INSERT INTO dbo.Sys_QualityOTeamPassRate(DeviceType,DeviceName,Number,Colour)VALUES  ('EDM放电A组','合格率',89,'#F9F900')
+INSERT INTO dbo.Sys_QualityOTeamPassRate(DeviceType,DeviceName,Number,Colour)VALUES  ('EDM放电B组','合格率',87,'#F9F900')
+INSERT INTO dbo.Sys_QualityOTeamPassRate(DeviceType,DeviceName,Number,Colour)VALUES  ('钳工A组','合格率',85,'#F9F900')
+
+CREATE TABLE Sys_QualityOExceptionalResults --品质工程:异常处理结果统计
+(
+	id int identity (1,1) primary KEY,
+	Type varchar(50)  NULL,--类型
+	Cost INT , --成本
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT dbo.Sys_QualityOExceptionalResults(Type,Cost)VALUES('特采',68)
+INSERT dbo.Sys_QualityOExceptionalResults(Type,Cost)VALUES('返工',12)
+INSERT dbo.Sys_QualityOExceptionalResults(Type,Cost)VALUES('返修',17)
+INSERT dbo.Sys_QualityOExceptionalResults(Type,Cost)VALUES('报废',3)
+
+CREATE table Sys_QualityOExceptionalDetail  --品质工程:异常处理结果统计明细
+(  
+id int identity (1,1) primary key , 
+ProjectNo varchar(50)  NULL, --项目单号
+ModuleNumber varchar(50)  NULL,--模号
+WorkpieceNo varchar(50)  NULL,--工件号
+ExceptionalProcedure varchar(50)  NULL,--异常工序
+TreatmentMethod varchar(50)  NULL,--处理方式
+Colour varchar(50)  NULL,  --颜色
+CreationTime DATETIME not null default getdate(),--创建时间
+IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_QualityOExceptionalDetail(ProjectNo,ModuleNumber,WorkpieceNo,ExceptionalProcedure,TreatmentMethod,Colour)VALUES('WX200302001','20KK02003','201_1','铣床','报废','#F9F900')
+INSERT INTO Sys_QualityOExceptionalDetail(ProjectNo,ModuleNumber,WorkpieceNo,ExceptionalProcedure,TreatmentMethod,Colour)VALUES('WX200302002','20KK04003','202_2','热处理','返修','#F9F900')
+INSERT INTO Sys_QualityOExceptionalDetail(ProjectNo,ModuleNumber,WorkpieceNo,ExceptionalProcedure,TreatmentMethod,Colour)VALUES('WX200302003','20KK02001','201_3','铣床','返工','#F9F900')
+INSERT INTO Sys_QualityOExceptionalDetail(ProjectNo,ModuleNumber,WorkpieceNo,ExceptionalProcedure,TreatmentMethod,Colour)VALUES('WX200302004','20KK03003','203_2','研磨','特采','#F9F900')
+INSERT INTO Sys_QualityOExceptionalDetail(ProjectNo,ModuleNumber,WorkpieceNo,ExceptionalProcedure,TreatmentMethod,Colour)VALUES('WX200302005','20KK01002','201_3','铣床','报废','#01B468')
+
+CREATE TABLE Sys_QualityOPassRateTrend --品质工程:班组合格率走势  
+(
+	id int identity (1,1) primary KEY,
+	Month_Day varchar(20)  NULL, --日期
+	Device_Name varchar(50)  NULL,--设备名
+	TrendRate FLOAT,--趋势数
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('1月','CNC',88)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('1月','EDM',88)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('1月','WE',99)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('2月','CNC',95)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('2月','EDM',90)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('2月','WE',95)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('3月','CNC',98)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('3月','EDM',95)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('3月','WE',85)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('4月','CNC',99)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('4月','EDM',100)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('4月','WE',80)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('5月','CNC',95)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('5月','EDM',95)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('5月','WE',83)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('6月','CNC',93)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('6月','EDM',88)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('6月','WE',95)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('7月','CNC',88)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('7月','EDM',89)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('7月','WE',99)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('8月','CNC',85)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('8月','EDM',93)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('8月','WE',98)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('9月','CNC',91)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('9月','EDM',95)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('9月','WE',96)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('10月','CNC',95)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('10月','EDM',89)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('10月','WE',95)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('11月','CNC',92)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('11月','EDM',89)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('11月','WE',97)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('12月','CNC',89)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('12月','EDM',99)
+INSERT INTO [dbo].Sys_QualityOPassRateTrend ([Month_Day],[Device_Name],[TrendRate])VALUES ('12月','WE',93)
+
+CREATE TABLE Sys_QualityOHandleExceptionalResults --品质工程:待处理/已处理异常统计  
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--待处理/已处理
+	TrendRate INT,--趋势数
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate)VALUES('CNC','待处理',32)
+INSERT INTO Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate)VALUES('CNC','已处理',30)
+INSERT INTO Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate)VALUES('EDM','待处理',37)
+INSERT INTO Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate)VALUES('EDM','已处理',25)
+INSERT INTO Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate)VALUES('WE','待处理',15)
+INSERT INTO Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate)VALUES('WE','已处理',12)
+INSERT INTO Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate)VALUES('车','待处理',17)
+INSERT INTO Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate)VALUES('车','已处理',3)
+INSERT INTO Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate)VALUES('铣','待处理',15)
+INSERT INTO Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate)VALUES('铣','已处理',13)
+
+
+
+--https://blog.csdn.net/qq_36275889/article/details/83510200  

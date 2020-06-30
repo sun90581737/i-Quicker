@@ -70,6 +70,11 @@
     <Compile Include="ProductionManage\PMHomeOutsourcingDetailMap.cs" />
     <Compile Include="ProductionManage\PMHomeOutsourcingRateMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QualityOptimization\QualityOExceptionalDetailMap.cs" />
+    <Compile Include="QualityOptimization\QualityOExceptionalResultsMap.cs" />
+    <Compile Include="QualityOptimization\QualityOHandleExceptionalResultsMap.cs" />
+    <Compile Include="QualityOptimization\QualityOPassRateTrendMap.cs" />
+    <Compile Include="QualityOptimization\QualityOTeamPassRateMap.cs" />
     <Compile Include="SystemManage\AreaMap.cs" />
     <Compile Include="SystemManage\ItemsDetailMap.cs" />
     <Compile Include="SystemManage\ItemsMap.cs" />
