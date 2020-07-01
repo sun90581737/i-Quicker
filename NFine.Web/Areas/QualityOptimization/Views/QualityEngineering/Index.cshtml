@@ -13,6 +13,7 @@
         loadTwo();
         gridList();
         loadThree();
+        loadFour();
     }
     function loadOne() {
         var listDeviceType = new Array();
@@ -180,7 +181,7 @@
                 feature: {
                     mark: { show: true },
                     dataView: { show: true, readOnly: false },
-                    magicType: { show: true, type: ['line', 'bar', 'stack', 'tiled'] },
+                    magicType: { show: true, type: ['line'] },
                     restore: { show: true },
                     saveAsImage: { show: true }
                 }
@@ -406,6 +407,102 @@
         };
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
+    }
+    function loadFour() {
+        var listDeviceType = new Array();
+        var listAll = new Array();
+        var listDeviceName = new Array();
+        $.ajax({
+            url: "/QualityOptimization/QualityEngineering/GetDataQualityOHandleExceptionalResults",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    if (item.DeviceType != "") {
+                        listDeviceType.push(item.DeviceType);
+                        listDeviceName.push(item.DeviceName);
+                        listAll.push(item);
+                    }
+                })
+            }
+        });
+        $.unique(listDeviceType);//日期
+        $.unique(listDeviceName.sort());//设备名字
+
+        var series = [];
+        $.each(listDeviceName, function (index, value) {
+            var tempName = new Array();
+            var tempArry = new Array();
+            $.each(listAll, function (index1, value1) {
+                if (value == value1.DeviceName) {
+                    tempName = value1.DeviceName;
+                    tempArry.push(value1.TrendRate);
+                }
+            });
+            series.push({
+                name: tempName,
+                type: 'line',
+                stack: '总量' + index,
+                areaStyle: {
+                    normal: {
+                        //color: ['#ff7069', '#1abc9c']
+                    }
+                },
+                data: tempArry
+            })
+        });
+        var myChart = echarts.init(document.getElementById('chart4'));
+        var option = {
+            color: ['#1abc9c', '#ff7069'],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                }
+            },
+            legend: {
+                icon: "circle",
+                data: listDeviceName
+            },
+            grid: {
+                top: '13%',
+                left: '3%',
+                right: '4%',
+                bottom: '10',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    axisLabel: {
+                        interval: 0,
+                        rotate: 0
+                    },
+                    boundaryGap: false,
+                    data: listDeviceType
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: series
+        };
+
+        myChart.setOption(option);
+    }
+    function funOne() {
+        window.open("/QualityOptimization/QualityEngineering/Form1");
+    }
+    function funTwo() {
+        window.open("/QualityOptimization/QualityEngineering/Form2");
+    }
+    function funThree() {
+        window.open("/QualityOptimization/QualityEngineering/Form3");
+    }
+    function funFour() {
+        window.open("/QualityOptimization/QualityEngineering/Form4");
     }
 </script>
 <body>

@@ -837,5 +837,3 @@ INSERT INTO Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate
 INSERT INTO Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate)VALUES('œ≥','“—¥¶¿Ì',13)
 
 
-
---https://blog.csdn.net/qq_36275889/article/details/83510200  

@@ -50,5 +50,12 @@ namespace NFine.Web.Areas.QualityOptimization.Controllers
             var data = QOprt.GetList().Where(p => p.IsEffective == 1);
             return Content(data.ToJson());
         }
+        [HttpGet]
+        [HandlerAjaxOnly]
+        public ActionResult GetDataQualityOHandleExceptionalResults()
+        {
+            var data = QOherApp.GetList().Where(p => p.IsEffective == 1);
+            return Content(data.ToJson());
+        }
     }
 }

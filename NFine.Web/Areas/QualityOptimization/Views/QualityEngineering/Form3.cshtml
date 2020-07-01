@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "品质工程/班组合格率走势";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+<script src="~/Content/js/echarts/4.3/echarts.js"></script>
+<link href="~/Content/js/pages/AdminLTE.css" rel="stylesheet" />
+<link href="~/Content/js/pages/AdminLTE.min.css" rel="stylesheet" />
+<script>
+    window.onload = function () {
+        loadThree();
+    }
+    function loadThree() {
+        var listMonthDay = new Array();
+        var listAll = new Array();
+        var listDeviceName = new Array();
+        $.ajax({
+            url: "/QualityOptimization/QualityEngineering/GetDataQualityOPassRateTrend",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    if (item.Month_Day != "") {
+                        listMonthDay.push(item.Month_Day);
+                        listDeviceName.push(item.Device_Name);
+                        listAll.push(item);
+                    }
+                })
+            }
+        });
+        $.unique(listMonthDay);//日期
+        $.unique(listDeviceName.sort());//设备名字
+
+        var series = [];
+        $.each(listDeviceName, function (index, value) {
+            var tempName = new Array();
+            var tempArry = new Array();
+            $.each(listAll, function (index1, value1) {
+                if (value == value1.Device_Name) {
+                    tempName = value1.Device_Name;
+                    tempArry.push(value1.TrendRate);
+                }
+            });
+            series.push({
+                name: tempName,
+                type: 'line',
+                smooth: true,
+                stack: '总量' + index,
+                data: tempArry,
+                symbol: 'circle',
+                showSymbol: true,//折点设定为实心点
+                symbolSize: 10,   //设定实心点的大小
+                // 显示数值
+                itemStyle: {
+                    normal: {
+                        //label: {
+                        //    show: true,
+                        //    formatter: '{c}%',
+                        //    position: 'bottom',
+                        //    color: "#505050"
+                        //},
+                        lineStyle: {
+                            width: 5//设置线条粗细
+                        }
+                    }
+                }
+            })
+        });
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart3'));
+
+        var option = {
+            color: ['#5a6f8e', '#ffc000', '#70ad47'],
+            tooltip: {
+                trigger: 'axis',
+                formatter: function (params) {
+                    var relVal = params[0].name;
+                    for (var i = 0, l = params.length; i < l; i++) {
+                        relVal += '<br/>' + params[i].marker + params[i].seriesName + ' : ' + params[i].value + "%";
+                    }
+                    return relVal;
+                }
+            },
+            legend: {
+                data: listDeviceName
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: listMonthDay
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    show: true,
+                    interval: 'auto',
+                    formatter: '{value} %'
+                },
+                show: true
+            },
+            series: series
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+</script>
+<body>
+    <section class="col-lg-6 connectedSortable" style="width:98%">
+        <div class="">
+            <div class="box-header with-border">
+                <h4 class="box-title">班组合格率走势</h4>
+            </div>
+            <div class="tab-content">
+                <div id="chart3" style="height:700px;"></div>
+            </div>
+        </div>
+    </section>
+</body>
+
+

@@ -707,6 +707,10 @@
     <Content Include="Areas\ProductionManage\Views\ProductionManageHome\Form4.cshtml" />
     <Content Include="Areas\QualityOptimization\Views\Web.config" />
     <Content Include="Areas\QualityOptimization\Views\QualityEngineering\Index.cshtml" />
+    <Content Include="Areas\QualityOptimization\Views\QualityEngineering\Form1.cshtml" />
+    <Content Include="Areas\QualityOptimization\Views\QualityEngineering\Form2.cshtml" />
+    <Content Include="Areas\QualityOptimization\Views\QualityEngineering\Form3.cshtml" />
+    <Content Include="Areas\QualityOptimization\Views\QualityEngineering\Form4.cshtml" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
     <Content Include="Views\FastLogin\Index.cshtml" />
   </ItemGroup>

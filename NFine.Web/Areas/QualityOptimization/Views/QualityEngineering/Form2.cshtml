@@ -1,0 +1,127 @@
+﻿@{
+    ViewBag.Title = "品质工程/处理结果";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+<script src="~/Content/js/echarts/4.3/echarts.js"></script>
+<link href="~/Content/js/pages/AdminLTE.css" rel="stylesheet" />
+<link href="~/Content/js/pages/AdminLTE.min.css" rel="stylesheet" />
+<script>
+    window.onload = function () {
+        loadTwo();
+        gridList();
+    }
+    function loadTwo() {
+        var listName = new Array();
+        var str = [];
+        $.ajax({
+            url: "/QualityOptimization/QualityEngineering/GetDataQualityOExceptionalResults",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    listName.push(item.Type);
+                    var str3 = new Object();
+                    str3.name = item.Type;
+                    str3.value = item.Cost;
+                    str[index] = str3;
+                })
+            }
+        });
+        var myChart1 = echarts.init(document.getElementById('chart2'));
+        var option1 = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{b} : ({c}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                itemWidth: 10,  //图例标记的图形宽度
+                itemHeight: 10, //图例标记的图形高度
+                data: listName
+            },
+            color: ['#00CC99', '#FF3333', '#00FFFF', '#FFCC66'],
+            series: [
+                {
+                    name: '访问来源',
+                    type: 'pie',
+                    radius: '65%',
+                    center: ['50%', '50%'],
+                    data: str,
+                    itemStyle: {  //图形样式
+                        normal: { //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+                            label: {  //饼图图形上的文本标签
+                                show: true,  //平常不显示
+                                formatter: '{c}%',
+                                position: 'inner'
+                            },
+                            labelLine: {     //标签的视觉引导线样式
+                                show: false  //平常不显示
+                            }
+                        },
+                        emphasis: {   //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+                            label: {  //饼图图形上的文本标签
+                                show: true,
+                                position: 'center',
+                                textStyle: {
+                                    fontSize: '20',
+                                    fontWeight: 'bold'
+                                }
+                            },
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                }
+            ]
+        };
+        myChart1.setOption(option1);
+    }
+    function gridList() {
+        var $gridList = $("#gridList1");
+        $gridList.dataGrid({
+            url: "/QualityOptimization/QualityEngineering/GetGridJson",
+            height: 700,
+            colModel: [
+                { label: '项目单号', name: 'ProjectNo', width: 120, align: 'left' },
+                { label: '模号', name: 'ModuleNumber', width: 120, align: 'left' },
+                { label: '工件号', name: 'WorkpieceNo', width: 120, align: 'left' },
+                { label: '异常工序', name: 'ExceptionalProcedure', width: 120, align: 'left' },
+                {
+                    label: '处理方式', name: 'TreatmentMethod', width: 120, align: 'left',
+                    formatter: function (cellvalue, row, index) {
+                        if (index.Colour != "") {
+                            return '<font style="color:' + index.Colour + '">' + index.TreatmentMethod + '</font>';
+                        }
+                        else { return '<font>' + index.TreatmentMethod + '</font>'; }
+                    }
+                },
+            ],
+            pager: "#gridPager",
+            sortname: 'ModuleNumber desc',
+            viewrecords: true
+        });
+    }
+</script>
+<body>
+    <section class="col-lg-6 connectedSortable" style="width:98%">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h4 class="box-title">处理结果</h4>
+            </div>
+            <div class="tab-content" style="height:100%;">
+                <div style="float:left;width:40%">
+                    <div style="text-align:center;font-size:13px;">异常处理结果统计</div>
+                    <div id="chart2" style="height:700px;"></div>
+                </div>
+                <div style="margin-left:40%;width:auto;">
+                    <table id="gridList1"></table>
+                    <div id="gridPager"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

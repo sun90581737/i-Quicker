@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "品质工程/待处理/已处理异常统计";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+<script src="~/Content/js/echarts/4.3/echarts.js"></script>
+<link href="~/Content/js/pages/AdminLTE.css" rel="stylesheet" />
+<link href="~/Content/js/pages/AdminLTE.min.css" rel="stylesheet" />
+<script>
+    window.onload = function () {
+        loadFour();
+    }
+    function loadFour() {
+        var listDeviceType = new Array();
+        var listAll = new Array();
+        var listDeviceName = new Array();
+        $.ajax({
+            url: "/QualityOptimization/QualityEngineering/GetDataQualityOHandleExceptionalResults",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    if (item.DeviceType != "") {
+                        listDeviceType.push(item.DeviceType);
+                        listDeviceName.push(item.DeviceName);
+                        listAll.push(item);
+                    }
+                })
+            }
+        });
+        $.unique(listDeviceType);//日期
+        $.unique(listDeviceName.sort());//设备名字
+
+        var series = [];
+        $.each(listDeviceName, function (index, value) {
+            var tempName = new Array();
+            var tempArry = new Array();
+            $.each(listAll, function (index1, value1) {
+                if (value == value1.DeviceName) {
+                    tempName = value1.DeviceName;
+                    tempArry.push(value1.TrendRate);
+                }
+            });
+            series.push({
+                name: tempName,
+                type: 'line',
+                stack: '总量' + index,
+                areaStyle: {
+                    normal: {
+                        //color: ['#ff7069', '#1abc9c']
+                    }
+                },
+                data: tempArry
+            })
+        });
+        var myChart = echarts.init(document.getElementById('chart4'));
+        var option = {
+            color: ['#1abc9c', '#ff7069'],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                }
+            },
+            legend: {
+                icon: "circle",
+                data: listDeviceName
+            },
+            grid: {
+                top: '13%',
+                left: '3%',
+                right: '4%',
+                bottom: '10',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    axisLabel: {
+                        interval: 0,
+                        rotate: 0
+                    },
+                    boundaryGap: false,
+                    data: listDeviceType
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: series
+        };
+
+        myChart.setOption(option);
+    }
+</script>
+<body>
+    <div class="row">
+        <section class="col-lg-6 connectedSortable" style="width:98%">
+            <div class="">
+                <div class="box-header with-border">
+                    <h4 class="box-title">待处理/已处理异常统计</h4>
+                </div>
+                <div class="tab-content">
+                    <div id="chart4" style="height:700px;"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
