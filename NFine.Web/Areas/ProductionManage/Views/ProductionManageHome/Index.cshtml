@@ -114,7 +114,7 @@
         var $gridList = $("#gridList1");
         $gridList.dataGrid({
             url: "/ProductionManage/ProductionManageHome/GetGridJson",
-            height: 290,
+            height: 200,
             colModel: [
                 { label: '模具编号', name: 'MoldNo', width: 65, align: 'left' },
                 { label: '版本', name: 'Edition', width: 45, align: 'left' },
@@ -310,7 +310,7 @@
                     axisLabel: {
                         //X轴刻度配置
                         interval: 0 //0：表示全部显示不间隔；auto:表示自动根据刻度个数和宽度自动设置间隔个数
-                        ,rotate:30
+                        ,rotate:0
                     }
                 }
             ],
@@ -468,7 +468,7 @@
         var $gridList2 = $("#gridList2");
         $gridList2.dataGrid({
             url: "/ProductionManage/ProductionManageHome/GetGridJsonDetailA",
-            height: 133,
+            height: 115,
             colModel: [
                 {
                     label: '外协单号', name: 'OutsourcingNo', width: 65, align: 'left',
@@ -538,7 +538,7 @@
         var $gridList3 = $("#gridList3");
         $gridList3.dataGrid({
             url: "/ProductionManage/ProductionManageHome/GetGridJsonDetailB",
-            height: 133,
+            height: 115,
             colModel: [
                 {
                     label: '采购单号', name: 'OutsourcingNo', width: 65, align: 'left',
@@ -709,11 +709,10 @@
                 <div class="tab-content" style="height:100%;">
                     <div style="float:left;width:40%">
                         <div style="text-align:center;font-size:13px;">模具进度</div>
-                        <div id="chart1a" style="height:325px; "></div>
+                        <div id="chart1a" style="height:230px; "></div>
                     </div>
                     <div style="margin-left:40%;width:auto;">
                         <div style="text-align:center;font-size:13px;">延期模具</div>
-                        @*<div id="chart1b" style="height:325px; "></div>*@
                         <table id="gridList1" ></table>
                     </div>
                 </div>
@@ -737,7 +736,7 @@
                     </div>
                 </div>
                 <div class="tab-content">
-                    <div id="chart2" style="height:345px;"></div>
+                    <div id="chart2" style="height:255px;"></div>
                 </div>
             </div>
         </section>
@@ -751,19 +750,19 @@
                     </div>
                 </div>
                 <div class="tab-content" style="height:100%;">
-                    <div style="height:335px">
+                    <div style="height:305px">
                         <div style="float:left;width:35%">
                             <div style="text-align:center;font-size:13px;">外协按期交付率</div>
-                            <div id="chart3a" style="height:150px; "></div>
+                            <div id="chart3a" style="height:130px; "></div>
                         </div>
-                        <div style="margin-left:35%;width:auto;">
+                        <div style="margin-left:35%;">
                             <table id="gridList2"></table>
                         </div>
                         <div style="float:left;width:35%">
                             <div style="text-align:center;font-size:13px;">物料按期交付率</div>
-                            <div id="chart3b" style="height:150px; "></div>
+                            <div id="chart3b" style="height:130px; "></div>
                         </div>
-                        <div style="margin-left:35%;width:auto;">
+                        <div style="margin-left:35%;">
                             <table id="gridList3"></table>
                         </div>
                     </div>
@@ -781,7 +780,7 @@
                 </div>
                 <div class="tab-content" style="height:100%;">
                     <div style="text-align:center;font-size:13px;">嫁动率趋势</div>
-                    <div id="chart4" style="height:310px; margin:10px"></div>
+                    <div id="chart4" style="height:275px; margin:10px"></div>
                 </div>
             </div>
         </section>
