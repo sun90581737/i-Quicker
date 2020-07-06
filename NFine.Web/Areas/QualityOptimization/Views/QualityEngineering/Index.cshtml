@@ -244,7 +244,7 @@
                     name: '访问来源',
                     type: 'pie',
                     radius: '65%',
-                    center: ['50%', '50%'],
+                    center: ['50%', '60%'],
                     data: str,
                     itemStyle: {  //图形样式
                         normal: { //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
@@ -282,7 +282,7 @@
         var $gridList = $("#gridList1");
         $gridList.dataGrid({
             url: "/QualityOptimization/QualityEngineering/GetGridJson",
-            height: 290,
+            height: 250,
             colModel: [
                 { label: '项目单号', name: 'ProjectNo', width: 85, align: 'left' },
                 { label: '模号', name: 'ModuleNumber', width: 85, align: 'left' },
@@ -516,7 +516,7 @@
                     </div>
                 </div>
                 <div class="tab-content">
-                    <div id="chart1" style="height:325px;"></div>
+                    <div id="chart1" style="height:285px;"></div>
                 </div>
             </div>
         </section>
@@ -529,10 +529,10 @@
                         <button type="button" onclick="funTwo()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
                     </div>
                 </div>
-                <div class="tab-content" style="height:100%;">
+                <div class="tab-content" style="height:285px;">
                     <div style="float:left;width:38%">
                         <div style="text-align:center;font-size:13px;">异常处理结果统计</div>
-                        <div id="chart2" style="height:325px;"></div>
+                        <div id="chart2" style="height:260px;"></div>
                     </div>
                     <div style="margin-left:38%;width:auto;">
                         <table id="gridList1"></table>
@@ -550,7 +550,7 @@
                     </div>
                 </div>
                 <div class="tab-content">
-                    <div id="chart3" style="height:345px;"></div>
+                    <div id="chart3" style="height:275px;"></div>
                 </div>
             </div>
         </section>
@@ -564,7 +564,7 @@
                     </div>
                 </div>
                 <div class="tab-content">
-                    <div id="chart4" style="height:345px;"></div>
+                    <div id="chart4" style="height:275px;"></div>
                 </div>
             </div>
         </section>

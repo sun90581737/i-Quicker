@@ -71,7 +71,7 @@
                 top: 10,
                 left: 15,
                 right: 15,
-                bottom: 50,
+                bottom: 0,
                 containLabel: true //轴上的数值
             },
             xAxis: {
@@ -206,7 +206,7 @@
             // 设置图表的位置
             grid: {
                 x: 60, // 左间距
-                y: 80, // 上间距
+                y: 0, // 上间距
                 x2: 60, // 右间距
                 y2: 40, // 下间距
                 containLabel: true // grid 区域是否包含坐标轴的刻度标签, 常用于『防止标签溢出』的场景
@@ -378,7 +378,7 @@
                     name: '访问来源',
                     type: 'pie',
                     radius: '65%',
-                    center: ['50%', '50%'],
+                    center: ['50%', '60%'],
                     data: str//[{ value: 23, name: 'CNC' },{ value: 26, name: 'EDM' },{ value: 17, name: 'WEDM' },{ value: 34, name: '车铣磨抛' },]
                     ,
                     itemStyle: {  //图形样式
@@ -417,7 +417,7 @@
         var $gridList = $("#gridList");
         $gridList.dataGrid({
             url: "/OperationMonitoring/EngineeringHomepage/GetGridJson",
-            height: 247,
+            height: 187,
             colModel: [
                 { label: '模具编号', name: 'MoldNo', width: 80, align: 'left' },
                 { label: '客户', name: 'Customers', width: 60, align: 'left' },
@@ -459,7 +459,7 @@
     function gridListOn() {
         var $gridListOn = $("#gridListOn");
         $gridListOn.dataGrid({
-            height: 225,
+            height: 165,
             colModel: [
                 {
                     label: '', name: '', width: 30, align: 'left',
@@ -469,8 +469,8 @@
                         }
                     }
                 },
-                { label: '模具名称', name: 'MoldName', width: 140, align: 'left' },
-                { label: '模具编号', name: 'MoldNo', width: 140, align: 'left' },
+                { label: '模具名称', name: 'MoldName', width: 120, align: 'left' },
+                { label: '模具编号', name: 'MoldNo', width: 120, align: 'left' },
                 { label: 'TN', name: 'TN', width: 60, align: 'left' },
                 { label: '类型', name: 'MoldType', width: 60, align: 'left' },
                 { label: '状态', name: 'MoldState', width: 100, align: 'left' },
@@ -578,10 +578,10 @@
                             <button type="button" onclick="funOne()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
                         </div>
                     </div>
-                    <div class="tab-content" style="height:100%;">
+                    <div class="tab-content" style="height:240px;">
                         <div style="height:150px">
                             <div style="text-align:center;font-size:13px;">交期达成率趋势</div>
-                            <div id="chart1" style="height:200px;"></div>
+                            <div id="chart1" style="height:130px;"></div>
                         </div>
                         <div style="height:150px;">
                             <div style="text-align:center;font-size:13px;">上月交付模具数量</div>
@@ -598,10 +598,10 @@
                             <button type="button" onclick="funTwo()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
                         </div>
                     </div>
-                    <div class="tab-content" style="height:300px;">
+                    <div class="tab-content" style="height:240px;">
                         <div style="float:left;width:35%">
                             <div style="text-align:center;font-size:13px;">生产进度</div>
-                            <div id="chart2a" style="height:300px; "></div>
+                            <div id="chart2a" style="height:220px; "></div>
                         </div>
                         <div class="gridPanel" style="margin-left:35%;">
                             <div style="text-align:center;font-size:13px;">延期模具列表</div>
@@ -620,7 +620,7 @@
                             <button type="button" onclick="funThree()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
                         </div>
                     </div>
-                    <div class="ui-layout" id="layout" style="height: 275px; ">
+                    <div class="ui-layout" id="layout" style="height: 215px; ">
                         <div class="ui-layout-west">
                             <div class="search">
                                 <table>
