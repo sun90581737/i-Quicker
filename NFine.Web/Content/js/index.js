@@ -188,6 +188,5 @@ function GetLoadNav() {
             _html += '</li>';
         }
     });
-    debugger;
     $("#sidebar-nav ul").prepend(_html);
 }
