@@ -23,7 +23,7 @@ namespace NFine.Application.TeamTask
         {
             var expression = ExtLinq.True<CapacityLoadEntity>();
             var queryParam = queryJson.ToJObject();
-            expression = expression.And(t => t.Team == "EDM" && t.IsEffective == 1);
+            expression = expression.And(t => (t.Team == "EDM" || t.Team == "EDM班组") && t.IsEffective == 1);
             return service.FindList(expression, pagination);
         }
     }

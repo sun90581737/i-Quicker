@@ -48,14 +48,14 @@ namespace NFine.Web.Areas.TeamTask.Controllers
         [HandlerAjaxOnly]
         public ActionResult GetCapacityLoad()
         {
-            var data = clApp.GetList().Where(p => p.Team == "WE" && p.IsEffective == 1);
+            var data = clApp.GetList().Where(t => (t.Team == "WE" || t.Team == "WE班组") && t.IsEffective == 1);
             return Content(data.ToJson());
         }
         [HttpGet]
         [HandlerAjaxOnly]
         public ActionResult GetTrend()
         {
-            var data = tApp.GetList().Where(p => p.Team == "WE" && p.IsEffective == 1);
+            var data = tApp.GetList().Where(t => (t.Team == "WE" || t.Team == "WE班组") && t.IsEffective == 1);
             return Content(data.ToJson());
         }
     }

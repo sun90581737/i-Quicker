@@ -23,7 +23,7 @@ namespace NFine.Application.TeamTask
         {
             var expression = ExtLinq.True<EquipmentListEntity>();
             var queryParam = queryJson.ToJObject();
-            expression = expression.And(t => t.Team == "EDM" && t.IsEffective==1);
+            expression = expression.And(t => (t.Team == "EDM" || t.Team == "EDM班组") && t.IsEffective == 1);
             return service.FindList(expression, pagination);
         }
 
@@ -31,7 +31,7 @@ namespace NFine.Application.TeamTask
         {
             var expression = ExtLinq.True<EquipmentListEntity>();
             var queryParam = queryJson.ToJObject();
-            expression = expression.And(t => t.Team == "CNC" && t.IsEffective == 1);
+            expression = expression.And(t => (t.Team == "CNC" || t.Team == "CNC班组") && t.IsEffective == 1);
             return service.FindList(expression, pagination);
         }
 
@@ -39,7 +39,7 @@ namespace NFine.Application.TeamTask
         {
             var expression = ExtLinq.True<EquipmentListEntity>();
             var queryParam = queryJson.ToJObject();
-            expression = expression.And(t => t.Team == "WE" && t.IsEffective == 1);
+            expression = expression.And(t => (t.Team == "WE" || t.Team == "WE班组") && t.IsEffective == 1);
             return service.FindList(expression, pagination);
         }
     }
