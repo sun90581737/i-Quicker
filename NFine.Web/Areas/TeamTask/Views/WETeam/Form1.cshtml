@@ -28,38 +28,55 @@
                 {
                     label: '设备名', name: 'Equipment_Name', width: 220, align: 'left',
                     formatter: function (cellvalue, row, index) {
-                        if (index.Equipment_Url != "") {
-                            return '<div style="width:100px;height:100px;background-color:' + index.Colour + ';"><p style="text-align:center;color:white;">' + index.Equipment_Name + '</p><img src="' + index.Equipment_Url + '" style="position: absolute; margin-left:13px;margin-top:-13px;" /></div>';
+                        if (index.Equipment_Url != null && index.Equipment_Url != "") {
+                            return '<div style="width:100px;height:100px;background-color:' + index.Colour + ';"><p style="text-align:center;color:white;">' + index.Equipment_Name + '</p><img src="' + index.Equipment_Url + '" style="position: absolute; margin-left:5px;margin-top:-22px;" /></div>';
                         }
                         else {
-                            return '<div  style="width:100px;height:100px;" /></div>';
+                            if (true) {
+                                return '<div style="width:100px;height:100px;background-color:' + index.Colour + ';"><p style="text-align:center;color:white;">' + index.Equipment_Name + '</p></div>';
+                            }
+                            else {
+                                return '<div  style="width:100px;height:100px;" /></div>';
+                            }
+
                         }
                     }
                 },
                 {
                     label: '加工件', name: 'Workpieces_Url', width: 220, align: 'left',
                     formatter: function (cellvalue, row, index) {
-                        if (index.Workpieces_Url != "") {
+                        if (index.Workpieces_Url != null && index.Workpieces_Url != "") {
                             return '<img src="' + index.Workpieces_Url + '"  style="width:90px;height:90px;margin-top: 5px;" />';
                         }
                         else {
-                            return '<span  style="width:90px;height:90px;text-align:center ;" />' + index.Workpieces_Name + '</span>';
+                            if (index.Workpieces_Name != null && index.Workpieces_Name != "") {
+                                return '<span  style="width:90px;height:90px;text-align:center ;" />' + index.Workpieces_Name + '</span>';
+                            }
+                            else {
+                                return '<span  style="width:90px;height:90px;text-align:center ;" /></span>';
+                            }
                         }
                     }
                 },
                 {
                     label: '今日产量', name: 'Yield', width: 120, align: 'left',
                     formatter: function (cellvalue, row, index) {
-                        if (index.Yield != "") {
+                        if (index.Yield != null && index.Yield != "") {
                             return '<span style="float:left;margin-left:22px;">' + index.Yield + '</span>';
+                        }
+                        else {
+                            return '<span style="float:left;margin-left:22px;"></span>';
                         }
                     }
                 },
                 {
                     label: '稼动率', name: 'Jiadong', width: 120, align: 'left',
                     formatter: function (cellvalue, row, index) {
-                        if (index.Jiadong != "") {
+                        if (index.Jiadong != null) {
                             return '<span style="float:left;margin-left:10px;">' + index.Jiadong * 100 + '%' + '</span>';
+                        }
+                        else {
+                            return '<span style="float:left;margin-left:10px;"></span>';
                         }
                     }
                 }
