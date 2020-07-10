@@ -14,7 +14,7 @@ namespace NFine.Domain._03_Entity.TeamTask
         public string Workpieces_Name { get; set; }
         public string Workpieces_Url { get; set; }
         public string Yield { get; set; }
-        public string Jiadong { get; set; }
+        public double Jiadong { get; set; }
         public string Team { get; set; }
         public string Colour { get; set; }
         public DateTime? CreationTime { get; set; }

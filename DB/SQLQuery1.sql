@@ -85,46 +85,46 @@ Equipment_Url varchar(200)  NULL,--设备Url
 Workpieces_Name varchar(50)  NULL,--加工件名
 Workpieces_Url varchar(200)  NULL, --加工件Url
 Yield  varchar(10)  NULL, --今日产量
-Jiadong varchar(10)  NULL, --稼动率
+Jiadong FLOAT  NULL, --稼动率
 Team varchar(50)  NULL,  --班组
 Colour varchar(50)  NULL,  --灯的颜色
 CreationTime DATETIME not null default getdate(),--创建时间
 IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Name],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
-VALUES('GF01','/Content/img/product/edm/GF01a.png','','/Content/img/product/edm/GF01a.png','6','83%','EDM' ,'#CC0000')
+VALUES('GF01','/Content/img/product/edm/GF01a.png','','/Content/img/product/edm/GF01a.png','6','0.83','EDM' ,'#CC0000')
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Name],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
-VALUES('GF02','/Content/img/product/edm/GF01a.png','','/Content/img/product/edm/GF01b.png','3','90%','EDM' ,'#CCFF00')
+VALUES('GF02','/Content/img/product/edm/GF01a.png','','/Content/img/product/edm/GF01b.png','3','0.90','EDM' ,'#CCFF00')
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Name],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
-VALUES('GF01','/Content/img/product/edm/GF01a.png','','/Content/img/product/edm/GF01a.png','6','83%','EDM' ,'#00CC99')
+VALUES('GF01','/Content/img/product/edm/GF01a.png','','/Content/img/product/edm/GF01a.png','6','0.83','EDM' ,'#00CC99')
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Name],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
-VALUES('GF02','/Content/img/product/edm/GF01a.png','','/Content/img/product/edm/GF01b.png','3','90%','EDM' ,'#00CC99')
+VALUES('GF02','/Content/img/product/edm/GF01a.png','','/Content/img/product/edm/GF01b.png','3','0.90','EDM' ,'#00CC99')
 
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Name],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
-VALUES('GF01','/Content/img/product/cnc/GF01a.png','','/Content/img/product/cnc/GF01b.png','6','83%','CNC' ,'#00CC99')
+VALUES('GF01','/Content/img/product/cnc/GF01a.png','','/Content/img/product/cnc/GF01b.png','6','0.83','CNC' ,'#00CC99')
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Name],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
-VALUES('GF02','/Content/img/product/cnc/GF02a.png','','/Content/img/product/cnc/GF02b.png','3','90%','CNC' ,'#00CC99')
+VALUES('GF02','/Content/img/product/cnc/GF02a.png','','/Content/img/product/cnc/GF02b.png','3','0.90','CNC' ,'#00CC99')
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Name],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
-VALUES('GF03','/Content/img/product/cnc/GF03a.png','','/Content/img/product/cnc/GF03b.png','2','95%','CNC' ,'#00CC99')
+VALUES('GF03','/Content/img/product/cnc/GF03a.png','','/Content/img/product/cnc/GF03b.png','2','0.95','CNC' ,'#00CC99')
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Name],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
-VALUES('GF04','/Content/img/product/cnc/GF04a.png','','/Content/img/product/cnc/GF04b.png','3','89%','CNC' ,'#C4C400')
+VALUES('GF04','/Content/img/product/cnc/GF04a.png','','/Content/img/product/cnc/GF04b.png','3','0.89','CNC' ,'#C4C400')
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Name],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
-VALUES('GF05','/Content/img/product/cnc/GF05a.png','','/Content/img/product/cnc/GF05b.png','6','85%','CNC' ,'#C4C400')
+VALUES('GF05','/Content/img/product/cnc/GF05a.png','','/Content/img/product/cnc/GF05b.png','6','0.85','CNC' ,'#C4C400')
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Name],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
-VALUES('GF06','/Content/img/product/cnc/GF06a.png','','/Content/img/product/cnc/GF06b.png','4','95%','CNC' ,'#FF5809')
+VALUES('GF06','/Content/img/product/cnc/GF06a.png','','/Content/img/product/cnc/GF06b.png','4','0.95','CNC' ,'#FF5809')
 
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Name],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
-VALUES('GF01','/Content/img/product/we/GF01a.png','','/Content/img/product/we/GF01b.png','6','83%','WE' ,'#019858')
+VALUES('GF01','/Content/img/product/we/GF01a.png','','/Content/img/product/we/GF01b.png','6','0.83','WE' ,'#019858')
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Name],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
-VALUES('GF02','/Content/img/product/we/GF02a.png','','/Content/img/product/we/GF02b.png','3','90%','WE' ,'#019858')
+VALUES('GF02','/Content/img/product/we/GF02a.png','','/Content/img/product/we/GF02b.png','3','0.90','WE' ,'#019858')
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Name],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
-VALUES('GF03','/Content/img/product/we/GF03a.png','','/Content/img/product/we/GF03b.png','2','95%','WE' ,'#019858')
+VALUES('GF03','/Content/img/product/we/GF03a.png','','/Content/img/product/we/GF03b.png','2','0.95','WE' ,'#019858')
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Name],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
-VALUES('GF04','/Content/img/product/we/GF04a.png','','/Content/img/product/we/GF04b.png','3','89%','WE' ,'#C4C400')
+VALUES('GF04','/Content/img/product/we/GF04a.png','','/Content/img/product/we/GF04b.png','3','0.89','WE' ,'#C4C400')
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Name],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
-VALUES('GF05','/Content/img/product/we/GF05a.png','','/Content/img/product/we/GF05b.png','6','85%','WE' ,'#C4C400')
+VALUES('GF05','/Content/img/product/we/GF05a.png','','/Content/img/product/we/GF05b.png','6','0.85','WE' ,'#C4C400')
 INSERT INTO [dbo].[Sys_EquipmentList]([Equipment_Name],[Equipment_Url],[Workpieces_Name],[Workpieces_Url],[Yield],[Jiadong],[Team],[Colour])
-VALUES('GF06','/Content/img/product/we/GF06a.png','','/Content/img/product/we/GF06b.png','4','95%','WE' ,'#FF5809')
+VALUES('GF06','/Content/img/product/we/GF06a.png','','/Content/img/product/we/GF06b.png','4','0.95','WE' ,'#FF5809')
 CREATE TABLE Sys_CapacityLoad --班组:产能/负荷
 (
 	id int identity (1,1) primary KEY,

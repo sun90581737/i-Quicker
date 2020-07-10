@@ -55,11 +55,11 @@ namespace TeamSynchronization
                 {
                     int ret = ser.DeleteSql(string.Format("UPDATE nfinebase.sys_tasklist SET IsEffective=0 where (Team='CNC班组' OR Team='CNC') and id<{0}", mp));
 
-                    LogHelper.Info(string.Format("CNCInsert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", result, ret, DateTime.Now.ToString()));
+                    LogHelper.Info(string.Format("CNC任务清单Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", result, ret, DateTime.Now.ToString()));
                 }
                 else
                 {
-                    LogHelper.Error("CNC执行失败");
+                    LogHelper.Error("CNC任务清单执行失败");
                 }
 
                 int mp1 = 0;
@@ -73,11 +73,11 @@ namespace TeamSynchronization
                 {
                     int ret1 = ser1.DeleteSql(string.Format("UPDATE nfinebase.sys_tasklist SET IsEffective=0 where (Team='EDM班组' OR Team='EDM') and id<{0}", mp1));
 
-                    LogHelper.Info(string.Format("EDMInsert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", result1, ret1, DateTime.Now.ToString()));
+                    LogHelper.Info(string.Format("EDM任务清单Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", result1, ret1, DateTime.Now.ToString()));
                 }
                 else
                 {
-                    LogHelper.Error("EDM执行失败");
+                    LogHelper.Error("EDM任务清单执行失败");
                 }
 
                 int mp2 = 0;
@@ -91,14 +91,33 @@ namespace TeamSynchronization
                 {
                     int ret2 = ser2.DeleteSql(string.Format("UPDATE nfinebase.sys_tasklist SET IsEffective=0 where (Team='WE班组' OR Team='WE') and id<{0}", mp2));
 
-                    LogHelper.Info(string.Format("WEInsert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", result2, ret2, DateTime.Now.ToString()));
+                    LogHelper.Info(string.Format("WE任务清单Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", result2, ret2, DateTime.Now.ToString()));
                 }
                 else
                 {
-                    LogHelper.Error("WE执行失败");
+                    LogHelper.Error("WE任务清单执行失败");
                 }
                 #endregion
 
+                #region 设备清单
+                int el = 0;
+                DbService elser = new DbService(tip, "MySQL");
+                string elsrt = string.Format(@"INSERT INTO nfinebase.sys_tasklist(Mold_No,Part_Number,Planned_Equipment,Start_Time,END_Time,Latest_Start_Time,Working_Hours,Customer,
+                    Mold_Kernel_Material,Category,Team,Colour)(SELECT  mold_no,part_no,device,begin_time,end_time,last_begin_time,process_hour,customer_name,material,group_name,
+                    dept_name,CASE WHEN process_state=-1 THEN '{0}' WHEN process_state=0 THEN '{1}' WHEN process_state=1 THEN '{2}' WHEN process_state=2 THEN '{3}' ELSE '' 
+                    END process_state FROM mes_center.b01_device_task  where (dept_name='CNC班组' OR dept_name='CNC') {4})", cnccolour1, cnccolour2, cnccolour3, cnccolour4, cnclimit);
+                int elsult = elser.InsertSql(elsrt, out el);
+                if (elsult > 0)
+                {
+                    int elret = elser.DeleteSql(string.Format("UPDATE nfinebase.sys_tasklist SET IsEffective=0 where (Team='CNC班组' OR Team='CNC') and id<{0}", el));
+
+                    LogHelper.Info(string.Format("CNC设备清单Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", elsult, elret, DateTime.Now.ToString()));
+                }
+                else
+                {
+                    LogHelper.Error("CNC设备清单执行失败");
+                }
+                #endregion
             }
             catch (Exception ex)
             {
