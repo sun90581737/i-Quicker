@@ -20,7 +20,7 @@ namespace TeamSynDeviceAndTask
 
         public static string dbcenter = GetValue("conn_center");//查询库
         public static string dbnfin = GetValue("conn_nfinebase");//写入库
-        public static string tip= DEncrypt.Decrypt(dbnfin);
+        public static string EnStr= DEncrypt.Decrypt(dbnfin);
         //任务清单
         public string cnclimit = GetValue("cnc_device_task_top");
         public string cnccolour1 = GetValue("cnc_device_task_colour1");
@@ -63,7 +63,7 @@ namespace TeamSynDeviceAndTask
             {
                 #region  任务清单
                 int mp = 0;
-                DbService ser = new DbService(tip, "MySQL");
+                DbService ser = new DbService(EnStr, "MySQL");
                 string srt = string.Format(@"INSERT INTO nfinebase.sys_tasklist(Mold_No,Part_Number,Planned_Equipment,Start_Time,END_Time,Latest_Start_Time,Working_Hours,Customer,
                     Mold_Kernel_Material,Category,Team,Colour)(SELECT  mold_no,part_no,device,begin_time,end_time,last_begin_time,process_hour,customer_name,material,group_name,
                     dept_name,CASE WHEN process_state=-1 THEN '{0}' WHEN process_state=0 THEN '{1}' WHEN process_state=1 THEN '{2}' WHEN process_state=2 THEN '{3}' ELSE '' 
@@ -81,7 +81,7 @@ namespace TeamSynDeviceAndTask
                 }
 
                 int mp1 = 0;
-                DbService ser1 = new DbService(tip, "MySQL");
+                DbService ser1 = new DbService(EnStr, "MySQL");
                 string srt1 = string.Format(@"INSERT INTO nfinebase.sys_tasklist(Mold_No,Part_Number,Planned_Equipment,Start_Time,END_Time,Latest_Start_Time,Working_Hours,Customer,
                     Mold_Kernel_Material,Category,Team,Colour)(SELECT  mold_no,part_no,device,begin_time,end_time,last_begin_time,process_hour,customer_name,material,group_name,
                     dept_name,CASE WHEN process_state=-1 THEN '{0}' WHEN process_state=0 THEN '{1}' WHEN process_state=1 THEN '{2}' WHEN process_state=2 THEN '{3}' ELSE '' 
@@ -99,7 +99,7 @@ namespace TeamSynDeviceAndTask
                 }
 
                 int mp2 = 0;
-                DbService ser2 = new DbService(tip, "MySQL");
+                DbService ser2 = new DbService(EnStr, "MySQL");
                 string srt2 = string.Format(@"INSERT INTO nfinebase.sys_tasklist(Mold_No,Part_Number,Planned_Equipment,Start_Time,END_Time,Latest_Start_Time,Working_Hours,Customer,
                     Mold_Kernel_Material,Category,Team,Colour)(SELECT  mold_no,part_no,device,begin_time,end_time,last_begin_time,process_hour,customer_name,material,group_name,
                     dept_name,CASE WHEN process_state=-1 THEN '{0}' WHEN process_state=0 THEN '{1}' WHEN process_state=1 THEN '{2}' WHEN process_state=2 THEN '{3}' ELSE '' 
@@ -119,7 +119,7 @@ namespace TeamSynDeviceAndTask
 
                 #region 设备清单
                 int el = 0;
-                DbService elser = new DbService(tip, "MySQL");
+                DbService elser = new DbService(EnStr, "MySQL");
                 string elsrt = string.Format(@"INSERT INTO nfinebase.sys_equipmentlist(Equipment_Name,Equipment_Url,Workpieces_Name,Workpieces_Url,Yield,Jiadong,Team,Colour,CreationTime)
                     (SELECT device_name,device_pic_url,part_name,part_pic_url,process_count,activation,dept_name,CASE WHEN device_state=-1 THEN '{0}' WHEN device_state=0 THEN '{1}' 
                     WHEN device_state=1 THEN '{2}' WHEN device_state=2 THEN '{3}' ELSE '' END device_state ,now() from mes_center.b02_device_running_state 
@@ -138,7 +138,7 @@ namespace TeamSynDeviceAndTask
                 }
 
                 int el1 = 0;
-                DbService elser1 = new DbService(tip, "MySQL");
+                DbService elser1 = new DbService(EnStr, "MySQL");
                 string elsrt1 = string.Format(@"INSERT INTO nfinebase.sys_equipmentlist(Equipment_Name,Equipment_Url,Workpieces_Name,Workpieces_Url,Yield,Jiadong,Team,Colour,CreationTime)
                     (SELECT device_name,device_pic_url,part_name,part_pic_url,process_count,activation,dept_name,CASE WHEN device_state=-1 THEN '{0}' WHEN device_state=0 THEN '{1}' 
                     WHEN device_state=1 THEN '{2}' WHEN device_state=2 THEN '{3}' ELSE '' END device_state ,now() from mes_center.b02_device_running_state 
@@ -157,7 +157,7 @@ namespace TeamSynDeviceAndTask
                 }
 
                 int el2 = 0;
-                DbService elser2 = new DbService(tip, "MySQL");
+                DbService elser2 = new DbService(EnStr, "MySQL");
                 string elsrt2 = string.Format(@"INSERT INTO nfinebase.sys_equipmentlist(Equipment_Name,Equipment_Url,Workpieces_Name,Workpieces_Url,Yield,Jiadong,Team,Colour,CreationTime)
                     (SELECT device_name,device_pic_url,part_name,part_pic_url,process_count,activation,dept_name,CASE WHEN device_state=-1 THEN '{0}' WHEN device_state=0 THEN '{1}' 
                     WHEN device_state=1 THEN '{2}' WHEN device_state=2 THEN '{3}' ELSE '' END device_state ,now() from mes_center.b02_device_running_state 
