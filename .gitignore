@@ -9,5 +9,7 @@ Web.Release.config
 /NFine.Web/Web.Release.config
 /DB/*.mdf
 /DB/*.ldf
-/DataSynchronization/TeamSynchronization/bin
-/DataSynchronization/TeamSynchronization/obj
+/DataSynchronization/TeamSynCapacityAndTrend/bin
+/DataSynchronization/TeamSynCapacityAndTrend/obj
+/DataSynchronization/TeamSynDeviceAndTask/bin
+/DataSynchronization/TeamSynDeviceAndTask/obj
