@@ -40,6 +40,11 @@ namespace TeamSynCapacityAndTrend
         public string wecolourfh1 = GetValue("edm_process_plan_fh_zc");
         public string wecolourfh2 = GetValue("edm_process_plan_fh_fzc");
 
+        //稼动率趋势
+        public string cncdatepr = GetValue("cnc_process_real_date");
+        public string edmdatepr = GetValue("edm_process_real_date");
+        public string wedatepr = GetValue("we_process_real_date");
+
         private void Team2_Load(object sender, EventArgs e)
         {
             try
@@ -121,6 +126,59 @@ namespace TeamSynCapacityAndTrend
                 else
                 {
                     LogHelper.Error("WE产能负荷执行失败");
+                }
+                #endregion
+
+                #region 稼动率趋势
+                int td = 0;
+                DbService tdser = new DbService(EnStr, "MySQL");
+                string tdsrt = string.Format(@"INSERT INTO nfinebase.sys_trend(Month_Day,Device_Name,TrendRate,Team,CreationTime)
+                (select SUBSTR(acct_date,6,10),process_name,activation,dept_name,now() from mes_center.b04_process_real  
+                where  DATE_SUB(CURDATE(), INTERVAL {0} DAY) <= date(acct_date) and (dept_name='CNC班组' OR dept_name='CNC')  ORDER BY acct_date ASC)", cncdatepr);
+                int tdresult = tdser.InsertSql(tdsrt, out td);
+                if (tdresult > 0)
+                {
+                    int tdret = tdser.DeleteSql(string.Format("UPDATE nfinebase.sys_trend SET IsEffective=0 where (Team='CNC班组' OR Team='CNC') and id<{0}", td));
+
+                    LogHelper.Info(string.Format("CNC稼动率Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", tdresult, tdret, DateTime.Now.ToString()));
+                }
+                else
+                {
+                    LogHelper.Error("CNC稼动率执行失败");
+                }
+
+                int td1 = 0;
+                DbService tdser1 = new DbService(EnStr, "MySQL");
+                string tdsrt1 = string.Format(@"INSERT INTO nfinebase.sys_trend(Month_Day,Device_Name,TrendRate,Team,CreationTime)
+                (select SUBSTR(acct_date,6,10),process_name,activation,dept_name,now() from mes_center.b04_process_real  
+                where  DATE_SUB(CURDATE(), INTERVAL {0} DAY) <= date(acct_date) and (dept_name='EDM班组' OR dept_name='EDM')  ORDER BY acct_date ASC)", edmdatepr);
+                int tdresult1 = tdser1.InsertSql(tdsrt1, out td1);
+                if (tdresult1 > 0)
+                {
+                    int tdret1 = tdser1.DeleteSql(string.Format("UPDATE nfinebase.sys_trend SET IsEffective=0 where (Team='EDM班组' OR Team='EDM') and id<{0}", td1));
+
+                    LogHelper.Info(string.Format("EDM稼动率Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", tdresult1, tdret1, DateTime.Now.ToString()));
+                }
+                else
+                {
+                    LogHelper.Error("CNC稼动率执行失败");
+                }
+
+                int td2 = 0;
+                DbService tdser2 = new DbService(EnStr, "MySQL");
+                string tdsrt2 = string.Format(@"INSERT INTO nfinebase.sys_trend(Month_Day,Device_Name,TrendRate,Team,CreationTime)
+                (select SUBSTR(acct_date,6,10),process_name,activation,dept_name,now() from mes_center.b04_process_real  
+                where  DATE_SUB(CURDATE(), INTERVAL {0} DAY) <= date(acct_date) and (dept_name='WE班组' OR dept_name='WE')  ORDER BY acct_date ASC)", wedatepr);
+                int tdresult2 = tdser2.InsertSql(tdsrt2, out td2);
+                if (tdresult2 > 0)
+                {
+                    int tdret2 = tdser2.DeleteSql(string.Format("UPDATE nfinebase.sys_trend SET IsEffective=0 where (Team='WE班组' OR Team='WE') and id<{0}", td2));
+
+                    LogHelper.Info(string.Format("WE稼动率Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", tdresult2, tdret2, DateTime.Now.ToString()));
+                }
+                else
+                {
+                    LogHelper.Error("WE稼动率执行失败");
                 }
                 #endregion
             }
