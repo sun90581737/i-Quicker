@@ -133,7 +133,7 @@ namespace TeamSynCapacityAndTrend
                 int td = 0;
                 DbService tdser = new DbService(EnStr, "MySQL");
                 string tdsrt = string.Format(@"INSERT INTO nfinebase.sys_trend(Month_Day,Device_Name,TrendRate,Team,CreationTime)
-                (select SUBSTR(acct_date,6,10),process_name,activation,dept_name,now() from mes_center.b04_process_real  
+                (select SUBSTR(acct_date,6,5),process_name,activation,dept_name,now() from mes_center.b04_process_real  
                 where  DATE_SUB(CURDATE(), INTERVAL {0} DAY) <= date(acct_date) and (dept_name='CNC班组' OR dept_name='CNC')  ORDER BY acct_date ASC)", cncdatepr);
                 int tdresult = tdser.InsertSql(tdsrt, out td);
                 if (tdresult > 0)
@@ -150,7 +150,7 @@ namespace TeamSynCapacityAndTrend
                 int td1 = 0;
                 DbService tdser1 = new DbService(EnStr, "MySQL");
                 string tdsrt1 = string.Format(@"INSERT INTO nfinebase.sys_trend(Month_Day,Device_Name,TrendRate,Team,CreationTime)
-                (select SUBSTR(acct_date,6,10),process_name,activation,dept_name,now() from mes_center.b04_process_real  
+                (select SUBSTR(acct_date,6,5),process_name,activation,dept_name,now() from mes_center.b04_process_real  
                 where  DATE_SUB(CURDATE(), INTERVAL {0} DAY) <= date(acct_date) and (dept_name='EDM班组' OR dept_name='EDM')  ORDER BY acct_date ASC)", edmdatepr);
                 int tdresult1 = tdser1.InsertSql(tdsrt1, out td1);
                 if (tdresult1 > 0)
@@ -167,7 +167,7 @@ namespace TeamSynCapacityAndTrend
                 int td2 = 0;
                 DbService tdser2 = new DbService(EnStr, "MySQL");
                 string tdsrt2 = string.Format(@"INSERT INTO nfinebase.sys_trend(Month_Day,Device_Name,TrendRate,Team,CreationTime)
-                (select SUBSTR(acct_date,6,10),process_name,activation,dept_name,now() from mes_center.b04_process_real  
+                (select SUBSTR(acct_date,6,5),process_name,activation,dept_name,now() from mes_center.b04_process_real  
                 where  DATE_SUB(CURDATE(), INTERVAL {0} DAY) <= date(acct_date) and (dept_name='WE班组' OR dept_name='WE')  ORDER BY acct_date ASC)", wedatepr);
                 int tdresult2 = tdser2.InsertSql(tdsrt2, out td2);
                 if (tdresult2 > 0)
