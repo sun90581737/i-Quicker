@@ -49,7 +49,7 @@
             $.each(listAll, function (index1, value1) {
                 if (value == value1.Device_Name) {
                     tempName = value1.Device_Name;
-                    tempArry.push(value1.TrendRate);
+                    tempArry.push(value1.TrendRate * 100);
                 }
             });
             series.push({
