@@ -42,10 +42,9 @@
                 {
                     label: '设备名', name: 'Equipment_Name', width: 100, align: 'left',
                     formatter: function (cellvalue, row, index) {
-                        debugger;
                         if (index.Equipment_Url !=null && index.Equipment_Url != "") {
                             //return '<div style="width:100px;height:100px;background-color:' + index.Colour + ';"><p style="text-align:center;color:white;">' + index.Equipment_Name + '</p><img src="' + index.Equipment_Url + '" style="position: absolute; margin-left:5px;margin-top:-22px;" /></div>';
-                            return '<div style="width:100px;height:100px;background-color:' + index.Colour + ';"><p style="text-align:center;color:white;">' + index.Equipment_Name + '</p><img src="/TeamTask/CNCTeam/Image?p=' + index.Equipment_Url + '"  style="position: absolute; margin-left:5px;margin-top:-22px;" /></div>';
+                            return '<div style="width:100px;height:100px;background-color:' + index.Colour + ';"><p style="text-align:center;color:white;">' + index.Equipment_Name + '</p><img src="/TeamTask/CNCTeam/Image?p=' + index.Equipment_Url + '"  style="position: absolute; width:70px;height:70px; margin-left:12px;margin-top:-15px;" /></div>';
                         }
                         else {
                             if (true) {
@@ -62,7 +61,8 @@
                     label: '加工件', name: 'Workpieces_Url', width: 120, align: 'left',
                     formatter: function (cellvalue, row, index) {
                         if (index.Workpieces_Url !=null && index.Workpieces_Url != "") {
-                            return '<img src="' + index.Workpieces_Url + '"  style="width:90px;height:90px;margin-top: 5px;" />';
+                            //return '<img src="' + index.Workpieces_Url + '"  style="width:90px;height:90px;margin-top: 5px;" />';
+                            return '<img src="/TeamTask/CNCTeam/Image?p=' + index.Equipment_Url + '"  style="position: absolute; width:90px;height:90px;margin-top:-45px;" />'
                         }
                         else {
                             if (index.Workpieces_Name != null && index.Workpieces_Name != "") {
