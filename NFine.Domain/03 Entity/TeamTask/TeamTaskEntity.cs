@@ -11,6 +11,7 @@ namespace NFine.Domain._03_Entity.TeamTask
         public int? id { get; set; }
         public string Mold_No { get; set; }
         public string Part_Number { get; set; }
+        public string Process_Name { get; set; }
         public string Planned_Equipment { get; set; }
         public DateTime? Start_Time { get; set; }
         public DateTime? END_Time { get; set; }

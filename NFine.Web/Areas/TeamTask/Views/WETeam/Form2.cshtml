@@ -52,6 +52,15 @@
                         else { index.Part_Number }
                     }
                 },
+                {
+                    label: '工序名称', name: 'Process_Name', width: 120, align: 'left',
+                    formatter: function (cellvalue, row, index) {
+                        if (index.Colour != "") {
+                            return '<font style="color:' + index.Colour + '">' + index.Process_Name + '</font>';
+                        }
+                        else { index.Process_Name }
+                    }
+                },
                 { label: '计划设备', name: 'Planned_Equipment', width: 120, align: 'left' },
                 {
                     label: '开始时间', name: 'Start_Time', width: 140, align: 'left',

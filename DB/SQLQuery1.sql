@@ -27,6 +27,7 @@ CREATE table Sys_TaskList  --班组:任务清单
 id int identity (1,1) primary key , 
 Mold_No varchar(50)  NULL, --模具编号
 Part_Number  varchar(50)  NULL,--零件编号
+Process_Name varchar(50)  NULL,--工序名称
 Planned_Equipment varchar(50)  NULL,--计划设备
 Start_Time DATETIME, --开始时间
 END_Time DATETIME, --结束时间

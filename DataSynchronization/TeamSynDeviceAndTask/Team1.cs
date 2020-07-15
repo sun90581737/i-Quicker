@@ -64,8 +64,8 @@ namespace TeamSynDeviceAndTask
                 #region  任务清单
                 int mp = 0;
                 DbService ser = new DbService(EnStr, "MySQL");
-                string srt = string.Format(@"INSERT INTO nfinebase.sys_tasklist(Mold_No,Part_Number,Planned_Equipment,Start_Time,END_Time,Latest_Start_Time,Working_Hours,Customer,
-                    Mold_Kernel_Material,Category,Team,Colour)(SELECT  mold_no,part_no,device,begin_time,end_time,last_begin_time,process_hour,customer_name,material,group_name,
+                string srt = string.Format(@"INSERT INTO nfinebase.sys_tasklist(Mold_No,Part_Number,Process_Name,Planned_Equipment,Start_Time,END_Time,Latest_Start_Time,Working_Hours,Customer,
+                    Mold_Kernel_Material,Category,Team,Colour)(SELECT  mold_no,part_no,process_name,device,begin_time,end_time,last_begin_time,process_hour,customer_name,material,group_name,
                     dept_name,CASE WHEN process_state=-1 THEN '{0}' WHEN process_state=0 THEN '{1}' WHEN process_state=1 THEN '{2}' WHEN process_state=2 THEN '{3}' ELSE '' 
                     END process_state FROM mes_center.b01_device_task  where (dept_name='CNC班组' OR dept_name='CNC') {4})", cnccolour1, cnccolour2, cnccolour3, cnccolour4, cnclimit);
                 int result = ser.InsertSql(srt, out mp);
@@ -82,8 +82,8 @@ namespace TeamSynDeviceAndTask
 
                 int mp1 = 0;
                 DbService ser1 = new DbService(EnStr, "MySQL");
-                string srt1 = string.Format(@"INSERT INTO nfinebase.sys_tasklist(Mold_No,Part_Number,Planned_Equipment,Start_Time,END_Time,Latest_Start_Time,Working_Hours,Customer,
-                    Mold_Kernel_Material,Category,Team,Colour)(SELECT  mold_no,part_no,device,begin_time,end_time,last_begin_time,process_hour,customer_name,material,group_name,
+                string srt1 = string.Format(@"INSERT INTO nfinebase.sys_tasklist(Mold_No,Part_Number,Process_Name,Planned_Equipment,Start_Time,END_Time,Latest_Start_Time,Working_Hours,Customer,
+                    Mold_Kernel_Material,Category,Team,Colour)(SELECT  mold_no,part_no,process_name,device,begin_time,end_time,last_begin_time,process_hour,customer_name,material,group_name,
                     dept_name,CASE WHEN process_state=-1 THEN '{0}' WHEN process_state=0 THEN '{1}' WHEN process_state=1 THEN '{2}' WHEN process_state=2 THEN '{3}' ELSE '' 
                     END process_state FROM mes_center.b01_device_task  where (dept_name='EDM班组' OR dept_name='EDM') {4})", edmcolour1, edmcolour2, edmcolour3, edmcolour4, edmlimit);
                 int result1 = ser1.InsertSql(srt1, out mp1);
@@ -100,8 +100,8 @@ namespace TeamSynDeviceAndTask
 
                 int mp2 = 0;
                 DbService ser2 = new DbService(EnStr, "MySQL");
-                string srt2 = string.Format(@"INSERT INTO nfinebase.sys_tasklist(Mold_No,Part_Number,Planned_Equipment,Start_Time,END_Time,Latest_Start_Time,Working_Hours,Customer,
-                    Mold_Kernel_Material,Category,Team,Colour)(SELECT  mold_no,part_no,device,begin_time,end_time,last_begin_time,process_hour,customer_name,material,group_name,
+                string srt2 = string.Format(@"INSERT INTO nfinebase.sys_tasklist(Mold_No,Part_Number,Process_Name,Planned_Equipment,Start_Time,END_Time,Latest_Start_Time,Working_Hours,Customer,
+                    Mold_Kernel_Material,Category,Team,Colour)(SELECT  mold_no,part_no,process_name,device,begin_time,end_time,last_begin_time,process_hour,customer_name,material,group_name,
                     dept_name,CASE WHEN process_state=-1 THEN '{0}' WHEN process_state=0 THEN '{1}' WHEN process_state=1 THEN '{2}' WHEN process_state=2 THEN '{3}' ELSE '' 
                     END process_state FROM mes_center.b01_device_task  where (dept_name='WE班组' OR dept_name='WE') {4})", wecolour1, wecolour2, wecolour3, wecolour4, welimit);
                 int result2 = ser2.InsertSql(srt2, out mp2);
