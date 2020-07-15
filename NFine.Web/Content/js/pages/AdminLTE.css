@@ -1519,8 +1519,8 @@ a:focus {
 .box {
   position: relative;
   border-radius: 3px;
-  background: #ffffff;
-  border-top: 3px solid #d2d6de;
+  /*background: #ffffff;*/   /*SXH 2020年7月15日 15:27:18  背景色修改*/
+  border-top: 3px;  /*border-top: 3px solid #d2d6de;*/
   margin-bottom: 20px;
   width: 100%;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -1714,7 +1714,7 @@ a:focus {
   position: relative;
 }
 .box-header.with-border {
-  border-bottom: 1px solid #f4f4f4;
+ border-bottom: 1px ; /*border-bottom: 1px solid #f4f4f4;*/   /*SXH 头部线的颜色*/
 }
 .collapsed-box .box-header.with-border {
   border-bottom: none;
