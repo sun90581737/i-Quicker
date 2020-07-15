@@ -4,7 +4,6 @@
     ViewBag.Title = "CNC班组";
     Layout = "~/Views/Shared/_Index.cshtml";
 }
-
 <script src="~/Content/js/bootstrap/bootstrap.js"></script>
 <link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
 <script src="~/Content/js/pages/dashboard.js"></script>
@@ -43,8 +42,10 @@
                 {
                     label: '设备名', name: 'Equipment_Name', width: 100, align: 'left',
                     formatter: function (cellvalue, row, index) {
+                        debugger;
                         if (index.Equipment_Url !=null && index.Equipment_Url != "") {
-                            return '<div style="width:100px;height:100px;background-color:' + index.Colour + ';"><p style="text-align:center;color:white;">' + index.Equipment_Name + '</p><img src="' + index.Equipment_Url + '" style="position: absolute; margin-left:5px;margin-top:-22px;" /></div>';
+                            //return '<div style="width:100px;height:100px;background-color:' + index.Colour + ';"><p style="text-align:center;color:white;">' + index.Equipment_Name + '</p><img src="' + index.Equipment_Url + '" style="position: absolute; margin-left:5px;margin-top:-22px;" /></div>';
+                            return '<div style="width:100px;height:100px;background-color:' + index.Colour + ';"><p style="text-align:center;color:white;">' + index.Equipment_Name + '</p><img src="/TeamTask/CNCTeam/Image?p=' + index.Equipment_Url + '"  style="position: absolute; margin-left:5px;margin-top:-22px;" /></div>';
                         }
                         else {
                             if (true) {
