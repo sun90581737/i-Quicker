@@ -356,6 +356,7 @@
     <Content Include="Content\js\pages\app.min.js" />
     <Content Include="Content\js\pages\dashboard.js" />
     <Content Include="Content\js\pages\img\bg.png" />
+    <Content Include="Content\js\pages\img\bg1.png" />
     <Content Include="Content\js\pages\img\BusinessOverview01.png" />
     <Content Include="Content\js\pages\img\footer.png" />
     <Content Include="Content\js\pages\img\header.png" />
