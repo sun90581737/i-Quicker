@@ -2,8 +2,6 @@
     ViewBag.Title = "经营概览";
     Layout = "~/Views/Shared/_Index.cshtml";
 }
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 @*<script src="~/Content/js/jquery/jquery-2.1.1.min.js"></script>*@
 <script src="~/Content/js/echarts/4.3/echarts.js"></script>
 <script src="~/Content/js/pages/world.js"></script>
@@ -62,9 +60,9 @@
             title: {//标题组件
                 text: '￥' + TotalCost + '万',
                 top: '45%',
-                left: '35%',
+                left: '37%',
                 textStyle: {
-                    color: "#505050",
+                    color: "#ffffff",
                     fontSize: 15,
                     fontFamily: 'KaiTi',
                 }
@@ -84,7 +82,7 @@
                 itemHeight: 10, //图例标记的图形高度
                 data: listName,//['物料', '外协', '自制', '异常'],
                 textStyle: {    //图例文字的样式
-                    color: '#333',  //文字颜色
+                    color: '#ffffff',  //文字颜色
                     fontSize: 12    //文字大小
                 }
             },
@@ -159,7 +157,11 @@
                 left: 'left',
                 itemWidth: 10,  //图例标记的图形宽度
                 itemHeight: 10, //图例标记的图形高度
-                data: listName//['CNC', 'EDM', 'WEDM', '车铣磨抛']
+                data: listName,//['CNC', 'EDM', 'WEDM', '车铣磨抛']
+                textStyle: {    //图例文字的样式
+                    color: '#ffffff',  //文字颜色
+                    fontSize: 12    //文字大小
+                }
             },
             color: ['#FFFF99', '#CCCC66', '#00CC99', '#FF3333'],
             series: [
@@ -430,7 +432,11 @@
                 }
             },
             legend: {
-                data: listDeviceName
+                data: listDeviceName,
+                textStyle: {    //图例文字的样式
+                    color: '#ffffff',  //文字颜色
+                    fontSize: 12    //文字大小
+                }
             },
             xAxis: [
                 {
@@ -510,7 +516,11 @@
                 left: 'left',
                 itemWidth: 10,  //图例标记的图形宽度
                 itemHeight: 10, //图例标记的图形高度
-                data: listName
+                data: listName,
+                textStyle: {    //图例文字的样式
+                    color: '#ffffff',  //文字颜色
+                    fontSize: 12    //文字大小
+                }
             },
             //color: ['#FFFF99', '#CCCC66', '#00CC99', '#FF3333'],
             series: [
@@ -793,26 +803,28 @@
         <section class="col-lg-6 connectedSortable" style="width: 48%;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat;position: relative;  margin : 10px 5px 5px 15px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h4 class="box-title">生产成本</h4>
-                    <select id="Type_id" name="Type" style="border: solid 1px #000;" onchange="selectType(this)">
-                        <option value="1" selected="selected">一周</option>
-                        <option value="2">两周</option>
-                        <option value="3">三周</option>
-                        <option value="4">一个月</option>
-                        <option value="5">半年</option>
-                        <option value="6">一年</option>
-                    </select>
+                    <div class="box-title" style="color:#ffffff;">生产成本<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
+                    <div style="float:right">
+                        <select id="Type_id" name="Type" style="border: solid 1px #000;" onchange="selectType(this)">
+                            <option value="1" selected="selected">一周</option>
+                            <option value="2">两周</option>
+                            <option value="3">三周</option>
+                            <option value="4">一个月</option>
+                            <option value="5">半年</option>
+                            <option value="6">一年</option>
+                        </select>
+                    </div>
                     <div class="box-tools pull-right">
                         @*<button type="button" onclick="funOne()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>*@
                     </div>
                 </div>
                 <div class="tab-content" style="height:100%;">
                     <div style="float:left;width:50%">
-                        <div style="text-align:center;font-size:13px;">周期总生产成本</div>
+                        <div style="text-align:center;font-size:13px;color:#ffffff;">周期总生产成本</div>
                         <div id="chart1a" style="height:260px; "></div>
                     </div>
                     <div style="margin-left:50%;width:auto;">
-                        <div style="text-align:center;font-size:13px;">自制成本按部门分类</div>
+                        <div style="text-align:center;font-size:13px;color:#ffffff;">自制成本按部门分类</div>
                         <div id="chart1b" style="height:260px; "></div>
                     </div>
                 </div>
@@ -822,19 +834,19 @@
         <section class="col-lg-6 connectedSortable" style="width:49%;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat;position: relative;  margin : 10px 10px 5px 5px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h4 class="box-title">交付率/进度</h4>
+                    <h4 class="box-title" style="color:#ffffff">交付率/进度<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></h4>
                     <div class="box-tools pull-right">
                         @*<button type="button" onclick="funTwo()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>*@
                     </div>
                 </div>
                 <div class="tab-content" style="height:100%;">
                     <div style="height:145px">
-                        <div style="text-align:center;font-size:13px;">交期达成率趋势</div>
+                        <div style="text-align:center;font-size:13px;color:#ffffff;">交期达成率趋势</div>
                         <div id="chart2" style="height:155px;"></div>
                     </div>
                     <div class="gridPanel" style="height:90%;margin:10px;width:98%">
                         <table id="gridList"></table>
-                        <div style="text-align:center;font-size:13px;">在制模具进度</div>
+                        <div style="text-align:center;font-size:13px;color:#ffffff;">在制模具进度</div>
                     </div>
                 </div>
             </div>
@@ -843,15 +855,17 @@
         <section class="col-lg-6 connectedSortable" style="width:34%;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat;position: relative;  margin : 5px 5px 0px 15px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h4 class="box-title">产能/负载</h4>
-                    <select id="Types_id" name="Types" style="border: solid 1px #000;" onchange="selectTypes(this)">
-                        <option value="1" selected="selected">一周</option>
-                        <option value="2">两周</option>
-                        <option value="3">三周</option>
-                        <option value="4">一个月</option>
-                        <option value="5">半年</option>
-                        <option value="6">一年</option>
-                    </select>
+                    <h4 class="box-title" style="color:#ffffff">产能/负载<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></h4>
+                    <div style="float:right">
+                        <select id="Types_id" name="Types" style="border: solid 1px #000;" onchange="selectTypes(this)">
+                            <option value="1" selected="selected">一周</option>
+                            <option value="2">两周</option>
+                            <option value="3">三周</option>
+                            <option value="4">一个月</option>
+                            <option value="5">半年</option>
+                            <option value="6">一年</option>
+                        </select>
+                    </div>
                     <div class="box-tools pull-right">
                         @*<button type="button" onclick="funThree()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>*@
                     </div>
@@ -865,18 +879,18 @@
         <section class="col-lg-6 connectedSortable" style="width:63%;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat ;position: relative;  margin : 5px 10px 0px 5px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h4 class="box-title">客户分布</h4>
+                    <h4 class="box-title" style="color:#ffffff">客户分布<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></h4>
                     <div class="box-tools pull-right">
                         @*<button type="button" onclick="funFour()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>*@
                     </div>
                 </div>
                 <div class="tab-content" style="height:100%;">
                     <div style="float:left;width:50%">
-                        <div style="text-align:center;font-size:13px;">主要客户</div>
+                        <div style="text-align:center;font-size:13px;color:#ffffff;">主要客户</div>
                         <div id="chart4a" style="height:263px; "></div>
                     </div>
                     <div style="margin-left:50%;width:auto;">
-                        <div style="text-align:center;font-size:13px;">全球分布</div>
+                        <div style="text-align:center;font-size:13px;color:#ffffff;">全球分布</div>
                         <div id="chart4b" style="height:263px; "></div>
                     </div>
                 </div>

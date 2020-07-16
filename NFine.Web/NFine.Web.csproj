@@ -359,6 +359,7 @@
     <Content Include="Content\js\pages\img\bg1.png" />
     <Content Include="Content\js\pages\img\BusinessOverview01.png" />
     <Content Include="Content\js\pages\img\footer.png" />
+    <Content Include="Content\js\pages\img\head.png" />
     <Content Include="Content\js\pages\img\header.png" />
     <Content Include="Content\js\pages\img\icon-01.png" />
     <Content Include="Content\js\pages\img\icon-02.png" />
