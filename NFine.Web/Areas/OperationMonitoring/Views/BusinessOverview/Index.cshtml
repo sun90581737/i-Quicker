@@ -59,7 +59,7 @@
         var option = {
             title: {//标题组件
                 text: '￥' + TotalCost + '万',
-                top: '45%',
+                top: '35%',
                 left: '37%',
                 textStyle: {
                     color: "#ffffff",
@@ -227,110 +227,86 @@
         })
         var myChart = echarts.init(document.getElementById('chart2'));
 
-        var myColor = ['#45fda5', '#3ffd55', '#11da01', '#118b43', '#c3eb18', '#dfde14', '#eac736', '#ed5501', '#9d0700', '#e80c00'];
-
         var option = {
-           // backgroundColor: 'white',
+            title: {
+                text: ''
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
             grid: {
                 top: 10,
-                left: 15,
+                left: 40,
                 right: 15,
                 bottom: 50,
-                containLabel: true //轴上的数值
+                containLabel: false
+            },
+            //toolbox: {
+            //    feature: {
+            //        saveAsImage: {}
+            //    }
+            //},
+            tooltip: {
+                trigger: 'axis',
+                formatter: function (params) {
+                    var relVal = params[0].name;
+                    for (var i = 0, l = params.length; i < l; i++) {
+                        relVal += '<br/>' + params[i].marker + params[i].seriesName + ' : ' + params[i].value + "%";
+                    }
+                    return relVal;
+                }
             },
             xAxis: {
                 type: 'category',
-                splitLine: false,
                 boundaryGap: false,
-                axisLine: {
-                    show: false,
-                    lineStyle: {
-                        color: myColor[0]
+                data: ListMonth,
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#ffffff' 
                     }
-                },
-                axisTick: {
-                    lineStyle: {
-                        color: myColor[0]
-                    }
-                },
-                axisPointer: {
-                    label: {
-                        formatter: function (params) {
-                            return '交期达成率  ' + params.value + (params.seriesData.length ? '：' + params.seriesData[0].data : '') + '%';
-                        }
-                    }
-                },
-                data: ListMonth
+                }
             },
             yAxis: {
-                //type: 'value',
-                //min: 0,
-                //splitLine: false,
-                //axisLine: {
-                //    show: false
-                //},
-                //axisTick: {
-                //    show: false
-                //},
                 interval: 20,
                 axisLabel: {
                     formatter: function (value) {
                         return value + "%";
                     },
+                    show: true,
                     textStyle: {
-                        color: function (value) {
-                            //注意：当值大于999(三位)时，会以“1,000”形式，所以要做以下处理
-                            value = parseInt(value.replace(/,/g, ""));
-                            var idx = parseInt(value / 10);
-                            return myColor[idx > 9 ? 9 : idx];
-                        }
+                        color: '#ffffff'   
                     }
                 },
                 type: 'value',
-                //axisLabel: {
-                //    show: true,
-                //    interval: 'auto',
-                //    formatter: '{value}%',
-                //    textStyle: {
-                //        color: myColor
-                //    }
-                //},
-                show: true
+                splitLine: { show: false }
             },
-            visualMap: {
-                show: false,
-                calculable: true,
-                min: 0,
-                max: 100,
-                inRange: {
-                    color: myColor
-                }
-            },
-                tooltip: {
-                    trigger: 'none',
-                    axisPointer: {
-                        type: 'cross'
+            series: [
+                {
+                    name: '交期达成率',
+                    type:'line',
+                    areaStyle: {normal: {
+                        color: new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1,
+                                [
+                                    { offset: 0, color: '#34d0e9' },
+                                    { offset: 0.5, color: '#0a3d70' },
+                                    { offset: 1, color: 'transparent' }
+                                ]
+                        )
                     }
-                },
-            series: [{
-                name: '交期达成率',
-                type: 'line',
-                //symbol: 'none', //这句就是去掉折线上的点的
-                smooth: true, //这句就是让曲线变平滑的
-                hoverAnimation: true,
-                data: ListDeliveryRate,
-                // 显示数值
-                itemStyle: {
-                    normal: {
-                        label: {
-                            show: true,
-                            formatter: '{c}%',
-                            position: 'bottom',
-                            color: "#505050"
+                    },
+                    itemStyle : {
+                        normal : {
+                            color: '#00ffff', //改变折线点的颜色
+                            lineStyle:{
+                                color: '#00ffff' //改变折线颜色
+                            }
                         }
-                    }
+                    },
+                    data: ListDeliveryRate,
                 }
-            }]
+            ]
         };
 
        myChart.setOption(option);
