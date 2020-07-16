@@ -71,15 +71,17 @@
                 trigger: 'item', //触发类型(饼状图片就是用这个)
                 formatter: "{b} : ({c}%)"//"{a} <br/>{b} : {c} ({d}%)" //提示框浮层内容格式器
             },
-            color: ['#FFFF99', '#CCCC66', '#00CC99', '#FF3333'],  //手动设置每个图例的颜色
+            color: ['#f3961d', '#f15d5d', '#0867e9', '#0fcdfd'],  //手动设置每个图例的颜色
             legend: {  //图例组件
                 //right:100,  //图例组件离右边的距离
-                orient: 'horizontal',  //布局  纵向布局 图例标记居文字的左边 vertical则反之
-                width: 40,      //图行例组件的宽度,默认自适应
-                x: 'left',   //图例显示在右边
-                y: 'top',   //图例在垂直方向上面显示居中
+                //orient: 'horizontal',  //布局  纵向布局 图例标记居文字的左边 vertical则反之
+                //width: 40,      //图行例组件的宽度,默认自适应
+                //x: 'right',   //图例显示在右边
+                //y: 'bottom',   //图例在垂直方向上面显示居中
                 itemWidth: 10,  //图例标记的图形宽度
                 itemHeight: 10, //图例标记的图形高度
+                bottom: 20,
+                left: 'center',
                 data: listName,//['物料', '外协', '自制', '异常'],
                 textStyle: {    //图例文字的样式
                     color: '#ffffff',  //文字颜色
@@ -90,10 +92,12 @@
                 {
                     //name:'设备状态',  //系列名称
                     type: 'pie',   //类型 pie表示饼图
-                    center: ['50%', '50%'], //设置饼的原心坐标 不设置就会默认在中心的位置
-                    radius: ['50%', '70%'],  //饼图的半径,第一项是内半径,第二项是外半径,内半径为0就是真的饼,不是环形
+                    center: ['50%', '40%'], //设置饼的原心坐标 不设置就会默认在中心的位置
+                    radius: ['40%', '70%'],  //饼图的半径,第一项是内半径,第二项是外半径,内半径为0就是真的饼,不是环形
                     itemStyle: {  //图形样式
                         normal: { //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+                            borderWidth: 4,
+                            borderColor: '#092848',
                             label: {  //饼图图形上的文本标签
                                 show: true,  //平常不显示
                                 formatter: '{c}%',
@@ -108,7 +112,7 @@
                                 show: true,
                                 position: 'center',
                                 textStyle: {
-                                    fontSize: '20',
+                                    fontSize: '18',
                                     fontWeight: 'bold'
                                 }
                             }
@@ -153,23 +157,24 @@
                 formatter: "{b} : ({c}%)"
             },
             legend: {
-                orient: 'vertical',
-                left: 'left',
+                //orient: 'vertical',
+                left: 'center',
                 itemWidth: 10,  //图例标记的图形宽度
                 itemHeight: 10, //图例标记的图形高度
+                bottom: 20,
                 data: listName,//['CNC', 'EDM', 'WEDM', '车铣磨抛']
                 textStyle: {    //图例文字的样式
                     color: '#ffffff',  //文字颜色
                     fontSize: 12    //文字大小
                 }
             },
-            color: ['#FFFF99', '#CCCC66', '#00CC99', '#FF3333'],
+            color: ['#0867e9', '#f3961d', '#01a0b3', '#0be3fb'],
             series: [
                 {
                     name: '访问来源',
                     type: 'pie',
                     radius: '65%',
-                    center: ['50%', '50%'],
+                    center: ['50%', '40%'],
                     data: str//[{ value: 23, name: 'CNC' },{ value: 26, name: 'EDM' },{ value: 17, name: 'WEDM' },{ value: 34, name: '车铣磨抛' },]
                     ,
                     itemStyle: {  //图形样式
@@ -803,7 +808,7 @@
         <section class="col-lg-6 connectedSortable" style="width: 48%;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat;position: relative;  margin : 10px 5px 5px 15px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <div class="box-title" style="color:#ffffff;">生产成本<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
+                    <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">生产成本<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
                     <div style="float:right">
                         <select id="Type_id" name="Type" style="border: solid 1px #000;" onchange="selectType(this)">
                             <option value="1" selected="selected">一周</option>
@@ -821,11 +826,11 @@
                 <div class="tab-content" style="height:100%;">
                     <div style="float:left;width:50%">
                         <div style="text-align:center;font-size:13px;color:#ffffff;">周期总生产成本</div>
-                        <div id="chart1a" style="height:260px; "></div>
+                        <div id="chart1a" style="height:269px; "></div>
                     </div>
                     <div style="margin-left:50%;width:auto;">
                         <div style="text-align:center;font-size:13px;color:#ffffff;">自制成本按部门分类</div>
-                        <div id="chart1b" style="height:260px; "></div>
+                        <div id="chart1b" style="height:269px; "></div>
                     </div>
                 </div>
             </div>
@@ -834,7 +839,7 @@
         <section class="col-lg-6 connectedSortable" style="width:49%;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat;position: relative;  margin : 10px 10px 5px 5px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h4 class="box-title" style="color:#ffffff">交付率/进度<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></h4>
+                    <h4 class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">交付率/进度<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></h4>
                     <div class="box-tools pull-right">
                         @*<button type="button" onclick="funTwo()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>*@
                     </div>
@@ -855,7 +860,7 @@
         <section class="col-lg-6 connectedSortable" style="width:34%;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat;position: relative;  margin : 5px 5px 0px 15px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h4 class="box-title" style="color:#ffffff">产能/负载<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></h4>
+                    <h4 class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">产能/负载<img src="../../../../Content/js/pages/img/head.png" style="width:250px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></h4>
                     <div style="float:right">
                         <select id="Types_id" name="Types" style="border: solid 1px #000;" onchange="selectTypes(this)">
                             <option value="1" selected="selected">一周</option>
@@ -879,7 +884,7 @@
         <section class="col-lg-6 connectedSortable" style="width:63%;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat ;position: relative;  margin : 5px 10px 0px 5px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h4 class="box-title" style="color:#ffffff">客户分布<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></h4>
+                    <h4 class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">客户分布<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></h4>
                     <div class="box-tools pull-right">
                         @*<button type="button" onclick="funFour()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>*@
                     </div>

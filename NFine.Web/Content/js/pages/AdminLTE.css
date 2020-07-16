@@ -1517,13 +1517,13 @@ a:focus {
  * --------------
  */
 .box {
-  position: relative;
-  border-radius: 3px;
+  /*position: relative;
+  border-radius: 3px;*/
   /*background: #ffffff;*/   /*SXH 2020年7月15日 15:27:18  背景色修改*/
-  border-top: 3px;  /*border-top: 3px solid #d2d6de;*/
+  /*border-top: 3px; 
   margin-bottom: 20px;
   width: 100%;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);*/
 }
 .box.box-primary {
   border-top-color: #3c8dbc;
