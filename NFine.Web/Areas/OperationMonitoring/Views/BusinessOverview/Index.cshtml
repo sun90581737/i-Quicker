@@ -373,8 +373,8 @@
             });
             series.push({
                 name: tempName,
-                type: tempName == "车铣刨磨" ? 'line' : 'bar',
-                stack: '广告',
+                type: 'bar',
+                stack: '广告' + index,
                 data: tempArry
             })
         });
@@ -382,7 +382,7 @@
         var myChart = echarts.init(document.getElementById('chart3'));
 
         var option = {
-            color: ['#6cce8f', '#e5323e', '#FFFF00'],
+            color: ['#0867e9', '#ff6d8d', '#f3961d'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {
@@ -399,21 +399,16 @@
                     return relVal;
                 }
             },
-            toolbox: {
-                show: true,
-                orient: 'vertical',
-                left: 'right',
-                top: 'center',
-                feature: {
-                    mark: { show: true },
-                    dataView: { show: true, readOnly: false },
-                    magicType: { show: true, type: ['line', 'bar'] },
-                    restore: { show: true },
-                    saveAsImage: { show: true }
-                }
-            },
+            grid: {
+                left: '0%',  
+                right: '0',  
+                bottom: '0%',  
+                containLabel: true  
+            },  
             legend: {
                 data: listDeviceName,
+                itemWidth: 10,  //图例标记的图形宽度
+                itemHeight: 10, //图例标记的图形高度
                 textStyle: {    //图例文字的样式
                     color: '#ffffff',  //文字颜色
                     fontSize: 12    //文字大小
@@ -421,45 +416,30 @@
             },
             xAxis: [
                 {
-                    type: 'category',
-                    data: listDeviceType,
-                    axisPointer: {
-                        type: 'shadow'
-                    }
+                    //type: 'category',
+                    //data: listDeviceType,
+                    //axisPointer: {
+                    //    type: 'shadow'
+                    //}
+                    show: false
                 }
             ],
             yAxis: [
                 {
-                    type: 'value',
+                    type: 'category',
+                    inverse: true, //true正序false倒序
+                    data: listDeviceType,
                     axisLabel: {
                         show: true,
                         interval: 'auto',
-                        formatter: '{value} %'
-                    },
-                    show: true
+                        formatter: '{value}',
+                        textStyle: {
+                            color: '#ffffff'
+                        }
+                    }
                 }
             ],
             series: series
-            //series: [
-            //    {
-            //        name: '产能',
-            //        type: 'bar',
-            //        stack: '广告',
-            //        data: [95,88, 50,30]
-            //    },
-            //    {
-            //        name: '产能缺口',
-            //        type: 'bar',
-            //        stack: '广告',
-            //        data: [22, 50, 0,0]
-            //    },
-            //    {
-            //        name: '车铣刨磨',
-            //        type: 'line',
-            //        stack: '广告',
-            //        data: [117,138, 30,25]
-            //    }
-            //]
         };
         myChart.setOption(option, true);
     }
