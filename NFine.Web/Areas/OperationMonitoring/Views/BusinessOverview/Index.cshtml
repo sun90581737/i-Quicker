@@ -317,17 +317,17 @@
             url: "/OperationMonitoring/BusinessOverview/GetGridJson",
             height: 70,
             colModel: [
-                { label: '模具编号', name: 'MoldNo', width: 80, align: 'left' },
-                { label: '试模', name: 'MoldTest', width: 60, align: 'left' },
-                { label: '类型', name: 'Type', width: 60, align: 'left' },
-                { label: '状态', name: 'State', width: 70, align: 'left' },
-                { label: '产品名称', name: 'ProductName', width: 80, align: 'left' },
+                { label: '模具编号', name: 'MoldNo', width: 80, align: 'center' },
+                { label: '试模', name: 'MoldTest', width: 60, align: 'center' },
+                { label: '类型', name: 'Type', width: 60, align: 'center' },
+                { label: '状态', name: 'State', width: 70, align: 'center' },
+                { label: '产品名称', name: 'ProductName', width: 80, align: 'center' },
                 {
-                    label: '计划交期', name: 'PlannedDeliveryDate', width: 100, align: 'left',
+                    label: '计划交期', name: 'PlannedDeliveryDate', width: 80, align: 'left',
                     formatter: "date", formatoptions: { srcformat: 'Y/m/d', newformat: 'Y/m/d' }
                 },
                 {
-                    label: '预警', name: 'EarlyWarning', width: 120, align: 'left',
+                    label: '预警', name: 'EarlyWarning', width: 220, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         return '<div style="top: 0%;left: 50%; transform: translate(-0%, -50%);"> <div style="border: 1px #000000 solid;margin:0 auto;position: relative;width:80%; height: 5px;background-color: #f9e1e3; border-radius: 3px;"><div style="white-space: pre-line;width: ' + index.EarlyWarning + '%;height: 100%;background-color:' + index.EarlyWarningColor + ';border-radius: 3px;"></div></div></div>'
                     }
