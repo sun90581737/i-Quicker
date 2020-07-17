@@ -251,6 +251,9 @@
     <Content Include="Content\js\charts\Chart.js" />
     <Content Include="Content\js\charts\Chart.min.js" />
     <Content Include="Content\js\cookie\jquery.cookie.js" />
+    <Content Include="Content\js\d3\d3.js" />
+    <Content Include="Content\js\d3\d3.layout.cloud.js" />
+    <Content Include="Content\js\d3\d3.min.js" />
     <Content Include="Content\js\datepicker\calendar.js" />
     <Content Include="Content\js\datepicker\DatePicker.js" />
     <Content Include="Content\js\datepicker\lang\en.js" />
@@ -359,6 +362,7 @@
     <Content Include="Content\js\pages\img\bg-top.png" />
     <Content Include="Content\js\pages\img\bg.png" />
     <Content Include="Content\js\pages\img\bg1.png" />
+    <Content Include="Content\js\pages\img\bk.png" />
     <Content Include="Content\js\pages\img\BusinessOverview01.png" />
     <Content Include="Content\js\pages\img\footer.png" />
     <Content Include="Content\js\pages\img\head.png" />
