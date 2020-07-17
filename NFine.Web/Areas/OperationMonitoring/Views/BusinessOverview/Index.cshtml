@@ -25,6 +25,11 @@
         loadFour();
         loadFive();
     }
+    $(function () {
+        $(window).resize(function () {
+            $("#gridList").setGridWidth($(window).width());
+        });
+    });
     function selectType(obj) {
         loadOne1a();
         loadOne1b();
@@ -566,7 +571,10 @@
                   .attr("cy", function(d) { return d.y; });
             svg.selectAll("text")
                   .attr("x", function(d) { return d.x - 16; })
-                  .attr("y", function(d) { return d.y + 6; });
+                  .attr("y", function (d) { return d.y + 6; });
+
+            force.resume();
+
         });
 
         svg.on("mousemove", function() {
