@@ -288,6 +288,7 @@ VALUES  ( '²âÊÔÏÔÊ¾','/Content/img/product/runningstate/01.png','CNC1ºÅ»ú<br>ÕıÔ
           'CNC2ºÅ»ú<br>ÕıÔÚÉÏÁÏ<br>IK-201-001-F1','#FFCC00','CNC3ºÅ»ú<br>ÕıÔÚ¼Ó¹¤<br>IK-201-001-F1','#33CC99',
           'CMM<br>IK-201-001-F2<br>¼ì²âºÏ¸ñ','#33CC99','CMM<br>IK-201-001-F2<br>¼ì²âºÏ¸ñ11','#6633FF', 
 		  'CMM<br>IK-201-001-F2<br>¼ì²âºÏ¸ñ22','#0000FF')
+-- Êı¾İ¸ñÊ½ Describe5/Describe6:30;40;50;10
 	
 
 CREATE TABLE Sys_DataAcquisition --Êı¾İ²É¼¯ Ò»´ÎÕ¹Ê¾4ÌõÊı¾İ¡£

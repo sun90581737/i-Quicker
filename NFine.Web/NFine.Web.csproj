@@ -363,7 +363,9 @@
     <Content Include="Content\js\pages\img\bg.png" />
     <Content Include="Content\js\pages\img\bg1.png" />
     <Content Include="Content\js\pages\img\bk.png" />
+    <Content Include="Content\js\pages\img\bk2.png" />
     <Content Include="Content\js\pages\img\BusinessOverview01.png" />
+    <Content Include="Content\js\pages\img\dd.png" />
     <Content Include="Content\js\pages\img\footer.png" />
     <Content Include="Content\js\pages\img\head.png" />
     <Content Include="Content\js\pages\img\header.png" />
@@ -375,6 +377,7 @@
     <Content Include="Content\js\pages\img\icon-06.png" />
     <Content Include="Content\js\pages\img\icon-07.png" />
     <Content Include="Content\js\pages\img\icon-bg.png" />
+    <Content Include="Content\js\pages\img\jdt.png" />
     <Content Include="Content\js\pages\img\thumb.jpg" />
     <Content Include="Content\js\pages\jquery.contip.js" />
     <Content Include="Content\js\pages\world.js" />

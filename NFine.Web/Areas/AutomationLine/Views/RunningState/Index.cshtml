@@ -7,6 +7,7 @@
 <head>
     <script src="~/Content/js/jquery/jquery-2.1.1.min.js"></script>
     <script src="~/Content/js/pages/jquery.contip.js"></script>
+    <link href="~/Content/js/pages/app.css" rel="stylesheet" />
     @*https://blog.csdn.net/u010810136/article/details/76585424*@
     <style type="text/css">
         .tip {
@@ -74,35 +75,101 @@
             left: 58%;
             top: 56%;
         }
+        .iden {
+            left: 52%;
+            top: 61%;
+            width:30px;
+            height:30px;
+            z-index: 10000;
+            position: absolute;
+        }
+        .iden2 {
+            left: 61.5%;
+            top: 54%;
+            width:30px;
+            height:30px;
+            z-index: 10000;
+            position: absolute;
+        }
+        .temp1 {
+            left: 71%;
+            top: 66%;
+            background: url('../../../../Content/js/pages/img/bk2.png') 0 0 / 100% 100% no-repeat ;
+            width:240px;
+            height:180px;
+            z-index: 10000;
+            position: absolute;
+        }
+        .temp2 {
+            left: 94%;
+            top: 66%;
+            background: url('../../../../Content/js/pages/img/bk2.png') 0 0 / 100% 100% no-repeat ;
+            width:240px;
+            height:180px;
+            z-index: 10000;
+            position: absolute;
+        }
+        .temp-text {
+            text-align:center;
+            font-size:16px;
+            color:#11cdfc;
+            font-weight:500;
+            top:5%;
+            position:relative;
+        }
     </style>
 </head>
 <body>
-    <div id="OngridList">
-        <div class="tip tip-1">
-            <div class="tip-text"></div>
-            <span class="tip-arrow"></span>
+    <div style="width:1500px;height:690px;margin:auto;background-size:100% 100%;margin : 5px 10px 5px 10px;  background-image: url('../../../../Content/js/pages/img/BusinessOverview01.png')">
+        @*<div style="width:1100px;height:600px;position:relative; margin:auto;background-size:100% 100%;top:35px;  background-image: url('../../../../Content/js/pages/img/dd.png')">*@
+            <div id="OngridList">
+                <div class="tip tip-1">
+                    <div class="tip-text"></div>
+                    <span class="tip-arrow"></span>
+                </div>
+                <div class="tip tip-2">
+                    <div class="tip-text"></div>
+                    <span class="tip-arrow"></span>
+                </div>
+                <div class="tip tip-3">
+                    <div class="tip-text"></div>
+                    <span class="tip-arrow"></span>
+                </div>
+                <div class="tip tip-4">
+                    <div class="tip-text"></div>
+                    <span class="tip-arrows"></span>
+                </div>
+                <div class="iden">
+                    <div style="color:#0403fe; font-size:20px;transform: rotate(-30deg);">①</div>
+                </div>
+                <div class="iden2">
+                    <div style="color:#0403fe; font-size:20px;transform: rotate(-30deg);">②</div>
+                </div>
+                @*<div class="tip tip-5">
+                        <div class="tip-text"></div>
+                        <span class="tip-arrows"></span>
+                    </div>*@
+                @*<div class="tip tip-6">
+                        <div class="tip-text"></div>
+                        <span class="tip-arrows"></span>
+                    </div>*@
+                <div class="temp1">
+                    <div class="temp-text">1号料仓</div>
+                    <div style="color:#ffffff;position:relative;top:20px;left:22px;">合格</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top: 4px; left: 15px; border: 1px transparent solid; margin: 4px auto; position: relative; width: 160px; height: 10px; border-radius: 12px;"><div id="dis1" style="white-space:pre-line;width: 50%;height: 100%;background-color:#0403fe;border-radius: 3px;"></div></div></div>
+                    <div style="color:#ffffff;position:relative;top:22px;left:10px;">代加工</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:4px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="dis2" style="white-space:pre-line;width: 60%;height: 100%;background-color:#f3961d;border-radius: 3px;"></div></div></div>
+                    <div style="color:#ffffff;position:relative;top:23px;left:22px;">异常</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:4px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="dis3" style="white-space:pre-line;width: 70%;height: 100%;background-color:#f15d5d;border-radius: 3px;"></div></div></div>
+                    <div style="color:#ffffff;position:relative;top:22px;left:22px;">剩余</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:4px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="dis4" style="white-space:pre-line;width: 80%;height: 100%;background-color:#01ffff;border-radius: 3px;"></div></div></div>
+                </div>
+                <div class="temp2">
+                    <div class="temp-text">2号料仓</div>
+                    <div style="color:#ffffff;position:relative;top:20px;left:22px;">合格</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top: 4px; left: 15px; border: 1px transparent solid; margin: 4px auto; position: relative; width: 160px; height: 10px; border-radius: 12px;"><div id="yis1" style="white-space:pre-line;width: 50%;height: 100%;background-color:#0403fe;border-radius: 3px;"></div></div></div>
+                    <div style="color:#ffffff;position:relative;top:22px;left:10px;">代加工</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:4px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="yis2" style="white-space:pre-line;width: 60%;height: 100%;background-color:#f3961d;border-radius: 3px;"></div></div></div>
+                    <div style="color:#ffffff;position:relative;top:23px;left:22px;">异常</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:4px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="yis3" style="white-space:pre-line;width: 70%;height: 100%;background-color:#f15d5d;border-radius: 3px;"></div></div></div>
+                    <div style="color:#ffffff;position:relative;top:22px;left:22px;">剩余</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:4px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="yis4" style="white-space:pre-line;width: 80%;height: 100%;background-color:#01ffff;border-radius: 3px;"></div></div></div>
+                </div>
+            </div>
         </div>
-        <div class="tip tip-2">
-            <div class="tip-text"></div>
-            <span class="tip-arrow"></span>
-        </div>
-        <div class="tip tip-3">
-            <div class="tip-text"></div>
-            <span class="tip-arrow"></span>
-        </div>
-        <div class="tip tip-4">
-            <div class="tip-text"></div>
-            <span class="tip-arrows"></span>
-        </div>
-        <div class="tip tip-5">
-            <div class="tip-text"></div>
-            <span class="tip-arrows"></span>
-        </div>
-        <div class="tip tip-6">
-            <div class="tip-text"></div>
-            <span class="tip-arrows"></span>
-        </div>
-    </div>
+    @*</div>*@
 </body>
 </html>
 
@@ -166,10 +233,24 @@
                     text: item.Describe6,
                     color: item.DescribeColor6,
                 });
+                var strs = new Array();
+                strs = item.Describe5.split(";");
+                $("#dis1").css("width", strs[0] + "%");
+                $("#dis2").css("width", strs[1] + "%");
+                $("#dis3").css("width", strs[2] + "%");
+                $("#dis4").css("width", strs[3] + "%");
+
+                var strs1 = new Array();
+                strs1 = item.Describe6.split(";");
+                $("#yis1").css("width", strs1[0] + "%");
+                $("#yis2").css("width", strs1[1] + "%");
+                $("#yis3").css("width", strs1[2] + "%");
+                $("#yis4").css("width", strs1[3] + "%");
+                
                 if (first) {  // 第一次初始化 直接取值
                     console.log("laod...");
                     $("#OngridList").css("background", "url(" + item.Picture_Url + ")");
-                    $("#OngridList").css({"width":"1100px","height":"690px","position": "relative","margin": "auto","background-size": "100%"});
+                    $("#OngridList").css({ "width": "1100px", "height": "790px", "position": "relative", "margin": "auto", "background-size": "100%", "top": "-25px" });
                     S();
                 }
             }
