@@ -378,6 +378,7 @@
     <Content Include="Content\js\pages\img\icon-bg.png" />
     <Content Include="Content\js\pages\img\jdt.png" />
     <Content Include="Content\js\pages\img\thumb.jpg" />
+    <Content Include="Content\js\pages\img\xt.png" />
     <Content Include="Content\js\pages\jquery.contip.js" />
     <Content Include="Content\js\pages\world.js" />
     <Content Include="Content\js\qrcode\jquery.qrcode.js" />

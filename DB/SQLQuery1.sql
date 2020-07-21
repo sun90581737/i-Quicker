@@ -840,3 +840,12 @@ INSERT INTO Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate
 INSERT INTO Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate)VALUES('铣','已处理',13)
 
 
+
+
+--运行状态 1号料仓/2号料仓  Sys_RunningState： Describe5/Describe6:30;40;50;10
+
+--经营概览 在制模具进度：EarlyWarning，当前未设置值，要设置为三个值（颜色忽略）
+
+
+
+
