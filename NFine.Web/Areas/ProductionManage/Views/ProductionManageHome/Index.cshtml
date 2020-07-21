@@ -6,7 +6,9 @@
 <script src="~/Content/js/bootstrap/bootstrap.js"></script>
 <link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
 <link href="~/Content/js/pages/AdminLTE.css" rel="stylesheet" />
-<link href="~/Content/js/pages/AdminLTE.min.css" rel="stylesheet" />
+@*<link href="~/Content/js/pages/AdminLTE.min.css" rel="stylesheet" />*@
+
+<link href="~/Content/js/pages/app.css" rel="stylesheet" />
 <style>
 </style>
 <script>
@@ -49,10 +51,10 @@
         var option = {
             title: {//标题组件
                 text: '在制' + Display + '套',
-                top: '45%',
-                left: '35%',
+                top: '35%',
+                left: '37%',
                 textStyle: {
-                    color: "#505050",
+                    color: "#ffff",
                     fontSize: 15,
                     fontFamily: 'KaiTi',
                 }
@@ -61,18 +63,20 @@
                 trigger: 'item', //触发类型(饼状图片就是用这个)
                 formatter: "{b} : ({c})"//"{a} <br/>{b} : {c} ({d}%)" //提示框浮层内容格式器
             },
-            color: ['#00CC99', '#CCCC00'],  //手动设置每个图例的颜色
+            color: ['#0867e9', '#f15d5d'],  //手动设置每个图例的颜色
             legend: {  //图例组件
                 //right:100,  //图例组件离右边的距离
-                orient: 'horizontal',  //布局  纵向布局 图例标记居文字的左边 vertical则反之
-                width: 40,      //图行例组件的宽度,默认自适应
-                x: 'left',   //图例显示在右边
-                y: 'top',   //图例在垂直方向上面显示居中
+                //orient: 'horizontal',  //布局  纵向布局 图例标记居文字的左边 vertical则反之
+                //width: 40,      //图行例组件的宽度,默认自适应
+                //x: 'left',   //图例显示在右边
+                //y: 'top',   //图例在垂直方向上面显示居中
                 itemWidth: 10,  //图例标记的图形宽度
                 itemHeight: 10, //图例标记的图形高度
+                bottom: 20,
+                left: 'center',
                 data: listName,//['物料', '外协', '自制', '异常'],
                 textStyle: {    //图例文字的样式
-                    color: '#333',  //文字颜色
+                    color: '#ffffff',  //文字颜色
                     fontSize: 12    //文字大小
                 }
             },
@@ -80,10 +84,12 @@
                 {
                     //name:'设备状态',  //系列名称
                     type: 'pie',   //类型 pie表示饼图
-                    center: ['50%', '50%'], //设置饼的原心坐标 不设置就会默认在中心的位置
-                    radius: ['50%', '70%'],  //饼图的半径,第一项是内半径,第二项是外半径,内半径为0就是真的饼,不是环形
+                    center: ['50%', '40%'], //设置饼的原心坐标 不设置就会默认在中心的位置
+                    radius: ['40%', '70%'],  //饼图的半径,第一项是内半径,第二项是外半径,内半径为0就是真的饼,不是环形
                     itemStyle: {  //图形样式
                         normal: { //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+                            borderWidth: 4,
+                            borderColor: '#092848',
                             label: {  //饼图图形上的文本标签
                                 show: true,  //平常不显示
                                 formatter: '{c}',
@@ -114,19 +120,25 @@
         var $gridList = $("#gridList1");
         $gridList.dataGrid({
             url: "/ProductionManage/ProductionManageHome/GetGridJson",
-            height: 200,
+            height: 160,
             colModel: [
-                { label: '模具编号', name: 'MoldNo', width: 65, align: 'left' },
-                { label: '版本', name: 'Edition', width: 45, align: 'left' },
-                { label: '类型', name: 'Type', width: 40, align: 'left' },
+                { label: '模具编号', name: 'MoldNo', width: 70, align: 'center' },
+                { label: '版本', name: 'Edition', width: 70, align: 'center' },
+                { label: '类型', name: 'Type', width: 50, align: 'center' },
                 {
-                    label: '计划交期', name: 'PlannedDeliveryDate', width: 80, align: 'left',
+                    label: '计划交期', name: 'PlannedDeliveryDate', width: 90, align: 'center',
                     formatter: "date", formatoptions: { srcformat: 'Y/m/d', newformat: 'Y/m/d' }
                 },
                 {
-                    label: '进度', name: 'EarlyWarning', width: 100, align: 'left',
+                    label: '进度', name: 'EarlyWarning', width: 100, align: 'center',
                     formatter: function (cellvalue, row, index) {
-                        return '<div style="top: 10%;left: 50%; transform: translate(-10%, -50%);"> <div style="border: 1px #000000 solid;margin:0 auto;position: relative;width:80%; height: 5px;background-color: #f9e1e3; border-radius: 3px;"><div style="white-space: pre-line;width: ' + index.Progress + '%;height: 100%;background-color:' + index.ProgressColor + ';border-radius: 3px;"></div></div></div>'
+                        //return '<div style="top: 10%;left: 50%; transform: translate(-10%, -50%);"> <div style="border: 1px #000000 solid;margin:0 auto;position: relative;width:80%; height: 5px;background-color: #f9e1e3; border-radius: 3px;"><div style="white-space: pre-line;width: ' + index.Progress + '%;height: 100%;background-color:' + index.ProgressColor + ';border-radius: 3px;"></div></div></div>'
+                        var temp = ''
+                        temp += ' <div class="progress" style="height: 10px;">'
+                        temp += '<div class="progress-bar progress-bar-success" style="width:20%;height: 10px"></div>'
+                        temp += ' <div class="progress-bar progress-bar-info" style="width:10%;height: 10px"></div>'
+                        temp += '  <div class="progress-bar progress-bar-warning" style="width:70%;height: 10px"></div>'
+                        return temp;
                     }
                 },
             ],
@@ -174,18 +186,33 @@
                     tempArry.push(value1.Number);
                 }
             });
+
             series.push({
                 name: tempName,
                 type: 'bar',
-                label: labelOption,
+                barWidth: '10%',
+                barGap: '80%',
                 itemStyle: {
                     normal: {
-                        // 定制显示（按顺序）
-                        color: function (params) {
-                            var colorList = tempName == "产能" ? CdatesColour : FdatesColour;
-                            return colorList[params.dataIndex]
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: tempName == "产能" ? '#1889ff' : '#fc2278' // 0% 处的颜色
+                        }, {
+                            offset: 1,
+                            color: tempName == "产能" ? '#10e2fb' : '#f25c5e'// 100% 处的颜色
+                        }], false),
+                        barBorderRadius: [30, 30, 30, 30],
+                        shadowColor: 'transparent',
+                        shadowBlur: 4,
+                        label: {
+                            show: true, //开启显示
+                            position: 'top', //在上方显示
+                            textStyle: { //数值样式
+                                color: '#ffff',
+                                fontSize: 12
+                            }
                         }
-                    },
+                    }
                 },
                 data: tempArry
             })
@@ -193,134 +220,74 @@
 
         var myChart = echarts.init(document.getElementById('chart2'));
 
-        var app = {};
-        var posList = [
-        'left', 'right', 'top', 'bottom',
-        'inside',
-        'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
-        'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
-        ];
-
-        app.configParameters = {
-            rotate: {
-                min: -90,
-                max: 90
-            },
-            align: {
-                options: {
-                    left: 'left',
-                    center: 'center',
-                    right: 'right'
+        var option = {
+            legend: {
+                left: 'center',
+                itemWidth: 10,  //图例标记的图形宽度
+                itemHeight: 10, //图例标记的图形高度
+                bottom: 20,
+                data: listDeviceName,//['CNC', 'EDM', 'WEDM', '车铣磨抛']
+                textStyle: {    //图例文字的样式
+                    color: '#ffffff',  //文字颜色
+                    fontSize: 12    //文字大小
                 }
             },
-            verticalAlign: {
-                options: {
-                    top: 'top',
-                    middle: 'middle',
-                    bottom: 'bottom'
-                }
-            },
-            position: {
-                options: echarts.util.reduce(posList, function (map, pos) {
-                    map[pos] = pos;
-                    return map;
-                }, {})
-            },
-            distance: {
-                min: 0,
-                max: 100
-            }
-        };
-
-        app.config = {
-            rotate: 90,
-            align: 'left',
-            verticalAlign: 'middle',
-            position: 'insideBottom',
-            distance: 15,
-            onChange: function () {
-                var labelOption = {
-                    normal: {
-                        rotate: app.config.rotate,
-                        align: app.config.align,
-                        verticalAlign: app.config.verticalAlign,
-                        position: app.config.position,
-                        distance: app.config.distance
-                    }
-                };
-                myChart.setOption({
-                    series: [{
-                        label: labelOption
-                    }, {
-                        label: labelOption
-                    }, {
-                        label: labelOption
-                    }, {
-                        label: labelOption
-                    }]
-                });
-            }
-        };
-
-        var labelOption = {
-            show: true,
-            position: app.config.position,
-            distance: app.config.distance,
-            align: app.config.align,
-            verticalAlign: app.config.verticalAlign,
-            rotate: app.config.rotate,
-            formatter: '{c}  {name|{a}}',
-            fontSize: 16,
-            rich: {
-                name: {
-                    textBorderColor: '#fff'
-                }
-            }
-        };
-
-        option = {
-            color: ['#6cce8f', '#e5323e'],
             tooltip: {
                 trigger: 'axis',
-                axisPointer: {
-                    type: 'shadow'
+                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
                 }
             },
-            legend: {
-                data: listDeviceName
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '20%',
+                top:'10%',
+                containLabel: true
             },
-            toolbox: {
-                show: true,
-                orient: 'vertical',
-                left: 'right',
-                top: 'center',
-                feature: {
-                    mark: { show: true },
-                    dataView: { show: true, readOnly: false },
-                    magicType: { show: true, type: ['line', 'bar', 'stack', 'tiled'] },
-                    restore: { show: true },
-                    saveAsImage: { show: true }
-                }
-            },
-            xAxis: [
-                {
-                    type: 'category',
-                    axisTick: { show: false },
-                    data: listDeviceType,
-                    axisLabel: {
-                        //X轴刻度配置
-                        interval: 0 //0：表示全部显示不间隔；auto:表示自动根据刻度个数和宽度自动设置间隔个数
-                        ,rotate:0
+            xAxis: [{
+                type: 'category',
+                data: listDeviceType,
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: '#ffff',
+
                     }
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'value'
-                }
-            ],
+                },
+                axisLabel: {
+                    // interval: 0,
+                    // rotate: 40,
+                    textStyle: {
+                        fontSize: '11'
+                    }
+                },
+                axisTick: { //y轴刻度线
+                    show: false
+                },
+            }],
+            yAxis: [{
+                type: 'value',
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: '#0be3fb'
+                    }
+                },
+                splitLine: {
+                    show: false,
+                    lineStyle: {
+                        color: "#57617B"
+                    }
+                },
+                axisTick: { //y轴刻度线
+                    show: false
+                },
+                axisLabel: {}
+            }],
             series: series
         };
+
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option, true);
     }
@@ -698,42 +665,44 @@
 </script>
 <body>
     <div class="row">
-        <section class="col-lg-6 connectedSortable" style="width:50%">
+        <section class="col-lg-6 connectedSortable" style="width:48%;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat;position: relative;  margin : 10px 5px 5px 15px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h4 class="box-title">生产进度</h4>
-                    <div class="box-tools pull-right">
+                    <h4 class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">生产进度<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></h4>
+                    @*<div class="box-tools pull-right">
                         <button type="button" onclick="funOne()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
-                    </div>
+                    </div>*@
                 </div>
                 <div class="tab-content" style="height:100%;">
                     <div style="float:left;width:40%">
-                        <div style="text-align:center;font-size:13px;">模具进度</div>
-                        <div id="chart1a" style="height:230px; "></div>
+                        <div style="text-align:center;font-size:13px;color:#f25c5e;">模具进度</div>
+                        <div id="chart1a" style="height:237px; "></div>
                     </div>
                     <div style="margin-left:40%;width:auto;">
-                        <div style="text-align:center;font-size:13px;">延期模具</div>
+                        <div style="text-align:center;font-size:13px;color:#ffffff;">延期模具</div>
                         <table id="gridList1" ></table>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="col-lg-6 connectedSortable" style="width:50%">
+        <section class="col-lg-6 connectedSortable" style="width:48%;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat;position: relative;  margin : 10px 10px 5px 5px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h4 class="box-title">产能/负载</h4>
-                    <select id="Types_id" name="Types" style="border: solid 1px #000;" onchange="selectType(this)">
-                        <option value="1" selected="selected">一周</option>
-                        <option value="2">两周</option>
-                        <option value="3">三周</option>
-                        <option value="4">一个月</option>
-                        <option value="5">半年</option>
-                        <option value="6">一年</option>
-                    </select>
-                    <div class="box-tools pull-right">
-                        <button type="button" onclick="funTwo()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
+                    <h4 class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">产能/负载<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></h4>
+                    <div style="float:right">
+                        <select id="Types_id" name="Types" style="border: solid 1px #000;" onchange="selectType(this)">
+                            <option value="1" selected="selected">一周</option>
+                            <option value="2">两周</option>
+                            <option value="3">三周</option>
+                            <option value="4">一个月</option>
+                            <option value="5">半年</option>
+                            <option value="6">一年</option>
+                        </select>
                     </div>
+                    @*<div class="box-tools pull-right">
+                        <button type="button" onclick="funTwo()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
+                    </div>*@
                 </div>
                 <div class="tab-content">
                     <div id="chart2" style="height:255px;"></div>
@@ -741,13 +710,13 @@
             </div>
         </section>
 
-        <section class="col-lg-6 connectedSortable" style="width:50%">
+        <section class="col-lg-6 connectedSortable" style="width:48%;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat;position: relative;  margin : 5px 5px 0px 15px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h4 class="box-title">外协/物料追踪</h4>
-                    <div class="box-tools pull-right">
+                    <h4 class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">外协/物料追踪<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></h4>
+                    @*<div class="box-tools pull-right">
                         <button type="button" onclick="funThree()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
-                    </div>
+                    </div>*@
                 </div>
                 <div class="tab-content" style="height:100%;">
                     <div style="height:305px">
@@ -770,13 +739,13 @@
             </div>
         </section>
 
-        <section class="col-lg-6 connectedSortable" style="width:50%">
+        <section class="col-lg-6 connectedSortable" style="width:48%;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat ;position: relative;  margin : 5px 10px 0px 5px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h4 class="box-title">嫁动率</h4>
-                    <div class="box-tools pull-right">
+                    <h4 class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">嫁动率<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></h4>
+                    @*<div class="box-tools pull-right">
                         <button type="button" onclick="funFour()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
-                    </div>
+                    </div>*@
                 </div>
                 <div class="tab-content" style="height:100%;">
                     <div style="text-align:center;font-size:13px;">嫁动率趋势</div>

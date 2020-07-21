@@ -846,6 +846,9 @@ INSERT INTO Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate
 
 --经营概览 在制模具进度：EarlyWarning，当前未设置值，要设置为三个值（颜色忽略）
 
+--生管主页 延期模具: Progress 当前未设置值，要设置为三个值（颜色忽略）
+
+
 
 
 
