@@ -259,31 +259,55 @@
                     return relVal;
                 }
             },
-            xAxis: {
+            xAxis: [{
                 type: 'category',
-                boundaryGap: false,
                 data: ListMonth,
-                axisLabel: {
-                    show: true,
-                    textStyle: {
-                        color: '#ffffff' 
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: '#0be3fb',
+
                     }
-                }
-            },
-            yAxis: {
+                },
+                axisLabel: {
+                    // interval: 0,
+                    // rotate: 40,
+                    textStyle: {
+                        fontSize: '11'
+                    }
+                },
+                axisTick: { //y轴刻度线
+                    show: false
+                },
+            }],
+            yAxis: [{
                 interval: 20,
+                type: 'value',
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: '#0be3fb'
+                    }
+                },
+                splitLine: {
+                    show: false,
+                    lineStyle: {
+                        color: "#57617B"
+                    }
+                },
+                axisTick: { //y轴刻度线
+                    show: false
+                },
                 axisLabel: {
                     formatter: function (value) {
                         return value + "%";
                     },
                     show: true,
                     textStyle: {
-                        color: '#ffffff'   
+                        color: '#0be3fb'
                     }
                 },
-                type: 'value',
-                splitLine: { show: false }
-            },
+            }],
             series: [
                 {
                     name: '交期达成率',
