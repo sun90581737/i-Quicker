@@ -18,6 +18,13 @@ namespace NFine.Application.OperationMonitoring
         {
             return service.IQueryable().ToList();
         }
+        public List<CustomerListDetailEntity> GetList(Pagination pagination, string queryJson)
+        {
+            var expression = ExtLinq.True<CustomerListDetailEntity>();
+            var queryParam = queryJson.ToJObject();
+            expression = expression.And(t => t.IsEffective == 1);
+            return service.FindList(expression, pagination);
+        }
 
         public List<CustomerListDetailEntity> GetList(string itemId = "")
         {

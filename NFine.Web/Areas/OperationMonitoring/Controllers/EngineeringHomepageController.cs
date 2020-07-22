@@ -65,6 +65,41 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
             return Content(data.ToJson());
         }
 
+
+
+        [HttpGet]
+        [HandlerAjaxOnly]
+        public ActionResult GetSelectJson()
+        {
+            var data = clApp.GetList().Where(p => p.ParentId == 0);
+            var treeList = new List<TreeSelectModel>();
+            foreach (CustomerListEntity item in data)
+            {
+                TreeSelectModel treeModel = new TreeSelectModel();
+                treeModel.id = item.Id.ToString();
+                treeModel.text = item.FullName;
+                treeModel.parentId = item.ParentId.ToString();
+                treeList.Add(treeModel);
+            }
+            return Content(treeList.TreeSelectJson());
+        }
+        [HttpGet]
+        [HandlerAjaxOnly]
+        public ActionResult GetSelectJsonTwo(string keyword)
+        {
+            var data = clApp.GetList().Where(p => p.ParentId.ToString() == keyword);
+            var treeList = new List<TreeSelectModel>();
+            foreach (CustomerListEntity item in data)
+            {
+                TreeSelectModel treeModel = new TreeSelectModel();
+                bool hasChildren = data.Count(t => t.ParentId == item.Id) == 0 ? false : true;
+                treeModel.id = item.Id.ToString();
+                treeModel.text = item.FullName;
+                treeModel.parentId = item.ParentId.ToString();
+                treeList.Add(treeModel);
+            }
+            return Content(treeList.ToJson());
+        }
         [HttpGet]
         [HandlerAjaxOnly]
         public ActionResult GetTreeJson()
@@ -85,6 +120,19 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
                 treeList.Add(tree);
             }
             return Content(treeList.TreeViewJson());
+        }
+        [HttpGet]
+        [HandlerAjaxOnly]
+        public ActionResult GetGridJsonOn(Pagination pagination, string queryJson, string t)
+        {
+            var data = new
+            {
+                rows = cldApp.GetList(pagination, queryJson).Where(p => p.ListId.ToString() == t),
+                total = pagination.total,
+                page = pagination.page,
+                records = pagination.records
+            };
+            return Content(data.ToJson());
         }
         [HttpGet]
         [HandlerAjaxOnly]
@@ -137,7 +185,7 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
         [HandlerAjaxOnly]
         public ActionResult GetDetailGridJson(string itemId)
         {
-            var data = cldApp.GetList(itemId);
+            var data = cldApp.GetList().Where(p=>p.ListId.ToString()== itemId);
             return Content(data.ToJson());
         }
     }
