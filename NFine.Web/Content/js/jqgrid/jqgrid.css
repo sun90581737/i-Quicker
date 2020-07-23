@@ -50,7 +50,7 @@ div.tablediv > .table-bordered{border-left : 1px solid /*#ddd*/ !important;}
 .ui-jqgrid .ui-jqgrid-btable{table-layout: fixed;border-left:none ;border-top:none;margin-bottom: 0px}
 .ui-jqgrid tr.jqgrow{outline-style: none;}
 .ui-jqgrid tr.jqgroup{outline-style: none;}
-.ui-jqgrid .ui-jqgrid-btable tbody tr.jqgrow td{overflow: hidden;white-space: inherit;padding-right: 2px;color:#0be3fb;background-image: url('../pages/img/bg-bottom.png');} /*white-space: pre 修改为inherit*/
+.ui-jqgrid .ui-jqgrid-btable tbody tr.jqgrow td{overflow: hidden;white-space: inherit;padding-right: 0px;color:#0be3fb;background-image: url('../pages/img/bg-bottom.png');} /*white-space: pre 修改为inherit padding-right: 2px 改成0*/
 .ui-jqgrid tr.jqgfirstrow td{height:auto;border-top:none;padding-bottom: 0;padding-top: 0;border-bottom: none;padding-right: 2px;}
 .ui-jqgrid tr.jqgroup td{white-space: nowrap;}
 .ui-jqgrid tr.jqfoot td{white-space: nowrap;}
