@@ -6,13 +6,15 @@
 }
 <script src="~/Content/js/bootstrap/bootstrap.js"></script>
 <link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
-<script src="~/Content/js/pages/dashboard.js"></script>
+@*<script src="~/Content/js/pages/dashboard.js"></script>*@
 <link href="~/Content/js/pages/AdminLTE.css" rel="stylesheet" />
-<link href="~/Content/js/pages/AdminLTE.min.css" rel="stylesheet" />
+@*<link href="~/Content/js/pages/AdminLTE.min.css" rel="stylesheet" />*@
 @*<script src="~/Content/js/echarts/echarts.min.js"></script>*@
-<script src="~/Content/js/pages/app.js"></script>
-<script src="~/Content/js/pages/app.min.js"></script>
+@*<script src="~/Content/js/pages/app.js"></script>
+<script src="~/Content/js/pages/app.min.js"></script>*@
 <script src="~/Content/js/echarts/4.3/echarts.js"></script>
+
+<link href="~/Content/js/pages/app.css" rel="stylesheet" />
 <script>
     window.onload = function () {
         OngridList();
@@ -37,18 +39,19 @@
         var $OngridList = $("#OngridList");
         $OngridList.dataGrid({
             url: "/TeamTask/CNCTeam/OnGetGridJson",
-            height: 540,
+            height: 560,
             colModel: [
                 {
-                    label: '设备名', name: 'Equipment_Name', width: 100, align: 'left',
+
+                    label: '设备名', name: 'Equipment_Name', width: 100, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.Equipment_Url !=null && index.Equipment_Url != "") {
                             //return '<div style="width:100px;height:100px;background-color:' + index.Colour + ';"><p style="text-align:center;color:white;">' + index.Equipment_Name + '</p><img src="' + index.Equipment_Url + '" style="position: absolute; margin-left:5px;margin-top:-22px;" /></div>';
-                            return '<div style="width:100px;height:100px;background-color:' + index.Colour + ';"><p style="text-align:center;color:white;">' + index.Equipment_Name + '</p><img src="/TeamTask/CNCTeam/Image?p=' + index.Equipment_Url + '"  style="position: absolute; width:70px;height:70px; margin-left:12px;margin-top:-15px;" /></div>';
+                            return '<div style="width:100px;height:100px;background-image:linear-gradient(to right,' + index.Colour + ',transparent);"><p style="text-align:center;color:white;">' + index.Equipment_Name + '</p><img src="/TeamTask/CNCTeam/Image?p=' + index.Equipment_Url + '"  style="position: absolute; width:70px;height:70px; margin-left:-34px;margin-top:-15px;" /></div>';
                         }
                         else {
                             if (true) {
-                                return '<div style="width:100px;height:100px;background-color:' + index.Colour + ';"><p style="text-align:center;color:white;">' + index.Equipment_Name + '</p></div>';
+                                return '<div style="width:100px;height:100px;background-image:linear-gradient(to right,' + index.Colour + ',transparent);"><p style="text-align:center;color:white;">' + index.Equipment_Name + '</p></div>';
                             }
                             else {
                                 return '<div  style="width:100px;height:100px;" /></div>';
@@ -58,11 +61,11 @@
                     }
                 },
                 {
-                    label: '加工件', name: 'Workpieces_Url', width: 120, align: 'left',
+                    label: '加工件', name: 'Workpieces_Url', width: 120, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.Workpieces_Url !=null && index.Workpieces_Url != "") {
                             //return '<img src="' + index.Workpieces_Url + '"  style="width:90px;height:90px;margin-top: 5px;" />';
-                            return '<img src="/TeamTask/CNCTeam/Image?p=' + index.Equipment_Url + '"  style="position: absolute; width:90px;height:90px;margin-top:-45px;" />'
+                            return '<img src="/TeamTask/CNCTeam/Image?p=' + index.Equipment_Url + '"  style="position: absolute; width:90px;height:90px;margin-top:-45px;margin-left: -48px;" />'
                         }
                         else {
                             if (index.Workpieces_Name != null && index.Workpieces_Name != "") {
@@ -97,7 +100,7 @@
                     }
                 }
             ],
-            pager: "#OngridPager",
+            //pager: "#OngridPager",
             sortname: 'Equipment_Name ASC',
             viewrecords: true,
         });
@@ -106,10 +109,10 @@
         var $gridList = $("#gridList");
         $gridList.dataGrid({
             url: "/TeamTask/CNCTeam/GetGridJson",
-            height: 140,
+            height: 170,
             colModel: [
                 {
-                    label: '', name: '',  width: 30, align: 'left',
+                    label: '', name: '', width: 30, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.Colour != "") {
                             return '<span style="padding:1px 8px;border-radius:50%;background:' + index.Colour + ';"></span>'
@@ -117,7 +120,7 @@
                     }
                 },
                 {
-                    label: '模具编号', name: 'Mold_No', width: 80, align: 'left',
+                    label: '模具编号', name: 'Mold_No', width: 70, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.Colour != "") {
                             return '<font style="color:' + index.Colour + '">' + index.Mold_No + '</font>';
@@ -126,7 +129,7 @@
                     }
                 },
                 {
-                    label: '零件编号', name: 'Part_Number', width: 80, align: 'left',
+                    label: '零件编号', name: 'Part_Number', width: 60, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.Colour != "") {
                             return '<font style="color:' + index.Colour + '">' + index.Part_Number + '</font>';
@@ -135,7 +138,7 @@
                     }
                 },
                 {
-                    label: '工序名称', name: 'Process_Name', width: 80, align: 'left',
+                    label: '工序名称', name: 'Process_Name', width: 60, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.Colour != "") {
                             return '<font style="color:' + index.Colour + '">' + index.Process_Name + '</font>';
@@ -143,17 +146,17 @@
                         else { index.Process_Name }
                     }
                 },
-                { label: '计划设备', name: 'Planned_Equipment', width: 80, align: 'left' },
+                { label: '计划设备', name: 'Planned_Equipment', width: 60, align: 'center' },
                 {
-                    label: '开始时间', name: 'Start_Time', width: 140, align: 'left',
+                    label: '开始时间', name: 'Start_Time', width: 120, align: 'center',
                     formatter: "date", formatoptions: { srcformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s' }
                 },
                 {
-                    label: '结束时间', name: 'END_Time', width: 140, align: 'left',
+                    label: '结束时间', name: 'END_Time', width: 120, align: 'center',
                     formatter: "date", formatoptions: { srcformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s' }
                 },
                 {
-                    label: '最晚开始时间', name: 'Latest_Start_Time', width: 140, align: 'left',
+                    label: '最晚开始时间', name: 'Latest_Start_Time', width: 120, align: 'center',
                     //formatter: "date", formatoptions: {
                     //    srcformat: 'Y/m/d H:i:s', newformat: 'Y/m/d H:i:s',
                     //},
@@ -164,24 +167,21 @@
                         else { index.Latest_Start_Time }
                     }
                 },
-                { label: '标准工时', name: 'Working_Hours', width: 80, align: 'left' },
-                { label: '客户', name: 'Customer', width: 80, align: 'left' },
-                { label: '模仁材质', name: 'Mold_Kernel_Material', width: 80, align: 'left' },
-                { label: '类别', name: 'Category', width: 80, align: 'left' }
+                { label: '标准工时', name: 'Working_Hours', width: 60, align: 'center' },
+                { label: '客户', name: 'Customer', width: 80, align: 'center' },
+                { label: '模仁材质', name: 'Mold_Kernel_Material', width: 60, align: 'center' },
+                { label: '类别', name: 'Category', width: 60, align: 'center' }
             ],
-            pager: "#gridPager",
+            //pager: "#gridPager",
             sortname: 'Start_Time desc',
             viewrecords: true
         });
     }
     function echart01() {
-        var CdatesDeviceName = new Array();//产能设备名
-        var CdatesDeviceNumber = new Array();//产能设备数量
-        var CdatesColour = new Array();//产能颜色
+        var listDeviceType = new Array();
+        var listDeviceName = new Array();
+        var listAll = new Array();
 
-        var FdatesDeviceName = new Array();//负荷设备名
-        var FdatesDeviceNumber = new Array();//负荷设备数量
-        var FdatesColour = new Array();//负荷颜色
         $.ajax({
             async: false,
             url: "/TeamTask/CNCTeam/GetCapacityLoad",
@@ -189,186 +189,135 @@
             dataType: "json",
             success: function (da) {
                 $(da).each(function (index, item) {
-                    if (item.Task_Type == "产能")
-                    {
-                        CdatesDeviceName.push(item.Device_Name);
-                        CdatesDeviceNumber.push(item.Device_Number);
-                        CdatesColour.push(item.Colour);
-                    }
-                    else if (item.Task_Type == "负荷") {
-                        FdatesDeviceName.push(item.Device_Name);
-                        FdatesDeviceNumber.push(item.Device_Number);
-                        FdatesColour.push(item.Colour);
-                    } 
+                    listDeviceType.push(item.Task_Type);
+                    listDeviceName.push(item.Device_Name);
+                    listAll.push(item);
                 })
             }
         })
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('chart3'), "light");
+        $.unique(listDeviceType.sort());
+        $.unique(listDeviceName);
 
-        var app = {};
-        var posList = [
-        'left', 'right', 'top', 'bottom',
-        'inside',
-        'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
-        'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
-        ];
-
-        app.configParameters = {
-            rotate: {
-                min: -90,
-                max: 90
-            },
-            align: {
-                options: {
-                    left: 'left',
-                    center: 'center',
-                    right: 'right'
+        var series = [];
+        $.each(listDeviceType, function (index, value) {
+            var tempName = new Array();
+            var tempArry = new Array();
+            var CdatesColour = new Array();//产能颜色
+            var FdatesColour = new Array();//负荷颜色
+            $.each(listAll, function (index1, value1) {
+                if (value == value1.Task_Type) {
+                    tempName = value1.Task_Type;
+                    tempArry.push(value1.Device_Number);
                 }
-            },
-            verticalAlign: {
-                options: {
-                    top: 'top',
-                    middle: 'middle',
-                    bottom: 'bottom'
+                if (value == "产能") {
+                    CdatesColour = value1.Colour;
+                } else if (value == "负荷") {
+                    FdatesColour = value1.Colour;
                 }
-            },
-            position: {
-                options: echarts.util.reduce(posList, function (map, pos) {
-                    map[pos] = pos;
-                    return map;
-                }, {})
-            },
-            distance: {
-                min: 0,
-                max: 100
-            }
-        };
+            });
 
-        app.config = {
-            rotate: 90,
-            align: 'left',
-            verticalAlign: 'middle',
-            position: 'insideBottom',
-            distance: 15,
-            onChange: function () {
-                var labelOption = {
+            series.push({
+                name: tempName,
+                type: 'bar',
+                barWidth: '10%',
+                barGap: '80%',
+                itemStyle: {
                     normal: {
-                        rotate: app.config.rotate,
-                        align: app.config.align,
-                        verticalAlign: app.config.verticalAlign,
-                        position: app.config.position,
-                        distance: app.config.distance
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: tempName == "产能" ? CdatesColour : FdatesColour // 0% 处的颜色
+                            // color: tempName == "产能" ? '#1889ff' : '#fc2278' // 0% 处的颜色
+                        }, {
+                            offset: 1,
+                            color: tempName == "产能" ? '#10e2fb' : '#f25c5e'// 100% 处的颜色
+                        }], false),
+                        barBorderRadius: [30, 30, 30, 30],
+                        shadowColor: 'transparent',
+                        shadowBlur: 4,
+                        label: {
+                            show: true, //开启显示
+                            position: 'top', //在上方显示
+                            textStyle: { //数值样式
+                                color: '#ffff',
+                                fontSize: 12
+                            }
+                        }
                     }
-                };
-                myChart.setOption({
-                    series: [{
-                        label: labelOption
-                    }, {
-                        label: labelOption
-                    }, {
-                        label: labelOption
-                    }, {
-                        label: labelOption
-                    }]
-                });
-            }
-        };
-       
-        var labelOption = {
-            show: true,
-            position: app.config.position,
-            distance: app.config.distance,
-            align: app.config.align,
-            verticalAlign: app.config.verticalAlign,
-            rotate: app.config.rotate,
-            formatter: '{c}  {name|{a}}',
-            fontSize: 16,
-            rich: {
-                name: {
-                    textBorderColor: '#fff'
-                }
-            }
-        };
+                },
+                data: tempArry
+            })
+        });
 
-        option = {
-            color: ['#6cce8f', '#e5323e'],
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart3'));
+
+        var option = {
+            legend: {
+                left: 'center',
+                itemWidth: 10,  //图例标记的图形宽度
+                itemHeight: 10, //图例标记的图形高度
+                bottom: 20,
+                data: listDeviceType,//['CNC', 'EDM', 'WEDM', '车铣磨抛']
+                textStyle: {    //图例文字的样式
+                    color: '#ffffff',  //文字颜色
+                    fontSize: 12    //文字大小
+                }
+            },
             tooltip: {
                 trigger: 'axis',
-                axisPointer: {
-                    type: 'shadow'
+                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
                 }
             },
-            legend: {
-                data: ['产能', '负荷']
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '20%',
+                top: '10%',
+                containLabel: true
             },
-            toolbox: {
-                show: true,
-                orient: 'vertical',
-                left: 'right',
-                top: 'center',
-                feature: {
-                    mark: { show: true },
-                    dataView: { show: true, readOnly: false },
-                    magicType: { show: true, type: ['line', 'bar', 'stack', 'tiled'] },
-                    restore: { show: true },
-                    saveAsImage: { show: true }
-                }
-            },
-            xAxis: [
-                {
-                    type: 'category',
-                    axisTick: { show: false },
-                    //data: ['GF01', 'GF02', 'GF03', 'GF04', 'GF05', 'GF06']
-                    axisLabel: {
-                        //X轴刻度配置
-                        interval: 0 //0：表示全部显示不间隔；auto:表示自动根据刻度个数和宽度自动设置间隔个数
-                        , rotate: 30
-                    },
-                    data: CdatesDeviceName
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'value'
-                }
-            ],
-            series: [
-                {
-                    name: '产能',
-                    type: 'bar',
-                    label: labelOption,
-                    itemStyle: {
-                        normal: {
-                            // 随机显示
-                            //color:function(d){return "#"+Math.floor(Math.random()*(256*256*256-1)).toString(16);}
-                            // 定制显示（按顺序）
-                            color: function (params) {
-                              //var colorList = ['#FF0000','#00FF00','#0000FF','#FFFF00','#00FFFF','#FF00FF'];
-                                var colorList = CdatesColour;
-                                return colorList[params.dataIndex]
-                            }
-                        },
-                    },
-                    //data: [88, 86, 66, 66, 66, 32]
-                    data: CdatesDeviceNumber
+            xAxis: [{
+                type: 'category',
+                data: listDeviceName,
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: '#ffff',
+
+                    }
                 },
-                {
-                    name: '负荷',
-                    type: 'bar',
-                    label: labelOption,
-                    itemStyle: {
-                        normal: {
-                            color: function (params) {
-                                var colorList = FdatesColour;
-                                return colorList[params.dataIndex]
-                            }
-                        },
-                    },
-                    //data: [100, 120, 78, 325, 221, 23]
-                    data: FdatesDeviceNumber
-                }
-            ]
+                axisLabel: {
+                    // interval: 0,
+                    // rotate: 40,
+                    textStyle: {
+                        fontSize: '11'
+                    }
+                },
+                axisTick: { //y轴刻度线
+                    show: false
+                },
+            }],
+            yAxis: [{
+                type: 'value',
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: '#0be3fb'
+                    }
+                },
+                splitLine: {
+                    show: false,
+                    lineStyle: {
+                        color: "#57617B"
+                    }
+                },
+                axisTick: { //y轴刻度线
+                    show: false
+                },
+                axisLabel: {}
+            }],
+            series: series
         };
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
@@ -485,47 +434,30 @@
 </style>
 <form id="form1">
     <div class="row">
-        <section class="col-lg-6 connectedSortable" style="width:37%">
+        <section class="col-lg-6 connectedSortable" style="width:32%;background: url('../../../../Content/js/pages/img/BusinessOverview03.png') 0 0 / 100% 100% no-repeat;position: relative; background-size:488px 659px; margin : 10px 0px 0px 10px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h3 class="box-title">设备清单</h3>
-                    <div class="box-tools pull-right">
+                    <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">设备清单<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
+                    @*<div class="box-tools pull-right">
                         <button type="button" onclick="funSBEdm()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
-                    </div>
+                    </div>*@
                 </div>
                 <div class="tab-content">
-                    <div class="gridPanel" style="height:610px; margin:10px">
+                    <div class="gridPanel" style="height:602px; margin:10px">
                         <table id="OngridList"></table>
-                        <div id="OngridPager" style="text-align:center"></div>
+                        @*<div id="OngridPager" style="text-align:center"></div>*@
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="col-lg-6 connectedSortable" style="width:62%">
+        <section class="col-lg-6 connectedSortable" style="width:33%;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat;position: relative;  margin : 10px 5px 0px 0px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h3 class="box-title">任务清单</h3>
-                    <div class="box-tools pull-right">
-                        <button type="button" onclick="funRWEdm()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
-                    </div>
-                </div>
-                <div class="tab-content">
-                    <div class="gridPanel" style="height:210px;margin:10px">
-                        <table id="gridList"></table>
-                        <div id="gridPager" style="text-align:center"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="col-lg-6 connectedSortable" style="width:30%">
-            <div class="box box-default">
-                <div class="box-header with-border">
-                    <h3 class="box-title">产能/负荷</h3>
-                    <div class="box-tools pull-right">
+                    <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">产能/负荷<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
+                    @*<div class="box-tools pull-right">
                         <button type="button" onclick="funCNEdm()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
-                    </div>
+                    </div>*@
                 </div>
                 <div class="tab-content">
                     <div id="chart3" style="height:325px; margin:10px"></div>
@@ -533,16 +465,33 @@
             </div>
         </section>
 
-        <section class="col-lg-6 connectedSortable" style="width:32%">
+        <section class="col-lg-6 connectedSortable" style="width:33%;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat;position: relative;  margin : 10px 0px 0px 0px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h3 class="box-title">稼动率趋势</h3>
-                    <div class="box-tools pull-right">
+                    <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">稼动率趋势<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
+                    @*<div class="box-tools pull-right">
                         <button type="button" onclick="funQsEdm()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
-                    </div>
+                    </div>*@
                 </div>
                 <div class="tab-content">
                     <div id="chart4" style="height:325px; margin:10px"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-lg-6 connectedSortable" style="width:66.2%;background: url('../../../../Content/js/pages/img/BusinessOverview02.png') 0 0 / 100% 100% no-repeat;position: relative;  margin : 10px 0px 0px 0px;">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">任务清单<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
+                    @*<div class="box-tools pull-right">
+                        <button type="button" onclick="funRWEdm()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
+                    </div>*@
+                </div>
+                <div class="tab-content">
+                    <div class="gridPanel" style="height:210px;margin:10px">
+                        <table id="gridList"></table>
+                        @*<div id="gridPager" style="text-align:center"></div>*@
+                    </div>
                 </div>
             </div>
         </section>
