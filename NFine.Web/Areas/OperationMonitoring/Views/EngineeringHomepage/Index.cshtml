@@ -17,10 +17,8 @@
         loadTwoB();
         loadThreeA();
         gridList();
-        ShowCascade();
-        //$('#layout').layout();
-        //treeView();
-        //gridListOn();
+        //ShowCascade(); //级联显示
+        gridListOn(0);
     }
     function loadOneA() {
         $.ajax({
@@ -375,6 +373,7 @@
             viewrecords: true
         });
     }
+    //加载一级
     function ShowCascade() {
         $.ajax({
             url: "/OperationMonitoring/EngineeringHomepage/GetSelectJson",
@@ -387,6 +386,7 @@
             }
         })
     }
+    //根据一级显示二级
     function SelectRelation(t) {
         $("#S2").empty();
         var temptip = 0;
@@ -401,33 +401,33 @@
                     $("#S2").append("<option value='" + item.id + "'>" + item.text + "</option>");
                 })
                 temptip = data[0].id;
+                $("#txtMC").text(data[0].OrderName);
+                $("#txtRQ").text(data[0].OrderDate);
+                $("#txtZT").text(data[0].OrderStatus);
             }
         });
         gridListOn(temptip);
     }
+    //根据二级显示明细
     function SelectOpt(t)
     {
         var Opt = $(t).val();
         gridListOn(Opt);
-    }
 
-    function treeView() {
-        $("#itemTree").treeview({
-            url: "/OperationMonitoring/EngineeringHomepage/GetTreeJson",
-            onnodeclick: function (item) {
-                //$("#txt_keyword").val('');
-                $('#btn_hidden').trigger("click");
+        $.ajax({
+            url: "/OperationMonitoring/EngineeringHomepage/GetCustomerList",
+            data: { id: Opt },
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    $("#txtMC").text(item.OrderName);
+                    $("#txtRQ").text(item.OrderDate);
+                    $("#txtZT").text(item.OrderStatus);
+                })
             }
         });
 
-        $("#btn_search").click(function () {
-            $("#itemTree").treeview({
-                url: "/OperationMonitoring/EngineeringHomepage/GetTreeDetailJson?value=" + $("#txt_keyword").val(),
-                onnodeclick: function (item) {
-                    $('#btn_hidden').trigger("click");
-                }
-            });
-        });
     }
     function gridListOn(t) {
         var $gridListOn = $("#gridListOn");
@@ -436,26 +436,26 @@
             height: 190,
             colModel: [
                 {
-                    label: '', name: '', width: 30, align: 'left',
+                    label: '', name: '', width: 50, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.Colour != "") {
                             return '<span style="padding:1px 8px;border-radius:50%;background:' + index.Colour + ';"></span>'
                         }
                     }
                 },
-                { label: '模具名称', name: 'MoldName', width: 120, align: 'left' },
-                { label: '模具编号', name: 'MoldNo', width: 120, align: 'left' },
-                { label: 'TN', name: 'TN', width: 60, align: 'left' },
-                { label: '类型', name: 'MoldType', width: 60, align: 'left' },
-                { label: '状态', name: 'MoldState', width: 100, align: 'left' },
-                { label: '优先级', name: 'Priority', width: 80, align: 'left' },
+                { label: '模具名称', name: 'MoldName', width: 140, align: 'center' },
+                { label: '模具编号', name: 'MoldNo', width: 140, align: 'center' },
+                { label: 'TN', name: 'TN', width: 140, align: 'center' },
+                { label: '类型', name: 'MoldType', width: 140, align: 'center' },
+                { label: '状态', name: 'MoldState', width: 140, align: 'center' },
+                { label: '优先级', name: 'Priority', width: 120, align: 'center' },
                 {
-                    label: '试模日期', name: 'MoldDate', width: 120, align: 'left',
+                    label: '试模日期', name: 'MoldDate', width: 140, align: 'center',
                     formatter: "date", formatoptions: { srcformat: 'Y-m-d', newformat: 'Y-m-d' }
                 },
-                { label: '试模厂', name: 'MoldFactory', width: 80, align: 'left' },
-                { label: '模仁材质', name: 'MoldMaterial', width: 80, align: 'left' },
-                { label: '类别', name: 'Category', width: 80, align: 'left', sortable: false }
+                { label: '试模厂', name: 'MoldFactory', width: 120, align: 'center' },
+                { label: '模仁材质', name: 'MoldMaterial', width: 120, align: 'center' },
+                { label: '类别', name: 'Category', width: 120, align: 'center', sortable: false }
             ],
             //pager: "#gridPager",
             sortname: 'MoldNo desc',
@@ -600,13 +600,14 @@
                 <div class="box box-default">
                     <div class="box-header with-border">
                         <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">客户清单<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
-                        <div style="float:right">
+                        @*<div style="float:right">
                             <select id="S1" onchange="SelectRelation(this)"><option value="0">---请选择客户---</option></select> : <select id="S2" onchange="SelectOpt(this)"><option value="0">---请选择订单---</option></select>
-                        </div>
+                        </div>*@
                         @*<div class="box-tools pull-right">
                             <button type="button" onclick="funThree()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>
                         </div>*@
                     </div>
+                    @*<div style="color:#f3961d">订单名称：<span id="txtMC"></span>&emsp;&emsp;&emsp;&emsp;接单日期：<span id="txtRQ"></span>&emsp;&emsp;&emsp;&emsp;订单状态：<span id="txtZT"></span></div>*@
                     <div class="gridPanel" style="height:240px;">
                         <table id="gridListOn"></table>
                     </div>
