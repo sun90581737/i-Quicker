@@ -2,8 +2,9 @@
     ViewBag.Title = "数据采集";
     Layout = "~/Views/Shared/_Index.cshtml";
 }
+<script src="~/Content/js/echarts/4.3/echarts.js"></script>
 <script src="~/Content/js/jquery/jquery-2.1.1.min.js"></script>
-<script src="~/Content/js/echarts/echarts-all.js"></script>
+@*<script src="~/Content/js/echarts/echarts-all.js"></script>*@
 <script src="~/Content/js/echarts/infographic.js"></script>
 <script src="~/Content/js/bootstrap/bootstrap.js"></script>
 <link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
@@ -284,53 +285,74 @@
 
         function loadSpindle(divId, tempCount) {
             var myChart = echarts.init(document.getElementById(divId));
-            option = {
+            var option = {
                 series: [
                     {
-                        name: '业务指标',
-                        type: 'gauge',
+                        type: "gauge",
                         min: 0,
                         max: 30000,
-                        splitNumber: 10,       // 分割段数，默认为5
-                        center: ['50%', '38%'], //**调整仪表盘的位置**
-                        axisLine: {            // 坐标轴线
-                            lineStyle: {       // 属性lineStyle控制线条样式
-                                color: [[0.2, '#228b22'], [0.8, '#48b'], [1, '#ff4500']],
+                        splitNumber: 5,
+                        center: ["50%", "52%"], // 默认全局居中
+                        radius: "100%",
+                        startAngle: 180,
+                        endAngle: 0,
+                        axisLine: {
+                            show: true,
+                            lineStyle: { // 属性lineStyle控制线条样式
+                                color: [ //表盘颜色
+                                    [0.5, "#DA462C"],//0-50%处的颜色
+                                    [0.7, "#FF9618"],//51%-70%处的颜色
+                                    [0.9, "#FFED44"],//70%-90%处的颜色
+                                    [1, "#20AE51"]//90%-100%处的颜色
+                                ],
+                                width: 10//表盘宽度
+                            }
+                        },
+                        splitLine: { //分割线样式（及10、20等长线样式）
+                            length: 30,
+                            lineStyle: { // 属性lineStyle控制线条样式
                                 width: 2
                             }
                         },
+                        //axisTick: { //刻度线样式（及短线样式）
+                        //    length: 20
+                        //},
                         axisTick: {            // 坐标轴小标记
-                            splitNumber: 10,   // 每份split细分多少段
-                            length: 10,        // 属性length控制线长
+                            splitNumber: 5,   // 每份split细分多少段
+                            length: 20,        // 属性length控制线长
                             lineStyle: {       // 属性lineStyle控制线条样式
                                 color: 'auto'
-                            }
+                            },
                         },
-                        axisLabel: {           // 坐标轴文本标签，详见axis.axisLabel
-                            textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                                color: 'auto'
-                            }
+                        axisLabel: { //文字样式（及“10”、“20”等文字样式）
+                            color: "#fff",
+                            distance: 5 //文字离表盘的距离
                         },
-                        splitLine: {           // 分隔线
-                            show: true,        // 默认显示，属性show控制显示与否
-                            length: 12,         // 属性length控制线长
-                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                                color: 'auto'
-                            }
-                        },
-
                         detail: {
-                            formatter: '{value}',
-                            textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                                color: 'auto',
-                                fontWeight: 'bolder',
-                                fontSize: 20
+                            formatter: "{score|{value}}",
+                            offsetCenter: [0, "25%"],
+                            //backgroundColor: '#FFEC45',
+                            //height: 20,
+                            rich: {
+                                score: {
+                                    color: "#DA462C",
+                                    fontFamily: "微软雅黑",
+                                    fontSize: 20
+                                }
                             }
                         },
-                        data: [{ value: tempCount }]
+                        data: [{
+                            value: tempCount,
+                            label: {
+                                textStyle: {
+                                    fontSize: 12
+                                }
+                            }
+                        }]
                     }
                 ]
             };
+           
             myChart.setOption(option, true);
             clearInterval(timeTicket);
             var timeTicket = setInterval(function () {
@@ -345,47 +367,67 @@
             option1 = {
                 series: [
                     {
-                        name: '业务指标',
-                        type: 'gauge',
+                        type: "gauge",
                         min: 0,
                         max: 10000,
-                        splitNumber: 10,       // 分割段数，默认为5
-                        center: ['50%', '38%'], //**调整仪表盘的位置**
-                        axisLine: {            // 坐标轴线
-                            lineStyle: {       // 属性lineStyle控制线条样式
-                                color: [[0.2, '#228b22'], [0.8, '#48b'], [1, '#ff4500']],
+                        splitNumber: 5,
+                        center: ["50%", "52%"], // 默认全局居中
+                        radius: "100%",
+                        startAngle: 180,
+                        endAngle: 0,
+                        axisLine: {
+                            show: true,
+                            lineStyle: { // 属性lineStyle控制线条样式
+                                color: [ //表盘颜色
+                                    [0.5, "#DA462C"],//0-50%处的颜色
+                                    [0.7, "#FF9618"],//51%-70%处的颜色
+                                    [0.9, "#FFED44"],//70%-90%处的颜色
+                                    [1, "#20AE51"]//90%-100%处的颜色
+                                ],
+                                width: 10//表盘宽度
+                            }
+                        },
+                        splitLine: { //分割线样式（及10、20等长线样式）
+                            length: 30,
+                            lineStyle: { // 属性lineStyle控制线条样式
                                 width: 2
                             }
                         },
+                        //axisTick: { //刻度线样式（及短线样式）
+                        //    length: 20
+                        //},
                         axisTick: {            // 坐标轴小标记
-                            splitNumber: 10,   // 每份split细分多少段
-                            length: 10,        // 属性length控制线长
+                            splitNumber: 5,   // 每份split细分多少段
+                            length: 20,        // 属性length控制线长
                             lineStyle: {       // 属性lineStyle控制线条样式
                                 color: 'auto'
-                            }
+                            },
                         },
-                        axisLabel: {           // 坐标轴文本标签，详见axis.axisLabel
-                            textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                                color: 'auto'
-                            }
+                        axisLabel: { //文字样式（及“10”、“20”等文字样式）
+                            color: "#fff",
+                            distance: 5 //文字离表盘的距离
                         },
-                        splitLine: {           // 分隔线
-                            show: true,        // 默认显示，属性show控制显示与否
-                            length: 12,         // 属性length控制线长
-                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                                color: 'auto'
-                            }
-                        },
-
                         detail: {
-                            formatter: '{value}',
-                            textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                                color: 'auto',
-                                fontWeight: 'bolder',
-                                fontSize: 20
+                            formatter: "{score|{value}}",
+                            offsetCenter: [0, "25%"],
+                            //backgroundColor: '#FFEC45',
+                            //height: 20,
+                            rich: {
+                                score: {
+                                    color: "#DA462C",
+                                    fontFamily: "微软雅黑",
+                                    fontSize: 20
+                                }
                             }
                         },
-                        data: [{ value: tempCount }]
+                        data: [{
+                            value: tempCount,
+                            label: {
+                                textStyle: {
+                                    fontSize: 12
+                                }
+                            }
+                        }]
                     }
                 ]
             };
