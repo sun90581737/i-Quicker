@@ -291,6 +291,7 @@
     <Content Include="Content\js\dialog\img\loading-1.gif" />
     <Content Include="Content\js\dialog\img\loading-2.gif" />
     <Content Include="Content\js\echarts\4.3\echarts.js" />
+    <Content Include="Content\js\echarts\4.7\echart.min.js" />
     <Content Include="Content\js\echarts\echarts-all.js" />
     <Content Include="Content\js\echarts\echarts.js" />
     <Content Include="Content\js\echarts\echarts.min.js" />
