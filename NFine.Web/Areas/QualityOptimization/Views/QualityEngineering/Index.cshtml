@@ -429,15 +429,8 @@
                     tempArry.push(Math.round(value1.TrendRate * 100));
                 }
             });
-            var getRandomColor = function () {
-                return '#' + Math.floor(Math.random() * 16777215).toString(16);
-            }
-            //var getRandomColor = function () { //随机生成RGBA颜色
-            //    var r = Math.floor(Math.random() * 256); //随机生成256以内r值
-            //    var g = Math.floor(Math.random() * 256); //随机生成256以内g值
-            //    var b = Math.floor(Math.random() * 256); //随机生成256以内b值
-            //    var a = Math.random(); //随机生成1以内a值
-            //    return "rgba(" + r + ',' + g + ',' + b + ',' + a + ")";
+            //var getRandomColor = function () {
+            //    return '#' + Math.floor(Math.random() * 16777215).toString(16);
             //}
             series.push({
                 name: tempName,
@@ -450,10 +443,10 @@
                     normal: {
                         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                             offset: 0,
-                            color: getRandomColor()
+                            color: tempName == "CNC" ? '#35d0e9' : (tempName == "EDM" ? '#f311fc' : '#f2951d')
                         }, {
                             offset: 0.8,
-                            color: 'transparent'
+                            color: 'rgba(255,255,255,0)'
                         }], false),
                         shadowColor: 'transparent',
                         shadowBlur: 10,
@@ -462,12 +455,12 @@
                 },
                 itemStyle: {
                     normal: {
-                        color: getRandomColor(),
+                        color: tempName == "CNC" ? '#35d0e9' : (tempName == "EDM" ? '#f311fc' : '#f2951d'),
                         lineStyle: {
                             width: 1,
                             type: 'solid' //'dotted'虚线 'solid'实线
                         },
-                        borderColor: getRandomColor(), //图形的描边颜色。支持的格式同 color
+                        borderColor: tempName == "CNC" ? '#35d0e9' : (tempName == "EDM" ? '#f311fc' : '#f2951d'), //图形的描边颜色。支持的格式同 color
                         borderWidth: 8,//描边线宽。为 0 时无描边。[ default: 0 ]
                         barBorderRadius: 0,
                         label: {
@@ -510,7 +503,7 @@
                     }
                 },
                 formatter: '{b}<br />{a0}: {c0}%<br />{a1}: {c1}%<br />{a2}: {c2}%<br />',
-                backgroundColor: 'rgba(0,0,0,0.7)', // 背景
+               // backgroundColor: 'rgba(0,0,0,0.7)', // 背景
                 padding: [8, 10], //内边距
                 extraCssText: 'box-shadow: 0 0 3px rgba(255, 255, 255, 0.4);', //添加阴影
             },
@@ -600,21 +593,24 @@
                 data: tempArry,
                 itemStyle: {
                     normal: {
-                        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
-                            offset: 0,
-                            color: tempName=="已处理"?'#008fc1':'#b108da'
-                        }, {
-                            offset: 1,
-                            color: tempName=="已处理"?'#3bd1ea':'#f631ff'
-                        }], false)
-                    }
-                }
+                        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
+                            offset: 0,
+                            color: tempName == "已处理" ? '#008fc1' : '#b108da'
+                        }, {
+                            offset: 0.5,
+                            color: tempName == "已处理" ? '#3bd1ea' : '#f631ff'
+                        }, {
+                            offset: 1,
+                            color: tempName == "已处理" ? '#00fdfe' : '#f513fd'
+                        }], false)
+                    }
+                }
             })
         });
 
         var myChart = echarts.init(document.getElementById('chart4'));
         var option = {
-            color: ['#3bd1ea', '#f631ff'],
+           // color: ['#3bd1ea', '#f631ff'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {
