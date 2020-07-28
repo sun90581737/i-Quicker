@@ -293,6 +293,7 @@
     <Content Include="Content\js\echarts\4.3\echarts.js" />
     <Content Include="Content\js\echarts\4.7\echart.min.js" />
     <Content Include="Content\js\echarts\echarts-all.js" />
+    <Content Include="Content\js\echarts\echarts-liquidfill.min.js" />
     <Content Include="Content\js\echarts\echarts.js" />
     <Content Include="Content\js\echarts\echarts.min.js" />
     <Content Include="Content\js\echarts\infographic.js" />
@@ -374,6 +375,7 @@
     <Content Include="Content\js\pages\img\footer.png" />
     <Content Include="Content\js\pages\img\gcbj.png" />
     <Content Include="Content\js\pages\img\head.png" />
+    <Content Include="Content\js\pages\img\head1.png" />
     <Content Include="Content\js\pages\img\header.png" />
     <Content Include="Content\js\pages\img\icon-01.png" />
     <Content Include="Content\js\pages\img\icon-02.png" />
@@ -392,6 +394,9 @@
     <Content Include="Content\js\pages\img\OM\06.png" />
     <Content Include="Content\js\pages\img\OM\07.png" />
     <Content Include="Content\js\pages\img\OM\08.png" />
+    <Content Include="Content\js\pages\img\QE\pz-ycqk.png" />
+    <Content Include="Content\js\pages\img\QE\pz-yctj.png" />
+    <Content Include="Content\js\pages\img\QE\pz-zj.png" />
     <Content Include="Content\js\pages\img\thumb.jpg" />
     <Content Include="Content\js\pages\jquery.contip.js" />
     <Content Include="Content\js\pages\world.js" />

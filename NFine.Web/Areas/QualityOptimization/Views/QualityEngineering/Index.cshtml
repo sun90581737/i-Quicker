@@ -4,7 +4,7 @@
 }
 <script src="~/Content/js/echarts/4.3/echarts.js"></script>
 <script src="~/Content/js/echarts/4.7/echart.min.js"></script>
-
+<script src="~/Content/js/echarts/echarts-liquidfill.min.js"></script>
 <script src="~/Content/js/bootstrap/bootstrap.js"></script>
 <link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
 <link href="~/Content/js/pages/AdminLTE.css" rel="stylesheet" />
@@ -16,7 +16,9 @@
         //loadTwo();
         gridList();
         loadThree();
-        //loadFour();
+        loadFourX();
+        loadFourY();
+        loadFour();
     }
     function loadOne() {
         var listDeviceType = new Array();
@@ -378,8 +380,8 @@
             colModel: [
                 { label: '项目单号', name: 'ProjectNo', width: 120, align: 'center' },
                 { label: '模号', name: 'ModuleNumber', width: 120, align: 'center' },
-                { label: '工件号', name: 'WorkpieceNo', width: 90, align: 'center' },
-                { label: '异常工序', name: 'ExceptionalProcedure', width: 90, align: 'center' },
+                { label: '工件号', name: 'WorkpieceNo', width: 120, align: 'center' },
+                { label: '异常工序', name: 'ExceptionalProcedure', width: 120, align: 'center' },
                 {
                     label: '处理方式', name: 'TreatmentMethod', width: 100, align: 'center',
                     formatter: function (cellvalue, row, index) {
@@ -562,8 +564,8 @@
     }
     function loadFour() {
         var listDeviceType = new Array();
-        var listAll = new Array();
         var listDeviceName = new Array();
+        var listAll = new Array();
         $.ajax({
             url: "/QualityOptimization/QualityEngineering/GetDataQualityOHandleExceptionalResults",
             dataType: "json",
@@ -593,55 +595,317 @@
             });
             series.push({
                 name: tempName,
-                type: 'line',
-                stack: '总量' + index,
-                areaStyle: {
+                type: 'bar',
+                stack: '广告' + index,
+                data: tempArry,
+                itemStyle: {
                     normal: {
-                        //color: ['#ff7069', '#1abc9c']
-                    }
-                },
-                data: tempArry
+                        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
+                            offset: 0,
+                            color: tempName=="已处理"?'#008fc1':'#b108da'
+                        }, {
+                            offset: 1,
+                            color: tempName=="已处理"?'#3bd1ea':'#f631ff'
+                        }], false)
+                    }
+                }
             })
         });
+
         var myChart = echarts.init(document.getElementById('chart4'));
         var option = {
-            color: ['#1abc9c', '#ff7069'],
+            color: ['#3bd1ea', '#f631ff'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {
                     type: 'cross',
+                    crossStyle: {
+                        color: '#999'
+                    }
+                },
+                formatter: function (params) {
+                    var relVal = params[0].name;
+                    for (var i = 0, l = params.length; i < l; i++) {
+                        relVal += '<br/>' + params[i].marker + params[i].seriesName + ' : ' + params[i].value + "%";
+                    }
+                    return relVal;
                 }
             },
-            legend: {
-                icon: "circle",
-                data: listDeviceName
-            },
             grid: {
-                top: '13%',
-                left: '3%',
-                right: '4%',
-                bottom: '10',
+                left: '0%',
+                right: '0',
+                bottom: '15%',
                 containLabel: true
+            },
+            legend: {
+                data: listDeviceName,
+                itemWidth: 10,  //图例标记的图形宽度
+                itemHeight: 10, //图例标记的图形高度
+                top: 350,
+                textStyle: {    //图例文字的样式
+                    color: '#ffffff',  //文字颜色
+                    fontSize: 12    //文字大小
+                }
             },
             xAxis: [
                 {
-                    type: 'category',
-                    axisLabel: {
-                        interval: 0,
-                        rotate: 0
-                    },
-                    boundaryGap: false,
-                    data: listDeviceType
+                    //type: 'category',
+                    //data: listDeviceType,
+                    //axisPointer: {
+                    //    type: 'shadow'
+                    //}
+                    show: false
                 }
             ],
             yAxis: [
                 {
-                    type: 'value'
+                    type: 'category',
+                    inverse: true, //true正序false倒序
+                    data: listDeviceType,
+                    axisLabel: {
+                        show: true,
+                        interval: 'auto',
+                        formatter: '{value}',
+                        textStyle: {
+                            color: '#ffffff'
+                        }
+                    }
                 }
             ],
             series: series
         };
-
+        myChart.setOption(option, true);
+    }
+    function loadFourX() {
+        var myChart = echarts.init(document.getElementById('chart5'));
+        var value = 0.62;
+        var data = [value, value, value, ];
+        option = {
+            title: {
+                text: (value * 100).toFixed(0) + '{a|%}',
+                textStyle: {
+                    fontSize: 30,
+                    fontFamily: 'Microsoft Yahei',
+                    fontWeight: 'normal',
+                    color: '#fff',
+                    rich: {
+                        a: {
+                            fontSize: 28,
+                        }
+                    }
+                },
+                x: 'center',
+                y: '35%'
+            },
+            graphic: [{
+                type: 'group',
+                left: 'center',
+                top: '90%',
+                children: [{
+                    type: 'text',
+                    z: 100,
+                    left: '10',
+                    top: 'middle',
+                    style: {
+                        fill: '#aab2fa',
+                        text: '已处理',
+                        font: '12px Microsoft YaHei'
+                    }
+                }]
+            }],
+            series: [{
+                type: 'liquidFill',
+                radius: '80%',
+                center: ['50%', '50%'],
+                //  shape: 'roundRect',
+                data: data,
+                backgroundStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 1,
+                        y: 0,
+                        x2: 0.5,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 1,
+                            color: 'rgba(68, 145, 253, 0)'
+                        }, {
+                            offset: 0.5,
+                            color: 'rgba(68, 145, 253, .25)'
+                        }, {
+                            offset: 0,
+                            color: 'rgba(68, 145, 253, 1)'
+                        }],
+                        globalCoord: false
+                    },
+                },
+                outline: {
+                    borderDistance: 0,
+                    itemStyle: {
+                        borderWidth: 2,
+                        borderColor: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0,
+                                color: 'rgba(69, 73, 240, 0)'
+                            }, {
+                                offset: 0.5,
+                                color: 'rgba(69, 73, 240, .25)'
+                            }, {
+                                offset: 1,
+                                color: 'rgba(69, 73, 240, 1)'
+                            }],
+                            globalCoord: false
+                        },
+                        shadowBlur: 10,
+                        shadowColor: '#000',
+                    }
+                },
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 1,
+                        color: '#3bd1ea'
+                    }, {
+                        offset: 0.5,
+                        color: '#23c0e5'
+                    }, {
+                        offset: 0,
+                        color: '#008fc1'
+                    }],
+                    globalCoord: false
+                },
+                label: {
+                    normal: {
+                        formatter: '',
+                    }
+                }
+            }, ]
+        };
+        myChart.setOption(option);
+    }
+    function loadFourY() {
+        var myChart = echarts.init(document.getElementById('chart6'));
+        var value = 0.38;
+        var data = [value, value, value, ];
+        option = {
+            title: {
+                text: (value * 100).toFixed(0) + '{a|%}',
+                textStyle: {
+                    fontSize: 30,
+                    fontFamily: 'Microsoft Yahei',
+                    fontWeight: 'normal',
+                    color: '#fff',
+                    rich: {
+                        a: {
+                            fontSize: 28,
+                        }
+                    }
+                },
+                x: 'center',
+                y: '35%'
+            },
+            graphic: [{
+                type: 'group',
+                left: 'center',
+                top: '90%',
+                children: [{
+                    type: 'text',
+                    z: 100,
+                    left: '10',
+                    top: 'middle',
+                    style: {
+                        fill: '#aab2fa',
+                        text: '待处理',
+                        font: '12px Microsoft YaHei'
+                    }
+                }]
+            }],
+            series: [{
+                type: 'liquidFill',
+                radius: '80%',
+                center: ['50%', '50%'],
+                //  shape: 'roundRect',
+                data: data,
+                backgroundStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 1,
+                        y: 0,
+                        x2: 0.5,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 1,
+                            color: 'rgba(68, 145, 253, 0)'
+                        }, {
+                            offset: 0.5,
+                            color: 'rgba(68, 145, 253, .25)'
+                        }, {
+                            offset: 0,
+                            color: 'rgba(68, 145, 253, 1)'
+                        }],
+                        globalCoord: false
+                    },
+                },
+                outline: {
+                    borderDistance: 0,
+                    itemStyle: {
+                        borderWidth: 2,
+                        borderColor: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0,
+                                color: 'rgba(69, 73, 240, 0)'
+                            }, {
+                                offset: 0.5,
+                                color: 'rgba(69, 73, 240, .25)'
+                            }, {
+                                offset: 1,
+                                color: 'rgba(69, 73, 240, 1)'
+                            }],
+                            globalCoord: false
+                        },
+                        shadowBlur: 10,
+                        shadowColor: '#000',
+                    }
+                },
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 1,
+                        color: '#f631ff'
+                    }, {
+                        offset: 0.5,
+                        color: '#f70cfd'
+                    }, {
+                        offset: 0,
+                        color: '#b108da'
+                    }],
+                    globalCoord: false
+                },
+                label: {
+                    normal: {
+                        formatter: '',
+                    }
+                }
+            }, ]
+        };
         myChart.setOption(option);
     }
     function funOne() {
@@ -659,7 +923,7 @@
 </script>
 <body>
     <div class="row">
-        <section class="col-lg-6 connectedSortable" style="width:29%;background: url('../../../../Content/js/pages/img/BusinessOverview04.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 10px 5px 5px 15px;">
+        <section class="col-lg-6 connectedSortable" style="width:28.8%;background: url('../../../../Content/js/pages/img/BusinessOverview04.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 10px 5px 5px 15px;">
             <div class="box box-default">
                 <div class="box-header with-border">
                     <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">班组合格率<img src="../../../../Content/js/pages/img/head.png" style="width:300px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
@@ -680,26 +944,38 @@
         <section class="col-lg-6 connectedSortable" style="width:24%;background: url('../../../../Content/js/pages/img/BusinessOverview05.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 10px 5px 5px 0px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">待处理/已处理异常统计<img src="../../../../Content/js/pages/img/head.png" style="width:150px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
+                    <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">待处理/已处理异常统计<img src="../../../../Content/js/pages/img/head1.png" style="height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head1.png') 0 0 / 100% 100% no-repeat;" /></div>
                 </div>
-                <div class="tab-content">
-                    <div id="" style="height:630px;"></div>
+                <img src="~/Content/js/pages/img/QE/pz-zj.png" style="height:15px;position: absolute;left:0%;background: url('~/Content/js/pages/img/QE/pz-zj.png') 0 0 / 100% 100% no-repeat;" />
+                <div class="tab-content"  > @*style="height:630px"*@
+                    <div style="float:left;width:50%">
+                        <div id="chart5" style="height:200px; "></div>
+                    </div>
+                    <div style="margin-left:50%;width:auto;">
+                        <div id="chart6" style="height:200px; "></div>
+                    </div>
+                    <br />
+                    <img src="~/Content/js/pages/img/QE/pz-yctj.png" style="height:15px;position: absolute;left:0%;background: url('~/Content/js/pages/img/QE/pz-yctj.png') 0 0 / 100% 100% no-repeat;" />
+                    <br />
+                    <div class="tab-content">
+                        <div id="chart4" style="height:396px;"></div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="col-lg-6 connectedSortable" style="width:29%;position:absolute;top:350px;background: url('../../../../Content/js/pages/img/BusinessOverview04.png') 0 0 / 100% 100% no-repeat;margin : 0px 5px 0px 15px;">
+        <section class="col-lg-6 connectedSortable" style="width:29%;position:absolute;top:340px;background: url('../../../../Content/js/pages/img/BusinessOverview04.png') 0 0 / 100% 100% no-repeat;margin : 0px 5px 0px 15px;">
             <div class="box box-default">
                 <div class="box-header with-border">
                     <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">班组合格率走势<img src="../../../../Content/js/pages/img/head.png" style="width:280px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
                 </div>
                 <div class="tab-content">
-                    <div id="chart3" style="height:285px;"></div>
+                    <div id="chart3" style="height:297px;"></div>
                 </div>
             </div>
         </section>
 
-        <section class="col-lg-6 connectedSortable" style="width:45%;position:absolute;top:373px;left:450px;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat;margin : 0px 0px 0px 0px;">
+        <section class="col-lg-6 connectedSortable" style="width:44.5%;position:absolute;top:373px;left:457px;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat;margin : 0px 0px 0px 0px;">
             <div class="tab-content" style="height:300px;">
                 <br />
                 <table id="gridList1"></table>
