@@ -385,7 +385,7 @@
                     },
                     labelLine: {
                         length: 10,
-                        length2: 100,
+                        length2: 51,
                         show: true,
                         color: '#00ffff'
                     }
@@ -448,12 +448,12 @@
         var $gridList = $("#gridList1");
         $gridList.dataGrid({
             url: "/QualityOptimization/QualityEngineering/GetGridJson",
-            height: 230,
+            height: 270,
             colModel: [
                 { label: '项目单号', name: 'ProjectNo', width: 120, align: 'center' },
                 { label: '模号', name: 'ModuleNumber', width: 120, align: 'center' },
                 { label: '工件号', name: 'WorkpieceNo', width: 120, align: 'center' },
-                { label: '异常工序', name: 'ExceptionalProcedure', width: 120, align: 'center' },
+                { label: '异常工序', name: 'ExceptionalProcedure', width: 110, align: 'center' },
                 {
                     label: '处理方式', name: 'TreatmentMethod', width: 100, align: 'center',
                     formatter: function (cellvalue, row, index) {
@@ -993,68 +993,70 @@
 </script>
 <body>
     <div class="row">
-        <section class="col-lg-6 connectedSortable" style="width:28.8%;background: url('../../../../Content/js/pages/img/BusinessOverview04.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 10px 5px 5px 15px;">
-            <div class="box box-default">
-                <div class="box-header with-border">
-                    <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">班组合格率<img src="../../../../Content/js/pages/img/head.png" style="width:300px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
-                </div>
-                <div class="tab-content">
-                    <div id="chart1" style="height:285px;"></div>
-                </div>
-            </div>
-        </section>
 
-        <section class="col-lg-6 connectedSortable" style="width:44%;background: url('../../../../Content/js/pages/img/BusinessOverview04.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 10px 5px 0px -5px;">
-            <div class="box box-default">
-                <div class="box-header with-border">
-                    <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">异常处理情况统计<img src="../../../../Content/js/pages/img/head.png" style="width:300px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
-                </div>
-                <div class="tab-content">
-                    <div id="chart2" style="height:318px;"></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="col-lg-6 connectedSortable" style="width:24%;background: url('../../../../Content/js/pages/img/BusinessOverview05.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 10px 5px 5px 0px;">
+        <section class="col-lg-6 connectedSortable" style="width:24.5%;background: url('../../../../Content/js/pages/img/BusinessOverview05.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 10px 5px 5px 20px;">
             <div class="box box-default">
                 <div class="box-header with-border">
                     <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">待处理/已处理异常统计<img src="../../../../Content/js/pages/img/head1.png" style="height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head1.png') 0 0 / 100% 100% no-repeat;" /></div>
                 </div>
                 <br />
                 <img src="~/Content/js/pages/img/QE/pz-zj.png" style="height:15px;position: absolute;left:0%;background: url('~/Content/js/pages/img/QE/pz-zj.png') 0 0 / 100% 100% no-repeat;" />
-                <div class="tab-content"  > @*style="height:630px"*@
+                <div class="tab-content">
                     <div style="float:left;width:50%">
-                        <div id="chart5" style="height:200px; "></div>
+                        <div id="chart5" style="height:295px; "></div>
                     </div>
                     <div style="margin-left:50%;width:auto;">
-                        <div id="chart6" style="height:200px; "></div>
+                        <div id="chart6" style="height:295px; "></div>
                     </div>
-                    <br />
-                    <br />
                     <img src="~/Content/js/pages/img/QE/pz-yctj.png" style="height:15px;position: absolute;left:0%;background: url('~/Content/js/pages/img/QE/pz-yctj.png') 0 0 / 100% 100% no-repeat;" />
                     <div class="tab-content">
-                        <div id="chart4" style="height:380px;"></div>
+                        <div id="chart4" style="height:352px;"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="col-lg-6 connectedSortable" style="width:29%;position:absolute;top:340px;background: url('../../../../Content/js/pages/img/BusinessOverview04.png') 0 0 / 100% 100% no-repeat;margin : 0px 5px 0px 15px;">
+        <section class="col-lg-6 connectedSortable" style="width:42%;background: url('../../../../Content/js/pages/img/BusinessOverview04.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 10px 5px 5px 5px;">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">班组合格率走势<img src="../../../../Content/js/pages/img/head.png" style="width:280px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
+                    <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">异常处理情况统计<img src="../../../../Content/js/pages/img/head.png" style="width:300px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
                 </div>
                 <div class="tab-content">
-                    <div id="chart3" style="height:297px;"></div>
+                    <div id="chart2" style="height:310px;"></div>
                 </div>
             </div>
         </section>
 
-        <section class="col-lg-6 connectedSortable" style="width:44.1%;position:absolute;top:373px;left:457px;background: url('../../../../Content/js/pages/img/BusinessOverview01.png') 0 0 / 100% 100% no-repeat;margin : 0px 0px 0px 0px;">
-            <div class="tab-content" style="height:300px;">
+        <section class="col-lg-6 connectedSortable" style="width:28.5%;background: url('../../../../Content/js/pages/img/BusinessOverview04.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 10px 20px 5px 5px;">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">班组合格率<img src="../../../../Content/js/pages/img/head.png" style="width:240px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
+                </div>
+                <div class="tab-content">
+                    <div id="chart1" style="height:310px;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-lg-6 connectedSortable" style="width:42%;background: url('../../../../Content/js/pages/img/BusinessOverview04.png') 0 0 / 100% 100% no-repeat;margin : 5px 5px 0px 5px;">
+            <div class="tab-content" style="height:340px;">
                 <br />
                 <table id="gridList1"></table>
             </div>
         </section>
+
+        <section class="col-lg-6 connectedSortable" style="width:28.5%;background: url('../../../../Content/js/pages/img/BusinessOverview04.png') 0 0 / 100% 100% no-repeat;margin : 5px 20px 0px 5px;">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">班组合格率走势<img src="../../../../Content/js/pages/img/head.png" style="width:210px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
+                </div>
+                <div class="tab-content">
+                    <div id="chart3" style="height:303px;"></div>
+                </div>
+            </div>
+        </section>
+
+        
+
     </div>
 </body>
