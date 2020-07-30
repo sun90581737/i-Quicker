@@ -356,6 +356,7 @@
     <Content Include="Content\js\md5\jquery.md5.js" />
     <Content Include="Content\js\pages\AdminLTE.css" />
     <Content Include="Content\js\pages\AdminLTE.min.css" />
+    <Content Include="Content\js\pages\appbase.css" />
     <Content Include="Content\js\pages\app.css" />
     <Content Include="Content\js\pages\app.js" />
     <Content Include="Content\js\pages\app.min.js" />
@@ -364,6 +365,7 @@
     <Content Include="Content\js\pages\img\bg-top.png" />
     <Content Include="Content\js\pages\img\bg.png" />
     <Content Include="Content\js\pages\img\bg1.png" />
+    <Content Include="Content\js\pages\img\bg2.png" />
     <Content Include="Content\js\pages\img\bk.png" />
     <Content Include="Content\js\pages\img\bk2.png" />
     <Content Include="Content\js\pages\img\BusinessOverview01.png" />
