@@ -1,0 +1,1374 @@
+[0731/152753.612:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/152753.612:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/152830.976:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/152830.976:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/152831.051:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.135:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.135:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.136:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.136:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.137:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.137:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.138:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.138:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.138:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.138:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.138:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.138:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.138:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.138:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.138:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.138:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.139:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.139:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.139:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.139:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.139:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.139:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.139:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.139:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.139:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.139:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.139:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.140:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.140:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.140:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.140:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.140:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.140:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.140:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.140:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.140:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.141:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.141:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.141:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.143:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.143:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.143:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.143:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.143:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.617:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.617:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152831.832:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/152831.832:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/152837.979:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/152837.982:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/152848.315:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/152848.315:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/152848.399:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.479:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.480:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.480:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.480:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.481:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.481:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.481:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.481:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.481:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.481:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.481:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.481:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.481:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.481:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.481:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.482:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.482:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.482:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.482:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.482:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.482:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.482:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.482:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.482:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.482:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.482:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.482:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.483:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.483:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.483:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.483:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.483:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.483:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.483:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.483:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.483:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.483:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.483:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.484:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.486:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.486:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.486:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.486:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152848.486:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152849.111:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152849.111:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152849.308:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/152849.308:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/152854.132:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/152854.150:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/152910.200:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/152910.201:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/152911.147:INFO:CONSOLE(669)] "北京,[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (669)
+[0731/152911.607:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/152911.608:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/152912.021:INFO:CONSOLE(741)] "Uncaught ReferenceError: echart is not defined", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (741)
+[0731/152956.927:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/152956.928:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/152957.018:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.116:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.116:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.117:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.117:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.118:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.118:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.118:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.118:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.118:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.119:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.119:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.119:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.119:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.120:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.120:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.120:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.120:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.120:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.121:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.121:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.121:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.121:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.122:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.122:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.122:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.122:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.122:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.123:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.123:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.123:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.123:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.123:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.124:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.124:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.124:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.124:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.125:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.125:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.125:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.131:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.131:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.131:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.131:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.132:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.926:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152957.926:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/152958.135:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/152958.135:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/153615.029:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/153615.029:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/153615.102:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.194:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.194:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.194:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.194:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.195:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.195:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.195:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.195:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.195:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.195:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.195:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.195:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.195:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.195:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.195:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.196:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.196:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.196:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.196:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.196:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.196:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.196:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.196:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.196:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.197:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.197:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.197:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.197:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.197:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.197:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.197:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.197:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.197:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.197:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.197:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.197:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.198:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.198:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.198:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.200:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.200:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.200:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.200:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.200:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.642:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.643:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153615.942:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/153615.942:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/153624.709:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/153624.712:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/153636.836:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/153636.840:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/153637.996:INFO:CONSOLE(669)] "北京,[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (669)
+[0731/153638.517:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/153638.518:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/153638.875:INFO:CONSOLE(741)] "Uncaught ReferenceError: echart is not defined", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (741)
+[0731/153913.281:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/153913.282:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/153913.401:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.519:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.519:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.520:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.520:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.520:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.520:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.520:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.520:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.520:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.520:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.520:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.521:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.521:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.521:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.521:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.521:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.521:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.521:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.521:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.522:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.522:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.522:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.522:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.522:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.522:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.522:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.522:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.522:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.523:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.523:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.523:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.523:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.523:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.523:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.523:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.524:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.524:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.524:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.524:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.527:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.527:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.527:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.527:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153913.528:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153914.162:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153914.163:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/153914.434:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/153914.434:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/153928.412:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/153928.413:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/153934.757:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/153934.757:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/153935.971:INFO:CONSOLE(669)] "北京,[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (669)
+[0731/153936.668:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/153936.668:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/153937.008:INFO:CONSOLE(741)] "Uncaught ReferenceError: echart is not defined", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (741)
+[0731/154138.244:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154138.244:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154138.323:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.386:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.386:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.387:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.387:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.387:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.387:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.387:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.388:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.388:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.388:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.388:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.388:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.388:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.388:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.388:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.388:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.388:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.388:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.389:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.389:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.389:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.389:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.389:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.389:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.389:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.389:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.390:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.390:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.390:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.390:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.390:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.390:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.390:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.390:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.390:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.390:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.390:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.390:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.390:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.393:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.393:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.393:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.393:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154138.393:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154139.006:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154139.006:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154139.271:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154139.272:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154142.334:ERROR:broker_win.cc(138)] Error sending sync broker message
+[0731/154142.334:WARNING:client_shared_bitmap_manager.cc(98)] Browser failed to allocate shared memory
+[0731/154238.283:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154238.283:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154238.368:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.430:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.430:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.431:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.431:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.431:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.432:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.432:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.432:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.432:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.432:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.432:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.432:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.432:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.432:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.432:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.432:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.432:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.432:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.432:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.433:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.433:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.433:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.433:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.433:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.433:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.433:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.433:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.433:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.433:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.433:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.434:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.434:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.434:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.434:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.434:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.434:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.434:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.434:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.434:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.436:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.436:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.436:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.436:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154238.436:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154239.224:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154239.224:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154239.405:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154239.406:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154304.803:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154304.803:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154304.876:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.955:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.955:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.956:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.956:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.956:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.956:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.956:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.956:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.956:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.956:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.956:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.956:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.956:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.957:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.957:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.957:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.957:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.957:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.957:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.957:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.957:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.957:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.957:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.957:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.959:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.959:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.959:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.959:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.961:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.961:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.961:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.962:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154304.962:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154305.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154305.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154305.583:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154305.583:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154305.774:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154305.774:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154305.787:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154305.788:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154315.487:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/154315.489:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/154315.561:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/154315.561:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/154325.772:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/154325.776:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/154325.802:INFO:CONSOLE(271)] "laod...", source: http://192.168.2.199:8081/AutomationLine/RunningState/Index (271)
+[0731/154326.241:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/154326.241:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/154327.257:INFO:CONSOLE(669)] "北京,[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (669)
+[0731/154327.694:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154327.695:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154327.941:INFO:CONSOLE(741)] "Uncaught ReferenceError: echart is not defined", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (741)
+[0731/154613.253:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154613.253:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154613.349:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.423:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.423:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.424:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.424:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.424:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.424:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.424:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.424:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.424:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.424:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.425:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.425:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.425:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.425:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.425:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.425:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.425:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.425:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.425:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.425:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.425:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.425:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.426:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.426:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.426:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.426:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.426:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.426:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.426:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.426:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.426:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.427:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.427:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.427:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.427:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.427:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.427:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.427:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.427:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.431:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.431:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.431:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.431:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154613.432:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154614.082:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154614.082:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154614.383:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154614.384:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154635.437:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154635.438:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154635.535:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.651:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.651:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.652:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.652:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.652:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.652:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.652:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.652:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.652:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.652:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.653:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.653:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.653:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.653:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.653:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.653:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.653:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.653:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.653:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.653:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.654:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.654:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.654:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.654:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.654:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.654:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.654:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.654:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.654:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.655:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.655:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.655:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.655:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.655:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.655:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.655:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.655:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.655:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.656:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.658:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.658:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.658:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.658:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154635.659:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154636.218:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154636.218:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154636.220:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154636.220:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154636.464:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154636.465:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154636.495:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154636.495:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154645.002:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/154645.014:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/154645.400:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/154645.400:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/154656.116:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/154656.117:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/154656.153:INFO:CONSOLE(271)] "laod...", source: http://192.168.2.199:8081/AutomationLine/RunningState/Index (271)
+[0731/154657.140:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/154657.141:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/154658.223:INFO:CONSOLE(669)] "北京,[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (669)
+[0731/154658.712:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154658.712:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154658.996:INFO:CONSOLE(741)] "Uncaught ReferenceError: echart is not defined", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (741)
+[0731/154713.652:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154713.652:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154713.761:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.897:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.897:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.898:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.898:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.898:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.898:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.898:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.899:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.899:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.899:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.899:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.899:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.899:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.899:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.900:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.900:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.900:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.900:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.900:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.901:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.901:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.901:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.901:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.901:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.901:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.901:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.901:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.902:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.902:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.902:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.902:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.902:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.902:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.902:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.903:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.903:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.903:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.903:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.903:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.907:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.907:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.907:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.907:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154713.907:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154714.907:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154714.908:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154714.911:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154714.911:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/154715.026:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154715.026:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154715.201:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/154715.201:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/154719.086:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/154719.088:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/154719.523:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/154719.523:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/154719.546:INFO:CONSOLE(1225)] "Uncaught IndexSizeError: Failed to execute 'arc' on 'CanvasRenderingContext2D': The radius provided (-0.5) is negative.", source: http://192.168.2.199:8081/Content/js/charts/Chart.js (1225)
+[0731/154719.937:INFO:CONSOLE(1225)] "Uncaught IndexSizeError: Failed to execute 'arc' on 'CanvasRenderingContext2D': The radius provided (-0.5) is negative.", source: http://192.168.2.199:8081/Content/js/charts/Chart.js (1225)
+[0731/155053.713:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155053.714:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155053.825:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.956:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.956:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.957:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.957:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.957:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.958:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.959:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.959:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.959:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.959:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.959:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.959:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.959:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.959:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.960:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.960:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.960:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.960:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.961:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.961:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.961:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.961:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.961:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.961:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.961:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.961:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.962:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.962:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.962:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.962:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.962:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.962:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.962:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.967:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.967:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.967:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.967:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155053.967:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155054.973:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155054.974:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155055.015:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155055.015:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155055.019:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155055.019:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155055.140:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155055.140:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155055.149:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.149:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.151:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.152:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.153:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.153:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.155:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.155:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.157:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.157:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.159:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.159:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.161:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.161:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.167:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.167:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.172:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.172:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155055.275:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155055.277:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155055.336:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155055.337:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155055.504:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155055.504:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155055.564:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155055.564:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155055.638:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155055.638:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155103.142:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155103.207:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155103.246:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155103.248:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155103.251:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155103.252:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155103.267:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155103.267:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155103.268:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155103.269:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155103.333:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155103.358:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155103.701:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155103.724:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155106.255:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155106.276:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155106.788:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155106.827:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155114.650:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155114.655:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155114.682:INFO:CONSOLE(271)] "laod...", source: http://192.168.2.199:8081/AutomationLine/RunningState/Index (271)
+[0731/155115.207:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155115.207:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155115.429:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155115.435:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155115.464:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155115.464:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155115.473:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155115.473:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155115.581:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155115.582:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155115.686:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155115.689:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155115.778:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155115.778:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155115.829:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155115.829:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155117.636:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155117.636:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155118.172:INFO:CONSOLE(669)] "北京,[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (669)
+[0731/155118.486:INFO:CONSOLE(741)] "Uncaught ReferenceError: echart is not defined", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (741)
+[0731/155226.454:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155226.454:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155226.518:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.577:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.577:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.577:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.578:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.579:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.579:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.579:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.579:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.579:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.579:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.579:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.579:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.579:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.579:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.579:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.579:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.579:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.579:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.579:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.579:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.580:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.580:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.580:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.580:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.581:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.581:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.581:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.581:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155226.581:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.589:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155227.590:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155227.608:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155227.609:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155227.719:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155227.719:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155227.765:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.765:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.767:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.767:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.769:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.769:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.771:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.771:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.773:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.773:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.775:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.775:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.778:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.778:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.784:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.784:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.788:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.788:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155227.815:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155227.815:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155227.884:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155227.884:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155228.066:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155228.066:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155228.109:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155228.110:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155228.208:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155228.208:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155228.239:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155228.239:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155238.526:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155238.532:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155238.535:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155238.535:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155238.598:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155238.605:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155238.938:INFO:CONSOLE(271)] "laod...", source: http://192.168.2.199:8081/AutomationLine/RunningState/Index (271)
+[0731/155239.284:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155239.286:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155239.595:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155239.603:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155239.646:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155239.650:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155239.885:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155239.892:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155240.858:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155240.863:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155240.928:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155240.932:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155241.594:INFO:CONSOLE(669)] "北京,[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (669)
+[0731/155242.570:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155242.571:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155243.013:INFO:CONSOLE(741)] "Uncaught ReferenceError: echart is not defined", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (741)
+[0731/155309.620:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155309.621:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155309.699:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.787:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.787:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.788:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.788:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.789:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.789:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.789:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.789:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.789:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.790:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.790:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.790:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.790:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.790:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.791:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.791:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.791:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.791:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.791:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.791:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.791:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.792:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.792:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.792:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.792:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.792:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.793:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.793:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.793:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.793:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.793:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.793:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.794:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.794:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.794:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.794:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.794:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.795:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.795:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.799:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.799:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.800:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.800:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155309.800:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.604:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155310.605:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155310.656:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155310.657:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155310.682:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155310.682:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155310.801:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.801:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.803:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.803:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.804:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.804:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.807:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.808:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.810:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.810:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.812:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.812:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.814:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.814:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.817:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.817:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.821:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.821:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155310.825:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155310.826:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155310.919:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155310.920:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155310.927:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155310.929:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155311.265:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155311.265:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155311.275:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155311.275:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155311.365:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155311.365:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155320.483:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155320.513:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155320.558:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155320.560:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155320.563:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155320.564:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155320.567:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155320.567:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155320.568:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155320.568:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155320.586:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155320.620:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155321.249:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155321.267:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155321.730:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155321.751:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155324.067:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155324.106:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/155330.845:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155330.845:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155331.151:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155331.151:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155331.172:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155331.172:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155331.202:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155331.203:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155331.216:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155331.216:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155331.264:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155331.264:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155331.403:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155331.403:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155331.493:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155331.494:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155331.513:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/155331.513:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/155331.513:INFO:CONSOLE(271)] "laod...", source: http://192.168.2.199:8081/AutomationLine/RunningState/Index (271)
+[0731/155332.407:INFO:CONSOLE(669)] "北京,[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (669)
+[0731/155333.226:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/155333.226:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/155333.600:INFO:CONSOLE(741)] "Uncaught ReferenceError: echart is not defined", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (741)
+[0731/155430.408:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155430.408:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155437.959:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/155437.960:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.066:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160341.066:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160341.091:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.107:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.107:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.107:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.107:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.108:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.109:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.109:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.109:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.109:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.109:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.109:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.344:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.344:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.345:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.345:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.345:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.346:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.346:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.346:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.347:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.347:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.347:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.348:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.349:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.349:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.353:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.353:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.362:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.362:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160341.420:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160341.420:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160341.438:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160341.438:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160341.462:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160341.462:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160341.477:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160341.477:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160341.495:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160341.495:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160341.516:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160341.516:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160341.567:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160341.567:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160341.568:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160341.568:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160341.571:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160341.571:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160351.826:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160351.829:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160351.830:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160351.831:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160351.857:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160351.857:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160351.858:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160351.858:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160351.859:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160351.859:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160351.859:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160351.859:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160352.399:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160352.399:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160353.853:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160353.853:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160353.857:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160353.857:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160401.575:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160401.575:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160401.575:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160401.575:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160401.578:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160401.578:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160401.650:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160401.653:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160401.730:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160401.732:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160401.764:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160401.764:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160401.788:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160401.789:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160401.876:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160401.877:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160401.966:INFO:CONSOLE(271)] "laod...", source: http://192.168.2.199:8081/AutomationLine/RunningState/Index (271)
+[0731/160402.255:INFO:CONSOLE(669)] "北京,[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (669)
+[0731/160402.493:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160402.494:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160402.714:INFO:CONSOLE(741)] "Uncaught ReferenceError: echart is not defined", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (741)
+[0731/160403.045:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160403.047:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160909.190:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160909.190:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160909.215:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.233:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.233:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.233:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.233:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.233:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.233:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.233:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.233:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.233:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.233:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.234:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.235:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.235:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.235:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.235:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.235:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.235:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.235:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.236:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.236:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.236:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.236:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.236:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.459:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.459:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.459:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.459:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.460:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.460:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.460:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.460:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.461:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.461:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.461:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.461:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.509:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.510:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.520:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160909.520:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160909.529:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160909.529:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160909.551:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160909.551:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160909.561:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.561:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.563:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.563:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/160909.564:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160909.564:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160909.580:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160909.580:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160909.595:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160909.595:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160909.598:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160909.598:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160909.610:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160909.610:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160909.631:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160909.632:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160924.700:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160924.708:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160924.708:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160924.716:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160924.717:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160924.717:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160924.743:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160924.745:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160924.756:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160924.760:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160924.847:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160924.847:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160925.335:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160925.337:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160926.409:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160926.409:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160926.880:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160926.880:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/160929.605:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160929.606:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160929.725:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160929.725:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160929.835:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160929.835:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160929.843:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160929.843:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160929.847:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160929.847:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160929.850:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160929.851:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160929.857:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160929.857:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160930.033:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160930.033:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160930.385:INFO:CONSOLE(669)] "北京,[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (669)
+[0731/160930.450:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/160930.451:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/160930.668:INFO:CONSOLE(741)] "Uncaught ReferenceError: echart is not defined", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (741)
+[0731/160930.947:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/160930.947:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/160930.967:INFO:CONSOLE(271)] "laod...", source: http://192.168.2.199:8081/AutomationLine/RunningState/Index (271)
+[0731/161303.413:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/161303.413:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/161303.434:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.449:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.449:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.449:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.449:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.450:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.451:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.451:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.451:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.451:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.451:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.451:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.665:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.665:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.665:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.665:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.666:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.666:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.666:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.667:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.667:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.667:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.668:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.669:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.719:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.719:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.742:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/161303.742:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/161303.744:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/161303.744:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/161303.760:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/161303.760:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/161303.765:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.765:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.766:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.766:WARNING:resource_bundle.cc(563)] locale resources are not loaded
+[0731/161303.785:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/161303.785:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/161303.785:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/161303.785:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/161303.810:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/161303.810:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/161303.821:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/161303.821:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/161303.827:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/161303.827:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/161303.853:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/161303.854:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/161313.727:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161313.728:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/161313.748:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161313.748:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161313.749:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/161313.749:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/161313.753:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161313.753:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/161313.762:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161313.762:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/161314.140:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/161314.140:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161314.241:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161314.241:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/161314.592:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/161314.592:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161314.815:INFO:CONSOLE(1225)] "Uncaught IndexSizeError: Failed to execute 'arc' on 'CanvasRenderingContext2D': The radius provided (-0.5) is negative.", source: http://192.168.2.199:8081/Content/js/charts/Chart.js (1225)
+[0731/161314.832:INFO:CONSOLE(1225)] "Uncaught IndexSizeError: Failed to execute 'arc' on 'CanvasRenderingContext2D': The radius provided (-0.5) is negative.", source: http://192.168.2.199:8081/Content/js/charts/Chart.js (1225)
+[0731/161314.838:INFO:CONSOLE(1225)] "Uncaught IndexSizeError: Failed to execute 'arc' on 'CanvasRenderingContext2D': The radius provided (-0.5) is negative.", source: http://192.168.2.199:8081/Content/js/charts/Chart.js (1225)
+[0731/161314.838:INFO:CONSOLE(1225)] "Uncaught IndexSizeError: Failed to execute 'arc' on 'CanvasRenderingContext2D': The radius provided (-0.5) is negative.", source: http://192.168.2.199:8081/Content/js/charts/Chart.js (1225)
+[0731/161314.840:INFO:CONSOLE(1225)] "Uncaught IndexSizeError: Failed to execute 'arc' on 'CanvasRenderingContext2D': The radius provided (-0.5) is negative.", source: http://192.168.2.199:8081/Content/js/charts/Chart.js (1225)
+[0731/161314.844:INFO:CONSOLE(1225)] "Uncaught IndexSizeError: Failed to execute 'arc' on 'CanvasRenderingContext2D': The radius provided (-0.5) is negative.", source: http://192.168.2.199:8081/Content/js/charts/Chart.js (1225)
+[0731/161314.846:INFO:CONSOLE(1225)] "Uncaught IndexSizeError: Failed to execute 'arc' on 'CanvasRenderingContext2D': The radius provided (-0.5) is negative.", source: http://192.168.2.199:8081/Content/js/charts/Chart.js (1225)
+[0731/161314.846:INFO:CONSOLE(1225)] "Uncaught IndexSizeError: Failed to execute 'arc' on 'CanvasRenderingContext2D': The radius provided (-0.5) is negative.", source: http://192.168.2.199:8081/Content/js/charts/Chart.js (1225)
+[0731/161316.141:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161316.142:INFO:CONSOLE(2)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/loading/pace.min.js (2)
+[0731/161316.262:INFO:CONSOLE(1225)] "Uncaught IndexSizeError: Failed to execute 'arc' on 'CanvasRenderingContext2D': The radius provided (-0.5) is negative.", source: http://192.168.2.199:8081/Content/js/charts/Chart.js (1225)
+[0731/161323.619:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/161323.620:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161323.648:INFO:CONSOLE(271)] "laod...", source: http://192.168.2.199:8081/AutomationLine/RunningState/Index (271)
+[0731/161323.983:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/161323.983:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161324.003:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161324.003:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161324.005:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161324.005:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/161324.005:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/161324.007:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/161324.138:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161324.138:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/161324.183:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/161324.183:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161324.233:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/161324.233:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161324.468:WARNING:resource_bundle.cc(366)] locale_file_path.empty() for locale 
+[0731/161324.468:ERROR:main_delegate.cc(683)] Could not load locale pak for zh-CN
+[0731/161325.733:ERROR:service_manager.cc(157)] Connection InterfaceProviderSpec prevented service: content_renderer from binding interface: blink::mojom::ReportingServiceProxy exposed by: content_browser
+[0731/161325.733:INFO:CONSOLE(4)] "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check https://xhr.spec.whatwg.org/.", source: http://192.168.2.199:8081/Content/js/jquery/jquery-2.1.1.min.js (4)
+[0731/161326.431:INFO:CONSOLE(669)] "北京,[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (669)
+[0731/161326.543:INFO:CONSOLE(741)] "Uncaught ReferenceError: echart is not defined", source: http://192.168.2.199:8081/OperationMonitoring/BusinessOverview/Index (741)
