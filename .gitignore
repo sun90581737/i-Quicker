@@ -13,4 +13,6 @@ Web.Release.config
 /DataSynchronization/TeamSynCapacityAndTrend/obj
 /DataSynchronization/TeamSynDeviceAndTask/bin
 /DataSynchronization/TeamSynDeviceAndTask/obj
-/NineGongge/NineGongge
+/NineGongge/NineGongge/bin
+/NineGongge/NineGongge/obj
+/NineGongge/NineGongge/.vs
