@@ -30,7 +30,18 @@ namespace SynBusinessOverview
                 int sult = ds.InsertSql(srt, out re);
                 if (sult > 0)
                 {
-                    int ret = ds.DeleteSql(string.Format(""));
+                    int ret = ds.DeleteSql(string.Format(@"INSERT INTO nfinebase.sys_totalcyclecost(Name,Cost,AcctDate,CreationTime)
+                    (
+                        SELECT Name, Cost, acct_date, now() from(
+                    SELECT '物料' Name, material_cost Cost, acct_date from mes_center.a01_manufacture_all_cost where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                    UNION ALL
+                    SELECT '外协' Name, outsource_cost Cost, acct_date from mes_center.a01_manufacture_all_cost where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                    UNION ALL
+                    SELECT '自制' Name, selfmake_cost Cost, acct_date from mes_center.a01_manufacture_all_cost where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                    UNION ALL
+                    SELECT '异常' Name, exception_cost Cost, acct_date from mes_center.a01_manufacture_all_cost where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                    )b ORDER BY b.acct_date
+                    )"));
 
                     LogHelper.Info(string.Format("经营概览-总生产成本-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult, ret, DateTime.Now.ToString()));
                 }
