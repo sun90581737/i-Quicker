@@ -44,15 +44,15 @@
             async: false,
             success: function (data) {
                 $(data).each(function (index, item) {
-                    if (index == 0) {
-                        TotalCost = item.TotalCost;
-                    }
+                    //if (index == 0) {
+                    //    TotalCost = item.TotalCost;
+                    //}
                     listName.push(item.Name);
                     var str3 = new Object();
                     str3.name = item.Name;
                     str3.value = item.Cost;
                     str[index] = str3;
-
+                    TotalCost += item.Cost;
                 })
             }
         });
@@ -63,7 +63,7 @@
             title: {//标题组件
                 text: '￥' + TotalCost + '万',
                 top: '35%',
-                left: '37%',
+                left: '40%',
                 textStyle: {
                     color: "#ffffff",
                     fontSize: 15,
