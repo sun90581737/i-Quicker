@@ -29,9 +29,9 @@
     //    loadOne1a();
     //    loadOne1b();
     //}
-    function selectTypes(obj) {
-        loadThree();
-    }
+    //function selectTypes(obj) {
+    //    loadThree();
+    //}
     function loadOne1a() {
         var listName = new Array();
         var TotalCost = 0;
@@ -379,10 +379,10 @@
         var listDeviceType = new Array();
         var listDeviceName = new Array();
         var listAll = new Array();
-        var keyValue = $('#Types_id option:selected').val();
+        //var keyValue = $('#Types_id option:selected').val();
         $.ajax({
             url: "/OperationMonitoring/BusinessOverview/GetDataBOCapacityLoad",
-            data: { keyValue: keyValue },
+            //data: { keyValue: keyValue },
             dataType: "json",
             async: false,
             success: function (da) {
@@ -808,14 +808,14 @@
                 <div class="box-header with-border">
                     <h4 class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">产能/负载<img src="../../../../Content/js/pages/img/head.png" style="width:250px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></h4>
                     <div style="float:right">
-                        <select id="Types_id" name="Types" style="border: solid 1px #000;" onchange="selectTypes(this)">
+                        @*<select id="Types_id" name="Types" style="border: solid 1px #000;" onchange="selectTypes(this)">
                             <option value="1" selected="selected">一周</option>
                             <option value="2">两周</option>
                             <option value="3">三周</option>
                             <option value="4">一个月</option>
                             <option value="5">半年</option>
                             <option value="6">一年</option>
-                        </select>
+                        </select>*@
                     </div>
                     <div class="box-tools pull-right">
                         @*<button type="button" onclick="funThree()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>*@

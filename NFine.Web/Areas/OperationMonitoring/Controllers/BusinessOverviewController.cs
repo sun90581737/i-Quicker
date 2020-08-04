@@ -59,7 +59,7 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
         [HandlerAjaxOnly]
         public ActionResult GetDataBOCapacityLoad(string keyValue)
         {
-            var data = boclApp.GetList().Where(p => p.IsEffective == 1 && p.PrType == Convert.ToInt32(keyValue));
+            var data = boclApp.GetList().Where(p => p.IsEffective == 1);//&& p.PrType == Convert.ToInt32(keyValue)
             return Content(data.ToJson());
         }
 
