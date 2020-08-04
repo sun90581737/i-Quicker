@@ -25,10 +25,10 @@
         loadFour();
         loadFive();
     }
-    function selectType(obj) {
-        loadOne1a();
-        loadOne1b();
-    }
+    //function selectType(obj) {
+    //    loadOne1a();
+    //    loadOne1b();
+    //}
     function selectTypes(obj) {
         loadThree();
     }
@@ -36,10 +36,10 @@
         var listName = new Array();
         var TotalCost = 0;
         var str =[];
-        var keyValue = $('#Type_id option:selected').val();
+        //var keyValue = $('#Type_id option:selected').val();
         $.ajax({
             url: "/OperationMonitoring/BusinessOverview/GetDataTotalCycleCost",
-            data: { keyValue: keyValue },
+            //data: { keyValue: keyValue },
             dataType: "json",
             async: false,
             success: function (data) {
@@ -130,10 +130,10 @@
     function loadOne1b() {
         var listName = new Array();
         var str = [];
-        var keyValue = $('#Type_id option:selected').val();
+        //var keyValue = $('#Type_id option:selected').val();
         $.ajax({
             url: "/OperationMonitoring/BusinessOverview/GetDataCostByDepartment",
-            data: { keyValue: keyValue },
+            //data: { keyValue: keyValue },
             dataType: "json",
             async: false,
             success: function (data) {
@@ -756,14 +756,14 @@
                 <div class="box-header with-border">
                     <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">生产成本<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
                     <div style="float:right">
-                        <select id="Type_id" name="Type" style="border: solid 1px #000;" onchange="selectType(this)">
+                        @*<select id="Type_id" name="Type" style="border: solid 1px #000;" onchange="selectType(this)">
                             <option value="1" selected="selected">一周</option>
                             <option value="2">两周</option>
                             <option value="3">三周</option>
                             <option value="4">一个月</option>
                             <option value="5">半年</option>
                             <option value="6">一年</option>
-                        </select>
+                        </select>*@
                     </div>
                     <div class="box-tools pull-right">
                         @*<button type="button" onclick="funOne()" class="btn btn-box-tool"><i class="fa fa-expand"></i></button>*@
