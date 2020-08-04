@@ -325,19 +325,20 @@ CREATE TABLE Sys_TotalCycleCost --经营概览:周期总生产成本
 	Name varchar(50)  NULL,--物品
 	Cost INT , --成本
 	TotalCost FLOAT,--总成本(值保持一致，读取其中一个)
-	PrType INT , --下拉框类型(一周:1、两周:2、三周:3、一个月:4、半年:5、一年:6)
+	PrType INT , --下拉框类型(一周:1、两周:2、三周:3、一个月:4、半年:5、一年:6)--忽略
+	AcctDate DATE,--数据日期
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )
-INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('物料',27,266.36,1)
-INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('外协',18,266.36,1)
-INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('自制',53,266.36,1)
-INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('异常',2,266.36,1)
+INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('物料',27,266.36,1,GETDATE())
+INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('外协',18,266.36,1,GETDATE())
+INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('自制',53,266.36,1,GETDATE())
+INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('异常',2,266.36,1,GETDATE())
 
-INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('物料',25,100.36,2)
-INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('外协',25,100.36,2)
-INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('自制',25,100.36,2)
-INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('异常',25,100.36,2)
+INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('物料',25,100.36,2,GETDATE())
+INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('外协',25,100.36,2,GETDATE())
+INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('自制',25,100.36,2,GETDATE())
+INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('异常',25,100.36,2,GETDATE())
 
 
 CREATE TABLE Sys_CostByDepartment --经营概览:自制成本按部门分类
@@ -345,19 +346,20 @@ CREATE TABLE Sys_CostByDepartment --经营概览:自制成本按部门分类
 	id int identity (1,1) primary KEY,
 	Name varchar(50)  NULL,--物品
 	Cost INT , --成本
-	PrType INT , --下拉框类型(一周:1、两周:2、三周:3、一个月:4、半年:5、一年:6)
+	PrType INT , --下拉框类型(一周:1、两周:2、三周:3、一个月:4、半年:5、一年:6)--忽略
+	AcctDate DATE,--数据日期
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )
-INSERT dbo.Sys_CostByDepartment(Name,Cost,PrType)VALUES  ('CNC',23,1)
-INSERT dbo.Sys_CostByDepartment(Name,Cost,PrType)VALUES  ('EDM',26,1)
-INSERT dbo.Sys_CostByDepartment(Name,Cost,PrType)VALUES  ('WEDM',17,1)
-INSERT dbo.Sys_CostByDepartment(Name,Cost,PrType)VALUES  ('车铣磨抛',34,1)
+INSERT dbo.Sys_CostByDepartment(Name,Cost,PrType,AcctDate)VALUES  ('CNC',23,1,GETDATE())
+INSERT dbo.Sys_CostByDepartment(Name,Cost,PrType,AcctDate)VALUES  ('EDM',26,1,GETDATE())
+INSERT dbo.Sys_CostByDepartment(Name,Cost,PrType,AcctDate)VALUES  ('WEDM',17,1,GETDATE())
+INSERT dbo.Sys_CostByDepartment(Name,Cost,PrType,AcctDate)VALUES  ('车铣磨抛',34,1,GETDATE())
 
-INSERT dbo.Sys_CostByDepartment(Name,Cost,PrType)VALUES  ('CNC',25,2)
-INSERT dbo.Sys_CostByDepartment(Name,Cost,PrType)VALUES  ('EDM',25,2)
-INSERT dbo.Sys_CostByDepartment(Name,Cost,PrType)VALUES  ('WEDM',25,2)
-INSERT dbo.Sys_CostByDepartment(Name,Cost,PrType)VALUES  ('车铣磨抛',25,2)
+INSERT dbo.Sys_CostByDepartment(Name,Cost,PrType,AcctDate)VALUES  ('CNC',25,2,GETDATE())
+INSERT dbo.Sys_CostByDepartment(Name,Cost,PrType,AcctDate)VALUES  ('EDM',25,2,GETDATE())
+INSERT dbo.Sys_CostByDepartment(Name,Cost,PrType,AcctDate)VALUES  ('WEDM',25,2,GETDATE())
+INSERT dbo.Sys_CostByDepartment(Name,Cost,PrType,AcctDate)VALUES  ('车铣磨抛',25,2,GETDATE())
 
 CREATE TABLE Sys_DeliveryCompletionRate --经营概览:交期达成率趋势
 (
