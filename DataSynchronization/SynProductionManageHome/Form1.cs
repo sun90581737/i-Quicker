@@ -26,11 +26,18 @@ namespace SynProductionManageHome
                 #region  在制模具进度汇总
                 int re = 0;
                 DbService ds = new DbService(EnStr, "MySQL");
-                string srt = string.Format("");
+                string srt = string.Format(@"INSERT INTO nfinebase.sys_totalcyclecost(ProgressStatus,Cost,Display,CreationTime)
+                    (
+                        SELECT ProgressStatus, Cost, acct_date, now() from(
+                        SELECT '进度正常' ProgressStatus, normal_num Cost, total_num from mes_center.a01_manufacture_all_cost
+                        UNION ALL
+                        SELECT '进度延误' ProgressStatus, delay_num Cost, total_num from mes_center.a01_manufacture_all_cost
+                        )b
+                    )");
                 int sult = ds.InsertSql(srt, out re);
                 if (sult > 0)
                 {
-                    int ret = ds.DeleteSql(string.Format(""));
+                    int ret = ds.DeleteSql(string.Format("UPDATE nfinebase.sys_totalcyclecost SET IsEffective=0 where id<{0}",re));
 
                     LogHelper.Info(string.Format("生管主页-在制模具进度汇总-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult, ret, DateTime.Now.ToString()));
                 }
