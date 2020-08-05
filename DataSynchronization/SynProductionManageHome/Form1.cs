@@ -50,11 +50,20 @@ namespace SynProductionManageHome
                 #region  延误模具明细
                 int re2 = 0;
                 DbService ds2 = new DbService(EnStr, "MySQL");
-                string srt2 = string.Format("");
+                string srt2 = string.Format(@"INSERT INTO nfinebase.Sys_PMHomeDelayMold(MoldNo,Edition,Type,PlannedDeliveryDate,Progress)
+                    (
+                         SELECT mold_no, version, mold_type, plan_date,
+                         CASE WHEN progress_rate1 = 0 AND progress_rate2 > 0 THEN progress_rate2
+
+                         WHEN progress_rate1 > 0 AND progress_rate2 = 0  THEN  progress_rate1
+
+                         WHEN progress_rate1 > 0 AND progress_rate2 > 0  THEN  progress_rate1 + ';' + progress_rate2 END progress
+                       from mes_center.c02_delay_process
+                    )");
                 int sult2 = ds2.InsertSql(srt2, out re2);
                 if (sult2 > 0)
                 {
-                    int ret2 = ds2.DeleteSql(string.Format(""));
+                    int ret2 = ds2.DeleteSql(string.Format("UPDATE nfinebase.Sys_PMHomeDelayMold SET IsEffective=0 where id<{0}",re2));
 
                     LogHelper.Info(string.Format("生管主页-延误模具明细-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult2, ret2, DateTime.Now.ToString()));
                 }

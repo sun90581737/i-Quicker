@@ -602,7 +602,7 @@ MoldNo varchar(50)  NULL, --模具编号
 Edition varchar(50)  NULL,--版本
 Type varchar(50)  NULL,--类型
 PlannedDeliveryDate DATE, --计划交期
-Progress INT,--进度
+Progress VARCHAR(20),--进度    多条数据用;分割
 ProgressColor VARCHAR(10),--进度颜色
 IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 ) 
