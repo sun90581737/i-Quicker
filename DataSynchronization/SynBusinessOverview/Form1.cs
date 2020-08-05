@@ -137,11 +137,14 @@ namespace SynBusinessOverview
                 #region 主要客户
                 int re6 = 0;
                 DbService ds6 = new DbService(EnStr, "MySQL");
-                string srt6 = string.Format("");
+                string srt6 = string.Format(@"INSERT INTO nfinebase.Sys_KeyCustomers(Name,CreationTime)
+                    (
+                            SELECT customer_name, now()  from mes_center.a06_main_customer ORDER BY sort_id ASC
+                    )");
                 int sult6 = ds6.InsertSql(srt6, out re6);
                 if (sult6 > 0)
                 {
-                    int ret6 = ds6.DeleteSql(string.Format(""));
+                    int ret6 = ds6.DeleteSql(string.Format("UPDATE nfinebase.Sys_KeyCustomers SET IsEffective=0 where id<{0}",re6));
 
                     LogHelper.Info(string.Format("经营概览-主要客户-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult6, ret6, DateTime.Now.ToString()));
                 }
