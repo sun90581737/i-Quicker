@@ -15,7 +15,7 @@ namespace NFine.Domain._03_Entity.OperationMonitoring
         public string State { get; set; }
         public string ProductName { get; set; }
         public DateTime? PlannedDeliveryDate { get; set; }
-        public int? EarlyWarning { get; set; }
+        public string EarlyWarning { get; set; }
         public string EarlyWarningColor { get; set; }
         public int? IsEffective { get; set; }
     }
