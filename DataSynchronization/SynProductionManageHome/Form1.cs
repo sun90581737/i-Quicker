@@ -192,11 +192,15 @@ namespace SynProductionManageHome
                 #region  稼动率趋势
                 int re8 = 0;
                 DbService ds8 = new DbService(EnStr, "MySQL");
-                string srt8 = string.Format("");
+                string srt8 = string.Format(@"INSERT INTO nfinebase.Sys_PMHomeJiadongRate(Month_Day,Device_Name,TrendRate,CreationTime)
+                    (
+                            SELECT acct_date, dept_name, activation, now()  from mes_center.c08_activation_curve
+                               WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 YEAR), '%Y-%m-%d') and acct_date <= CURDATE()
+                    )");
                 int sult8 = ds8.InsertSql(srt8, out re8);
                 if (sult8 > 0)
                 {
-                    int ret8 = ds8.DeleteSql(string.Format(""));
+                    int ret8 = ds8.DeleteSql(string.Format("UPDATE nfinebase.Sys_PMHomeJiadongRate SET IsEffective=0 where id<{0}", re8));
 
                     LogHelper.Info(string.Format("生管主页-稼动率趋势-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult8, ret8, DateTime.Now.ToString()));
                 }
