@@ -2,3 +2,4 @@ TeamSynDeviceAndTask             --CNC/EDM/WE设备清单 And 任务清单
 TeamSynCapacityAndTrend        --CNC/EDM/WE产能/负荷 And 稼动率趋势
 SynBusinessOverview                 --经营概览
 SynProductionManageHome     --生管主页
+SynEngineeringHomepage        --工程主页
