@@ -44,7 +44,7 @@ namespace NFine.Web.Areas.ProductionManage.Controllers
         [HandlerAjaxOnly]
         public ActionResult GetDataPMHomeCapacityLoad(string keyValue)
         {
-            var data = PMhclApp.GetList().Where(p => p.IsEffective == 1 && p.PrType == Convert.ToInt32(keyValue));
+            var data = PMhclApp.GetList().Where(p => p.IsEffective == 1);//&& p.PrType == Convert.ToInt32(keyValue)
             return Content(data.ToJson());
         }
         [HttpGet]

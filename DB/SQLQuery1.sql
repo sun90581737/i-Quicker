@@ -619,6 +619,7 @@ CREATE TABLE Sys_PMHomeCapacityLoad --生管主页:产能/负载
 	Number INT,--数据
 	PrType INT, --下拉框类型(一周:1、两周:2、三周:3、一个月:4、半年:5、一年:6)
 	Colour varchar(50)  NULL,  --颜色
+	AcctDate DATE,--数据日期
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )

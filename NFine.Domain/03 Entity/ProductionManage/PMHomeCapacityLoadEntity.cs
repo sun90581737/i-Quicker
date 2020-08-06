@@ -14,6 +14,7 @@ namespace NFine.Domain._03_Entity.ProductionManage
         public int Number { get; set; }
         public int PrType { get; set; }
         public string Colour { get; set; }
+        public DateTime? AcctDate { get; set; }
         public DateTime CreationTime { get; set; }
         public int IsEffective { get; set; }
     }
