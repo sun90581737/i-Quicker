@@ -95,6 +95,8 @@ namespace NineGongge
                 setting.CefCommandLineArgs.Add("disable-gpu", "1");
                 CefSharpSettings.LegacyJavascriptBindingEnabled = true;
                 CefSharp.Cef.Initialize(setting);
+                CefSharp.Cef.EnableHighDPISupport();
+
             }
             CefSharp.WinForms.ChromiumWebBrowser wb2 = new CefSharp.WinForms.ChromiumWebBrowser(string.Format("{0}{1}", IPUrl, "/FastLogin/Index?accounts=admin"));
             wb2.Dock = DockStyle.Fill;
