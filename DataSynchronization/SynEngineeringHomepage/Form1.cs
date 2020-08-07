@@ -19,6 +19,13 @@ namespace SynEngineeringHomepage
         }
         public static string dbnfin = GetValue("conn_nfinebase");//写入库
         public static string EnStr = DEncrypt.Decrypt(dbnfin);
+        public string CustomerAmountColor = GetValue("CustomerAmountColor");
+        public string DeliveryCompletionRateColor = GetValue("DeliveryCompletionRateColor");
+        public string OnTimeDeliveryMoldColor = GetValue("OnTimeDeliveryMoldColor");
+        public string LateDeliveryMoldColor = GetValue("LateDeliveryMoldColor");
+        public string MoldInProcessColor = GetValue("MoldInProcessColor");
+        public string NormalProgressColor = GetValue("NormalProgressColor");
+        public string ScheduleDelayColor = GetValue("ScheduleDelayColor");
         private void Form1_Load(object sender, EventArgs e)
         {
             try
@@ -26,11 +33,40 @@ namespace SynEngineeringHomepage
                 #region 员工工程表
                 int re = 0;
                 DbService ds = new DbService(EnStr, "MySQL");
-                string srt = string.Format(@"");
+                string srt = string.Format(@"INSERT INTO nfinebase.Sys_UserEngineering(Account,CustomerAmount,DeliveryCompletionRate,OnTimeDeliveryMold,LateDeliveryMold,MoldInProcess,
+                    NormalProgress,ScheduleDelay,CreationTime,CustomerAmountColor,DeliveryCompletionRateColor,OnTimeDeliveryMoldColor,LateDeliveryMoldColor,MoldInProcessColor,NormalProgressColor,ScheduleDelayColor)
+                    (
+                    SELECT 
+		                    CASE WHEN sort_id = 1 THEN
+			                    item_value
+		                    END Account,
+		                    CASE WHEN sort_id = 2 THEN
+			                    item_value
+		                    END CustomerAmount,
+		                    CASE WHEN sort_id = 3 THEN
+			                    item_value
+		                    END DeliveryCompletionRate,
+		                    CASE WHEN sort_id = 4 THEN
+			                    item_value
+		                    END OnTimeDeliveryMold,
+		                    CASE WHEN sort_id = 5 THEN
+			                    item_value
+		                    END LateDeliveryMold,
+		                    CASE WHEN sort_id = 6 THEN
+			                    item_value
+		                    END MoldInProcess,
+		                    CASE WHEN sort_id = 7 THEN
+			                    item_value
+		                    END NormalProgress,
+		                    CASE WHEN sort_id = 8 THEN
+			                    item_value
+		                    END ScheduleDelay,now(),{0},{1},{2},{3},{4},{5},{6}
+                     FROM mes_center.d01_project_main
+                    )", CustomerAmountColor, DeliveryCompletionRateColor, OnTimeDeliveryMoldColor, LateDeliveryMoldColor, MoldInProcessColor, NormalProgressColor, ScheduleDelayColor);
                 int sult = ds.InsertSql(srt, out re);
                 if (sult > 0)
                 {
-                    int ret = ds.DeleteSql(string.Format("", re));
+                    int ret = ds.DeleteSql(string.Format("UPDATE nfinebase.Sys_UserEngineering SET IsEffective=0 where id<{0}", re));
 
                     LogHelper.Info(string.Format("工程主页-员工工程表-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult, ret, DateTime.Now.ToString()));
                 }
