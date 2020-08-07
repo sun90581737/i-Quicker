@@ -531,7 +531,7 @@ CREATE TABLE Sys_EHDelayMoldList  --工程主页:延期模具列表
 	Customers  varchar(50)  NULL,--客户
 	Type varchar(50)  NULL,--类型
 	PlannedDeliveryDate DATE, --计划交期
-	EarlyWarning INT,--预警
+	EarlyWarning VARCHAR(20),--预警 显示3个值，用;来分割数据。
 	EarlyWarningColor VARCHAR(10),--预警颜色
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )

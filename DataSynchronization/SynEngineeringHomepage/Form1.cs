@@ -146,11 +146,18 @@ namespace SynEngineeringHomepage
                 #region 延期模具列表
                 int re5 = 0;
                 DbService ds5 = new DbService(EnStr, "MySQL");
-                string srt5 = string.Format(@"");
+                string srt5 = string.Format(@"INSERT INTO nfinebase.Sys_EHDelayMoldList(MoldNo,Customers,Type,PlannedDeliveryDate,EarlyWarning)
+	                (
+			                SELECT mold_no, version, mold_type, plan_date,
+			                CASE WHEN warning_rate1 = 0 AND warning_rate2 > 0 THEN warning_rate2
+			                WHEN warning_rate1 > 0 AND warning_rate2 = 0  THEN  warning_rate1
+			                WHEN warning_rate1 > 0 AND warning_rate2 > 0  THEN  warning_rate1 + ';' + warning_rate2 END EarlyWarning
+			                FROM  mes_center.d05_delay_mold
+	                )");
                 int sult5 = ds5.InsertSql(srt5, out re5);
                 if (sult5 > 0)
                 {
-                    int ret5 = ds5.DeleteSql(string.Format("", re5));
+                    int ret5 = ds5.DeleteSql(string.Format("UPDATE nfinebase.Sys_EHDelayMoldList SET IsEffective=0 where id<{0}", re5));
 
                     LogHelper.Info(string.Format("工程主页-延期模具列表-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult5, ret5, DateTime.Now.ToString()));
                 }
