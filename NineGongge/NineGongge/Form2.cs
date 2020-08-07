@@ -1,4 +1,5 @@
 ﻿using CefSharp;
+using CefSharp.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -97,6 +98,7 @@ namespace NineGongge
             }
             CefSharp.WinForms.ChromiumWebBrowser wb2 = new CefSharp.WinForms.ChromiumWebBrowser(string.Format("{0}{1}", IPUrl, "/FastLogin/Index?accounts=admin"));
             wb2.Dock = DockStyle.Fill;
+            //wb2.FrameLoadEnd += webbrowser_FrameLoadEnd;//浏览器缩放
             tempPanel.Controls.Clear();
             tempPanel.Controls.Add(wb2);
 
@@ -141,6 +143,15 @@ namespace NineGongge
                 }
             }
             base.WndProc(ref m);
+        }
+
+        void webbrowser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
+        {
+
+            ChromiumWebBrowser browser = (ChromiumWebBrowser)sender;
+
+            browser.SetZoomLevel(-3.8);
+
         }
     }
 }
