@@ -38,7 +38,7 @@ namespace SynQualityEngineering
                 int sult = ds.InsertSql(srt, out re);
                 if (sult > 0)
                 {
-                    int ret = ds.DeleteSql(string.Format("", re));
+                    int ret = ds.DeleteSql(string.Format("UPDATE nfinebase.Sys_QualityOTeamPassRate SET IsEffective=0 where id<{0}", re));
 
                     LogHelper.Info(string.Format("品质工程-班组合格率-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult, ret, DateTime.Now.ToString()));
                 }
