@@ -3,3 +3,4 @@ TeamSynCapacityAndTrend        --CNC/EDM/WE产能/负荷 And 稼动率趋势
 SynBusinessOverview                 --经营概览
 SynProductionManageHome     --生管主页
 SynEngineeringHomepage        --工程主页
+SynQualityEngineering               --品质工程

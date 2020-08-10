@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynProductionManageHome", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynEngineeringHomepage", "SynEngineeringHomepage\SynEngineeringHomepage.csproj", "{95593A6E-1AF6-4270-A8E4-AFDB323A5C1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynQualityEngineering", "SynQualityEngineering\SynQualityEngineering.csproj", "{20CE0D1A-9EC7-4912-9652-567F8FD33F8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{95593A6E-1AF6-4270-A8E4-AFDB323A5C1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95593A6E-1AF6-4270-A8E4-AFDB323A5C1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95593A6E-1AF6-4270-A8E4-AFDB323A5C1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20CE0D1A-9EC7-4912-9652-567F8FD33F8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20CE0D1A-9EC7-4912-9652-567F8FD33F8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20CE0D1A-9EC7-4912-9652-567F8FD33F8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20CE0D1A-9EC7-4912-9652-567F8FD33F8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
