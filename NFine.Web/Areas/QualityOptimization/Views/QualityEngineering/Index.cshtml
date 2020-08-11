@@ -676,7 +676,15 @@
                         }, {
                             offset: 1,
                             color: tempName == "已处理" ? '#00fdfe' : '#f513fd'
-                        }], false)
+                        }], false),
+                        label: {
+                            show: true, //开启显示
+                            position: 'right', //在上方显示
+                            textStyle: { //数值样式
+                                color: '#ffff',
+                                fontSize: 12
+                            }
+                        }
                     }
                 }
             })

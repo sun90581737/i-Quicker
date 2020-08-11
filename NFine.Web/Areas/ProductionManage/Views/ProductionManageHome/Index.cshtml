@@ -17,9 +17,7 @@
         gridList();
         loadTwo();
         loadThree1a();
-        loadThree1b();
         gridList3a();
-        gridList3b();
         loadFour();
     }
     //function selectType(obj) {
@@ -315,11 +313,15 @@
                 formatter: "{b} : ({c}%)"
             },
             legend: {
-                orient: 'vertical',
-                left: 'left',
-                top: 40,
+                //orient: 'vertical',
+                //left: 'left',
+                //top: 40,
+                //itemWidth: 10,  //图例标记的图形宽度
+                //itemHeight: 10, //图例标记的图形高度
+                left: 'center',
                 itemWidth: 10,  //图例标记的图形宽度
                 itemHeight: 10, //图例标记的图形高度
+                bottom: 20,
                 data: listName,
                 textStyle: {    //图例文字的样式
                     color: '#ffffff',  //文字颜色
@@ -332,82 +334,7 @@
                     name: '访问来源',
                     type: 'pie',
                     radius: '85%',
-                    center: ['60%', '50%'],
-                    data: str,
-                    itemStyle: {  //图形样式
-                        normal: { //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-                            label: {  //饼图图形上的文本标签
-                                show: true,  //平常不显示
-                                formatter: '{c}%',
-                                position: 'inner'
-                            },
-                            labelLine: {     //标签的视觉引导线样式
-                                show: false  //平常不显示
-                            }
-                        },
-                        emphasis: {   //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
-                            label: {  //饼图图形上的文本标签
-                                show: true,
-                                position: 'center',
-                                textStyle: {
-                                    fontSize: '20',
-                                    fontWeight: 'bold'
-                                }
-                            },
-                            itemStyle: {
-                                shadowBlur: 10,
-                                shadowOffsetX: 0,
-                                shadowColor: 'rgba(0, 0, 0, 0.5)'
-                            }
-                        }
-                    }
-                }
-            ]
-        };
-        myChart1.setOption(option1);
-    }
-    function loadThree1b() {
-        var listName = new Array();
-        var str = [];
-        $.ajax({
-            url: "/ProductionManage/ProductionManageHome/GetDataPMHomeOutsourcingRateWL",
-            dataType: "json",
-            async: false,
-            success: function (data) {
-                $(data).each(function (index, item) {
-                    listName.push(item.Type);
-                    var str3 = new Object();
-                    str3.name = item.Type;
-                    str3.value = item.Cost;
-                    str[index] = str3;
-                })
-            }
-        });
-        var myChart1 = echarts.init(document.getElementById('chart3b'));
-        var option1 = {
-            tooltip: {
-                trigger: 'item',
-                formatter: "{b} : ({c}%)"
-            },
-            legend: {
-                orient: 'vertical',
-                left: 'left',
-                top:40,
-                itemWidth: 10,  //图例标记的图形宽度
-                itemHeight: 10, //图例标记的图形高度
-                data: listName,
-                textStyle: {    //图例文字的样式
-                    color: '#ffffff',  //文字颜色
-                    fontSize: 12    //文字大小
-                }
-            },
-            color: ['#0867e9', '#f15d5d'],
-            series: [
-                {
-                    name: '访问来源',
-                    type: 'pie',
-                    radius: '85%',
-                    center: ['60%', '50%'],
+                    center: ['50%', '50%'],
                     data: str,
                     itemStyle: {  //图形样式
                         normal: { //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
@@ -445,10 +372,10 @@
         var $gridList2 = $("#gridList2");
         $gridList2.dataGrid({
             url: "/ProductionManage/ProductionManageHome/GetGridJsonDetailA",
-            height: 115,
+            height: 270,
             colModel: [
                 {
-                    label: '外协单号', name: 'OutsourcingNo', width: 65, align: 'center',
+                    label: '外协单号', name: 'OutsourcingNo', width: 80, align: 'center',
                      formatter: function (cellvalue, row, index) {
                          if (index.DaysOfExtensionColor != "") {
                              return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.OutsourcingNo + '</font>';
@@ -457,7 +384,7 @@
                      }
                  },
                 {
-                    label: '模号', name: 'ModuleNumber', width: 80, align: 'center',
+                    label: '模号', name: 'ModuleNumber', width: 70, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.DaysOfExtensionColor != "") {
                             return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.ModuleNumber + '</font>';
@@ -466,7 +393,7 @@
                     }
                 },
                 {
-                    label: '工件号', name: 'WorkpieceNo', width: 65, align: 'center',
+                    label: '工件号', name: 'WorkpieceNo', width: 60, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.DaysOfExtensionColor != "") {
                             return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.WorkpieceNo + '</font>';
@@ -475,7 +402,7 @@
                     }
                 },
                 {
-                    label: '委外工序', name: 'WorkingProcedure', width: 65, align: 'center',
+                    label: '委外工序', name: 'WorkingProcedure', width: 55, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.DaysOfExtensionColor != "") {
                             return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.WorkingProcedure + '</font>';
@@ -484,7 +411,7 @@
                     }
                 },
                 {
-                    label: '供应商', name: 'Supplier', width: 65, align: 'center',
+                    label: '供应商', name: 'Supplier', width: 45, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.DaysOfExtensionColor != "") {
                             return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.Supplier + '</font>';
@@ -493,76 +420,7 @@
                     }
                 },
                 {
-                    label: '计划交期', name: 'PlannedDeliveryDate', width: 80, align: 'center',
-                    formatter: "date", formatoptions: { srcformat: 'Y-m-d', newformat: 'Y-m-d' }
-                },
-                {
-                    label: '延期天数', name: 'DaysOfExtension', width: 60, align: 'center',
-                    formatter: function (cellvalue, row, index) {
-                        if (index.DaysOfExtensionColor != "") {
-                            return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.DaysOfExtension + '</font>';
-                        }
-                        else { return '<font>' + index.DaysOfExtension + '</font>'; }
-                    }
-                },
-            ],
-            //pager: "#gridPager",
-            sortname: 'ModuleNumber desc',
-            viewrecords: true
-        });
-    }
-    function gridList3b() {
-        var $gridList3 = $("#gridList3");
-        $gridList3.dataGrid({
-            url: "/ProductionManage/ProductionManageHome/GetGridJsonDetailB",
-            height: 115,
-            colModel: [
-                {
-                    label: '采购单号', name: 'OutsourcingNo', width: 65, align: 'center',
-                    formatter: function (cellvalue, row, index) {
-                        if (index.DaysOfExtensionColor != "") {
-                            return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.OutsourcingNo + '</font>';}
-                        else { return '<font>' + index.OutsourcingNo + '</font>'; }
-                    }
-                },
-                {
-                    label: '模号', name: 'ModuleNumber', width: 80, align: 'center',
-                    formatter: function (cellvalue, row, index) {
-                        if (index.DaysOfExtensionColor != "") {
-                            return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.ModuleNumber + '</font>';
-                        }
-                        else { return '<font>' + index.ModuleNumber + '</font>'; }
-                    }
-                },
-                {
-                    label: '工件号', name: 'WorkpieceNo', width: 65, align: 'center',
-                    formatter: function (cellvalue, row, index) {
-                        if (index.DaysOfExtensionColor != "") {
-                            return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.WorkpieceNo + '</font>';
-                        }
-                        else { return '<font>' + index.WorkpieceNo + '</font>'; }
-                    }
-                },
-                {
-                    label: '类型', name: 'WorkingProcedure', width: 65, align: 'center',
-                    formatter: function (cellvalue, row, index) {
-                        if (index.DaysOfExtensionColor != "") {
-                            return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.WorkingProcedure + '</font>';
-                        }
-                        else { return '<font>' + index.WorkingProcedure + '</font>'; }
-                    }
-                },
-                {
-                    label: '供应商', name: 'Supplier', width: 65, align: 'center',
-                    formatter: function (cellvalue, row, index) {
-                        if (index.DaysOfExtensionColor != "") {
-                            return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.Supplier + '</font>';
-                        }
-                        else { return '<font>' + index.Supplier + '</font>'; }
-                    }
-                },
-                {
-                    label: '计划交期', name: 'PlannedDeliveryDate', width: 80, align: 'center',
+                    label: '计划交期', name: 'PlannedDeliveryDate', width: 61, align: 'center',
                     formatter: "date", formatoptions: { srcformat: 'Y-m-d', newformat: 'Y-m-d' }
                 },
                 {
@@ -677,6 +535,7 @@
                 },
             },
             yAxis: {
+                min: '60', 
                 type: 'value',
                 axisLine: {
                     show: false,
@@ -780,14 +639,7 @@
                         </div>
                         <div style="margin-left:70%;">
                             <div style="text-align:center;font-size:13px;color:#ffffff">外协按期交付率</div>
-                            <div id="chart3a" style="height:130px; "></div>
-                        </div>
-                        <div style="float:left;width:70%">
-                            <table id="gridList3"></table>
-                        </div>
-                        <div style="margin-left:70%;">
-                            <div style="text-align:center;font-size:13px;color:#ffffff">物料按期交付率</div>
-                            <div id="chart3b" style="height:130px; "></div>
+                            <div id="chart3a" style="height:300px; "></div>
                         </div>
                     </div>
                 </div>

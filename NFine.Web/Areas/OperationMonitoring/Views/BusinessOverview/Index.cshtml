@@ -411,7 +411,19 @@
                 name: tempName,
                 type: 'bar',
                 stack: '广告' + index,
-                data: tempArry
+                data: tempArry,
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: true, //开启显示
+                            position: 'right', //在上方显示
+                            textStyle: { //数值样式
+                                color: '#ffff',
+                                fontSize: 12
+                            }
+                        }
+                    }
+                },
             })
         });
 
