@@ -3,6 +3,7 @@
 bin
 obj
 *.user
+*.suo
 Web.Debug.config
 Web.Release.config
 /NFine.Web/Web.Debug.config

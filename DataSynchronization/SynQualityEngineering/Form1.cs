@@ -23,6 +23,9 @@ namespace SynQualityEngineering
         public string pass_rate_days = GetValue("pass_rate_days");
         public string DY_pass_rate_days_colour = GetValue("DY_pass_rate_days_colour");
         public string XY_pass_rate_days_colour = GetValue("XY_pass_rate_days_colour");
+
+        public string TreatmentMethod = GetValue("Treatment_Method");
+        public string TreatmentMethodColour = GetValue("Treatment_Method_Colour");
         private void Form1_Load(object sender, EventArgs e)
         {
             try
@@ -51,11 +54,15 @@ namespace SynQualityEngineering
                 #region 班组合格率趋势
                 int re2 = 0;
                 DbService ds2 = new DbService(EnStr, "MySQL");
-                string srt2 = string.Format(@"");
+                string srt2 = string.Format(@"INSERT INTO nfinebase.Sys_QualityOPassRateTrend(Month_Day,Device_Name,TrendRate,CreationTime)
+                    (
+		                    select acct_date,dept_name,pass_rate,now() from mes_center.e02_dept_pass_month
+		                    WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 YEAR), '%Y-%m-%d') and acct_date <= CURDATE()
+                    )");
                 int sult2 = ds2.InsertSql(srt2, out re2);
                 if (sult2 > 0)
                 {
-                    int ret2 = ds2.DeleteSql(string.Format("", re2));
+                    int ret2 = ds2.DeleteSql(string.Format("UPDATE nfinebase.Sys_QualityOPassRateTrend SET IsEffective=0 where id<{0}", re2));
 
                     LogHelper.Info(string.Format("品质工程-班组合格率趋势-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult2, ret2, DateTime.Now.ToString()));
                 }
@@ -68,11 +75,16 @@ namespace SynQualityEngineering
                 #region 异常处理结果统计
                 int re3 = 0;
                 DbService ds3 = new DbService(EnStr, "MySQL");
-                string srt3 = string.Format(@"");
+                string srt3 = string.Format(@"INSERT INTO nfinebase.Sys_QualityOExceptionalResults(Type,Cost,CreationTime)
+                    (
+		                    SELECT exception_type,SUM(pass_rate),now() FROM mes_center.e03_exception_summary 
+		                    WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+		                    GROUP BY Type
+                    )");
                 int sult3 = ds3.InsertSql(srt3, out re3);
                 if (sult3 > 0)
                 {
-                    int ret3 = ds3.DeleteSql(string.Format("", re3));
+                    int ret3 = ds3.DeleteSql(string.Format("UPDATE nfinebase.Sys_QualityOExceptionalResults SET IsEffective=0 where id<{0}", re3));
 
                     LogHelper.Info(string.Format("品质工程-异常处理结果统计-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult3, ret3, DateTime.Now.ToString()));
                 }
@@ -85,11 +97,16 @@ namespace SynQualityEngineering
                 #region 异常处理单据明细
                 int re4 = 0;
                 DbService ds4 = new DbService(EnStr, "MySQL");
-                string srt4 = string.Format(@"");
+                string srt4 = string.Format(@"INSERT INTO nfinebase.sys_qualityoexceptionaldetail(ProjectNo,ModuleNumber,WorkpieceNo,ExceptionalProcedure,TreatmentMethod,Colour,CreationTime)
+                    (
+		                    SELECT order_no,mold_no,part_sub_no,exception_process,treat_method,CASE WHEN  treat_method='{0}' THEN '{1}' ELSE '' END Colour,now()
+		                    from mes_center.e04_exception_bill
+		                    WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                    )", TreatmentMethod, TreatmentMethodColour);
                 int sult4 = ds4.InsertSql(srt4, out re4);
                 if (sult4 > 0)
                 {
-                    int ret4 = ds4.DeleteSql(string.Format("", re4));
+                    int ret4 = ds4.DeleteSql(string.Format("UPDATE nfinebase.sys_qualityoexceptionaldetail SET IsEffective=0 where Id<{0}", re4));
 
                     LogHelper.Info(string.Format("品质工程-异常处理单据明细-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult4, ret4, DateTime.Now.ToString()));
                 }
