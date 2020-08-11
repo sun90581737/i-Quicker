@@ -10,6 +10,22 @@
 
 <link href="~/Content/js/pages/app.css" rel="stylesheet" />
 <style>
+    div.ui-jqgrid-view table.ui-jqgrid-btable {
+        border-style: none;
+        border-top-style: none;
+        border-collapse: separate;
+    }
+    div.ui-jqgrid-view table.ui-jqgrid-btable td {
+        border-left-style: none;
+    }
+    div.ui-jqgrid-view table.ui-jqgrid-htable {
+        border-style: none;
+        border-top-style: none;
+        border-collapse: separate;
+    }
+    div.ui-jqgrid-view table.ui-jqgrid-btable th {
+        border-left-style: none;
+    }
 </style>
 <script>
     window.onload = function () {
@@ -121,7 +137,7 @@
             height: 160,
             colModel: [
                 { label: '模具编号', name: 'MoldNo', width: 70, align: 'center' },
-                { label: '版本', name: 'Edition', width: 70, align: 'center' },
+                { label: '版本', name: 'Edition', width: 48, align: 'center' },
                 { label: '类型', name: 'Type', width: 50, align: 'center' },
                 {
                     label: '计划交期', name: 'PlannedDeliveryDate', width: 90, align: 'center',
@@ -424,7 +440,7 @@
                     formatter: "date", formatoptions: { srcformat: 'Y-m-d', newformat: 'Y-m-d' }
                 },
                 {
-                    label: '延期天数', name: 'DaysOfExtension', width: 60, align: 'center',
+                    label: '延期天数', name: 'DaysOfExtension', width: 55, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.DaysOfExtensionColor != "") {
                             return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.DaysOfExtension + '</font>';
