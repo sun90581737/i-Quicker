@@ -136,15 +136,15 @@
             url: "/ProductionManage/ProductionManageHome/GetGridJson",
             height: 160,
             colModel: [
-                { label: '模具编号', name: 'MoldNo', width: 70, align: 'center' },
-                { label: '版本', name: 'Edition', width: 48, align: 'center' },
-                { label: '类型', name: 'Type', width: 50, align: 'center' },
+                { label: '模具编号', name: 'MoldNo', width: 60, align: 'center' },
+                { label: '版本', name: 'Edition', width: 40, align: 'center' },
+                { label: '类型', name: 'Type', width: 40, align: 'center' },
                 {
-                    label: '计划交期', name: 'PlannedDeliveryDate', width: 90, align: 'center',
+                    label: '计划交期', name: 'PlannedDeliveryDate', width: 70, align: 'center',
                     formatter: "date", formatoptions: { srcformat: 'Y/m/d', newformat: 'Y/m/d' }
                 },
                 {
-                    label: '进度', name: 'EarlyWarning', width: 100, align: 'center',
+                    label: '进度', name: 'EarlyWarning', width: 75, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         //return '<div style="top: 10%;left: 50%; transform: translate(-10%, -50%);"> <div style="border: 1px #000000 solid;margin:0 auto;position: relative;width:80%; height: 5px;background-color: #f9e1e3; border-radius: 3px;"><div style="white-space: pre-line;width: ' + index.Progress + '%;height: 100%;background-color:' + index.ProgressColor + ';border-radius: 3px;"></div></div></div>'
                         var temp = ''
@@ -391,16 +391,7 @@
             height: 270,
             colModel: [
                 {
-                    label: '外协单号', name: 'OutsourcingNo', width: 80, align: 'center',
-                     formatter: function (cellvalue, row, index) {
-                         if (index.DaysOfExtensionColor != "") {
-                             return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.OutsourcingNo + '</font>';
-                         }
-                         else { return '<font>' + index.OutsourcingNo + '</font>'; }
-                     }
-                 },
-                {
-                    label: '模号', name: 'ModuleNumber', width: 70, align: 'center',
+                    label: '模号', name: 'ModuleNumber', width: 58, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.DaysOfExtensionColor != "") {
                             return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.ModuleNumber + '</font>';
@@ -409,7 +400,7 @@
                     }
                 },
                 {
-                    label: '工件号', name: 'WorkpieceNo', width: 60, align: 'center',
+                    label: '工件号', name: 'WorkpieceNo', width: 45, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.DaysOfExtensionColor != "") {
                             return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.WorkpieceNo + '</font>';
@@ -418,7 +409,7 @@
                     }
                 },
                 {
-                    label: '委外工序', name: 'WorkingProcedure', width: 55, align: 'center',
+                    label: '委外工序', name: 'WorkingProcedure', width: 45, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.DaysOfExtensionColor != "") {
                             return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.WorkingProcedure + '</font>';
@@ -436,16 +427,25 @@
                     }
                 },
                 {
-                    label: '计划交期', name: 'PlannedDeliveryDate', width: 61, align: 'center',
+                    label: '计划交期', name: 'PlannedDeliveryDate', width: 60, align: 'center',
                     formatter: "date", formatoptions: { srcformat: 'Y-m-d', newformat: 'Y-m-d' }
                 },
                 {
-                    label: '延期天数', name: 'DaysOfExtension', width: 55, align: 'center',
+                    label: '延期天数', name: 'DaysOfExtension', width: 45, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.DaysOfExtensionColor != "") {
                             return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.DaysOfExtension + '</font>';
                         }
                         else { return '<font>' + index.DaysOfExtension + '</font>'; }
+                    }
+                },
+                {
+                    label: '状态', name: 'OrderStatus', width: 45, align: 'center',
+                    formatter: function (cellvalue, row, index) {
+                        if (index.DaysOfExtensionColor != "") {
+                            return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.OrderStatus + '</font>';
+                        }
+                        else { return '<font>' + index.OrderStatus + '</font>'; }
                     }
                 },
             ],
@@ -650,10 +650,10 @@
                 </div>
                 <div class="tab-content" style="height:100%;">
                     <div style="height:325px">
-                        <div style="float:left;width:70%">
+                        <div style="float:left;width:72%">
                             <table id="gridList2"></table>
                         </div>
-                        <div style="margin-left:70%;">
+                        <div style="margin-left:72%;">
                             <div style="text-align:center;font-size:13px;color:#ffffff">外协按期交付率</div>
                             <div id="chart3a" style="height:300px; "></div>
                         </div>

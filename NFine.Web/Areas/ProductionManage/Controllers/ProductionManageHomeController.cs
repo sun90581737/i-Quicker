@@ -51,7 +51,7 @@ namespace NFine.Web.Areas.ProductionManage.Controllers
         [HandlerAjaxOnly]
         public ActionResult GetDataPMHomeOutsourcingRateWX()
         {
-            var data = PMhorApp.GetList().Where(p => p.IsEffective == 1 && p.GroupType == "WX");
+            var data = PMhorApp.GetList().Where(p => p.IsEffective == 1);
             return Content(data.ToJson());
         }
 
@@ -61,27 +61,7 @@ namespace NFine.Web.Areas.ProductionManage.Controllers
         {
             var data = new
             {
-                rows = PMhodApp.GetList(pagination, queryJson).Where(p => p.GroupType == "WX"),
-                total = pagination.total,
-                page = pagination.page,
-                records = pagination.records
-            };
-            return Content(data.ToJson());
-        }
-        [HttpGet]
-        [HandlerAjaxOnly]
-        public ActionResult GetDataPMHomeOutsourcingRateWL()
-        {
-            var data = PMhorApp.GetList().Where(p => p.IsEffective == 1 && p.GroupType == "WL");
-            return Content(data.ToJson());
-        }
-        [HttpGet]
-        [HandlerAjaxOnly]
-        public ActionResult GetGridJsonDetailB(Pagination pagination, string queryJson)
-        {
-            var data = new
-            {
-                rows = PMhodApp.GetList(pagination, queryJson).Where(p => p.GroupType == "WL"),
+                rows = PMhodApp.GetList(pagination, queryJson),
                 total = pagination.total,
                 page = pagination.page,
                 records = pagination.records

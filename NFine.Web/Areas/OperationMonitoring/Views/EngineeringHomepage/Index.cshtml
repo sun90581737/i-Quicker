@@ -360,17 +360,17 @@
         var $gridList = $("#gridList");
         $gridList.dataGrid({
             url: "/OperationMonitoring/EngineeringHomepage/GetGridJson",
-            height: 120,
+            height: 170,
             colModel: [
-                { label: '模具编号', name: 'MoldNo', width: 70, align: 'center' },
-                { label: '客户', name: 'Customers', width: 50, align: 'center' },
-                { label: '类型', name: 'Type', width: 50, align: 'center' },
+                { label: '模具编号', name: 'MoldNo', width: 60, align: 'center' },
+                { label: '客户', name: 'Customers', width: 40, align: 'center' },
+                { label: '类型', name: 'Type', width: 40, align: 'center' },
                 {
-                    label: '计划交期', name: 'PlannedDeliveryDate', width: 80, align: 'center',
+                    label: '计划交期', name: 'PlannedDeliveryDate', width: 70, align: 'center',
                     formatter: "date", formatoptions: { srcformat: 'Y/m/d', newformat: 'Y/m/d' }
                 },
                 {
-                    label: '预警', name: 'EarlyWarning', width: 130, align: 'center',
+                    label: '预警', name: 'EarlyWarning', width: 85, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         //return '<div style="top: 10%;left: 40%; transform: translate(-10%, -40%);"> <div style="border: 1px #000000 solid;margin:0 auto;position: relative;width:80%; height: 5px;background-color: #f9e1e3; border-radius: 3px;"><div style="white-space: pre-line;width: ' + index.EarlyWarning + '%;height: 100%;background-color:' + index.EarlyWarningColor + ';border-radius: 3px;"></div></div></div>'
                         //提供三个值改变宽度，颜色忽略
@@ -599,12 +599,12 @@
                         </div>*@
                     </div>
                     <div class="tab-content" style="height:240px;">
-                        <div style="float:left;width:40%">
+                        <div style="float:left;width:38%">
                             <div style="text-align:center;font-size:13px;color:#ffffff;">生产进度</div>
                             <div id="chart2a" style="height:220px; "></div>
                         </div>
-                        <div class="gridPanel" style="margin-left:40%;">
-                            <div style="text-align:center;font-size:13px;color:#e15a5e;">延期模具列表</div>
+                        <div class="gridPanel" style="margin-left:38%;">
+                            <div style="text-align:center;font-size:13px;color:#ffffff;">延期模具列表</div>
                             <table id="gridList"></table>
                         </div>
                     </div>

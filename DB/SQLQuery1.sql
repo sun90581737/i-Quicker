@@ -655,7 +655,7 @@ CREATE TABLE Sys_PMHomeOutsourcingRate --生管主页:外协按期交付率
 	id int identity (1,1) primary KEY,
 	Type varchar(50)  NULL,--类型
 	Cost INT , --成本
-	GroupType varchar(50)  NULL, --外协按期交付率(WX)/物料按期交付率(WL)
+	--GroupType varchar(50)  NULL, --外协按期交付率(WX)/物料按期交付率(WL)
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )
@@ -667,7 +667,6 @@ INSERT dbo.Sys_PMHomeOutsourcingRate(Type,Cost,GroupType)VALUES('延期',2,'WL')
 CREATE table Sys_PMHomeOutsourcingDetail  --生管主页:外协按期交付追踪
 (  
 id int identity (1,1) primary key , 
-OutsourcingNo varchar(50)  NULL, --外协单号
 ModuleNumber varchar(50)  NULL,--模号
 WorkpieceNo varchar(50)  NULL,--工件号
 WorkingProcedure varchar(50)  NULL,--委外工序
@@ -675,27 +674,19 @@ Supplier varchar(50)  NULL,--供应商
 PlannedDeliveryDate DATE, --计划交期
 DaysOfExtension INT,--延期天数
 DaysOfExtensionColor VARCHAR(10),--延期天数颜色
-GroupType varchar(50)  NULL, --外协按期交付率(WX)/物料按期交付率(WL)
+OrderStatus VARCHAR(20), --状态
 CreationTime DATETIME not null default getdate(),--创建时间
 IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 ) 
-INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('WX200302001','20KK02003','201_1','铣床','DJ',GETDATE(),6,'#D80000','WX')
-INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('WX200302002','20KK04013','202_2','热处理','KS',GETDATE(),3,'#CCFF33','WX')
-INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('WX200302003','20KK04023','202_2','热处理','KS',GETDATE(),4,'#CCFF33','WX')
-INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('WX200302004','20KK04033','202_2','热处理','KS',GETDATE(),4,'#CCFF33','WX')
-INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('WX200302005','20KK04043','202_2','热处理','KS',GETDATE(),5,'#CCFF33','WX')
-INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('WX200302006','20KK04053','202_2','热处理','KS',GETDATE(),5,'#CCFF33','WX')
-INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('WX200302007','20KK04063','202_2','热处理','KS',GETDATE(),7,'#CCFF33','WX')
-INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('WX200302008','20KK04073','202_2','热处理','KS',GETDATE(),5,'#CCFF33','WX')
+INSERT INTO Sys_PMHomeOutsourcingDetail(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,OrderStatus)VALUES('WX200302001','20KK02003','201_1','铣床','DJ',GETDATE(),6,'#D80000','加工中')
+INSERT INTO Sys_PMHomeOutsourcingDetail(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,OrderStatus)VALUES('WX200302002','20KK04013','202_2','热处理','KS',GETDATE(),3,'#CCFF33','加工中')
+INSERT INTO Sys_PMHomeOutsourcingDetail(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,OrderStatus)VALUES('WX200302003','20KK04023','202_2','热处理','KS',GETDATE(),4,'#CCFF33','加工中')
+INSERT INTO Sys_PMHomeOutsourcingDetail(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,OrderStatus)VALUES('WX200302004','20KK04033','202_2','热处理','KS',GETDATE(),4,'#CCFF33','加工中')
+INSERT INTO Sys_PMHomeOutsourcingDetail(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,OrderStatus)VALUES('WX200302005','20KK04043','202_2','热处理','KS',GETDATE(),5,'#CCFF33','加工中')
+INSERT INTO Sys_PMHomeOutsourcingDetail(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,OrderStatus)VALUES('WX200302006','20KK04053','202_2','热处理','KS',GETDATE(),5,'#CCFF33','加工中')
+INSERT INTO Sys_PMHomeOutsourcingDetail(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,OrderStatus)VALUES('WX200302007','20KK04063','202_2','热处理','KS',GETDATE(),7,'#CCFF33','加工中')
+INSERT INTO Sys_PMHomeOutsourcingDetail(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,OrderStatus)VALUES('WX200302008','20KK04073','202_2','热处理','KS',GETDATE(),5,'#CCFF33','加工中')
 
-INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('CG200302033','20KK02003','201_1','原材料','KJJS',GETDATE(),6,'#D80000','WL')
-INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('CG200302002','20KK04013','202_2','原材料','KJJS',GETDATE(),3,'#CCFF33','WL')
-INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('CG200302003','20KK04023','202_2','原材料','KJJS',GETDATE(),4,'#CCFF33','WL')
-INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('CG200302004','20KK04033','202_2','原材料','KJJS',GETDATE(),4,'#CCFF33','WL')
-INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('CG200302005','20KK04043','202_2','原材料','KJJS',GETDATE(),5,'#CCFF33','WL')
-INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('CG200302006','20KK04053','202_2','原材料','KJJS',GETDATE(),5,'#CCFF33','WL')
-INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('CG200302007','20KK04063','202_2','原材料','KJJS',GETDATE(),7,'#CCFF33','WL')
-INSERT INTO Sys_PMHomeOutsourcingDetail(OutsourcingNo,ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,GroupType)VALUES('CG200302008','20KK04073','202_2','原材料','KJJS',GETDATE(),5,'#CCFF33','WL')
 
 CREATE TABLE Sys_PMHomeJiadongRate --生管主页:稼动率趋势
 (
