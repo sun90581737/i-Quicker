@@ -119,11 +119,16 @@ namespace SynQualityEngineering
                 #region 部门待处理/已处理异常统计
                 int re5 = 0;
                 DbService ds5 = new DbService(EnStr, "MySQL");
-                string srt5 = string.Format(@"");
+                string srt5 = string.Format(@"INSERT INTO nfinebase.Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate,CreationTime)
+                    (
+		                    SELECT dept_name,'待处理',wait_num from  mes_center.e05_dept_exception_result WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+		                    UNION ALL
+		                    SELECT dept_name,'已处理',finish_num from  mes_center.e05_dept_exception_result WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                    )");
                 int sult5 = ds5.InsertSql(srt5, out re5);
                 if (sult5 > 0)
                 {
-                    int ret5 = ds5.DeleteSql(string.Format("", re5));
+                    int ret5 = ds5.DeleteSql(string.Format("update nfinebase.Sys_QualityOHandleExceptionalResults set IsEffective=0 where id<{0}", re5));
 
                     LogHelper.Info(string.Format("品质工程-部门待处理/已处理异常统计-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult5, ret5, DateTime.Now.ToString()));
                 }
