@@ -168,30 +168,35 @@ namespace SynEngineeringHomepage
                 #endregion
 
                 #region 客户订单表
-                int re6 = 0;
-                DbService ds6 = new DbService(EnStr, "MySQL");
-                string srt6 = string.Format(@"");
-                int sult6 = ds6.InsertSql(srt6, out re6);
-                if (sult6 > 0)
-                {
-                    int ret6 = ds6.DeleteSql(string.Format("", re6));
+                //int re6 = 0;
+                //DbService ds6 = new DbService(EnStr, "MySQL");
+                //string srt6 = string.Format(@"");
+                //int sult6 = ds6.InsertSql(srt6, out re6);
+                //if (sult6 > 0)
+                //{
+                //    int ret6 = ds6.DeleteSql(string.Format("", re6));
 
-                    LogHelper.Info(string.Format("工程主页-客户订单表-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult6, ret6, DateTime.Now.ToString()));
-                }
-                else
-                {
-                    LogHelper.Error("工程主页-客户订单表-执行失败");
-                }
+                //    LogHelper.Info(string.Format("工程主页-客户订单表-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult6, ret6, DateTime.Now.ToString()));
+                //}
+                //else
+                //{
+                //    LogHelper.Error("工程主页-客户订单表-执行失败");
+                //}
                 #endregion
 
                 #region 模具列表
                 int re7 = 0;
                 DbService ds7 = new DbService(EnStr, "MySQL");
-                string srt7 = string.Format(@"");
+                string srt7 = string.Format(@"INSERT INTO nfinebase.Sys_CustomerListDetail(ListId,MoldName,MoldNo,CustomerName,ContactPerson,TN,MoldType,MoldState,MoldDate,MoldMaterial,Category,Colour,CreationTime)
+                    (
+		                    SELECT internal_id,mold_name,mold_no,version,customer_name,contact_person,mold_type,order_state,tryout_date,module_material,
+		                    order_group,CASE WHEN light_state=1 THEN 'green' WHEN light_state=2 THEN 'yellow' WHEN light_state=3 THEN 'red' ELSE '' END Colour,now()
+   	                    FROM mes_center.d07_mold_info
+                    )");
                 int sult7 = ds7.InsertSql(srt7, out re7);
                 if (sult7 > 0)
                 {
-                    int ret7 = ds7.DeleteSql(string.Format("", re7));
+                    int ret7 = ds7.DeleteSql(string.Format("UPDATE nfinebase.Sys_CustomerListDetail SET IsEffective=0 where id<{0}", re7));
 
                     LogHelper.Info(string.Format("工程主页-模具列表-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult7, ret7, DateTime.Now.ToString()));
                 }

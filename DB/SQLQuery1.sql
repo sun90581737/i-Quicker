@@ -478,7 +478,7 @@ CREATE TABLE Sys_UserEngineering --工程主页:员工工程表
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )
-INSERT INTO Sys_UserEngineering(Account,CustomerAmount,CustomerAmountColor,DeliveryCompletionRate,DeliveryCompletionRateColor,OnTimeDeliveryMold,OnTimeDeliveryMoldColor,LateDeliveryMold,LateDeliveryMoldColor,MoldInProcess,MoldInProcessColor,NormalProgress,NormalProgressColor,ScheduleDelay,ScheduleDelayColor)VALUES('admin',5,'#006600',89,'#006666',9,'#3300CC',2,'#CC0000',10,'#CCFFCC',7,'#FFFF00',3,'#FF66FF')
+INSERT INTO Sys_UserEngineering(Account,CustomerAmount,CustomerAmountColor,DeliveryCompletionRate,DeliveryCompletionRateColor,OnTimeDeliveryMold,OnTimeDeliveryMoldColor,LateDeliveryMold,LateDeliveryMoldColor,MoldInProcess,MoldInProcessColor,NormalProgress,NormalProgressColor,ScheduleDelay,ScheduleDelayColor)VALUES('admin',5,'#0ce7ff',89,'#0ce7ff',9,'#0ce7ff',2,'#0ce7ff',10,'#0ce7ff',7,'#0ce7ff',3,'#0ce7ff')
 
 CREATE TABLE Sys_EHDeliveryCompletionRate --工程主页:交期达成率趋势
 (
@@ -558,12 +558,12 @@ CREATE TABLE Sys_CustomerListDetail --客户清单明细
 	ListId INT,							--主表主键
 	MoldName VARCHAR(50),				--模具名称
 	MoldNo VARCHAR(50),					--模具编号
+	CustomerName VARCHAR(50),	        --客户
+	ContactPerson VARCHAR(50),	        --内部负责人
 	TN VARCHAR(50),						--TN
 	MoldType VARCHAR(50),				--类型
 	MoldState  VARCHAR(50),				--状态
-	Priority VARCHAR(50),				--优先级
 	MoldDate DATE,						--试模日期
-	MoldFactory VARCHAR(50),			--试模厂
 	MoldMaterial VARCHAR(50),			--模仁材质
 	Category VARCHAR(10),				--类别
 	Colour varchar(50)  NULL,			--灯的颜色
@@ -577,8 +577,8 @@ INSERT INTO Sys_CustomerList(ParentId,EnCode,FullName,OrderName,OrderDate,OrderS
 INSERT INTO Sys_CustomerList(ParentId,EnCode,FullName)VALUES(0,'LOGITEC','客户LOGITEC')
 INSERT INTO Sys_CustomerList(ParentId,EnCode,FullName,OrderName,OrderDate,OrderStatus)VALUES(4,'01','订单LD200301','X969','2020/03/03','进行中')
 
-INSERT INTO Sys_CustomerListDetail(ListId,MoldName,MoldNo,TN,MoldType,MoldState,Priority,MoldDate,MoldFactory,MoldMaterial,Category,Colour)VALUES(3,'DAIL_DACE','IK19001','T0','新模','加工中','A',GETDATE(),'INNER','8407','2','#CC0000')
-INSERT INTO Sys_CustomerListDetail(ListId,MoldName,MoldNo,TN,MoldType,MoldState,Priority,MoldDate,MoldFactory,MoldMaterial,Category,Colour)VALUES(3,'DAIL_CLIP','IK19002','T1','修模','加工中','A',GETDATE(),'INNER','8407','2','#01B468')
+INSERT INTO Sys_CustomerListDetail(ListId,MoldName,MoldNo,CustomerName,ContactPerson,TN,MoldType,MoldState,MoldDate,MoldMaterial,Category,Colour)VALUES(3,'DAIL_DACE','IK19001','INNER','张三','T0','新模','加工中',GETDATE(),'8407','2','#CC0000')
+INSERT INTO Sys_CustomerListDetail(ListId,MoldName,MoldNo,CustomerName,ContactPerson,TN,MoldType,MoldState,MoldDate,MoldMaterial,Category,Colour)VALUES(3,'DAIL_CLIP','IK19002','INNER','张三','T1','修模','加工中',GETDATE(),'8407','2','#01B468')
 
 
 
