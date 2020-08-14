@@ -120,11 +120,21 @@ namespace SynBusinessOverview
                 #region 产能负载
                 int re5 = 0;
                 DbService ds5 = new DbService(EnStr, "MySQL");
-                string srt5 = string.Format("");
+                string srt5 = string.Format(@"INSERT INTO nfinebase.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,CreationTime)
+                    (
+                             SELECT dept_name, '产能', capacity_hours, now()  from mes_center.a05_capacity_plan_hours
+                             where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                             UNION ALL
+                             SELECT dept_name, '产能缺口', capacity_gap, now()  from mes_center.a05_capacity_plan_hours
+                             where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                             UNION ALL
+                             SELECT dept_name, '负荷', plan_hours, now()  from mes_center.a05_capacity_plan_hours
+                             where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                    )");
                 int sult5 = ds5.InsertSql(srt5, out re5);
                 if (sult5 > 0)
                 {
-                    int ret5 = ds5.DeleteSql(string.Format(""));
+                    int ret5 = ds5.DeleteSql(string.Format("UPDATE nfinebase.Sys_BOCapacityLoad SET IsEffective=0 where id<{0}"));
 
                     LogHelper.Info(string.Format("经营概览-产能负载-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult5, ret5, DateTime.Now.ToString()));
                 }
@@ -137,9 +147,9 @@ namespace SynBusinessOverview
                 #region 主要客户
                 int re6 = 0;
                 DbService ds6 = new DbService(EnStr, "MySQL");
-                string srt6 = string.Format(@"INSERT INTO nfinebase.Sys_KeyCustomers(Name,CreationTime)
+                string srt6 = string.Format(@"INSERT INTO nfinebase.Sys_KeyCustomers(Name,Number,CreationTime)
                     (
-                            SELECT customer_name, now()  from mes_center.a06_main_customer ORDER BY sort_id ASC
+                            SELECT customer_name,mold_num, now()  from mes_center.a06_main_customer ORDER BY sort_id ASC
                     )");
                 int sult6 = ds6.InsertSql(srt6, out re6);
                 if (sult6 > 0)

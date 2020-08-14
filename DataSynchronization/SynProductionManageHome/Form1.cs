@@ -34,18 +34,18 @@ namespace SynProductionManageHome
                 #region  在制模具进度汇总
                 int re = 0;
                 DbService ds = new DbService(EnStr, "MySQL");
-                string srt = string.Format(@"INSERT INTO nfinebase.sys_totalcyclecost(ProgressStatus,Cost,Display,CreationTime)
+                string srt = string.Format(@"INSERT INTO nfinebase.Sys_PMHomeMoldProgress(ProgressStatus,Cost,Display,CreationTime)
                     (
-                        SELECT ProgressStatus, Cost, acct_date, now() from(
-                        SELECT '进度正常' ProgressStatus, normal_num Cost, total_num from mes_center.a01_manufacture_all_cost
+                        SELECT ProgressStatus, Cost, total_num, now() from(
+                        SELECT '进度正常' ProgressStatus, normal_num Cost, total_num from mes_center.c01_on_make_process_total
                         UNION ALL
-                        SELECT '进度延误' ProgressStatus, delay_num Cost, total_num from mes_center.a01_manufacture_all_cost
+                        SELECT '进度延误' ProgressStatus, delay_num Cost, total_num from mes_center.c01_on_make_process_total
                         )b
                     )");
                 int sult = ds.InsertSql(srt, out re);
                 if (sult > 0)
                 {
-                    int ret = ds.DeleteSql(string.Format("UPDATE nfinebase.sys_totalcyclecost SET IsEffective=0 where id<{0}",re));
+                    int ret = ds.DeleteSql(string.Format("UPDATE nfinebase.Sys_PMHomeMoldProgress SET IsEffective=0 where id<{0}", re));
 
                     LogHelper.Info(string.Format("生管主页-在制模具进度汇总-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult, ret, DateTime.Now.ToString()));
                 }
@@ -130,7 +130,7 @@ namespace SynProductionManageHome
                 DbService ds5 = new DbService(EnStr, "MySQL");
                 string srt5 = string.Format(@"INSERT INTO nfinebase.Sys_PMHomeOutsourcingDetail(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,OrderStatus,CreationTime)
                     (
-                            SELECT  mold_no, part_sub_no, process_name, provider, plan_date, delay_days,CASE WHEN delay_days>{0} THEN '{1}' ELSE '' End  Color, '加工中', now()  from mes_center.c05_wx_plan_bill
+                            SELECT  mold_no, part_sub_no, process_name, provider, plan_date, delay_days,CASE WHEN delay_days>{0} THEN '{1}' ELSE '' End  Color,wx_state, now()  from mes_center.c05_wx_plan_bill
                             where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
                     )", wxdelaydays, wxdelaydayscolour);
                 int sult5 = ds5.InsertSql(srt5, out re5);
