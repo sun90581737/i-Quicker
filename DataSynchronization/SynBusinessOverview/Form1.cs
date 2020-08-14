@@ -101,7 +101,7 @@ namespace SynBusinessOverview
                         SELECT mold_no, version, mold_type, mold_state, order_name, plan_date,
                         CASE WHEN warning_rate1 = 0 AND warning_rate2 > 0 THEN warning_rate2
                         WHEN warning_rate1 > 0 AND warning_rate2 = 0  THEN  warning_rate1
-                        WHEN warning_rate1 > 0 AND warning_rate2 > 0  THEN  warning_rate1 + ';' + warning_rate2 END EarlyWarning
+                        WHEN warning_rate1 > 0 AND warning_rate2 > 0  THEN  warning_rate1 + ';' + warning_rate2 ELSE 0 END EarlyWarning
                         FROM  mes_center.a04_on_make_process
                     )");
                 int sult4 = ds4.InsertSql(srt4, out re4);
@@ -122,14 +122,16 @@ namespace SynBusinessOverview
                 DbService ds5 = new DbService(EnStr, "MySQL");
                 string srt5 = string.Format(@"INSERT INTO nfinebase.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,CreationTime)
                     (
-                             SELECT dept_name, '产能', capacity_hours, now()  from mes_center.a05_capacity_plan_hours
-                             where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
-                             UNION ALL
-                             SELECT dept_name, '产能缺口', capacity_gap, now()  from mes_center.a05_capacity_plan_hours
-                             where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
-                             UNION ALL
-                             SELECT dept_name, '负荷', plan_hours, now()  from mes_center.a05_capacity_plan_hours
-                             where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                            SELECT dept_name,DeviceName,Number,CreationTime FROM(
+                            SELECT dept_name, '产能' DeviceName, SUM(capacity_hours) Number, now() CreationTime  from mes_center.a05_capacity_plan_hours
+                            where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE() GROUP BY dept_name
+                            UNION ALL
+                            SELECT dept_name, '产能缺口' DeviceName, SUM(capacity_gap) Number, now()  from mes_center.a05_capacity_plan_hours
+                            where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE() GROUP BY dept_name
+                            UNION ALL
+                            SELECT dept_name, '负荷' DeviceName, SUM(plan_hours) Number, now()  from mes_center.a05_capacity_plan_hours
+                            where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE() GROUP BY dept_name
+                            )b ORDER BY  dept_name,DeviceName ASC
                     )");
                 int sult5 = ds5.InsertSql(srt5, out re5);
                 if (sult5 > 0)
