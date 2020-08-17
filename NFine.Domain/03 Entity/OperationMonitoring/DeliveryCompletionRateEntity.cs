@@ -10,7 +10,7 @@ namespace NFine.Domain._03_Entity.OperationMonitoring
     {
         public int? id { get; set; }
         public string Month { get; set; }
-        public int? DeliveryRate { get; set; }
+        public double DeliveryRate { get; set; }
         public DateTime? CreationTime { get; set; }
         public int? IsEffective { get; set; }
     }

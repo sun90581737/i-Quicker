@@ -78,7 +78,7 @@ namespace SynBusinessOverview
                 string srt3 = string.Format(@"INSERT INTO nfinebase.Sys_DeliveryCompletionRate(Month,DeliveryRate,CreationTime)
                     (
                         SELECT acct_date, scheduled_rate, now() from mes_center.a03_scheduled_rate
-                            WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 YEAR), '%Y-%m-%d') and acct_date <= CURDATE()
+                            WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 YEAR), '%Y-%m-%d') and acct_date <= date_format(CURDATE(),'%Y-%m')
                     )");
                 int sult3 = ds3.InsertSql(srt3, out re3);
                 if (sult3 > 0)
@@ -101,7 +101,7 @@ namespace SynBusinessOverview
                         SELECT mold_no, version, mold_type, mold_state, order_name, plan_date,
                         CASE WHEN warning_rate1 = 0 AND warning_rate2 > 0 THEN warning_rate2
                         WHEN warning_rate1 > 0 AND warning_rate2 = 0  THEN  warning_rate1
-                        WHEN warning_rate1 > 0 AND warning_rate2 > 0  THEN  warning_rate1 + ';' + warning_rate2 ELSE 0 END EarlyWarning
+                        WHEN warning_rate1 > 0 AND warning_rate2 > 0  THEN  CONCAT(warning_rate1 ,';', warning_rate2) ELSE 0 END EarlyWarning
                         FROM  mes_center.a04_on_make_process
                     )");
                 int sult4 = ds4.InsertSql(srt4, out re4);
@@ -136,7 +136,7 @@ namespace SynBusinessOverview
                 int sult5 = ds5.InsertSql(srt5, out re5);
                 if (sult5 > 0)
                 {
-                    int ret5 = ds5.DeleteSql(string.Format("UPDATE nfinebase.Sys_BOCapacityLoad SET IsEffective=0 where id<{0}"));
+                    int ret5 = ds5.DeleteSql(string.Format("UPDATE nfinebase.Sys_BOCapacityLoad SET IsEffective=0 where id<{0}",re5));
 
                     LogHelper.Info(string.Format("经营概览-产能负载-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult5, ret5, DateTime.Now.ToString()));
                 }
@@ -151,7 +151,7 @@ namespace SynBusinessOverview
                 DbService ds6 = new DbService(EnStr, "MySQL");
                 string srt6 = string.Format(@"INSERT INTO nfinebase.Sys_KeyCustomers(Name,Number,CreationTime)
                     (
-                            SELECT customer_name,mold_num, now()  from mes_center.a06_main_customer ORDER BY sort_id ASC
+                            SELECT customer_name,mold_num*10, now()  from mes_center.a06_main_customer ORDER BY sort_id ASC
                     )");
                 int sult6 = ds6.InsertSql(srt6, out re6);
                 if (sult6 > 0)

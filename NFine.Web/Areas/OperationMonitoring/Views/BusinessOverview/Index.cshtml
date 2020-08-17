@@ -72,7 +72,6 @@
                 })
             }
         });
-
         var myChart = echarts.init(document.getElementById('chart1a'));
         // 指定图表的配置项和数据
         var option = {
@@ -543,6 +542,7 @@
         //            {"name":"湖南","val":"95684"}
         //]
         //range（节点数目），radius大小
+        debugger;
         var nodes = d3.range(listName.length).map(function (i) {
             var data1 = {
                 radius: parseFloat(data[i].val) / 2000,
