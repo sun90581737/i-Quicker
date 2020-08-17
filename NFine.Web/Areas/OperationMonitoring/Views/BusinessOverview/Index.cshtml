@@ -516,11 +516,18 @@
             async: false,
             success: function (data) {
                 $(data).each(function (index, item) {
-                    listName.push(item.Name);
                     var str3 = new Object();
+                    //默认加一条空值，防止.data(nodes.slice(1));获取不到。
+                    if (index == "0") {
+                        listName.unshift("");
+                        str3.name = "";
+                        str3.val = 0;
+                        str[index] = str3;
+                    }
+                    listName.push(item.Name);
                     str3.name = item.Name;
                     str3.val = item.Number * 1000 + 20000;
-                    str[index] = str3;
+                    str[index+1] = str3;
                 })
             }
         });
@@ -542,7 +549,6 @@
         //            {"name":"湖南","val":"95684"}
         //]
         //range（节点数目），radius大小
-        debugger;
         var nodes = d3.range(listName.length).map(function (i) {
             var data1 = {
                 radius: parseFloat(data[i].val) / 2000,
