@@ -442,6 +442,82 @@ INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  (
 INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('磨床','产能缺口',90,2)
 INSERT INTO dbo.Sys_BOCapacityLoad(DeviceType,DeviceName,Number,PrType)VALUES  ('磨床','负荷',1,2)
 
+CREATE TABLE Sys_MoldProportion --经营概览:新摸修模比例
+(
+	id int identity (1,1) primary KEY,
+	Name varchar(50)  NULL,--客户名称
+	Number INT , --数量
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT dbo.Sys_MoldProportion(Name,Number)VALUES  ('新模',7)
+INSERT dbo.Sys_MoldProportion(Name,Number)VALUES  ('修模',3) 
+
+CREATE TABLE Sys_ElectrodeQualifiedRate --经营概览:钢件及电极合格率
+(
+	id int identity (1,1) primary KEY,
+	MonthDay varchar(20)  NULL, --月
+	DeviceName varchar(50)  NULL,--设备名
+	TrendRate FLOAT,--趋势数
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('1','电极',89)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('2','电极',92)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('3','电极',95)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('4','电极',85)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('5','电极',91)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('6','电极',94)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('7','电极',98)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('8','电极',83)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('9','电极',92)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('10','电极',95)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('11','电极',85)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('12','电极',91)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('13','电极',94)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('14','电极',98)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('15','电极',83)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('1','钢件',55)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('2','钢件',66)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('3','钢件',77)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('4','钢件',88)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('5','钢件',68)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('6','钢件',87)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('7','钢件',45)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('8','钢件',98)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('9','钢件',36)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('10','钢件',86)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('11','钢件',75)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('12','钢件',82)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('13','钢件',19)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('14','钢件',83)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('15','钢件',77)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('1','外协',85)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('2','外协',78)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('3','外协',88)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('4','外协',77)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('5','外协',66)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('6','外协',55)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('7','外协',44)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('8','外协',87)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('9','外协',82)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('10','外协',83)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('11','外协',68)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('12','外协',92)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('13','外协',81)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('14','外协',77)
+INSERT INTO [dbo].Sys_ElectrodeQualifiedRate (MonthDay,DeviceName,[TrendRate])VALUES ('15','外协',80)
+
+CREATE TABLE Sys_DepartmentQualifiedRate --经营概览:各部门合格率
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+
 CREATE TABLE Sys_KeyCustomers --经营概览:主要客户
 (
 	id int identity (1,1) primary KEY,
