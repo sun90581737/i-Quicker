@@ -683,8 +683,8 @@
                 name: tempName,
                 type: 'bar',
                 stack: '广告' + index,
-                barGap: '50%',//柱图间距
-                //barWidth: 20,//柱图宽度
+                barGap: '30%',//柱图间距
+                //barWidth: '50%',//柱图宽度
                 data: tempArry,
                 itemStyle: {
                     normal: {
@@ -776,11 +776,28 @@
         myChart.setOption(option, true);
     }
     function loadFourX() {
+        var wait_num = 0;
+        var finish_num = 0;
+        $.ajax({
+            url: "/QualityOptimization/QualityEngineering/GetDataQualityOHandleExceptionalResults",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    if (item.DeviceName == "待处理") {
+                        wait_num += item.TrendRate;
+                    }
+                    else if (item.DeviceName == "已处理") {
+                        finish_num += item.TrendRate;
+                    }
+                })
+            }
+        });
         var myChart = echarts.init(document.getElementById('chart5'));
-        var value = 0.62;
+        var value = finish_num/100;
         var data = [value, value, value, ];
         option = {
-            title: {
+            title: [{
                 text: (value * 100).toFixed(0) + '{a|%}',
                 textStyle: {
                     fontSize: 30,
@@ -795,7 +812,18 @@
                 },
                 x: 'center',
                 y: '35%'
-            },
+            }, {
+                text: (wait_num>0 ? Math.round((wait_num + finish_num) / wait_num): 0)+ "件",
+                textStyle: {
+                    color: '#3bd1ea',
+                    fontStyle: 'normal',
+                    fontWeight: '80',
+                    fontFamily: 'Microsoft Yahei',
+                    fontSize: 14
+                },
+                x: 'center',
+                y: '75%'
+            }],
             graphic: [{
                 type: 'group',
                 left: 'center',
@@ -892,11 +920,28 @@
         myChart.setOption(option);
     }
     function loadFourY() {
+        var wait_num = 0;
+        var finish_num = 0;
+        $.ajax({
+            url: "/QualityOptimization/QualityEngineering/GetDataQualityOHandleExceptionalResults",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    if (item.DeviceName == "待处理") {
+                        wait_num += item.TrendRate;
+                    }
+                    else if (item.DeviceName == "已处理") {
+                        finish_num += item.TrendRate;
+                    }
+                })
+            }
+        });
         var myChart = echarts.init(document.getElementById('chart6'));
-        var value = 0.38;
+        var value = wait_num/100;
         var data = [value, value, value, ];
         option = {
-            title: {
+            title: [{
                 text: (value * 100).toFixed(0) + '{a|%}',
                 textStyle: {
                     fontSize: 30,
@@ -911,7 +956,18 @@
                 },
                 x: 'center',
                 y: '35%'
-            },
+            }, {
+                text: (finish_num>0 ? Math.round((wait_num + finish_num) / finish_num) : 0)+ "件",
+                textStyle: {
+                    color: '#f631ff',
+                    fontStyle: 'normal',
+                    fontWeight: '80',
+                    fontFamily: 'Microsoft Yahei',
+                    fontSize: 14
+                },
+                x: 'center',
+                y: '75%'
+            }],
             graphic: [{
                 type: 'group',
                 left: 'center',

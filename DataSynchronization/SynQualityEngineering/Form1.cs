@@ -57,7 +57,7 @@ namespace SynQualityEngineering
                 string srt2 = string.Format(@"INSERT INTO nfinebase.Sys_QualityOPassRateTrend(Month_Day,Device_Name,TrendRate,CreationTime)
                     (
 		                    select acct_date,dept_name,pass_rate,now() from mes_center.e02_dept_pass_month
-		                    WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 YEAR), '%Y-%m-%d') and acct_date <= CURDATE()
+		                    WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 YEAR), '%Y-%m-%d') and acct_date <= date_format(CURDATE(),'%Y-%m')
                     )");
                 int sult2 = ds2.InsertSql(srt2, out re2);
                 if (sult2 > 0)
@@ -79,7 +79,7 @@ namespace SynQualityEngineering
                     (
 		                    SELECT exception_type,SUM(pass_rate),now() FROM mes_center.e03_exception_summary 
 		                    WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
-		                    GROUP BY Type
+		                    GROUP BY exception_type
                     )");
                 int sult3 = ds3.InsertSql(srt3, out re3);
                 if (sult3 > 0)
@@ -121,9 +121,11 @@ namespace SynQualityEngineering
                 DbService ds5 = new DbService(EnStr, "MySQL");
                 string srt5 = string.Format(@"INSERT INTO nfinebase.Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate,CreationTime)
                     (
-		                    SELECT dept_name,'待处理',wait_num from  mes_center.e05_dept_exception_result WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                        SELECT * from (
+		                    SELECT dept_name,'待处理',wait_num,now() from  mes_center.e05_dept_exception_result WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
 		                    UNION ALL
-		                    SELECT dept_name,'已处理',finish_num from  mes_center.e05_dept_exception_result WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+		                    SELECT dept_name,'已处理',finish_num,now() from  mes_center.e05_dept_exception_result WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                        )b  ORDER BY dept_name
                     )");
                 int sult5 = ds5.InsertSql(srt5, out re5);
                 if (sult5 > 0)
