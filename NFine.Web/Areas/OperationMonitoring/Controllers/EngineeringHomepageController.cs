@@ -23,7 +23,7 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
         [HandlerAjaxOnly]
         public ActionResult GetDataUserEngineeringList()
         {
-            var data = ueApp.GetUserEngineeringList();
+            var data = ueApp.GetList().Where(p => p.IsEffective == 1);
             return Content(data.ToJson());
         }
 

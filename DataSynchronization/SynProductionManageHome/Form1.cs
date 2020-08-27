@@ -62,10 +62,8 @@ namespace SynProductionManageHome
                     (
                          SELECT mold_no, version, mold_type, plan_date,
                          CASE WHEN progress_rate1 = 0 AND progress_rate2 > 0 THEN progress_rate2
-
                          WHEN progress_rate1 > 0 AND progress_rate2 = 0  THEN  progress_rate1
-
-                         WHEN progress_rate1 > 0 AND progress_rate2 > 0  THEN  progress_rate1 + ';' + progress_rate2 END progress
+                         WHEN progress_rate1 > 0 AND progress_rate2 > 0  THEN  CONCAT(progress_rate1 ,';', progress_rate2) ELSE 0 END progress
                        from mes_center.c02_delay_process
                     )");
                 int sult2 = ds2.InsertSql(srt2, out re2);
@@ -84,11 +82,13 @@ namespace SynProductionManageHome
                 #region  产能/负荷
                 int re3 = 0;
                 DbService ds3 = new DbService(EnStr, "MySQL");
-                string srt3 = string.Format(@"INSERT INTO nfinebase.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,AcctDate,CreationTime)
+                string srt3 = string.Format(@"INSERT INTO nfinebase.Sys_PMHomeCapacityLoad(DeviceType,DeviceName,Number,CreationTime)
                     (
-                            SELECT dept_name, '产能' DeviceName, capacity_hours Number, acct_date, now()  from mes_center.c03_depart_capacity_plan where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                            SELECT dept_name,DeviceName,Number,CreationTime FROM(
+                            SELECT dept_name, '产能' DeviceName, SUM(capacity_hours) Number, now() CreationTime  from mes_center.c03_depart_capacity_plan where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()  GROUP BY dept_name
                             UNION ALL
-                            SELECT dept_name, '负荷' DeviceName, plan_hours Number, acct_date, now()  from mes_center.c03_depart_capacity_plan where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                            SELECT dept_name, '负荷' DeviceName, SUM(plan_hours) Number, now()  from mes_center.c03_depart_capacity_plan where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()  GROUP BY dept_name
+                            )b ORDER BY  dept_name,DeviceName ASC		
                     )");
                 int sult3 = ds3.InsertSql(srt3, out re3);
                 if (sult3 > 0)
@@ -108,9 +108,11 @@ namespace SynProductionManageHome
                 DbService ds4 = new DbService(EnStr, "MySQL");
                 string srt4 = string.Format(@"INSERT INTO nfinebase.Sys_PMHomeOutsourcingRate(Type,Cost,CreationTime)
                     (
+                          SELECT * From(
 		                    SELECT '按期' Type,COUNT(CASE WHEN delay_days=0 THEN 1 ELSE 0 END) Cost,now()  from mes_center.c05_wx_plan_bill  where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
 		                    UNION ALL
 		                    SELECT '延期' Type,COUNT(CASE WHEN delay_days>0 THEN 1 ELSE 0 END) Cost,now()  from mes_center.c05_wx_plan_bill  where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                            )b
                     )");
                 int sult4 = ds4.InsertSql(srt4, out re4);
                 if (sult4 > 0)

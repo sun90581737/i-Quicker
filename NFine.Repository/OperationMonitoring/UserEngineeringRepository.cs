@@ -17,7 +17,7 @@ namespace NFine.Repository.OperationMonitoring
         public List<UserEngineeringEntity> GetUserEngineeringList(string account)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append(@"SELECT b.F_RealName as RealName,a.* FROM	Sys_UserEngineering a LEFT JOIN Sys_User b ON b.F_Account=a.Account WHERE a.IsEffective=1 and b.F_Account=@account");
+            strSql.Append(@"SELECT a.* FROM	Sys_UserEngineering a LEFT JOIN Sys_User b ON b.F_Account=a.Account WHERE a.IsEffective=1 and b.F_Account=@account");
             DbParameter[] parameter =
             {
                  //new SqlParameter("@account",account)

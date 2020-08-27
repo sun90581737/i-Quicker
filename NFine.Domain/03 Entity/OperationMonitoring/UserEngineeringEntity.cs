@@ -10,7 +10,7 @@ namespace NFine.Domain._03_Entity.OperationMonitoring
     {
         public int? id { get; set; }
         public string Account { get; set; }
-        public string RealName { get; set; }
+        //public string RealName { get; set; }
         public int? CustomerAmount { get; set; }
         public string CustomerAmountColor { get; set; }
         public int? DeliveryCompletionRate { get; set; }

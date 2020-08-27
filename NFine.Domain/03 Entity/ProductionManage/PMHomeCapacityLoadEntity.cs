@@ -12,7 +12,7 @@ namespace NFine.Domain._03_Entity.ProductionManage
         public string DeviceType { get; set; }
         public string DeviceName { get; set; }
         public int Number { get; set; }
-        public int PrType { get; set; }
+        //public int PrType { get; set; }
         public string Colour { get; set; }
         public DateTime? AcctDate { get; set; }
         public DateTime CreationTime { get; set; }

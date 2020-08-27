@@ -517,6 +517,10 @@ CREATE TABLE Sys_DepartmentQualifiedRate --经营概览:各部门合格率
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )
+INSERT INTO dbo.Sys_DepartmentQualifiedRate(DeviceType,DeviceName,Number)VALUES  ('CNC','合格率',95)
+INSERT INTO dbo.Sys_DepartmentQualifiedRate(DeviceType,DeviceName,Number)VALUES  ('EDM','合格率',89)
+INSERT INTO dbo.Sys_DepartmentQualifiedRate(DeviceType,DeviceName,Number)VALUES  ('WEDM','合格率',79)
+INSERT INTO dbo.Sys_DepartmentQualifiedRate(DeviceType,DeviceName,Number)VALUES  ('车铣磨床','合格率',99)
 
 CREATE TABLE Sys_KeyCustomers --经营概览:主要客户
 (

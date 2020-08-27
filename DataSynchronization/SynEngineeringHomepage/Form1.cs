@@ -36,31 +36,14 @@ namespace SynEngineeringHomepage
                 string srt = string.Format(@"INSERT INTO nfinebase.Sys_UserEngineering(Account,CustomerAmount,DeliveryCompletionRate,OnTimeDeliveryMold,LateDeliveryMold,MoldInProcess,
                     NormalProgress,ScheduleDelay,CreationTime,CustomerAmountColor,DeliveryCompletionRateColor,OnTimeDeliveryMoldColor,LateDeliveryMoldColor,MoldInProcessColor,NormalProgressColor,ScheduleDelayColor)
                     (
-                    SELECT 
-		                    CASE WHEN sort_id = 1 THEN
-			                    item_value
-		                    END Account,
-		                    CASE WHEN sort_id = 2 THEN
-			                    item_value
-		                    END CustomerAmount,
-		                    CASE WHEN sort_id = 3 THEN
-			                    item_value
-		                    END DeliveryCompletionRate,
-		                    CASE WHEN sort_id = 4 THEN
-			                    item_value
-		                    END OnTimeDeliveryMold,
-		                    CASE WHEN sort_id = 5 THEN
-			                    item_value
-		                    END LateDeliveryMold,
-		                    CASE WHEN sort_id = 6 THEN
-			                    item_value
-		                    END MoldInProcess,
-		                    CASE WHEN sort_id = 7 THEN
-			                    item_value
-		                    END NormalProgress,
-		                    CASE WHEN sort_id = 8 THEN
-			                    item_value
-		                    END ScheduleDelay,now(),{0},{1},{2},{3},{4},{5},{6}
+                    SELECT  MAX(CASE WHEN sort_id  = '1' THEN item_value END) AS Account,
+			                MAX(CASE WHEN sort_id  = '2' THEN item_value END) AS CustomerAmount,
+			                MAX(CASE WHEN sort_id  = '3' THEN item_value END) AS DeliveryCompletionRate,
+			                MAX(CASE WHEN sort_id  = '4' THEN item_value END) AS OnTimeDeliveryMold,
+			                MAX(CASE WHEN sort_id  = '5' THEN item_value END) AS LateDeliveryMold,
+			                MAX(CASE WHEN sort_id  = '6' THEN item_value END) AS MoldInProcess,
+			                MAX(CASE WHEN sort_id  = '7' THEN item_value END) AS NormalProgress,
+			                MAX(CASE WHEN sort_id  = '8' THEN item_value END) AS ScheduleDelay,now(),'{0}','{1}','{2}','{3}','{4}','{5}','{6}'
                      FROM mes_center.d01_project_main
                     )", CustomerAmountColor, DeliveryCompletionRateColor, OnTimeDeliveryMoldColor, LateDeliveryMoldColor, MoldInProcessColor, NormalProgressColor, ScheduleDelayColor);
                 int sult = ds.InsertSql(srt, out re);
@@ -82,7 +65,7 @@ namespace SynEngineeringHomepage
                 string srt2 = string.Format(@"INSERT INTO nfinebase.Sys_EHDeliveryCompletionRate(Month,DeliveryRate,CreationTime)
                     (
                         SELECT acct_date, plan_finished_rate, now() from mes_center.d02_scheduled_rate
-                            WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 YEAR), '%Y-%m-%d') and acct_date <= CURDATE()
+                            WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 YEAR), '%Y-%m-%d') and acct_date <= date_format(CURDATE(),'%Y-%m')
                     )");
                 int sult2 = ds2.InsertSql(srt2, out re2);
                 if (sult2 > 0)
@@ -102,9 +85,11 @@ namespace SynEngineeringHomepage
                 DbService ds3 = new DbService(EnStr, "MySQL");
                 string srt3 = string.Format(@"INSERT INTO nfinebase.Sys_EHNumberMoldsDelivered(Type,Number,CreationTime)
                     (
-		                    SELECT '按期' Type,normal_num Number,now()  from mes_center.d03_finish_mold_num  
-		                    UNION ALL
-		                    SELECT '延期' Type,delay_num Number,now()  from mes_center.d03_finish_mold_num  
+		                   SELECT * FROM (
+	                            SELECT '按期' Type,normal_num Number,now()  from mes_center.d03_finish_mold_num  
+	                            UNION ALL
+	                            SELECT '延期' Type,delay_num Number,now()  from mes_center.d03_finish_mold_num 
+	                       )b	
                     )");
                 int sult3 = ds3.InsertSql(srt3, out re3);
                 if (sult3 > 0)
@@ -124,11 +109,13 @@ namespace SynEngineeringHomepage
                 DbService ds4 = new DbService(EnStr, "MySQL");
                 string srt4 = string.Format(@"INSERT INTO nfinebase.Sys_EHProductionSchedule(Name,Number,CreationTime)
                     (
+                        SELECT * From (
 		                    SELECT '进度正常' Name,normal_num Number,now()  from mes_center.d04_on_make_mold  
 		                    UNION ALL
 		                    SELECT '已过交期' Name,delay_make_num+delay_other_num Number,now()  from mes_center.d04_on_make_mold  
 		                    UNION ALL
 		                    SELECT '生产延误' Name,delay_make_num Number,now()  from mes_center.d04_on_make_mold  
+                            )b
                     )");
                 int sult4 = ds4.InsertSql(srt4, out re4);
                 if (sult4 > 0)
@@ -151,7 +138,7 @@ namespace SynEngineeringHomepage
 			                SELECT mold_no, version, mold_type, plan_date,
 			                CASE WHEN warning_rate1 = 0 AND warning_rate2 > 0 THEN warning_rate2
 			                WHEN warning_rate1 > 0 AND warning_rate2 = 0  THEN  warning_rate1
-			                WHEN warning_rate1 > 0 AND warning_rate2 > 0  THEN  warning_rate1 + ';' + warning_rate2 END EarlyWarning
+			                WHEN warning_rate1 > 0 AND warning_rate2 > 0  THEN  CONCAT(warning_rate1 ,';', warning_rate2) ELSE 0 END EarlyWarning
 			                FROM  mes_center.d05_delay_mold
 	                )");
                 int sult5 = ds5.InsertSql(srt5, out re5);
