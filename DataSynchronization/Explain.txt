@@ -4,3 +4,4 @@ SynBusinessOverview                 --经营概览
 SynProductionManageHome     --生管主页
 SynEngineeringHomepage        --工程主页
 SynQualityEngineering               --品质工程
+SynRunningState                        --运行状态
