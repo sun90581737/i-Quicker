@@ -36,7 +36,7 @@
                 </div>
                 <div class="tab-content" style="height:120px">
                     <div style="width:100px;height:100px;position:absolute;left:35%;top:8%;transform:translate(-10%,-10%);">
-                        <img id="imageId1" style="width:100px;height:100px" src="" />
+                        <img id="imageId1" style="width:100px;height:100px;display:none" src="" />
                     </div>
                 </div>
                 <div class="box-header with-border" style="height:60px;position:relative;left:-12px;border-top:1px solid #325171;border-bottom:1px solid #325171">
@@ -81,7 +81,7 @@
                 </div>
                 <div class="tab-content" style="height:120px">
                     <div style="width:100px;height:100px;position:absolute;left:35%;top:8%;transform:translate(-10%,-10%);">
-                        <img id="imageId2" style="width:100px;height:100px" src="" />
+                        <img id="imageId2" style="width:100px;height:100px;display:none" src="" />
                     </div>
                 </div>
                 <div class="box-header with-border" style="height:60px;position:relative;left:-12px;border-top:1px solid #325171;border-bottom:1px solid #325171">
@@ -126,7 +126,7 @@
                 </div>
                 <div class="tab-content" style="height:120px">
                     <div style="width:100px;height:100px;position:absolute;left:35%;top:8%;transform:translate(-10%,-10%);">
-                        <img id="imageId3" style="width:100px;height:100px" src="" />
+                        <img id="imageId3" style="width:100px;height:100px;display:none" src="" />
                     </div>
                 </div>
                 <div class="box-header with-border" style="height:60px;position:relative;left:-12px;border-top:1px solid #325171;border-bottom:1px solid #325171">
@@ -171,7 +171,7 @@
                 </div>
                 <div class="tab-content" style="height:120px">
                     <div style="width:100px;height:100px;position:absolute;left:35%;top:8%;transform:translate(-10%,-10%);">
-                        <img id="imageId4" style="width:100px;height:100px" src="" />
+                        <img id="imageId4" style="width:100px;height:100px;display:none" src="" />
                     </div>
                 </div>
                 <div class="box-header with-border" style="height:60px;position:relative;left:-12px;border-top:1px solid #325171;border-bottom:1px solid #325171">
@@ -230,6 +230,7 @@
                             $("#div1").css({ "background-image": "linear-gradient(#23ab33, #0b3447)" });
                             $("#a1").text(item.DeviceName);
                             $("#b1").text(item.DeviceRunStatus);
+                            $("#imageId1").css("display", "block");
                             $("#imageId1").attr("src", item.DeviceUrl);
                             $("#f1").text(item.TodayOutput);
                             $("#g1").text(item.TodayJiadong);
@@ -243,6 +244,7 @@
                             $("#div2").css({ "background-image": "linear-gradient(#f3961d, #0b3447)" });
                             $("#a2").text(item.DeviceName);
                             $("#b2").text(item.DeviceRunStatus);
+                            $("#imageId2").css("display", "block");
                             $("#imageId2").attr("src", item.DeviceUrl);
                             $("#f2").text(item.TodayOutput);
                             $("#g2").text(item.TodayJiadong);
@@ -256,6 +258,7 @@
                             $("#div3").css({ "background-image": "linear-gradient(#eb5c5d, #0b3447)" });
                             $("#a3").text(item.DeviceName);
                             $("#b3").text(item.DeviceRunStatus);
+                            $("#imageId3").css("display", "block");
                             $("#imageId3").attr("src", item.DeviceUrl);
                             $("#f3").text(item.TodayOutput);
                             $("#g3").text(item.TodayJiadong);
@@ -269,6 +272,7 @@
                             $("#div4").css({ "background-image": "linear-gradient(#23ab33, #0b3447)" });
                             $("#a4").text(item.DeviceName);
                             $("#b4").text(item.DeviceRunStatus);
+                            $("#imageId4").css("display", "block");
                             $("#imageId4").attr("src", item.DeviceUrl);
                             $("#f4").text(item.TodayOutput);
                             $("#g4").text(item.TodayJiadong);
