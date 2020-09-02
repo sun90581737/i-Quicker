@@ -279,6 +279,10 @@ Describe5 varchar(200)  NULL,--文本描述5
 DescribeColor5 varchar(10)  NULL,--文本描述颜色5
 Describe6 varchar(200)  NULL,--文本描述6
 DescribeColor6 varchar(10)  NULL,--文本描述颜色6
+Describe7 varchar(200)  NULL,--文本描述6
+DescribeColor7 varchar(100)  NULL,--文本描述颜色6
+Describe8 varchar(200)  NULL,--文本描述6
+DescribeColor8 varchar(100)  NULL,--文本描述颜色6
 CreationTime DATETIME not null default getdate(),--创建时间
 IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )  

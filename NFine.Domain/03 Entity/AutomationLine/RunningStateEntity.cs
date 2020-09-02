@@ -23,6 +23,10 @@ namespace NFine.Domain._03_Entity.AutomationLine
         public string DescribeColor5 { get; set; }
         public string Describe6 { get; set; }
         public string DescribeColor6 { get; set; }
+        public string Describe7 { get; set; }
+        public string DescribeColor7 { get; set; }
+        public string Describe8 { get; set; }
+        public string DescribeColor8 { get; set; }
         public DateTime? CreationTime { get; set; }
         public int? IsEffective { get; set; }
     }

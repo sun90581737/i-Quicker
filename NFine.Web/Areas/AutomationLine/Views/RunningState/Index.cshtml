@@ -51,10 +51,10 @@
             border-style: solid;
             border-color: transparent transparent rgb(51, 204, 153);
             border-image: initial;
-            left: 59.5px;
+            left: 29.5px;
             top: -12px;
         }
-
+        
         .tip-1 {
             left: 23%;
             top: 6%;
@@ -76,13 +76,13 @@
         }
 
         .tip-5 {
-            left: 48%;
-            top: 63%;
+            left: 50%;
+            top: 40%;
         }
 
         .tip-6 {
-            left: 58%;
-            top: 56%;
+            left: 71%;
+            top: 55%;
         }
 
         .iden {
@@ -108,7 +108,7 @@
             top: 73%;
             background: url('../../../../Content/js/pages/img/bk2.png') 0 0 / 100% 100% no-repeat;
             width: 232px;
-            height: 178px;
+            height: 192px;
             z-index: 10000;
             position: absolute;
         }
@@ -118,11 +118,18 @@
             top: 73%;
             background: url('../../../../Content/js/pages/img/bk2.png') 0 0 / 100% 100% no-repeat;
             width: 232px;
-            height: 178px;
+            height: 192px;
             z-index: 10000;
             position: absolute;
         }
-
+         .temp3 {
+            left: -28%;
+            top: 60%;
+            width: 232px;
+            height: 192px;
+            z-index: 10000;
+            position: absolute;
+        }
         .temp-text {
             text-align: center;
             font-size: 16px;
@@ -152,33 +159,50 @@
                 <div class="tip-text"></div>
                 <span class="tip-arrows"></span>
             </div>
+            <div class="tip tip-5">
+                <div class="tip-text"></div>
+                <span class="tip-arrows"></span>
+            </div>
+            <div class="tip tip-6">
+                <div class="tip-text"></div>
+                <span class="tip-arrows"></span>
+            </div>
             <div class="iden">
                 <div style="color:#0403fe; font-size:20px;transform: rotate(-30deg);">①</div>
             </div>
             <div class="iden2">
                 <div style="color:#0403fe; font-size:20px;transform: rotate(-30deg);">②</div>
             </div>
-            @*<div class="tip tip-5">
-                    <div class="tip-text"></div>
-                    <span class="tip-arrows"></span>
-                </div>*@
-            @*<div class="tip tip-6">
-                    <div class="tip-text"></div>
-                    <span class="tip-arrows"></span>
-                </div>*@
             <div class="temp1">
                 <div class="temp-text">1号料仓</div>
-                <div style="color:#ffffff;position:relative;top:20px;left:22px;">合格</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top: 4px; left: 15px; border: 1px transparent solid; margin: 4px auto; position: relative; width: 160px; height: 10px; border-radius: 12px;"><div id="dis1" style="white-space:pre-line;width: 50%;height: 100%;background-color:#0403fe;border-radius: 3px;"></div></div></div>
-                <div style="color:#ffffff;position:relative;top:22px;left:10px;">代加工</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:4px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="dis2" style="white-space:pre-line;width: 60%;height: 100%;background-color:#f3961d;border-radius: 3px;"></div></div></div>
-                <div style="color:#ffffff;position:relative;top:23px;left:22px;">异常</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:4px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="dis3" style="white-space:pre-line;width: 70%;height: 100%;background-color:#f15d5d;border-radius: 3px;"></div></div></div>
-                <div style="color:#ffffff;position:relative;top:22px;left:22px;">剩余</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:4px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="dis4" style="white-space:pre-line;width: 80%;height: 100%;background-color:#01ffff;border-radius: 3px;"></div></div></div>
+                <div style="color:#ffffff;position:relative;top:8px;left:10px;">未开始</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top: -10px; left: 15px; border: 1px transparent solid; margin: 4px auto; position: relative; width: 160px; height: 10px; border-radius: 12px;"><div id="dis1" style="white-space:pre-line;width: 10%;height: 100%;background-color:#0403fe;border-radius: 3px;"></div></div></div>
+                <div style="color:#ffffff;position:relative;top:0px;left:10px;">进行中</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:-17px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="dis2" style="white-space:pre-line;width: 20%;height: 100%;background-color:#f3961d;border-radius: 3px;"></div></div></div>
+                <div style="color:#ffffff;position:relative;top:-8px;left:10px;">已完成</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:-25px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="dis3" style="white-space:pre-line;width: 30%;height: 100%;background-color:#f15d5d;border-radius: 3px;"></div></div></div>
+                <div style="color:#ffffff;position:relative;top:-16px;left:22px;">异常</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:-33px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="dis4" style="white-space:pre-line;width: 40%;height: 100%;background-color:#01ffff;border-radius: 3px;"></div></div></div>
+                <div style="color:#ffffff;position:relative;top:-24px;left:22px;">停止</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:-41px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="dis5" style="white-space:pre-line;width: 50%;height: 100%;background-color:#01ffff;border-radius: 3px;"></div></div></div>
+                <div style="color:#ffffff;position:relative;top:-32px;left:22px;">取消</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:-49px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="dis6" style="white-space:pre-line;width: 60%;height: 100%;background-color:#01ffff;border-radius: 3px;"></div></div></div>
             </div>
             <div class="temp2">
                 <div class="temp-text">2号料仓</div>
-                <div style="color:#ffffff;position:relative;top:20px;left:22px;">合格</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top: 4px; left: 15px; border: 1px transparent solid; margin: 4px auto; position: relative; width: 160px; height: 10px; border-radius: 12px;"><div id="yis1" style="white-space:pre-line;width: 50%;height: 100%;background-color:#0403fe;border-radius: 3px;"></div></div></div>
-                <div style="color:#ffffff;position:relative;top:22px;left:10px;">代加工</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:4px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="yis2" style="white-space:pre-line;width: 60%;height: 100%;background-color:#f3961d;border-radius: 3px;"></div></div></div>
-                <div style="color:#ffffff;position:relative;top:23px;left:22px;">异常</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:4px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="yis3" style="white-space:pre-line;width: 70%;height: 100%;background-color:#f15d5d;border-radius: 3px;"></div></div></div>
-                <div style="color:#ffffff;position:relative;top:22px;left:22px;">剩余</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:4px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="yis4" style="white-space:pre-line;width: 80%;height: 100%;background-color:#01ffff;border-radius: 3px;"></div></div></div>
+                <div style="color:#ffffff;position:relative;top:8px;left:10px;">未开始</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top: -10px; left: 15px; border: 1px transparent solid; margin: 4px auto; position: relative; width: 160px; height: 10px; border-radius: 12px;"><div id="yis1" style="white-space:pre-line;width: 100%;height: 100%;background-color:#0403fe;border-radius: 3px;"></div></div></div>
+                <div style="color:#ffffff;position:relative;top:0px;left:10px;">进行中</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:-17px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="yis2" style="white-space:pre-line;width: 90%;height: 100%;background-color:#f3961d;border-radius: 3px;"></div></div></div>
+                <div style="color:#ffffff;position:relative;top:-8px;left:10px;">已完成</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:-25px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="yis3" style="white-space:pre-line;width: 80%;height: 100%;background-color:#f15d5d;border-radius: 3px;"></div></div></div>
+                <div style="color:#ffffff;position:relative;top:-16px;left:22px;">异常</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:-33px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="yis4" style="white-space:pre-line;width: 70%;height: 100%;background-color:#01ffff;border-radius: 3px;"></div></div></div>
+                <div style="color:#ffffff;position:relative;top:-24px;left:22px;">停止</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:-41px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="yis5" style="white-space:pre-line;width: 60%;height: 100%;background-color:#01ffff;border-radius: 3px;"></div></div></div>
+                <div style="color:#ffffff;position:relative;top:-32px;left:22px;">取消</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:-49px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="yis6" style="white-space:pre-line;width: 50%;height: 100%;background-color:#01ffff;border-radius: 3px;"></div></div></div>
+            </div>
+            <div class="temp3">
+                <div id="tl1" style="width:45px;height:18px;background:#FF0000;color:#000000;font-size:14px;text-align:center;border-radius:5px;">未开始</div>
+                <br />
+                <div id="tl2" style="width:45px;height:18px;background:#00FF00;color:#000000;font-size:14px;text-align:center;border-radius:5px;">进行中</div>
+                <br />
+                <div id="tl3" style="width:45px;height:18px;background:#0000FF;color:#000000;font-size:14px;text-align:center;border-radius:5px;">已完成</div>
+                <br />
+                <div id="tl4" style="width:45px;height:18px;background:#00FFFF;color:#000000;font-size:14px;text-align:center;border-radius:5px;">异常</div>
+                <br />
+                <div id="tl5" style="width:45px;height:18px;background:#FF00FF;color:#000000;font-size:14px;text-align:center;border-radius:5px;">停止</div>
+                <br />
+                <div id="tl6" style="width:45px;height:18px;background:#C0C0C0;color:#000000;font-size:14px;text-align:center;border-radius:5px;">取消</div>
             </div>
         </div>
     @*</div>*@
@@ -246,18 +270,48 @@
                     color: item.DescribeColor6,
                 });
                 var strs = new Array();
-                strs = item.Describe5.split(";");
+                strs = item.Describe7.split(";");
                 $("#dis1").css("width", strs[0] + "%");
                 $("#dis2").css("width", strs[1] + "%");
                 $("#dis3").css("width", strs[2] + "%");
                 $("#dis4").css("width", strs[3] + "%");
+                $("#dis5").css("width", strs[4] + "%");
+                $("#dis6").css("width", strs[5] + "%");
+
+                var strs0 = new Array();
+                strs0 = item.DescribeColor7.split(";");
+                $("#dis1").css("background-color", strs0[0]);
+                $("#dis2").css("background-color", strs0[1]);
+                $("#dis3").css("background-color", strs0[2]);
+                $("#dis4").css("background-color", strs0[3]);
+                $("#dis5").css("background-color", strs0[4]);
+                $("#dis6").css("background-color", strs0[5]);
+                //图例
+                $("#tl1").css("background-color", strs0[0]);
+                $("#tl2").css("background-color", strs0[1]);
+                $("#tl3").css("background-color", strs0[2]);
+                $("#tl4").css("background-color", strs0[3]);
+                $("#tl5").css("background-color", strs0[4]);
+                $("#tl6").css("background-color", strs0[5]);
 
                 var strs1 = new Array();
-                strs1 = item.Describe6.split(";");
+                strs1 = item.Describe8.split(";");
                 $("#yis1").css("width", strs1[0] + "%");
                 $("#yis2").css("width", strs1[1] + "%");
                 $("#yis3").css("width", strs1[2] + "%");
                 $("#yis4").css("width", strs1[3] + "%");
+                $("#yis5").css("width", strs1[4] + "%");
+                $("#yis6").css("width", strs1[5] + "%");
+
+                var strs2 = new Array();
+                strs2 = item.DescribeColor8.split(";");
+                $("#yis1").css("background-color", strs2[0]);
+                $("#yis2").css("background-color", strs2[1]);
+                $("#yis3").css("background-color", strs2[2]);
+                $("#yis4").css("background-color", strs2[3]);
+                $("#yis5").css("background-color", strs2[4]);
+                $("#yis6").css("background-color", strs2[5]);
+
 
                 if (first) {  // 第一次初始化 直接取值
                     console.log("laod...");
