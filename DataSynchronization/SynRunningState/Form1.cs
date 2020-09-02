@@ -58,11 +58,11 @@ namespace SynRunningState
                 {
                     int ret = ds.DeleteSql(string.Format("UPDATE nfinebase.Sys_RunningState SET IsEffective=0 where id<{0}", re));
 
-                    LogHelper.Info(string.Format("运行状态-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult, ret, DateTime.Now.ToString()));
+                    LogHelper.Info(string.Format("自动化线-运行状态-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult, ret, DateTime.Now.ToString()));
                 }
                 else
                 {
-                    LogHelper.Error("运行状态-执行失败");
+                    LogHelper.Error("自动化线-运行状态-执行失败");
                 }
                 #endregion
             }
