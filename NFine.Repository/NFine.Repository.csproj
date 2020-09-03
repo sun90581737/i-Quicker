@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutomationLine\DataAcquisitionDetailRepository.cs" />
     <Compile Include="AutomationLine\DataAcquisitionRepository.cs" />
     <Compile Include="AutomationLine\RunningStateRepository.cs" />
     <Compile Include="OperationMonitoring\BOCapacityLoadRepository.cs" />

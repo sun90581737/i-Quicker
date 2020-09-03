@@ -322,6 +322,20 @@ VALUES('CNC4米克朗P700','运行中','/Content/img/product/collection/cnc1.png','red
 INSERT INTO [dbo].[Sys_DataAcquisition]([DeviceName],[DeviceRunStatus],[DeviceUrl],[DeviceLndicatorLight],[TodayOutput],[TodayJiadong],[SpindleSpeed],[FeedSpeed],[SpindleRatio],[FeedRatio],[LoadRatio])
 VALUES('CNC5发那科','运行中','/Content/img/product/collection/cnc1.png','green',10,48.3,9790,110,100,70,6)
 
+CREATE TABLE Sys_DataAcquisitionDetail --数据采集(刷新频率较高)
+(
+	id int identity (1,1) primary KEY,
+	RunTime DATETIME, --回放时间
+	DeviceName varchar(50)  NULL,--设备名
+	SpindleSpeed INT, --主轴转速
+	FeedSpeed INT,--进给速度
+	SpindleRatio INT, -- 主轴倍率
+	FeedRatio INT, --进给倍率
+	LoadRatio INT, --负载
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+
 
 CREATE TABLE Sys_TotalCycleCost --经营概览:周期总生产成本
 (

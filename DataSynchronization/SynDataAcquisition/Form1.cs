@@ -52,15 +52,33 @@ namespace SynDataAcquisition
                 {
                     int ret = ds.DeleteSql(string.Format("UPDATE nfinebase.Sys_DataAcquisition SET IsEffective=0 where id<{0}", re));
                     //频率太高
-                    //LogHelper.Info(string.Format("自动化线-数据采集-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult, ret, DateTime.Now.ToString()));
+                    //LogHelper.Info(string.Format("自动化线-数据采集Sys_DataAcquisition-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult, ret, DateTime.Now.ToString()));
                 }
                 else
                 {
-                    LogHelper.Error("自动化线-数据采集-执行失败");
+                    LogHelper.Error("自动化线-数据采集Sys_DataAcquisition-执行失败");
                 }
                 #endregion
 
                 #region 数据采集 --2分钟刷一次
+                int re2 = 0;
+                DbService ds2 = new DbService(EnStr, "MySQL");
+                string srt2 = string.Format(@"INSERT INTO nfinebase.Sys_DataAcquisitionDetail(RunTime,DeviceName,SpindleSpeed,FeedSpeed,SpindleRatio,FeedRatio,LoadRatio,CreationTime)
+                (
+	                 SELECT run_time,device_name,spindle_speed,feed_speed,spindle_override,feed_override,spindle_load,now() FROM mes_center.r03_data_collect 
+                     where run_time IS NOT NULL AND run_time>DATE_ADD(NOW(), INTERVAL {0} MINUTE)  ORDER BY run_time ASC
+                )", Synminute);
+                int sult2 = ds2.InsertSql(srt2, out re2);
+                if (sult2 > 0)
+                {
+                    int ret2 = ds2.DeleteSql(string.Format("UPDATE nfinebase.Sys_DataAcquisitionDetail SET IsEffective=0 where id<{0}", re2));
+
+                    //LogHelper.Info(string.Format("自动化线-数据采集Sys_DataAcquisitionDetail-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult2, ret2, DateTime.Now.ToString()));
+                }
+                else
+                {
+                    LogHelper.Error("自动化线-数据采集Sys_DataAcquisitionDetail-执行失败");
+                }
                 #endregion
             }
             catch (Exception ex)
