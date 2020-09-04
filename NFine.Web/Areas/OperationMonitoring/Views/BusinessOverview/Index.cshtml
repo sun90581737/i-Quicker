@@ -41,6 +41,14 @@
         loadFour();
         loadFive();
     }
+    window.setInterval(function () {
+        loadOne1a();
+        loadOne1b();
+        loadTwo();
+        gridList();
+        loadThree();
+        loadFour();
+    }, 1000 * 60 * 30);
     //function selectType(obj) {
     //    loadOne1a();
     //    loadOne1b();
@@ -582,11 +590,12 @@
             .size([width, height]);
 
         force.start();
+        d3.selectAll("svg").remove();
         var padding = {left:-150, right:-10, top:0, bottom:-10};
-
         var svg = d3.select("#d3_temp").append("svg")
             .attr("width", width)
             .attr("height", height);
+        
 
         //var ball = svg.selectAll("circle")
         //  .data(nodes.slice(1))
@@ -600,8 +609,8 @@
         //  .attr("fill", "red")
         //  .attr("transform","translate(" + padding.left + "," + padding.top + ")");
 
-
-        var ball = svg.selectAll("g")
+        var ball
+        ball = svg.selectAll("g")
             .data(nodes.slice(1));
     
         var elemEnter = ball.enter()

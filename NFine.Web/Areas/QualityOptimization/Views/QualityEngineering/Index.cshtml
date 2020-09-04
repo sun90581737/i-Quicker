@@ -41,6 +41,15 @@
         loadFourY();
         loadFour();
     }
+    window.setInterval(function () {
+        loadOne();
+        loadTwo();
+        gridList();
+        loadThree();
+        loadFourX();
+        loadFourY();
+        loadFour();
+    }, 1000 * 60 * 5);
     function loadOne() {
         var listDeviceType = new Array();
         var listDeviceName = new Array();

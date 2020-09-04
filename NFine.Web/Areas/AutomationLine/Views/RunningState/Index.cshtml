@@ -192,17 +192,20 @@
                 <div style="color:#ffffff;position:relative;top:-32px;left:22px;">取消</div><div><div style="background: url('../../../../Content/js/pages/img/jdt.png') 0 0 / 100% 100% no-repeat;top:-49px;left:15px;border: 1px transparent solid;margin:4px auto;position: relative;width:160px; height: 10px; border-radius: 12px;"><div id="yis6" style="white-space:pre-line;width: 50%;height: 100%;background-color:#01ffff;border-radius: 3px;"></div></div></div>
             </div>
             <div class="temp3">
-                <div id="tl1" style="width:45px;height:18px;background:#FF0000;color:#000000;font-size:14px;text-align:center;border-radius:5px;">未开始</div>
+                @*注意：当下DIV中的颜色与同步程序中的Config保持一致*@
+                <div id="tl1" style="width:45px;height:18px;background:#c8c8c8;color:#000000;font-size:14px;text-align:center;border-radius:5px;">离线</div>
                 <br />
-                <div id="tl2" style="width:45px;height:18px;background:#00FF00;color:#000000;font-size:14px;text-align:center;border-radius:5px;">进行中</div>
+                <div id="tl2" style="width:45px;height:18px;background:#0865e3;color:#000000;font-size:14px;text-align:center;border-radius:5px;">待机</div>
                 <br />
-                <div id="tl3" style="width:45px;height:18px;background:#0000FF;color:#000000;font-size:14px;text-align:center;border-radius:5px;">已完成</div>
+                <div id="tl3" style="width:45px;height:18px;background:#23ab33;color:#000000;font-size:14px;text-align:center;border-radius:5px;">运行中</div>
                 <br />
-                <div id="tl4" style="width:45px;height:18px;background:#00FFFF;color:#000000;font-size:14px;text-align:center;border-radius:5px;">异常</div>
+                <div id="tl4" style="width:45px;height:18px;background:#ffc000;color:#000000;font-size:14px;text-align:center;border-radius:5px;">暂停</div>
                 <br />
-                <div id="tl5" style="width:45px;height:18px;background:#FF00FF;color:#000000;font-size:14px;text-align:center;border-radius:5px;">停止</div>
+                <div id="tl5" style="width:45px;height:18px;background:#ee5d5d;color:#000000;font-size:14px;text-align:center;border-radius:5px;">报警</div>
                 <br />
-                <div id="tl6" style="width:45px;height:18px;background:#C0C0C0;color:#000000;font-size:14px;text-align:center;border-radius:5px;">取消</div>
+                <div id="tl6" style="width:45px;height:18px;background:#0fcdfd;color:#000000;font-size:14px;text-align:center;border-radius:5px;">未就绪</div>
+                <br />
+                <div id="tl7" style="width:45px;height:18px;background:#fc9711;color:#000000;font-size:14px;text-align:center;border-radius:5px;">停止</div>
             </div>
         </div>
     @*</div>*@
@@ -229,7 +232,7 @@
     function S() {
         window.setInterval(function () {
             ImgLoading(false);
-        }, 1000 * 10);
+        }, 1000 * 60 * 30);
     }
     function ImgLoading(first) {
         $.ajax({
@@ -288,14 +291,7 @@
                 $("#dis4").css("background-color", strs0[3]);
                 $("#dis5").css("background-color", strs0[4]);
                 $("#dis6").css("background-color", strs0[5]);
-                //图例
-                $("#tl1").css("background-color", strs0[0]);
-                $("#tl2").css("background-color", strs0[1]);
-                $("#tl3").css("background-color", strs0[2]);
-                $("#tl4").css("background-color", strs0[3]);
-                $("#tl5").css("background-color", strs0[4]);
-                $("#tl6").css("background-color", strs0[5]);
-
+                
                 var strs1 = new Array();
                 strs1 = item.Describe8.split(";");
                 var Sum2 = Number(strs1[0]) + Number(strs1[1]) + Number(strs1[2]) + Number(strs1[3]) + Number(strs1[4]) + Number(strs1[5]);
@@ -314,6 +310,14 @@
                 $("#yis4").css("background-color", strs2[3]);
                 $("#yis5").css("background-color", strs2[4]);
                 $("#yis6").css("background-color", strs2[5]);
+
+                //图例 状态默认
+                //$("#tl1").css("background-color", strs0[0]);
+                //$("#tl2").css("background-color", strs0[1]);
+                //$("#tl3").css("background-color", strs0[2]);
+                //$("#tl4").css("background-color", strs0[3]);
+                //$("#tl5").css("background-color", strs0[4]);
+                //$("#tl6").css("background-color", strs0[5]);
 
 
                 if (first) {  // 第一次初始化 直接取值

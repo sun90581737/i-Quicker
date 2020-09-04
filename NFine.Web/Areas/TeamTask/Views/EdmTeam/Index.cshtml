@@ -45,17 +45,14 @@
 
         $("div").removeClass("ui-paging-info");//移除分页显示不全的文字
     }
-    //自动刷新1小时一次
-    var timer = window.setInterval(function () {
+    window.setInterval(function () {
         $("#OngridList").trigger("reloadGrid");
-    }, 1000 * 60);
-    var timer = window.setInterval(function () {
         $("#gridList").trigger("reloadGrid");
-    }, 1000 * 60);
+    }, 1000 * 60 * 5);
     window.setInterval(function () {
         echart01();
         echart02();
-    }, 1000 * 60);
+    }, 1000 * 60 * 30);
     function OngridList() {
         var $OngridList = $("#OngridList");
         $OngridList.dataGrid({
