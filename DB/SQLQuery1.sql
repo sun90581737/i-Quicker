@@ -573,10 +573,14 @@ CREATE TABLE Sys_UserEngineering --工程主页:员工工程表
 	NormalProgressColor VARCHAR(10),
 	ScheduleDelay INT,--进度延误
 	ScheduleDelayColor VARCHAR(10),
+	IsManage BIT , --0为员工，1为经理
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )
-INSERT INTO Sys_UserEngineering(Account,CustomerAmount,CustomerAmountColor,DeliveryCompletionRate,DeliveryCompletionRateColor,OnTimeDeliveryMold,OnTimeDeliveryMoldColor,LateDeliveryMold,LateDeliveryMoldColor,MoldInProcess,MoldInProcessColor,NormalProgress,NormalProgressColor,ScheduleDelay,ScheduleDelayColor)VALUES('admin',5,'#0ce7ff',89,'#0ce7ff',9,'#0ce7ff',2,'#0ce7ff',10,'#0ce7ff',7,'#0ce7ff',3,'#0ce7ff')
+INSERT INTO Sys_UserEngineering(Account,CustomerAmount,CustomerAmountColor,DeliveryCompletionRate,DeliveryCompletionRateColor,OnTimeDeliveryMold,OnTimeDeliveryMoldColor,LateDeliveryMold,LateDeliveryMoldColor,MoldInProcess,MoldInProcessColor,NormalProgress,NormalProgressColor,ScheduleDelay,ScheduleDelayColor,IsManage)VALUES
+('88',5,'#0ce7ff',89,'#0ce7ff',9,'#0ce7ff',2,'#0ce7ff',10,'#0ce7ff',7,'#0ce7ff',3,'#0ce7ff',1)
+INSERT INTO Sys_UserEngineering(Account,CustomerAmount,CustomerAmountColor,DeliveryCompletionRate,DeliveryCompletionRateColor,OnTimeDeliveryMold,OnTimeDeliveryMoldColor,LateDeliveryMold,LateDeliveryMoldColor,MoldInProcess,MoldInProcessColor,NormalProgress,NormalProgressColor,ScheduleDelay,ScheduleDelayColor,IsManage)VALUES
+('admin',20,'#0ce7ff',89,'#0ce7ff',9,'#0ce7ff',2,'#0ce7ff',10,'#0ce7ff',7,'#0ce7ff',3,'#0ce7ff',0)
 
 CREATE TABLE Sys_EHDeliveryCompletionRate --工程主页:交期达成率趋势
 (
@@ -945,8 +949,114 @@ INSERT INTO Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate
 
 --工程主页 延期模具:EarlyWarning，当前未设置值，要设置为三个值（颜色忽略）
 
+----------------------------------------------------------------------------------------
+CREATE table Sys_QualityOInspectionPlan  --品质工程:检测计划
+(  
+id int identity (1,1) primary key , 
+MoldNumber varchar(50)  NULL,--模具号
+Edition varchar(50)  NULL,--版本
+PartNumber varchar(50)  NULL,--零件编号
+InspectionProcess varchar(50)  NULL,--检测工序
+LastProcess varchar(50)  NULL,--上道工序
+Start_Time DATETIME, --开始时间
+END_Time DATETIME, --结束时间
+Colour varchar(50)  NULL,  --颜色
+CreationTime DATETIME not null default getdate(),--创建时间
+IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_QualityOInspectionPlan(MoldNumber,Edition,PartNumber,InspectionProcess,LastProcess,Start_Time,END_Time,Colour)VALUES
+('lk007','T2','123','检测重要尺寸','检测重要尺寸',GETDATE(),GETDATE(),'#F9F900')
+INSERT INTO Sys_QualityOInspectionPlan(MoldNumber,Edition,PartNumber,InspectionProcess,LastProcess,Start_Time,END_Time,Colour)VALUES
+('lk007','T2','123','检测重要尺寸11','检测重要尺寸1',GETDATE(),GETDATE(),'#01B468')
+INSERT INTO Sys_QualityOInspectionPlan(MoldNumber,Edition,PartNumber,InspectionProcess,LastProcess,Start_Time,END_Time,Colour)VALUES
+('lk007','T2','123','检测重要尺寸22','检测重要尺寸2',GETDATE(),GETDATE(),'#01B468')
 
 
 
 
+CREATE TABLE Sys_TLHTotalManHours --班组长主页:报工总工时
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO dbo.Sys_TLHTotalManHours(DeviceType,DeviceName,Number)VALUES  ('员工1','报工总工时',10)
+INSERT INTO dbo.Sys_TLHTotalManHours(DeviceType,DeviceName,Number)VALUES  ('员工2','报工总工时',4)
+INSERT INTO dbo.Sys_TLHTotalManHours(DeviceType,DeviceName,Number)VALUES  ('员工3','报工总工时',6)
+INSERT INTO dbo.Sys_TLHTotalManHours(DeviceType,DeviceName,Number)VALUES  ('员工4','报工总工时',8)
+INSERT INTO dbo.Sys_TLHTotalManHours(DeviceType,DeviceName,Number)VALUES  ('员工5','报工总工时',2)
 
+CREATE TABLE Sys_TLHPassRate --班组长主页:合格率
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO dbo.Sys_TLHPassRate(DeviceType,DeviceName,Number)VALUES  ('员工1','合格率',95)
+INSERT INTO dbo.Sys_TLHPassRate(DeviceType,DeviceName,Number)VALUES  ('员工2','合格率',89)
+INSERT INTO dbo.Sys_TLHPassRate(DeviceType,DeviceName,Number)VALUES  ('员工3','合格率',79)
+INSERT INTO dbo.Sys_TLHPassRate(DeviceType,DeviceName,Number)VALUES  ('员工4','合格率',99)
+INSERT INTO dbo.Sys_TLHPassRate(DeviceType,DeviceName,Number)VALUES  ('员工5','合格率',58)
+
+CREATE TABLE Sys_TLHAttendanceRate --班组长主页:出勤率
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO dbo.Sys_TLHAttendanceRate(DeviceType,DeviceName,Number)VALUES  ('员工1','出勤率',95)
+INSERT INTO dbo.Sys_TLHAttendanceRate(DeviceType,DeviceName,Number)VALUES  ('员工2','出勤率',89)
+INSERT INTO dbo.Sys_TLHAttendanceRate(DeviceType,DeviceName,Number)VALUES  ('员工3','出勤率',79)
+INSERT INTO dbo.Sys_TLHAttendanceRate(DeviceType,DeviceName,Number)VALUES  ('员工4','出勤率',99)
+INSERT INTO dbo.Sys_TLHAttendanceRate(DeviceType,DeviceName,Number)VALUES  ('员工5','出勤率',50)
+
+CREATE TABLE Sys_TLHTeamPerformance --班组长主页:班组绩效成绩
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO dbo.Sys_TLHTeamPerformance(DeviceType,DeviceName,Number)VALUES  ('班组1','绩效成绩',95)
+INSERT INTO dbo.Sys_TLHTeamPerformance(DeviceType,DeviceName,Number)VALUES  ('班组2','绩效成绩',89)
+INSERT INTO dbo.Sys_TLHTeamPerformance(DeviceType,DeviceName,Number)VALUES  ('班组3','绩效成绩',79)
+INSERT INTO dbo.Sys_TLHTeamPerformance(DeviceType,DeviceName,Number)VALUES  ('班组4','绩效成绩',99)
+INSERT INTO dbo.Sys_TLHTeamPerformance(DeviceType,DeviceName,Number)VALUES  ('班组5','绩效成绩',50)
+INSERT INTO dbo.Sys_TLHTeamPerformance(DeviceType,DeviceName,Number)VALUES  ('班组6','绩效成绩',60)
+INSERT INTO dbo.Sys_TLHTeamPerformance(DeviceType,DeviceName,Number)VALUES  ('班组7','绩效成绩',40)
+INSERT INTO dbo.Sys_TLHTeamPerformance(DeviceType,DeviceName,Number)VALUES  ('班组8','绩效成绩',80)
+INSERT INTO dbo.Sys_TLHTeamPerformance(DeviceType,DeviceName,Number)VALUES  ('班组9','绩效成绩',100)
+INSERT INTO dbo.Sys_TLHTeamPerformance(DeviceType,DeviceName,Number)VALUES  ('班组10','绩效成绩',0)
+INSERT INTO dbo.Sys_TLHTeamPerformance(DeviceType,DeviceName,Number)VALUES  ('班组11','绩效成绩',10)
+
+
+CREATE table Sys_TLHTeamTask  --班组长主页:班组任务
+(  
+id int identity (1,1) primary key , 
+MoldNo varchar(50)  NULL, --模具编号
+PartNumber  varchar(50)  NULL,--零件编号
+PlannedEquipment varchar(50)  NULL,--计划设备
+StartTime DATETIME, --开始时间
+ENDTime DATETIME, --结束时间
+LatestStartTime DATETIME,--最晚开始时间
+WorkingHours varchar(50)  NULL,--标准工时
+Customer  varchar(50)  NULL,--客户
+MoldKernelMaterial varchar(50)  NULL,--模仁材质
+Category varchar(50)  NULL,--类别
+Colour varchar(50)  NULL,  --灯的颜色
+IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)  
+
+INSERT INTO Sys_TLHTeamTask(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,MoldKernelMaterial ,Category ,Colour)
+VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,8407 ,2 ,'#006600')
