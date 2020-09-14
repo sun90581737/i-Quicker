@@ -337,7 +337,7 @@ CREATE TABLE Sys_DataAcquisitionDetail --数据采集(刷新频率较高)
 )
 
 
-CREATE TABLE Sys_TotalCycleCost --经营概览:周期总生产成本
+CREATE TABLE Sys_TotalCycleCost --经营概览:周期总生产成本（经理主页）
 (
 	id int identity (1,1) primary KEY,
 	Name varchar(50)  NULL,--物品
@@ -359,7 +359,7 @@ INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('自制',25,100.
 INSERT dbo.Sys_TotalCycleCost(Name,Cost,TotalCost,PrType)VALUES  ('异常',25,100.36,2,GETDATE())
 
 
-CREATE TABLE Sys_CostByDepartment --经营概览:自制成本按部门分类
+CREATE TABLE Sys_CostByDepartment --经营概览:自制成本按部门分类（经理主页）
 (
 	id int identity (1,1) primary KEY,
 	Name varchar(50)  NULL,--物品
@@ -1060,3 +1060,44 @@ IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 
 INSERT INTO Sys_TLHTeamTask(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,MoldKernelMaterial ,Category ,Colour)
 VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,8407 ,2 ,'#006600')
+
+
+CREATE TABLE Sys_FATotalCycleCost --财务分析:周期总生产成本
+(
+	id int identity (1,1) primary KEY,
+	Name varchar(50)  NULL,--物品
+	Cost FLOAT , --成本
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT dbo.Sys_FATotalCycleCost(Name,Cost,AcctDate)VALUES  ('物料',27,'2020-09-11')
+INSERT dbo.Sys_FATotalCycleCost(Name,Cost,AcctDate)VALUES  ('外协',18,'2020-09-12')
+INSERT dbo.Sys_FATotalCycleCost(Name,Cost,AcctDate)VALUES  ('自制',53,'2020-09-13')
+INSERT dbo.Sys_FATotalCycleCost(Name,Cost,AcctDate)VALUES  ('异常',2,'2020-09-14')
+INSERT dbo.Sys_FATotalCycleCost(Name,Cost,AcctDate)VALUES  ('物料',27,'2020-09-15')
+INSERT dbo.Sys_FATotalCycleCost(Name,Cost,AcctDate)VALUES  ('外协',18,'2020-09-16')
+INSERT dbo.Sys_FATotalCycleCost(Name,Cost,AcctDate)VALUES  ('自制',53,'2020-09-17')
+INSERT dbo.Sys_FATotalCycleCost(Name,Cost,AcctDate)VALUES  ('异常',2,'2020-09-18')
+
+
+CREATE TABLE Sys_FACostByDepartment --财务分析:自制成本按部门分类
+(
+	id int identity (1,1) primary KEY,
+	Name varchar(50)  NULL,--物品
+	Cost FLOAT  , --成本
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT dbo.Sys_FACostByDepartment(Name,Cost,AcctDate)VALUES  ('CNC',23,'2020-09-11')
+INSERT dbo.Sys_FACostByDepartment(Name,Cost,AcctDate)VALUES  ('EDM',26,'2020-09-12')
+INSERT dbo.Sys_FACostByDepartment(Name,Cost,AcctDate)VALUES  ('WEDM',17,'2020-09-13')
+INSERT dbo.Sys_FACostByDepartment(Name,Cost,AcctDate)VALUES  ('车铣磨抛',34,'2020-09-14')
+INSERT dbo.Sys_FACostByDepartment(Name,Cost,AcctDate)VALUES  ('CNC',23,'2020-09-15')
+INSERT dbo.Sys_FACostByDepartment(Name,Cost,AcctDate)VALUES  ('EDM',26,'2020-09-16')
+INSERT dbo.Sys_FACostByDepartment(Name,Cost,AcctDate)VALUES  ('WEDM',17,'2020-09-17')
+INSERT dbo.Sys_FACostByDepartment(Name,Cost,AcctDate)VALUES  ('车铣磨抛',34,'2020-09-18')
+
+
+SELECT * FROM	Sys_DataAcquisition 

@@ -26,7 +26,7 @@ namespace NFine.Repository.AutomationLine
             }
             var GetDateTime= DateTime.Now.AddMinutes(-1);
             StringBuilder strSql = new StringBuilder();
-            strSql.Append(@"SELECT * FROM  nfinebase.Sys_DataAcquisitionDetail 
+            strSql.Append(@"SELECT * FROM  Sys_DataAcquisitionDetail 
             where IsEffective=1 AND RunTime between @starttime and @endtime  GROUP BY DeviceName");
             DbParameter[] parameter =
             {
