@@ -1258,6 +1258,48 @@ IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 INSERT INTO Sys_SHToScheduleList(MoldNumber,PartNumber,PlannedEquipment,StartTime,ENDTime,WorkingHours,Customer,MoldKernelMaterial,ListType)VALUES
 ('ILK9007','253055','GF01',GETDATE() ,GETDATE(),2,'Ineer','84.7',1)
 INSERT INTO Sys_SHToScheduleList(MoldNumber,PartNumber,PlannedEquipment,StartTime,ENDTime,WorkingHours,Customer,MoldKernelMaterial,ListType)VALUES
-INSERT INTO Sys_SHToScheduleList(MoldNumber,PartNumber,PlannedEquipment,StartTime,ENDTime,WorkingHours,Customer,MoldKernelMaterial,ListType)VALUES
 ('ILK9007','253055','GF01',GETDATE() ,GETDATE(),2,'Ineer','84.7',2)
 
+
+CREATE TABLE Sys_MHInventoryProfile --物料主页：库存概况
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--合格率
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO dbo.Sys_MHInventoryProfile(DeviceType,DeviceName,Number)VALUES  ('CNC钢料A组','产能',300)
+INSERT INTO dbo.Sys_MHInventoryProfile(DeviceType,DeviceName,Number)VALUES  ('CNC钢料A组','负荷',200)
+INSERT INTO dbo.Sys_MHInventoryProfile(DeviceType,DeviceName,Number)VALUES  ('CNC钢料B组','产能',320)
+INSERT INTO dbo.Sys_MHInventoryProfile(DeviceType,DeviceName,Number)VALUES  ('CNC钢料B组','负荷',120)
+INSERT INTO dbo.Sys_MHInventoryProfile(DeviceType,DeviceName,Number)VALUES  ('CNC电极组','产能',40)
+INSERT INTO dbo.Sys_MHInventoryProfile(DeviceType,DeviceName,Number)VALUES  ('CNC电极组','负荷',200)
+INSERT INTO dbo.Sys_MHInventoryProfile(DeviceType,DeviceName,Number)VALUES  ('EDM放电A组','产能',220)
+INSERT INTO dbo.Sys_MHInventoryProfile(DeviceType,DeviceName,Number)VALUES  ('EDM放电A组','负荷',280)
+INSERT INTO dbo.Sys_MHInventoryProfile(DeviceType,DeviceName,Number)VALUES  ('EDM放电B组','产能',250)
+INSERT INTO dbo.Sys_MHInventoryProfile(DeviceType,DeviceName,Number)VALUES  ('EDM放电B组','负荷',200)
+INSERT INTO dbo.Sys_MHInventoryProfile(DeviceType,DeviceName,Number)VALUES  ('钳工A组','产能',300)
+INSERT INTO dbo.Sys_MHInventoryProfile(DeviceType,DeviceName,Number)VALUES  ('钳工A组','负荷',200)
+
+CREATE table Sys_MHWorkpieceList  --物料主页:待备料工件清单 Or 外协工件清单
+(  
+id int identity (1,1) primary key , 
+MoldNumber varchar(50)  NULL,--模具号
+PartNumber varchar(50)  NULL,--零件编号
+PlannedEquipment varchar(50)  NULL,--计划设备
+StartTime DATETIME, --开始时间
+ENDTime DATETIME, --结束时间
+WorkingHours varchar(50)  NULL,--标准工时
+Customer  varchar(50)  NULL,--客户
+MoldKernelMaterial varchar(50)  NULL,--模仁材质
+ListType INT,--清单类型  1:待备料工件清单  2:外协工件清单 
+CreationTime DATETIME not null default getdate(),--创建时间
+IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+
+INSERT INTO Sys_MHWorkpieceList(MoldNumber,PartNumber,PlannedEquipment,StartTime,ENDTime,WorkingHours,Customer,MoldKernelMaterial,ListType)VALUES
+('ILK9007','253055','GF01',GETDATE() ,GETDATE(),2,'Ineer','84.7',1)
+INSERT INTO Sys_MHWorkpieceList(MoldNumber,PartNumber,PlannedEquipment,StartTime,ENDTime,WorkingHours,Customer,MoldKernelMaterial,ListType)VALUES
+('ILK9007','253055','GF01',GETDATE() ,GETDATE(),2,'Ineer','84.7',2)

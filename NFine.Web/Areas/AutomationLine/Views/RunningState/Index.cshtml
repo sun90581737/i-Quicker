@@ -272,16 +272,26 @@
                     text: item.Describe6,
                     color: item.DescribeColor6,
                 });
-
+                debugger;
                 var strs = new Array();
                 strs = item.Describe7.split(";");
                 var Sum = Number(strs[0]) + Number(strs[1]) + Number(strs[2]) + Number(strs[3]) + Number(strs[4]) + Number(strs[5]);
-                $("#dis1").css("width", strs[0] / Sum * 100 + "%");
-                $("#dis2").css("width", strs[1] / Sum * 100 + "%");
-                $("#dis3").css("width", strs[2] / Sum * 100 + "%");
-                $("#dis4").css("width", strs[3] / Sum * 100 + "%");
-                $("#dis5").css("width", strs[4] / Sum * 100 + "%");
-                $("#dis6").css("width", strs[5] / Sum * 100 + "%");
+                if (Sum > 0) {
+                    $("#dis1").css("width", strs[0] / Sum * 100 + "%");
+                    $("#dis2").css("width", strs[1] / Sum * 100 + "%");
+                    $("#dis3").css("width", strs[2] / Sum * 100 + "%");
+                    $("#dis4").css("width", strs[3] / Sum * 100 + "%");
+                    $("#dis5").css("width", strs[4] / Sum * 100 + "%");
+                    $("#dis6").css("width", strs[5] / Sum * 100 + "%");
+                } else {
+                    $("#dis1").css("width", strs[0] + "%");
+                    $("#dis2").css("width", strs[1] + "%");
+                    $("#dis3").css("width", strs[2] + "%");
+                    $("#dis4").css("width", strs[3] + "%");
+                    $("#dis5").css("width", strs[4] + "%");
+                    $("#dis6").css("width", strs[5] + "%");
+                }
+                
 
                 var strs0 = new Array();
                 strs0 = item.DescribeColor7.split(";");
@@ -295,12 +305,21 @@
                 var strs1 = new Array();
                 strs1 = item.Describe8.split(";");
                 var Sum2 = Number(strs1[0]) + Number(strs1[1]) + Number(strs1[2]) + Number(strs1[3]) + Number(strs1[4]) + Number(strs1[5]);
-                $("#yis1").css("width", strs1[0] / Sum * 100 + "%");
-                $("#yis2").css("width", strs1[1] / Sum * 100 + "%");
-                $("#yis3").css("width", strs1[2] / Sum * 100 + "%");
-                $("#yis4").css("width", strs1[3] / Sum * 100 + "%");
-                $("#yis5").css("width", strs1[4] / Sum * 100 + "%");
-                $("#yis6").css("width", strs1[5] / Sum * 100 + "%");
+                if (Sum2 > 0) {
+                    $("#yis1").css("width", strs1[0] / Sum2 * 100 + "%");
+                    $("#yis2").css("width", strs1[1] / Sum2 * 100 + "%");
+                    $("#yis3").css("width", strs1[2] / Sum2 * 100 + "%");
+                    $("#yis4").css("width", strs1[3] / Sum2 * 100 + "%");
+                    $("#yis5").css("width", strs1[4] / Sum2 * 100 + "%");
+                    $("#yis6").css("width", strs1[5] / Sum2 * 100 + "%");
+                } else {
+                    $("#yis1").css("width", strs1[0] + "%");
+                    $("#yis2").css("width", strs1[1] + "%");
+                    $("#yis3").css("width", strs1[2] + "%");
+                    $("#yis4").css("width", strs1[3] + "%");
+                    $("#yis5").css("width", strs1[4] + "%");
+                    $("#yis6").css("width", strs1[5] + "%");
+                }
 
                 var strs2 = new Array();
                 strs2 = item.DescribeColor8.split(";");
