@@ -196,7 +196,7 @@ namespace SynProductionManageHome
                 DbService ds8 = new DbService(EnStr, "MySQL");
                 string srt8 = string.Format(@"INSERT INTO nfinebase.Sys_PMHomeJiadongRate(Month_Day,Device_Name,TrendRate,CreationTime)
                     (
-                            SELECT acct_date, dept_name, activation, now()  from mes_center.c08_activation_curve
+                            SELECT acct_date, dept_name, activation*100, now()  from mes_center.c08_activation_curve
                                WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 YEAR), '%Y-%m-%d') and acct_date <= CURDATE()
                     )");
                 int sult8 = ds8.InsertSql(srt8, out re8);

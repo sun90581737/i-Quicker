@@ -310,7 +310,7 @@
         var option = {
             tooltip: {
                 trigger: 'item',
-                formatter: "{b} : ({c}%)"
+                formatter: "{b} :{c} : ({d}%)"
             },
             legend: {
                 itemWidth: 10,  //图例标记的图形宽度
@@ -336,7 +336,7 @@
                         normal: { //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
                             label: {  //饼图图形上的文本标签
                                 show: true,  //平常不显示
-                                formatter: '{c}%',
+                                formatter: '{d}%',
                                 position: 'inner'
                             },
                             labelLine: {     //标签的视觉引导线样式
@@ -479,9 +479,9 @@
                 },
                 { label: '模具名称', name: 'MoldName', width: 120, align: 'center' },
                 { label: '模具编号', name: 'MoldNo', width: 120, align: 'center' },
-                { label: 'TN', name: 'TN', width: 120, align: 'center' },
-                { label: '客户', name: 'CustomerName', width: 120, align: 'center' },
-                { label: '内部负责人', name: 'ContactPerson', width: 120, align: 'center' },
+                { label: 'TN', name: 'CustomerName', width: 120, align: 'center' },
+                { label: '客户', name: 'ContactPerson', width: 120, align: 'center' },
+                { label: '内部负责人', name: 'TN', width: 120, align: 'center' },
                 { label: '类型', name: 'MoldType', width: 120, align: 'center' },
                 { label: '状态', name: 'MoldState', width: 120, align: 'center' },
                 {
@@ -489,7 +489,7 @@
                     formatter: "date", formatoptions: { srcformat: 'Y-m-d', newformat: 'Y-m-d' }
                 },
                 { label: '模仁材质', name: 'MoldMaterial', width: 120, align: 'center' },
-                { label: '类别', name: 'Category', width: 120, align: 'center', sortable: false }
+                //{ label: '类别', name: 'Category', width: 120, align: 'center', sortable: false }
             ],
             //pager: "#gridPager",
             sortname: 'MoldNo desc',

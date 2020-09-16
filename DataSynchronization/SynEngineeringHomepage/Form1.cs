@@ -64,7 +64,7 @@ namespace SynEngineeringHomepage
                 DbService ds2 = new DbService(EnStr, "MySQL");
                 string srt2 = string.Format(@"INSERT INTO nfinebase.Sys_EHDeliveryCompletionRate(Month,DeliveryRate,CreationTime)
                     (
-                        SELECT acct_date, plan_finished_rate, now() from mes_center.d02_scheduled_rate
+                        SELECT acct_date, plan_finished_rate*100, now() from mes_center.d02_scheduled_rate
                             WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 YEAR), '%Y-%m-%d') and acct_date <= date_format(CURDATE(),'%Y-%m')
                     )");
                 int sult2 = ds2.InsertSql(srt2, out re2);

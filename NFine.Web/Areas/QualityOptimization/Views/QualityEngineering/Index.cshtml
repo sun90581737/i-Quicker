@@ -511,16 +511,17 @@
             success: function (da) {
                 $(da).each(function (index, item) {
                     if (item.Month_Day != "") {
-                        listMonthDay.push(item.Month_Day);
+                        listMonthDay.push(item.Month_Day.substring(5,7));
                         listDeviceName.push(item.Device_Name);
                         listAll.push(item);
                     }
                 })
             }
         });
-        $.unique(listMonthDay);//日期
+        $.unique(listMonthDay.sort());//日期
         $.unique(listDeviceName.sort());//设备名字
-
+           
+       
         var series = [];
         $.each(listDeviceName, function (index, value) {
             var tempName = new Array();
@@ -622,7 +623,7 @@
                 },
                 axisLabel: {
                     interval: 0,
-                    rotate: 40,
+                    rotate: 0,
                     textStyle: {
                         fontSize: '11'
                     }

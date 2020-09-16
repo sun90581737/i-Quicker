@@ -84,7 +84,7 @@
         // 指定图表的配置项和数据
         var option = {
             title: {//标题组件
-                text: '￥' + TotalCost + '万',
+                text: '￥' + Math.round(TotalCost / 10000) + '万',
                 top: '35%',
                 left: '40%',
                 textStyle: {
@@ -95,7 +95,7 @@
             },
             tooltip: { //提示框组件
                 trigger: 'item', //触发类型(饼状图片就是用这个)
-                formatter: "{b} : ({c}%)"//"{a} <br/>{b} : {c} ({d}%)" //提示框浮层内容格式器
+                formatter: "{b} :{c} : ({d}%)"//"{a} <br/>{b} : {c} ({d}%)" //提示框浮层内容格式器
             },
             color: ['#f3961d', '#f15d5d', '#0867e9', '#0fcdfd'],  //手动设置每个图例的颜色
             legend: {  //图例组件
@@ -126,7 +126,7 @@
                             borderColor: '#092848',
                             label: {  //饼图图形上的文本标签
                                 show: true,  //平常不显示
-                                formatter: '{c}%',
+                                formatter: '{d}%',
                                 position: 'inner'
                             },
                             labelLine: {     //标签的视觉引导线样式
@@ -180,7 +180,7 @@
             //},
             tooltip: {
                 trigger: 'item',
-                formatter: "{b} : ({c}%)"
+                formatter: "{b} :{c} : ({d}%)"
             },
             legend: {
                 //orient: 'vertical',
@@ -207,7 +207,7 @@
                         normal: { //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
                             label: {  //饼图图形上的文本标签
                                 show: true,  //平常不显示
-                                formatter: '{c}%',
+                                formatter: '{d}%',
                                 position: 'inner'
                             },
                             labelLine: {     //标签的视觉引导线样式
@@ -474,7 +474,7 @@
                 formatter: function (params) {
                     var relVal = params[0].name;
                     for (var i = 0, l = params.length; i < l; i++) {
-                        relVal += '<br/>' + params[i].marker + params[i].seriesName + ' : ' + params[i].value + "%";
+                        relVal += '<br/>' + params[i].marker + params[i].seriesName + ' : ' + params[i].value;
                     }
                     return relVal;
                 }

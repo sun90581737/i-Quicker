@@ -1100,4 +1100,164 @@ INSERT dbo.Sys_FACostByDepartment(Name,Cost,AcctDate)VALUES  ('WEDM',17,'2020-09
 INSERT dbo.Sys_FACostByDepartment(Name,Cost,AcctDate)VALUES  ('车铣磨抛',34,'2020-09-18')
 
 
-SELECT * FROM	Sys_DataAcquisition 
+CREATE TABLE Sys_FACostAnalysis --财务分析:客户成本分析
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户一','报价',5000,'2020-09-15')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户一','实际',7000,'2020-09-15')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户二','报价',2000,'2020-09-15')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户二','实际',1111,'2020-09-15')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户三','报价',3000,'2020-09-15')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户三','实际',2222,'2020-09-15')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户四','报价',4000,'2020-09-15')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户四','实际',3333,'2020-09-15')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户五','报价',6000,'2020-09-15')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户五','实际',4444,'2020-09-15')
+
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户一','报价',1111,'2020-09-16')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户一','实际',2222,'2020-09-16')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户二','报价',3333,'2020-09-16')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户二','实际',4444,'2020-09-16')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户三','报价',5555,'2020-09-16')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户三','实际',6666,'2020-09-16')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户四','报价',7777,'2020-09-16')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户四','实际',8888,'2020-09-16')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户五','报价',9999,'2020-09-16')
+INSERT INTO dbo.Sys_FACostAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户五','实际',1000,'2020-09-16')
+
+
+CREATE TABLE Sys_FACostAnalysisNotCust --财务分析:成本分析
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户一','报价',5000,'2020-09-15')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户一','预估',6000,'2020-09-15')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户一','实际',7000,'2020-09-15')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户二','报价',2000,'2020-09-15')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户二','预估',3000,'2020-09-15')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户二','实际',1111,'2020-09-15')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户三','报价',3000,'2020-09-15')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户三','报价',4000,'2020-09-15')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户三','实际',2222,'2020-09-15')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户四','报价',4000,'2020-09-15')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户四','预估',5000,'2020-09-15')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户四','实际',3333,'2020-09-15')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户五','报价',6000,'2020-09-15')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户五','预估',7000,'2020-09-15')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户五','实际',4444,'2020-09-15')
+
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户一','报价',1111,'2020-09-16')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户一','预估',2111,'2020-09-16')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户一','实际',2222,'2020-09-16')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户二','报价',3333,'2020-09-16')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户二','预估',4333,'2020-09-16')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户二','实际',4444,'2020-09-16')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户三','报价',5555,'2020-09-16')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户三','预估',6555,'2020-09-16')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户三','实际',6666,'2020-09-16')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户四','报价',7777,'2020-09-16')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户四','预估',8777,'2020-09-16')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户四','实际',8888,'2020-09-16')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户五','报价',9999,'2020-09-16')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户五','预估',1999,'2020-09-16')
+INSERT INTO Sys_FACostAnalysisNotCust(DeviceType,DeviceName,Number,AcctDate)VALUES  ('客户五','实际',1000,'2020-09-16')
+
+CREATE TABLE Sys_FACostShare --财务分析:外协自制成本占比
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_FACostShare(DeviceType,DeviceName,Number)VALUES  ('CNC01','产能',95)
+INSERT INTO Sys_FACostShare(DeviceType,DeviceName,Number)VALUES  ('CNC01','负荷',100)
+INSERT INTO Sys_FACostShare(DeviceType,DeviceName,Number)VALUES  ('CNC02','产能',88)
+INSERT INTO Sys_FACostShare(DeviceType,DeviceName,Number)VALUES  ('CNC02','负荷',100)
+INSERT INTO Sys_FACostShare(DeviceType,DeviceName,Number)VALUES  ('CNC03','产能',50)
+INSERT INTO Sys_FACostShare(DeviceType,DeviceName,Number)VALUES  ('CNC03','负荷',30)
+INSERT INTO Sys_FACostShare(DeviceType,DeviceName,Number)VALUES  ('CNC04','产能',30)
+INSERT INTO Sys_FACostShare(DeviceType,DeviceName,Number)VALUES  ('CNC04','负荷',25)
+INSERT INTO Sys_FACostShare(DeviceType,DeviceName,Number)VALUES  ('CNC05','产能',60)
+INSERT INTO Sys_FACostShare(DeviceType,DeviceName,Number)VALUES  ('CNC05','负荷',90)
+
+CREATE table Sys_FACostComparison  --财务分析:成本对比表
+(  
+id int identity (1,1) primary key , 
+Customer varchar(50)  NULL, --客户
+MoldNo varchar(50)  NULL,--模具编号
+MoldName varchar(50)  NULL,--模具名称
+ReceivingDate DATE, --接单日期
+DeliveryDate DATE, --交付交期
+QuotedPrice FLOAT, --报价
+QuotationStaff varchar(50)  NULL,--报价人员
+ProcessEstimation FLOAT, --工艺预估
+ActualCost FLOAT, --实际成本
+DifferenceAmount varchar(50)  NULL,--差异金额
+DifferenceRatio varchar(50)  NULL,--差异比例
+CreationTime DATETIME not null default getdate(),--创建时间
+IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_FACostComparison(Customer,MoldNo,MoldName,ReceivingDate,DeliveryDate,QuotedPrice,QuotationStaff,ProcessEstimation,ActualCost,DifferenceAmount,DifferenceRatio)VALUES
+('APPLE','216[TO]','x12中框',GETDATE(),GETDATE(),100000,'报价员',90000,110000,10000,'10%')
+
+
+CREATE TABLE Sys_SHDepartmentLoad --排程主页：各部门负载
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--合格率
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO dbo.Sys_SHDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('CNC钢料A组','产能',300)
+INSERT INTO dbo.Sys_SHDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('CNC钢料A组','负荷',200)
+INSERT INTO dbo.Sys_SHDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('CNC钢料B组','产能',320)
+INSERT INTO dbo.Sys_SHDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('CNC钢料B组','负荷',120)
+INSERT INTO dbo.Sys_SHDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('CNC电极组','产能',40)
+INSERT INTO dbo.Sys_SHDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('CNC电极组','负荷',200)
+INSERT INTO dbo.Sys_SHDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('EDM放电A组','产能',220)
+INSERT INTO dbo.Sys_SHDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('EDM放电A组','负荷',280)
+INSERT INTO dbo.Sys_SHDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('EDM放电B组','产能',250)
+INSERT INTO dbo.Sys_SHDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('EDM放电B组','负荷',200)
+INSERT INTO dbo.Sys_SHDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('钳工A组','产能',300)
+INSERT INTO dbo.Sys_SHDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('钳工A组','负荷',200)
+
+CREATE table Sys_SHToScheduleList  --排程主页:待排程版本清单 Or 超期的版本预期清单
+(  
+id int identity (1,1) primary key , 
+MoldNumber varchar(50)  NULL,--模具号
+PartNumber varchar(50)  NULL,--零件编号
+PlannedEquipment varchar(50)  NULL,--计划设备
+StartTime DATETIME, --开始时间
+ENDTime DATETIME, --结束时间
+WorkingHours varchar(50)  NULL,--标准工时
+Customer  varchar(50)  NULL,--客户
+MoldKernelMaterial varchar(50)  NULL,--模仁材质
+ListType INT,--清单类型  1:待排程版本清单  2:超期的版本预期清单 
+CreationTime DATETIME not null default getdate(),--创建时间
+IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+
+INSERT INTO Sys_SHToScheduleList(MoldNumber,PartNumber,PlannedEquipment,StartTime,ENDTime,WorkingHours,Customer,MoldKernelMaterial,ListType)VALUES
+('ILK9007','253055','GF01',GETDATE() ,GETDATE(),2,'Ineer','84.7',1)
+INSERT INTO Sys_SHToScheduleList(MoldNumber,PartNumber,PlannedEquipment,StartTime,ENDTime,WorkingHours,Customer,MoldKernelMaterial,ListType)VALUES
+INSERT INTO Sys_SHToScheduleList(MoldNumber,PartNumber,PlannedEquipment,StartTime,ENDTime,WorkingHours,Customer,MoldKernelMaterial,ListType)VALUES
+('ILK9007','253055','GF01',GETDATE() ,GETDATE(),2,'Ineer','84.7',2)
+
