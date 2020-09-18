@@ -110,7 +110,7 @@
                     label: '稼动率', name: 'Jiadong', width: 80, align: 'left',
                     formatter: function (cellvalue, row, index) {
                         if (index.Jiadong != null) {
-                            return '<span style="float:left;margin-left:10px;">' + index.Jiadong * 100 + '%' + '</span>';
+                            return '<span style="float:left;margin-left:10px;">' + Math.round(index.Jiadong * 100) + '%' + '</span>';
                         }
                         else {
                             return '<span style="float:left;margin-left:10px;"></span>';

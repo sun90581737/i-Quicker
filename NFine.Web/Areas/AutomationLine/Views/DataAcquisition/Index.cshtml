@@ -394,10 +394,12 @@
             myChart.setOption(option, true);
             //clearInterval(timeTicket);
             //var timeTicket = setInterval(function () {
-            //    //option.series[0].max = data.maxThread;
-            //    option.series[0].max = 30000;
-            //    option.series[0].data[0].value = (Math.random() * 30000).toFixed(2) - 0;
-            //    myChart.setOption(option, true);
+            //    if (tempCount) {
+            //        //option.series[0].max = data.maxThread;
+            //        option.series[0].max = 30000;
+            //        option.series[0].data[0].value = (Math.random() * 468).toFixed(0) - 0 + tempCount;//30000/2/2/2/2/2/2
+            //        myChart.setOption(option, true);
+            //    }
             //}, 2000)
         }
         function loadFeed(divId, tempCount) {
@@ -470,12 +472,14 @@
                 ]
             };
             myChart.setOption(option1);
-            //clearInterval(timeTicket);
+            //window.clearInterval(timeTicket);
             //var timeTicket = setInterval(function () {
-            //    option1.series[0].max = 10000;
-            //    option1.series[0].data[0].value = (Math.random() * 10000).toFixed(2) - 0;
-            //    myChart.setOption(option1, true);
-            //}, 2000)
+            //    if (tempCount) {
+            //        option1.series[0].max = 10000;
+            //        option1.series[0].data[0].value = (Math.random() * 156).toFixed(0) - 0 + tempCount;//10000/2/2/2/2/2/2
+            //        myChart.setOption(option1, true);
+            //    }
+            //}, 2000);
         }
         window.setInterval(function () {
             LoadAllData();
@@ -504,9 +508,15 @@
                                     $("#b1").text("暂停");
                                     $("#div1").css({ "background-image": "linear-gradient(#ffc000, #0b3447)" });
                                 }
-                                $("#h1").text(item.SpindleRatio);
-                                $("#i1").text(item.FeedRatio);
-                                $("#j1").text(item.LoadRatio + "%");
+                                if (item.SpindleRatio != null) {
+                                    $("#h1").text(item.SpindleRatio);
+                                }
+                                if (item.FeedRatio != null) {
+                                    $("#i1").text(item.FeedRatio);
+                                }
+                                if (item.LoadRatio != null) {
+                                    $("#j1").text(item.LoadRatio + "%");
+                                }
                             }
                             else if (item.DeviceName == "CNC2发那科") {
                                 loadSpindle("maina2", item.SpindleSpeed);
@@ -519,9 +529,15 @@
                                     $("#b2").text("暂停");
                                     $("#div2").css({ "background-image": "linear-gradient(#ffc000, #0b3447)" });
                                 }
-                                $("#h2").text(item.SpindleRatio);
-                                $("#i2").text(item.FeedRatio);
-                                $("#j2").text(item.LoadRatio + "%");
+                                if (item.SpindleRatio != null) {
+                                    $("#h2").text(item.SpindleRatio);
+                                }
+                                if (item.FeedRatio != null) {
+                                    $("#i2").text(item.FeedRatio);
+                                }
+                                if (item.LoadRatio != null) {
+                                    $("#j2").text(item.LoadRatio + "%");
+                                }
                             } else if (item.DeviceName == "CNC3发那科") {
                                 loadSpindle("maina3", item.SpindleSpeed);
                                 loadFeed("mainb3", item.FeedSpeed);
@@ -533,9 +549,15 @@
                                     $("#b3").text("暂停");
                                     $("#div3").css({ "background-image": "linear-gradient(#ffc000, #0b3447)" });
                                 }
-                                $("#h3").text(item.SpindleRatio);
-                                $("#i3").text(item.FeedRatio);
-                                $("#j3").text(item.LoadRatio + "%");
+                                if (item.SpindleRatio != null) {
+                                    $("#h3").text(item.SpindleRatio);
+                                }
+                                if (item.FeedRatio != null) {
+                                    $("#i3").text(item.FeedRatio);
+                                }
+                                if (item.LoadRatio != null) {
+                                    $("#j3").text(item.LoadRatio + "%");
+                                }
                             }
                         })
                     }

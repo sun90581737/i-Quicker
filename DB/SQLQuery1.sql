@@ -1303,3 +1303,136 @@ INSERT INTO Sys_MHWorkpieceList(MoldNumber,PartNumber,PlannedEquipment,StartTime
 ('ILK9007','253055','GF01',GETDATE() ,GETDATE(),2,'Ineer','84.7',1)
 INSERT INTO Sys_MHWorkpieceList(MoldNumber,PartNumber,PlannedEquipment,StartTime,ENDTime,WorkingHours,Customer,MoldKernelMaterial,ListType)VALUES
 ('ILK9007','253055','GF01',GETDATE() ,GETDATE(),2,'Ineer','84.7',2)
+
+
+
+CREATE TABLE Sys_EMEquipmentStatus--设备管理:设备状态分布
+(
+	id int identity (1,1) primary KEY,
+	Type varchar(50)  NULL,--类型
+	Cost INT , --成本
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT dbo.Sys_EMEquipmentStatus(Type,Cost)VALUES('正常',18)
+INSERT dbo.Sys_EMEquipmentStatus(Type,Cost)VALUES('维护',4) 
+INSERT dbo.Sys_EMEquipmentStatus(Type,Cost)VALUES('故障',4)
+INSERT dbo.Sys_EMEquipmentStatus(Type,Cost)VALUES('报废',2) 
+
+
+CREATE table Sys_EMEquipmentList--设备管理:设备清单
+(  
+	id int identity (1,1) primary key , 
+	Number varchar(50)  NULL,--编号
+	Name varchar(50)  NULL,--名称
+	Brand varchar(50)  NULL,--标准工时
+	Department  varchar(50)  NULL,--部门
+	State varchar(50)  NULL,--状态
+	DateArrival DATE,--入场日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO  Sys_EMEquipmentList(Number,Name,Brand,Department,State,DateArrival)VALUES('20OC2003','车铣','车铣','技术部','加工中',GETDATE())
+
+CREATE table Sys_EMMaintainPlan--设备管理:保养计划
+(  
+	id int identity (1,1) primary key , 
+	EquipmentNumber varchar(50)  NULL,--设备编号
+	EquipmentName varchar(50)  NULL,--设备名称
+	Department  varchar(50)  NULL,--部门
+	MaintainPlan varchar(50)  NULL,--保养计划
+	MaintainType varchar(50)  NULL,--保养类型
+	PlanStartTime DATE,--计划开始时间
+	PlanEndTime DATE,--计划结束时间
+	Remarks varchar(200)  NULL,--保养备注
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_EMMaintainPlan(EquipmentNumber,EquipmentName,Department,MaintainPlan,MaintainType,PlanStartTime,PlanEndTime,Remarks)VALUES
+('EDM01','放电机01号','电火花组','EDM月度保养','月度保养',GETDATE(),GETDATE(),'')
+
+CREATE table Sys_EMMaintainHistory--设备管理:保养历史
+(  
+	id int identity (1,1) primary key , 
+	EquipmentNumber varchar(50)  NULL,--设备编号
+	EquipmentName varchar(50)  NULL,--设备名称
+	Department  varchar(50)  NULL,--部门
+	MaintainPlan varchar(50)  NULL,--保养计划
+	MaintainType varchar(50)  NULL,--保养类型
+	MaintainPersonnel varchar(50)  NULL,--保养人员
+	MaintainTime DATE,--保养时间
+	MaintainRecord varchar(200)  NULL,--保养记录
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_EMMaintainHistory(EquipmentNumber,EquipmentName,Department,MaintainPlan,MaintainType,MaintainPersonnel,MaintainTime,MaintainRecord)VALUES
+('EDM01','放电机01号','电火花组','EDM月度保养','月度保养','001',GETDATE(),'')
+
+
+
+CREATE TABLE Sys_EMMaintainAnalysis--设备管理:维修分析
+(
+	id int identity (1,1) primary KEY,
+	Type varchar(50)  NULL,--类型
+	Cost INT , --成本
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT dbo.Sys_EMMaintainAnalysis(Type,Cost)VALUES('CNC01',3)
+INSERT dbo.Sys_EMMaintainAnalysis(Type,Cost)VALUES('CNC02',4) 
+INSERT dbo.Sys_EMMaintainAnalysis(Type,Cost)VALUES('EDM01',2)
+INSERT dbo.Sys_EMMaintainAnalysis(Type,Cost)VALUES('EDM02',2) 
+
+
+
+
+CREATE TABLE Sys_EMMaintainAnalysisDepartment --设备管理:维修分析(部门)
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	AcctDate DATE,--数据日期  ---  月 季（3个月）  半年  年
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_EMMaintainAnalysisDepartment(DeviceType,DeviceName,Number,AcctDate)VALUES  ('CNC钢材A组','维修分析(部门)',3,GETDATE())
+INSERT INTO Sys_EMMaintainAnalysisDepartment(DeviceType,DeviceName,Number,AcctDate)VALUES  ('CNC钢材B组','维修分析(部门)',14,GETDATE())
+INSERT INTO Sys_EMMaintainAnalysisDepartment(DeviceType,DeviceName,Number,AcctDate)VALUES  ('EDM钢材A组','维修分析(部门)',10,GETDATE())
+INSERT INTO Sys_EMMaintainAnalysisDepartment(DeviceType,DeviceName,Number,AcctDate)VALUES  ('EDM钢材B组','维修分析(部门)',6,GETDATE())
+INSERT INTO Sys_EMMaintainAnalysisDepartment(DeviceType,DeviceName,Number,AcctDate)VALUES  ('钳工A组','维修分析(部门)',14,GETDATE())
+
+CREATE TABLE Sys_EMMaintainAnalysisReason --设备管理:维修分析(原因)
+(
+	id int identity (1,1) primary KEY,
+	Name varchar(50)  NULL,--物品
+	Cost FLOAT , --成本
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT Sys_EMMaintainAnalysisReason(Name,Cost)VALUES  ('电器',40)
+INSERT Sys_EMMaintainAnalysisReason(Name,Cost)VALUES  ('机械',20)
+INSERT Sys_EMMaintainAnalysisReason(Name,Cost)VALUES  ('人为',20)
+INSERT Sys_EMMaintainAnalysisReason(Name,Cost)VALUES  ('系统',20)
+
+CREATE table Sys_EMMaintainRecords--设备管理:维修记录表
+(  
+	id int identity (1,1) primary key , 
+	RepairOrderNo varchar(50)  NULL,--报修单号
+	RepairDepartment varchar(50)  NULL,--报修部门
+	RepairEquipment  varchar(50)  NULL,--报修设备
+	RepairPersonnel varchar(50)  NULL,--报修人员
+	FaultDescription varchar(50)  NULL,--故障描述
+	ServiceNumber varchar(50)  NULL,--维修编号
+	ServiceType varchar(50)  NULL,--维修类型
+	Supplier varchar(50)  NULL,--维修人员/外修供应商
+	FaultCategory varchar(50)  NULL,--故障类别
+	MaintainPrice FLOAT,--外修价格
+	State varchar(50)  NULL,--状态
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_EMMaintainRecords(RepairOrderNo,RepairDepartment,RepairEquipment,RepairPersonnel,FaultDescription,ServiceNumber,ServiceType,Supplier,FaultCategory,MaintainPrice,State)VALUES
+('BX190613001','加工中心','CNC03','张山','无法开机','WX190614003','内修','赵四','电气故障',3000,'已修好')
+INSERT INTO Sys_EMMaintainRecords(RepairOrderNo,RepairDepartment,RepairEquipment,RepairPersonnel,FaultDescription,ServiceNumber,ServiceType,Supplier,FaultCategory,MaintainPrice,State)VALUES
+('BX190613001','火花机','EDM05','张山','快要爆炸了','WX190614003','外修','LOL英雄联盟','机械故障',10000,'已修好')

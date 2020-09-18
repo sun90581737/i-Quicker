@@ -109,9 +109,9 @@ namespace SynProductionManageHome
                 string srt4 = string.Format(@"INSERT INTO nfinebase.Sys_PMHomeOutsourcingRate(Type,Cost,CreationTime)
                     (
                           SELECT * From(
-		                    SELECT '按期' Type,COUNT(CASE WHEN delay_days=0 THEN 1 ELSE 0 END) Cost,now()  from mes_center.c05_wx_plan_bill  where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+		                    SELECT '按期' Type,SUM(CASE WHEN delay_days=0 THEN 1 ELSE 0 END) Cost,now()  from mes_center.c05_wx_plan_bill  where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
 		                    UNION ALL
-		                    SELECT '延期' Type,COUNT(CASE WHEN delay_days>0 THEN 1 ELSE 0 END) Cost,now()  from mes_center.c05_wx_plan_bill  where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+		                    SELECT '延期' Type,SUM(CASE WHEN delay_days>0 THEN 1 ELSE 0 END) Cost,now()  from mes_center.c05_wx_plan_bill  where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
                             )b
                     )");
                 int sult4 = ds4.InsertSql(srt4, out re4);
