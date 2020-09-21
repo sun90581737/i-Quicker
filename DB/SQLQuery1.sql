@@ -1436,3 +1436,61 @@ INSERT INTO Sys_EMMaintainRecords(RepairOrderNo,RepairDepartment,RepairEquipment
 ('BX190613001','加工中心','CNC03','张山','无法开机','WX190614003','内修','赵四','电气故障',3000,'已修好')
 INSERT INTO Sys_EMMaintainRecords(RepairOrderNo,RepairDepartment,RepairEquipment,RepairPersonnel,FaultDescription,ServiceNumber,ServiceType,Supplier,FaultCategory,MaintainPrice,State)VALUES
 ('BX190613001','火花机','EDM05','张山','快要爆炸了','WX190614003','外修','LOL英雄联盟','机械故障',10000,'已修好')
+
+
+CREATE TABLE Sys_PHProgressAnalysis --计划主页：计划与实际进度分析
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--合格率
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_PHProgressAnalysis(DeviceType,DeviceName,Number)VALUES  ('CNC钢料A组','计划进度',82)
+INSERT INTO Sys_PHProgressAnalysis(DeviceType,DeviceName,Number)VALUES  ('CNC钢料A组','实际进度',58)
+INSERT INTO Sys_PHProgressAnalysis(DeviceType,DeviceName,Number)VALUES  ('CNC钢料B组','计划进度',86)
+INSERT INTO Sys_PHProgressAnalysis(DeviceType,DeviceName,Number)VALUES  ('CNC钢料B组','实际进度',34)
+INSERT INTO Sys_PHProgressAnalysis(DeviceType,DeviceName,Number)VALUES  ('CNC电极组','计划进度',18)
+INSERT INTO Sys_PHProgressAnalysis(DeviceType,DeviceName,Number)VALUES  ('CNC电极组','实际进度',58)
+INSERT INTO Sys_PHProgressAnalysis(DeviceType,DeviceName,Number)VALUES  ('EDM放电A组','计划进度',75)
+INSERT INTO Sys_PHProgressAnalysis(DeviceType,DeviceName,Number)VALUES  ('EDM放电A组','实际进度',82)
+INSERT INTO Sys_PHProgressAnalysis(DeviceType,DeviceName,Number)VALUES  ('EDM放电B组','计划进度',72)
+INSERT INTO Sys_PHProgressAnalysis(DeviceType,DeviceName,Number)VALUES  ('EDM放电B组','实际进度',58)
+INSERT INTO Sys_PHProgressAnalysis(DeviceType,DeviceName,Number)VALUES  ('钳工A组','计划进度',82)
+INSERT INTO Sys_PHProgressAnalysis(DeviceType,DeviceName,Number)VALUES  ('钳工A组','实际进度',58)
+
+
+CREATE table Sys_PHCustomerList  --计划主页:客户清单
+(  
+id int identity (1,1) primary key , 
+CustomerName varchar(50)  NULL, --客户名
+CustomerCode  varchar(50)  NULL,--客户代码
+CustomerContact varchar(50)  NULL,--客户联系人
+LeadingCadre varchar(50)  NULL,--内部负责人
+DeliveryRate varchar(50)  NULL,--交付率
+MouldNumber INT,--在制模具数量
+NormalMold  INT,--进度正常模具
+DelayMould  INT,--延期模具
+Colour varchar(50)  NULL,  --灯的颜色
+CreationTime DATETIME not null default getdate(),--创建时间
+IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)  
+INSERT INTO Sys_PHCustomerList(CustomerName,CustomerCode,CustomerContact,LeadingCadre,DeliveryRate,MouldNumber,NormalMold,DelayMould,Colour)VALUES
+('TH','IK19003','张','张三','89%',12,10,2,'#006600')
+INSERT INTO Sys_PHCustomerList(CustomerName,CustomerCode,CustomerContact,LeadingCadre,DeliveryRate,MouldNumber,NormalMold,DelayMould,Colour)VALUES
+('TF','IK19004','李','张四','97%',12,10,2,'#FF0000')
+
+
+CREATE TABLE Sys_QEHAbnormalStatistics --品质工程师主页:异常处理结果统计、比例
+(
+	id int identity (1,1) primary KEY,
+	Name varchar(50)  NULL,--物品
+	Cost FLOAT , --成本
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT Sys_QEHAbnormalStatistics(Name,Cost)VALUES  ('特采',18)
+INSERT Sys_QEHAbnormalStatistics(Name,Cost)VALUES  ('报废',18)
+INSERT Sys_QEHAbnormalStatistics(Name,Cost)VALUES  ('返修',10)
+INSERT Sys_QEHAbnormalStatistics(Name,Cost)VALUES  ('返工',8)

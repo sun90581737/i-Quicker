@@ -1,0 +1,14 @@
+Sys_DataAcquisition  3秒            数据采集 
+
+5分钟     品质工程
+Sys_TaskList  --班组:任务清单  5分钟 
+Sys_EquipmentList  --班组:设备清单   5分钟 
+
+Sys_DataAcquisitionDetail 10分钟   数据采集 
+
+Sys_CapacityLoad --班组:产能/负荷 30分钟
+Sys_Trend --班组:稼动率趋势   30分钟
+Sys_RunningState  30分钟    运行状态
+30分钟   经营概览
+30分钟   工程主页
+30分钟   生管主页
