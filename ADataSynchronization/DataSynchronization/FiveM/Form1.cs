@@ -126,8 +126,8 @@ namespace FiveM
                 #region 设备清单-班组任务
                 int el = 0;
                 DbService elser = new DbService(EnStr, "MySQL");
-                string elsrt = string.Format(@"INSERT INTO test_nfinebase.sys_equipmentlist(Equipment_Name,Equipment_Url,Workpieces_Name,Workpieces_Url,Yield,Jiadong,Team,Colour,CreationTime)
-                    (SELECT device_name,device_pic_url,part_name,part_pic_url,process_count,activation,dept_name,CASE WHEN device_state=-1 THEN '{0}' WHEN device_state=0 THEN '{1}' 
+                string elsrt = string.Format(@"INSERT INTO test_nfinebase.sys_equipmentlist(Equipment_Name,Equipment_Url,Mold_No,Workpieces_Name,Workpieces_Url,Yield,Jiadong,Team,Colour,CreationTime)
+                    (SELECT device_name,device_pic_url,mold_no,part_name,part_pic_url,process_count,activation,dept_name,CASE WHEN device_state=-1 THEN '{0}' WHEN device_state=0 THEN '{1}' 
                     WHEN device_state=1 THEN '{2}' WHEN device_state=2 THEN '{3}' ELSE '' END device_state ,now() from test_mes_center.b02_device_running_state 
                     where (dept_name='CNC班组' OR dept_name='CNC') {4})",
                     cnccolourdr1, cnccolourdr2, cnccolourdr3, cnccolourdr4, cnclimitdr);
@@ -145,8 +145,8 @@ namespace FiveM
 
                 int el1 = 0;
                 DbService elser1 = new DbService(EnStr, "MySQL");
-                string elsrt1 = string.Format(@"INSERT INTO test_nfinebase.sys_equipmentlist(Equipment_Name,Equipment_Url,Workpieces_Name,Workpieces_Url,Yield,Jiadong,Team,Colour,CreationTime)
-                    (SELECT device_name,device_pic_url,part_name,part_pic_url,process_count,activation,dept_name,CASE WHEN device_state=-1 THEN '{0}' WHEN device_state=0 THEN '{1}' 
+                string elsrt1 = string.Format(@"INSERT INTO test_nfinebase.sys_equipmentlist(Equipment_Name,Equipment_Url,Mold_No,Workpieces_Name,Workpieces_Url,Yield,Jiadong,Team,Colour,CreationTime)
+                    (SELECT device_name,device_pic_url,mold_no,part_name,part_pic_url,process_count,activation,dept_name,CASE WHEN device_state=-1 THEN '{0}' WHEN device_state=0 THEN '{1}' 
                     WHEN device_state=1 THEN '{2}' WHEN device_state=2 THEN '{3}' ELSE '' END device_state ,now() from test_mes_center.b02_device_running_state 
                     where (dept_name='EDM班组' OR dept_name='EDM') {4})",
                     edmcolourdr1, edmcolourdr2, edmcolourdr3, edmcolourdr4, edmlimitdr);
@@ -164,8 +164,8 @@ namespace FiveM
 
                 int el2 = 0;
                 DbService elser2 = new DbService(EnStr, "MySQL");
-                string elsrt2 = string.Format(@"INSERT INTO test_nfinebase.sys_equipmentlist(Equipment_Name,Equipment_Url,Workpieces_Name,Workpieces_Url,Yield,Jiadong,Team,Colour,CreationTime)
-                    (SELECT device_name,device_pic_url,part_name,part_pic_url,process_count,activation,dept_name,CASE WHEN device_state=-1 THEN '{0}' WHEN device_state=0 THEN '{1}' 
+                string elsrt2 = string.Format(@"INSERT INTO test_nfinebase.sys_equipmentlist(Equipment_Name,Equipment_Url,Mold_No,Workpieces_Name,Workpieces_Url,Yield,Jiadong,Team,Colour,CreationTime)
+                    (SELECT device_name,device_pic_url,mold_no,part_name,part_pic_url,process_count,activation,dept_name,CASE WHEN device_state=-1 THEN '{0}' WHEN device_state=0 THEN '{1}' 
                     WHEN device_state=1 THEN '{2}' WHEN device_state=2 THEN '{3}' ELSE '' END device_state ,now() from test_mes_center.b02_device_running_state 
                     where (dept_name='WE班组' OR dept_name='WE') {4})",
                     wecolourdr1, wecolourdr2, wecolourdr3, wecolourdr4, welimitdr);

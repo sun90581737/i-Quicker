@@ -11,6 +11,7 @@ namespace NFine.Domain._03_Entity.TeamTask
         public int? id { get; set; }
         public string Equipment_Name { get; set; }
         public string Equipment_Url { get; set; }
+        public string Mold_No { get; set; }
         public string Workpieces_Name { get; set; }
         public string Workpieces_Url { get; set; }
         public string Yield { get; set; }

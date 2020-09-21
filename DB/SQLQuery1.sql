@@ -83,6 +83,7 @@ CREATE table Sys_EquipmentList  --班组:设备清单
 id int identity (1,1) primary KEY,
 Equipment_Name varchar(50)  NULL,--设备名
 Equipment_Url varchar(200)  NULL,--设备Url
+Mold_No       varchar(50)  NULL, --模具编号
 Workpieces_Name varchar(50)  NULL,--加工件名
 Workpieces_Url varchar(200)  NULL, --加工件Url
 Yield  varchar(10)  NULL, --今日产量
