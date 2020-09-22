@@ -131,8 +131,12 @@
         echarts.graphic.registerShape('CubeLeft', CubeLeft)
         echarts.graphic.registerShape('CubeRight', CubeRight)
         echarts.graphic.registerShape('CubeTop', CubeTop)
-
-        const MAX = [100, 100, 100, 100, 100, 100]
+        
+        const MAX = [];
+        for (var i in tempArry) {
+            MAX.push(100);
+        }
+        //const MAX = [100, 100, 100, 100, 100, 100]
         const VALUE = tempArry
 
         option = {
@@ -529,7 +533,7 @@
             $.each(listAll, function (index1, value1) {
                 if (value == value1.Device_Name) {
                     tempName = value1.Device_Name;
-                    tempArry.push(Math.round(value1.TrendRate * 100));
+                    tempArry.push(Math.round(value1.TrendRate));
                 }
             });
             //var getRandomColor = function () {
