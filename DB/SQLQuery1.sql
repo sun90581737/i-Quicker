@@ -1483,7 +1483,7 @@ INSERT INTO Sys_PHCustomerList(CustomerName,CustomerCode,CustomerContact,Leading
 ('TF','IK19004','李','张四','97%',12,10,2,'#FF0000')
 
 
-CREATE TABLE Sys_QEHAbnormalStatistics --品质工程师主页:异常处理结果统计、比例
+CREATE TABLE Sys_QEHAbnormalProportion --品质工程师主页:异常处理结果比例
 (
 	id int identity (1,1) primary KEY,
 	Name varchar(50)  NULL,--物品
@@ -1491,7 +1491,74 @@ CREATE TABLE Sys_QEHAbnormalStatistics --品质工程师主页:异常处理结果统计、比例
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )
-INSERT Sys_QEHAbnormalStatistics(Name,Cost)VALUES  ('特采',18)
-INSERT Sys_QEHAbnormalStatistics(Name,Cost)VALUES  ('报废',18)
-INSERT Sys_QEHAbnormalStatistics(Name,Cost)VALUES  ('返修',10)
-INSERT Sys_QEHAbnormalStatistics(Name,Cost)VALUES  ('返工',8)
+INSERT Sys_QEHAbnormalProportion(Name,Cost)VALUES  ('特采',18)
+INSERT Sys_QEHAbnormalProportion(Name,Cost)VALUES  ('报废',18)
+INSERT Sys_QEHAbnormalProportion(Name,Cost)VALUES  ('返修',10)
+INSERT Sys_QEHAbnormalProportion(Name,Cost)VALUES  ('返工',8)
+
+
+CREATE table Sys_QEHAbnormalStatistics--品质工程师主页:异常处理结果统计
+(  
+	id int identity (1,1) primary key , 
+	MouldNo varchar(50)  NULL,--模具单号
+	ModuleNumber varchar(50)  NULL,--模号
+	PartNumber varchar(50)  NULL,--工件号
+	AbnormalJobNumber  varchar(50)  NULL,--异常工号
+	TreatmentMethod varchar(50)  NULL,--处理方式
+	AcctDate DATE,--处理时间
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO  Sys_QEHAbnormalStatistics(MouldNo,ModuleNumber,PartNumber,AbnormalJobNumber,TreatmentMethod,AcctDate)VALUES('T2','IK007','新填','边模','返工',GETDATE())
+
+CREATE TABLE Sys_QEHAbnormalRatio--品质工程师主页:异常严重等级统计、比例
+(
+	id int identity (1,1) primary KEY,
+	Type varchar(50)  NULL,--类型
+	Cost INT , --成本
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT Sys_QEHAbnormalRatio(Type,Cost)VALUES('一级',18)
+INSERT Sys_QEHAbnormalRatio(Type,Cost)VALUES('二级',4) 
+INSERT Sys_QEHAbnormalRatio(Type,Cost)VALUES('三级',4)
+INSERT Sys_QEHAbnormalRatio(Type,Cost)VALUES('四级',2) 
+
+
+CREATE TABLE Sys_QEHAnomaliesNumber --品质工程师主页：异常已处理、待处理数量比例
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--合格率
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_QEHAnomaliesNumber(DeviceType,DeviceName,Number)VALUES  ('CNC钢料A组','产能',7)
+INSERT INTO Sys_QEHAnomaliesNumber(DeviceType,DeviceName,Number)VALUES  ('CNC钢料A组','负荷',5)
+INSERT INTO Sys_QEHAnomaliesNumber(DeviceType,DeviceName,Number)VALUES  ('CNC钢料B组','产能',7)
+INSERT INTO Sys_QEHAnomaliesNumber(DeviceType,DeviceName,Number)VALUES  ('CNC钢料B组','负荷',7)
+INSERT INTO Sys_QEHAnomaliesNumber(DeviceType,DeviceName,Number)VALUES  ('CNC电极组','产能',4)
+INSERT INTO Sys_QEHAnomaliesNumber(DeviceType,DeviceName,Number)VALUES  ('CNC电极组','负荷',2)
+INSERT INTO Sys_QEHAnomaliesNumber(DeviceType,DeviceName,Number)VALUES  ('EDM放电A组','产能',5)
+INSERT INTO Sys_QEHAnomaliesNumber(DeviceType,DeviceName,Number)VALUES  ('EDM放电A组','负荷',6)
+INSERT INTO Sys_QEHAnomaliesNumber(DeviceType,DeviceName,Number)VALUES  ('EDM放电B组','产能',5)
+INSERT INTO Sys_QEHAnomaliesNumber(DeviceType,DeviceName,Number)VALUES  ('EDM放电B组','负荷',6)
+INSERT INTO Sys_QEHAnomaliesNumber(DeviceType,DeviceName,Number)VALUES  ('钳工A组','产能',2)
+INSERT INTO Sys_QEHAnomaliesNumber(DeviceType,DeviceName,Number)VALUES  ('钳工A组','负荷',4)
+
+CREATE table Sys_QEHAnomaliesList--品质工程师主页:待处理异常清单
+(  
+	id int identity (1,1) primary key , 
+	AbnormalOrderNumber varchar(50)  NULL,--异常单号
+	ModuleNumber varchar(50)  NULL,--模号
+	VersionNumber varchar(50)  NULL,--版本号
+	Workpiece  varchar(50)  NULL,--工件
+	WorkingProcedure varchar(50)  NULL,--工序
+	AbnormalCauses  varchar(50)  NULL,--异常原因
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+
+INSERT INTO Sys_QEHAnomaliesList(AbnormalOrderNumber,ModuleNumber,VersionNumber,Workpiece,WorkingProcedure,AbnormalCauses)VALUES
+('8407','IKL9001','01','CNC01','铣床','边模')
