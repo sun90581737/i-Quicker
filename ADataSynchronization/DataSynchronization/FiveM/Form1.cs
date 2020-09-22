@@ -209,7 +209,7 @@ namespace FiveM
                 string srt12 = string.Format(@"INSERT INTO test_nfinebase.Sys_QualityOPassRateTrend(Month_Day,Device_Name,TrendRate,CreationTime)
                     (
 		                    select acct_date,dept_name,pass_rate*100,now() from test_mes_center.e02_dept_pass_month
-		                    WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 YEAR), '%Y-%m-%d') and acct_date <= date_format(CURDATE(),'%Y-%m')
+		                    WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 13 Month), '%Y-%m-%d') and acct_date <= date_format(CURDATE(),'%Y-%m')
                     )");
                 int sult12 = ds12.InsertSql(srt12, out re12);
                 if (sult12 > 0)

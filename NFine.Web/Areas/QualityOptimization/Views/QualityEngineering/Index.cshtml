@@ -515,7 +515,8 @@
             success: function (da) {
                 $(da).each(function (index, item) {
                     if (item.Month_Day != "") {
-                        listMonthDay.push(item.Month_Day.substring(5,7));
+                        debugger
+                        listMonthDay.push(item.Month_Day.substring(2,7));
                         listDeviceName.push(item.Device_Name);
                         listAll.push(item);
                     }
@@ -627,7 +628,7 @@
                 },
                 axisLabel: {
                     interval: 0,
-                    rotate: 0,
+                    rotate: 40,
                     textStyle: {
                         fontSize: '11'
                     }
