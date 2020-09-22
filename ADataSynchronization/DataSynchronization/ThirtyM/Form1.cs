@@ -260,11 +260,11 @@ namespace ThirtyM
                 #region 总生产成本-经营概览
                 int re11 = 0;
                 DbService ds11 = new DbService(EnStr, "MySQL");
+                //SELECT '物料' Name, material_cost Cost, acct_date from test_mes_center.a01_manufacture_all_cost where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                //    UNION ALL
                 string srt11 = string.Format(@"INSERT INTO test_nfinebase.sys_totalcyclecost(Name,Cost,AcctDate,CreationTime)
                     (
                         SELECT Name, Cost, acct_date, now() from(
-                    SELECT '物料' Name, material_cost Cost, acct_date from test_mes_center.a01_manufacture_all_cost where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
-                    UNION ALL
                     SELECT '外协' Name, outsource_cost Cost, acct_date from test_mes_center.a01_manufacture_all_cost where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
                     UNION ALL
                     SELECT '自制' Name, selfmake_cost Cost, acct_date from test_mes_center.a01_manufacture_all_cost where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
