@@ -1562,3 +1562,225 @@ CREATE table Sys_QEHAnomaliesList--品质工程师主页:待处理异常清单
 
 INSERT INTO Sys_QEHAnomaliesList(AbnormalOrderNumber,ModuleNumber,VersionNumber,Workpiece,WorkingProcedure,AbnormalCauses)VALUES
 ('8407','IKL9001','01','CNC01','铣床','边模')
+
+
+
+CREATE table Sys_DHDesignTaskList--设计主页:设计任务清单
+(  
+	id int identity (1,1) primary key , 
+	ModuleNumber varchar(50)  NULL,--模号
+	VersionNumber varchar(50)  NULL,--版本号
+	PlanStartTime DATETIME,--计划开始时间
+	PlanEndTime DATETIME,--计划结束时间
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_DHDesignTaskList(ModuleNumber,VersionNumber,PlanStartTime,PlanEndTime)VALUES('铣床','01',getdate(),getdate())
+
+
+CREATE TABLE Sys_DHDesignReportStatistics --设计主页:设计报工统计
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+
+INSERT INTO Sys_DHDesignReportStatistics(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工1','设计报工统计',10,'2020-09-22')
+INSERT INTO Sys_DHDesignReportStatistics(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工2','设计报工统计',4,'2020-09-22')
+INSERT INTO Sys_DHDesignReportStatistics(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工3','设计报工统计',6,'2020-09-22')
+INSERT INTO Sys_DHDesignReportStatistics(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工4','设计报工统计',8,'2020-09-22')
+INSERT INTO Sys_DHDesignReportStatistics(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工5','设计报工统计',2,'2020-09-22')
+
+INSERT INTO Sys_DHDesignReportStatistics(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工1','设计报工统计',20,'2020-09-23')
+INSERT INTO Sys_DHDesignReportStatistics(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工2','设计报工统计',14,'2020-09-23')
+INSERT INTO Sys_DHDesignReportStatistics(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工3','设计报工统计',16,'2020-09-23')
+INSERT INTO Sys_DHDesignReportStatistics(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工4','设计报工统计',18,'2020-09-23')
+INSERT INTO Sys_DHDesignReportStatistics(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工5','设计报工统计',12,'2020-09-23')
+--Sys_FACostAnalysis
+
+
+CREATE TABLE Sys_DHDesignComparison --设计主页:设计计划与实际对比
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工1','计划',5,'2020-09-22')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工1','实际',7,'2020-09-22')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工2','计划',2,'2020-09-22')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工2','实际',1,'2020-09-22')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工3','计划',3,'2020-09-22')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工3','实际',2,'2020-09-22')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工4','计划',4,'2020-09-22')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工4','实际',3,'2020-09-22')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工5','计划',6,'2020-09-22')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工5','实际',4,'2020-09-22')
+
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工1','计划',5,'2020-09-23')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工1','实际',7,'2020-09-23')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工2','计划',2,'2020-09-23')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工2','实际',1,'2020-09-23')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工3','计划',3,'2020-09-23')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工3','实际',2,'2020-09-23')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工4','计划',4,'2020-09-23')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工4','实际',3,'2020-09-23')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工5','计划',6,'2020-09-23')
+INSERT INTO Sys_DHDesignComparison(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工5','实际',4,'2020-09-23')
+
+--Workload analysis
+
+CREATE TABLE Sys_DHWorkloadAnalysis --设计主页：工作负荷分析
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--合格率
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工1','任务',70,'2020-09-22')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工1','负荷',90,'2020-09-22')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工2','任务',50,'2020-09-22')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工2','负荷',60,'2020-09-22')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工3','任务',40,'2020-09-22')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工3','负荷',20,'2020-09-22')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工4','任务',10,'2020-09-22')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工4','负荷',70,'2020-09-22')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工5','任务',60,'2020-09-22')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工5','负荷',80,'2020-09-22')
+
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工1','任务',70,'2020-09-23')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工1','负荷',90,'2020-09-23')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工2','任务',50,'2020-09-23')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工2','负荷',60,'2020-09-23')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工3','任务',40,'2020-09-23')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工3','负荷',20,'2020-09-23')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工4','任务',10,'2020-09-23')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工4','负荷',70,'2020-09-23')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工5','任务',60,'2020-09-23')
+INSERT INTO Sys_DHWorkloadAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工5','负荷',80,'2020-09-23')
+
+
+
+CREATE table Sys_EHWorkRecord--员工主页:报工记录
+(  
+	id int identity (1,1) primary key , 
+	WorkingProcedure varchar(50)  NULL,--工序
+	Workpiece varchar(50)  NULL,--工件
+	StartTime DATETIME,--开始时间
+	EndTime DATETIME,--结束时间
+	Duration INT,--时长
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_EHWorkRecord(WorkingProcedure,Workpiece,StartTime,EndTime,Duration)VALUES('铣床','/i-quicker/img/product/collection/cnc1.png',getdate(),getdate(),10)
+INSERT INTO Sys_EHWorkRecord(WorkingProcedure,Workpiece,StartTime,EndTime,Duration)VALUES('铣床','D:\img\CNC01.png',getdate(),getdate(),20)
+INSERT INTO Sys_EHWorkRecord(WorkingProcedure,Workpiece,StartTime,EndTime,Duration)VALUES('铣床','',getdate(),getdate(),30)
+
+
+CREATE TABLE Sys_EHTotalWorkHours --员工主页:报工总工时/出勤工时
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+
+INSERT INTO Sys_EHTotalWorkHours(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-10','报工总工时',7,'2020-08-10')
+INSERT INTO Sys_EHTotalWorkHours(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-10','出勤工时',5,'2020-08-10')
+INSERT INTO Sys_EHTotalWorkHours(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-10','报工总工时',1,'2020-08-10')
+INSERT INTO Sys_EHTotalWorkHours(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-10','出勤工时',2,'2020-08-10')
+INSERT INTO Sys_EHTotalWorkHours(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-11','报工总工时',7,'2020-08-11')
+INSERT INTO Sys_EHTotalWorkHours(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-11','出勤工时',7,'2020-08-11')
+INSERT INTO Sys_EHTotalWorkHours(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-12','报工总工时',4,'2020-08-12')
+INSERT INTO Sys_EHTotalWorkHours(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-12','出勤工时',2,'2020-08-12')
+INSERT INTO Sys_EHTotalWorkHours(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-13','报工总工时',4,'2020-08-13')
+INSERT INTO Sys_EHTotalWorkHours(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-13','出勤工时',2,'2020-08-13')
+INSERT INTO Sys_EHTotalWorkHours(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-14','报工总工时',4,'2020-08-14')
+INSERT INTO Sys_EHTotalWorkHours(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-14','出勤工时',2,'2020-08-14')
+INSERT INTO Sys_EHTotalWorkHours(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-15','报工总工时',4,'2020-08-15')
+INSERT INTO Sys_EHTotalWorkHours(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-15','出勤工时',2,'2020-08-15')
+INSERT INTO Sys_EHTotalWorkHours(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-16','报工总工时',4,'2020-08-16')
+INSERT INTO Sys_EHTotalWorkHours(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-16','出勤工时',2,'2020-08-16')
+
+CREATE TABLE Sys_EHPassRate --员工主页:合格率
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_EHPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-10','合格率',95,'2020-08-10')
+INSERT INTO Sys_EHPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-11','合格率',89,'2020-08-11')
+INSERT INTO Sys_EHPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-12','合格率',79,'2020-08-12')
+INSERT INTO Sys_EHPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-13','合格率',99,'2020-08-13')
+INSERT INTO Sys_EHPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-14','合格率',58,'2020-08-14')
+INSERT INTO Sys_EHPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-15','合格率',82,'2020-08-15')
+INSERT INTO Sys_EHPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-16','合格率',20,'2020-08-16')
+
+
+CREATE TABLE Sys_EHMonthlyPerformance --员工主页:合格率
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	Spare varchar(50)  NULL,--备用字段
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_EHMonthlyPerformance(DeviceType,DeviceName,Number)VALUES  ('1','成绩',10)
+INSERT INTO Sys_EHMonthlyPerformance(DeviceType,DeviceName,Number)VALUES  ('2','成绩',89)
+INSERT INTO Sys_EHMonthlyPerformance(DeviceType,DeviceName,Number)VALUES  ('3','成绩',79)
+INSERT INTO Sys_EHMonthlyPerformance(DeviceType,DeviceName,Number)VALUES  ('4','成绩',99)
+INSERT INTO Sys_EHMonthlyPerformance(DeviceType,DeviceName,Number)VALUES  ('5','成绩',58)
+INSERT INTO Sys_EHMonthlyPerformance(DeviceType,DeviceName,Number)VALUES  ('6','成绩',82)
+INSERT INTO Sys_EHMonthlyPerformance(DeviceType,DeviceName,Number)VALUES  ('7','成绩',20)
+INSERT INTO Sys_EHMonthlyPerformance(DeviceType,DeviceName,Number)VALUES  ('8','成绩',100)
+INSERT INTO Sys_EHMonthlyPerformance(DeviceType,DeviceName,Number)VALUES  ('9','成绩',20)
+INSERT INTO Sys_EHMonthlyPerformance(DeviceType,DeviceName,Number)VALUES  ('10','成绩',50)
+INSERT INTO Sys_EHMonthlyPerformance(DeviceType,DeviceName,Number)VALUES  ('11','成绩',20)
+INSERT INTO Sys_EHMonthlyPerformance(DeviceType,DeviceName,Number)VALUES  ('12','成绩',10)
+
+CREATE table Sys_PSWorkmanshipHomeList--工艺主页:列表
+(  
+	id int identity (1,1) primary key , 
+	MoldNo varchar(50)  NULL, --模具编号
+	TENo varchar(50)  NULL, --T/E号
+	MoldType varchar(50)  NULL, --模具类型
+	ModelProtection varchar(50)  NULL, --模保
+	MoldState varchar(50)  NULL, --模具状态
+	StartDate DATE,--开始日期
+	TestDate DATE,--试模日期
+	PartNumber varchar(50)  NULL, --零件编号
+	PartName  varchar(50)  NULL, --零件名称
+	Describe  varchar(200)  NULL, --中文描述
+	Type varchar(50)  NULL, --类型
+	Number  int,--数量
+	MaterialScience varchar(50)  NULL, --材料
+	Hardness varchar(50)  NULL, --硬度
+	Specifications varchar(50)  NULL, --规格
+	Formwork  varchar(50)  NULL, --模架
+	ProductionDeliveryDate varchar(50)  NULL,--生产交期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+
+INSERT INTO Sys_PSWorkmanshipHomeList(MoldNo,TENo,MoldType,ModelProtection,MoldState,StartDate,TestDate,PartNumber,PartName,Describe,Type,Number,
+MaterialScience,Hardness,Specifications,Formwork,ProductionDeliveryDate)VALUES('JDM-06s035','T1','修模','否','正常',GETDATE(),GETDATE(),'102-02',
+'精模型电极','','自制件',1,'','','','否','')
