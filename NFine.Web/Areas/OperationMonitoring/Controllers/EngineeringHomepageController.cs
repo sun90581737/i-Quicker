@@ -109,7 +109,20 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
         {
             var data = new
             {
-                rows = cldApp.GetList(pagination, queryJson).Where(p => p.IsEffective == 1 && p.MoldState!= "已结案"), //p.ListId.ToString() == t &&   级联控制
+                rows = cldApp.GetList(pagination, queryJson).Where(p => p.IsEffective == 1 && p.MoldState!= "已结案" && p.MoldType== "新模"), //p.ListId.ToString() == t &&   级联控制
+                total = pagination.total,
+                page = pagination.page,
+                records = pagination.records
+            };
+            return Content(data.ToJson());
+        }
+        [HttpGet]
+        [HandlerAjaxOnly]
+        public ActionResult GetGridJsonTwo(Pagination pagination, string queryJson)
+        {
+            var data = new
+            {
+                rows = cldApp.GetList(pagination, queryJson).Where(p => p.IsEffective == 1 && p.MoldState != "已结案" && p.MoldType == "修模"), //p.ListId.ToString() == t &&   级联控制
                 total = pagination.total,
                 page = pagination.page,
                 records = pagination.records

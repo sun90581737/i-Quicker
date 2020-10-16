@@ -35,9 +35,11 @@
         gridList();
         //ShowCascade(); //级联显示
         gridListOn(0);
+        gridListTwo();
 
         loop1();
         loop2();
+        loop3();
     }
     window.setInterval(function () {
         loadOneA();
@@ -46,6 +48,7 @@
         loadThreeA();
         gridList();
         gridListOn(0);
+        gridListTwo();
     }, 1000 * 60 * 30);
     function loop1() {
         var div = $('#gridListOn').closest('.ui-jqgrid-bdiv')[0], offsetHeight = div.offsetHeight//////////////
@@ -91,6 +94,31 @@
             clearInterval(timer);
         });
         $('#gridList').mouseout(function (e) {//添加mouseout事件，继续滚动
+            scrollBody();
+        });
+        if (ob3 > 16) {
+            scrollBody();///开始滚动jqgrid内容
+        }
+    }
+    function loop3() {
+        var div = $('#gridListTwo').closest('.ui-jqgrid-bdiv')[0], offsetHeight = div.offsetHeight//////////////
+            , scrollHeight = div.scrollHeight - offsetHeight, scrollTop = 0, timer = 0, ob3 = 20;
+        function scrollBody() {
+            timer = setInterval(function () {
+                scrollTop += 1;
+                div.scrollTop = scrollTop;
+                if (scrollTop >= scrollHeight) {//循环滚动
+                    scrollHeight = div.scrollHeight - offsetHeight;//如果在滚动过程中添加过数据，需要重新结算scrollHeight
+                    if (scrollTop >= (ob3 - 16) * 33) {
+                        scrollTop = 0; //循环滚动，重置滚动头即可
+                    }
+                }
+            }, 50);
+        }
+        $('#gridListTwo').mouseover(function () {//添加over事件，停止滚动
+            clearInterval(timer);
+        });
+        $('#gridListTwo').mouseout(function (e) {//添加mouseout事件，继续滚动
             scrollBody();
         });
         if (ob3 > 16) {
@@ -521,28 +549,28 @@
         var $gridListOn = $("#gridListOn");
         $gridListOn.dataGrid({
             url: "/OperationMonitoring/EngineeringHomepage/GetGridJsonOn?t=" + t,
-            height: 230,
+            height: 210,
             colModel: [
                 {
-                    label: '', name: '', width: 50, align: 'center',
+                    label: '', name: '', width: 20, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.Colour != "") {
                             return '<span style="padding:1px 8px;border-radius:50%;background:' + index.Colour + ';"></span>'
                         }
                     }
                 },
-                { label: '模具名称', name: 'MoldName', width: 120, align: 'center' },
-                { label: '模具编号', name: 'MoldNo', width: 120, align: 'center' },
-                { label: 'TN', name: 'CustomerName', width: 120, align: 'center' },
+                { label: '模具名称', name: 'MoldName', width: 130, align: 'center' },
+                { label: '模具编号', name: 'MoldNo', width: 130, align: 'center' },
+                { label: 'TN', name: 'CustomerName', width: 50, align: 'center' },
                 { label: '客户', name: 'ContactPerson', width: 120, align: 'center' },
-                { label: '内部负责人', name: 'TN', width: 120, align: 'center' },
-                { label: '类型', name: 'MoldType', width: 120, align: 'center' },
-                { label: '状态', name: 'MoldState', width: 120, align: 'center' },
+                //{ label: '内部负责人', name: 'TN', width: 120, align: 'center' },
+                //{ label: '类型', name: 'MoldType', width: 120, align: 'center' },
+                { label: '状态', name: 'MoldState', width: 80, align: 'center' },
                 {
-                    label: '试模日期', name: 'MoldDate', width: 120, align: 'center',
+                    label: '试模日期', name: 'MoldDate', width: 80, align: 'center',
                     formatter: "date", formatoptions: { srcformat: 'Y-m-d', newformat: 'Y-m-d' }
                 },
-                { label: '模仁材质', name: 'MoldMaterial', width: 120, align: 'center' },
+                //{ label: '模仁材质', name: 'MoldMaterial', width: 120, align: 'center' },
                 //{ label: '类别', name: 'Category', width: 120, align: 'center', sortable: false }
             ],
             //pager: "#gridPager",
@@ -555,6 +583,40 @@
             url: "/OperationMonitoring/EngineeringHomepage/GetGridJsonOn",
             postData: { t: t},
         }).trigger('reloadGrid');
+    }
+    function gridListTwo() {
+        var $gridListTwo = $("#gridListTwo");
+        $gridListTwo.dataGrid({
+            url: "/OperationMonitoring/EngineeringHomepage/GetGridJsonTwo",
+            height: 210,
+            colModel: [
+                {
+                    label: '', name: '', width: 20, align: 'center',
+                    formatter: function (cellvalue, row, index) {
+                        if (index.Colour != "") {
+                            return '<span style="padding:1px 8px;border-radius:50%;background:' + index.Colour + ';"></span>'
+                        }
+                    }
+                },
+                { label: '模具名称', name: 'MoldName', width: 130, align: 'center' },
+                { label: '模具编号', name: 'MoldNo', width: 130, align: 'center' },
+                { label: 'TN', name: 'CustomerName', width: 50, align: 'center' },
+                { label: '客户', name: 'ContactPerson', width: 120, align: 'center' },
+                //{ label: '内部负责人', name: 'TN', width: 120, align: 'center' },
+                //{ label: '类型', name: 'MoldType', width: 120, align: 'center' },
+                { label: '状态', name: 'MoldState', width: 80, align: 'center' },
+                {
+                    label: '试模日期', name: 'MoldDate', width: 80, align: 'center',
+                    formatter: "date", formatoptions: { srcformat: 'Y-m-d', newformat: 'Y-m-d' }
+                },
+                //{ label: '模仁材质', name: 'MoldMaterial', width: 120, align: 'center' },
+                //{ label: '类别', name: 'Category', width: 120, align: 'center', sortable: false }
+            ],
+            //pager: "#gridPager",
+            sortname: 'MoldNo desc',
+            rowNum: 1000,
+            viewrecords: true
+        });
     }
     function funOne() {
         window.open("/OperationMonitoring/EngineeringHomepage/Form1");
@@ -697,9 +759,17 @@
                         </div>*@
                     </div>
                     @*<div style="color:#f3961d">订单名称：<span id="txtMC"></span>&emsp;&emsp;&emsp;&emsp;接单日期：<span id="txtRQ"></span>&emsp;&emsp;&emsp;&emsp;订单状态：<span id="txtZT"></span></div>*@
-                    <div class="gridPanel" style="height:280px;">
+                    @*<div class="gridPanel" style="height:280px;">
+                        <div style="text-align:center;font-size:13px;color:#ffffff;">新模清单</div>
                         <table id="gridListOn"></table>
-                        @*<div id="gridPager" style="text-align:center"></div>*@
+                    </div>*@
+                    <div style="float:left;width:50%;height:280px;" >
+                        <div style="text-align:center;font-size:13px;color:#ffffff;">新模清单</div>
+                        <table id="gridListOn"></table>
+                    </div>
+                    <div class="gridPanel" style="margin-left:50%;height:280px;">
+                        <div style="text-align:center;font-size:13px;color:#ffffff;">修模清单</div>
+                        <table id="gridListTwo"></table>
                     </div>
                 </div>
             </section>
