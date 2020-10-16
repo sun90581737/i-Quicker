@@ -44,6 +44,9 @@
         echart02();
 
         $("div").removeClass("ui-paging-info");//移除分页显示不全的文字
+
+        loop1();
+        loop2();
     }
     window.setInterval(function () {
         $("#OngridList").trigger("reloadGrid");
@@ -53,6 +56,56 @@
         echart01();
         echart02();
     }, 1000 * 60 * 30);
+    function loop1() {
+        var div = $('#OngridList').closest('.ui-jqgrid-bdiv')[0], offsetHeight = div.offsetHeight//////////////
+            , scrollHeight = div.scrollHeight - offsetHeight, scrollTop = 0, timer = 0, ob3 = 30;
+        function scrollBody() {
+            timer = setInterval(function () {
+                scrollTop += 1;
+                div.scrollTop = scrollTop;
+                if (scrollTop >= scrollHeight) {//循环滚动
+                    scrollHeight = div.scrollHeight - offsetHeight;//如果在滚动过程中添加过数据，需要重新结算scrollHeight
+                    if (scrollTop >= (ob3 - 16) * 33) {
+                        scrollTop = 0; //循环滚动，重置滚动头即可
+                    }
+                }
+            }, 50);
+        }
+        $('#OngridList').mouseover(function () {//添加over事件，停止滚动
+            clearInterval(timer);
+        });
+        $('#OngridList').mouseout(function (e) {//添加mouseout事件，继续滚动
+            scrollBody();
+        });
+        if (ob3 > 16) {
+            scrollBody();///开始滚动jqgrid内容
+        }
+    }
+    function loop2() {
+        var div = $('#gridList').closest('.ui-jqgrid-bdiv')[0], offsetHeight = div.offsetHeight//////////////
+            , scrollHeight = div.scrollHeight - offsetHeight, scrollTop = 0, timer = 0, ob3 = 20;
+        function scrollBody() {
+            timer = setInterval(function () {
+                scrollTop += 1;
+                div.scrollTop = scrollTop;
+                if (scrollTop >= scrollHeight) {//循环滚动
+                    scrollHeight = div.scrollHeight - offsetHeight;//如果在滚动过程中添加过数据，需要重新结算scrollHeight
+                    if (scrollTop >= (ob3 - 16) * 33) {
+                        scrollTop = 0; //循环滚动，重置滚动头即可
+                    }
+                }
+            }, 50);
+        }
+        $('#gridList').mouseover(function () {//添加over事件，停止滚动
+            clearInterval(timer);
+        });
+        $('#gridList').mouseout(function (e) {//添加mouseout事件，继续滚动
+            scrollBody();
+        });
+        if (ob3 > 16) {
+            scrollBody();///开始滚动jqgrid内容
+        }
+    }
     function OngridList() {
         var $OngridList = $("#OngridList");
         $OngridList.dataGrid({

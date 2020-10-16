@@ -35,6 +35,9 @@
         gridList();
         //ShowCascade(); //级联显示
         gridListOn(0);
+
+        loop1();
+        loop2();
     }
     window.setInterval(function () {
         loadOneA();
@@ -44,6 +47,56 @@
         gridList();
         gridListOn(0);
     }, 1000 * 60 * 30);
+    function loop1() {
+        var div = $('#gridListOn').closest('.ui-jqgrid-bdiv')[0], offsetHeight = div.offsetHeight//////////////
+            , scrollHeight = div.scrollHeight - offsetHeight, scrollTop = 0, timer = 0, ob3 = 30;
+        function scrollBody() {
+            timer = setInterval(function () {
+                scrollTop += 1;
+                div.scrollTop = scrollTop;
+                if (scrollTop >= scrollHeight) {//循环滚动
+                    scrollHeight = div.scrollHeight - offsetHeight;//如果在滚动过程中添加过数据，需要重新结算scrollHeight
+                    if (scrollTop >= (ob3 - 16) * 33) {
+                        scrollTop = 0; //循环滚动，重置滚动头即可
+                    }
+                }
+            }, 50);
+        }
+        $('#gridListOn').mouseover(function () {//添加over事件，停止滚动
+            clearInterval(timer);
+        });
+        $('#gridListOn').mouseout(function (e) {//添加mouseout事件，继续滚动
+            scrollBody();
+        });
+        if (ob3 > 16) {
+            scrollBody();///开始滚动jqgrid内容
+        }
+    }
+    function loop2() {
+        var div = $('#gridList').closest('.ui-jqgrid-bdiv')[0], offsetHeight = div.offsetHeight//////////////
+            , scrollHeight = div.scrollHeight - offsetHeight, scrollTop = 0, timer = 0, ob3 = 20;
+        function scrollBody() {
+            timer = setInterval(function () {
+                scrollTop += 1;
+                div.scrollTop = scrollTop;
+                if (scrollTop >= scrollHeight) {//循环滚动
+                    scrollHeight = div.scrollHeight - offsetHeight;//如果在滚动过程中添加过数据，需要重新结算scrollHeight
+                    if (scrollTop >= (ob3 - 16) * 33) {
+                        scrollTop = 0; //循环滚动，重置滚动头即可
+                    }
+                }
+            }, 50);
+        }
+        $('#gridList').mouseover(function () {//添加over事件，停止滚动
+            clearInterval(timer);
+        });
+        $('#gridList').mouseout(function (e) {//添加mouseout事件，继续滚动
+            scrollBody();
+        });
+        if (ob3 > 16) {
+            scrollBody();///开始滚动jqgrid内容
+        }
+    }
     function loadOneA() {
         $.ajax({
             async: false,
@@ -633,7 +686,7 @@
             <section class="col-lg-6 connectedSortable" style="width:96.5%;background: url('../../../../Content/js/pages/img/BusinessOverview02.png') 0 0 / 100% 100% no-repeat;position: relative;  margin : 0px 20px 0px 20px;">
                 <div class="box box-default">
                     <div class="box-header with-border">
-                        <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">客户清单<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
+                        <div class="box-title" style="color:#ffffff;font-size:16px;font-weight:700;">模具清单<img src="../../../../Content/js/pages/img/head.png" style="width:325px;height:12px;position: relative;margin-top:-1px;background: url('../../../../Content/js/pages/img/head.png') 0 0 / 100% 100% no-repeat;" /></div>
                         @*<div style="float:right">
                             <select id="S1" onchange="SelectRelation(this)"><option value="0">---请选择客户---</option></select> : <select id="S2" onchange="SelectOpt(this)"><option value="0">---请选择订单---</option></select>
                         </div>*@

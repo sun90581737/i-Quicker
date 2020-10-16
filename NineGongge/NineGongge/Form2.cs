@@ -45,11 +45,11 @@ namespace NineGongge
             //    int b = rand.Next(0, 255);
             //    ctrl.BackColor = Color.FromArgb(255, r, g, b);
             //}
-            TempMethod(panel1, string.Format("{0}{1}", IPUrl, "/OperationMonitoring/BusinessOverview/Index"));
+            TempMethod(panel1, string.Format("{0}{1}", IPUrl, "/OperationMonitoring/EngineeringHomepage/Index")); 
             TempMethod(panel2, string.Format("{0}{1}", IPUrl, "/AutomationLine/RunningState/Index"));
             TempMethod(panel3, string.Format("{0}{1}", IPUrl, "/AutomationLine/DataAcquisition/Index"));
             TempMethod(panel4, string.Format("{0}{1}", IPUrl, "/ProductionManage/ProductionManageHome/Index"));
-            TempMethod(panel5, string.Format("{0}{1}", IPUrl, "/OperationMonitoring/EngineeringHomepage/Index"));
+            TempMethod(panel5, string.Format("{0}{1}", IPUrl, "/OperationMonitoring/BusinessOverview/Form"));//
             TempMethod(panel6, string.Format("{0}{1}", IPUrl, "/QualityOptimization/QualityEngineering/Index"));
             TempMethod(panel7, string.Format("{0}{1}", IPUrl, "/TeamTask/CNCTeam/Index"));
             TempMethod(panel8, string.Format("{0}{1}", IPUrl, "/TeamTask/EdmTeam/Index"));

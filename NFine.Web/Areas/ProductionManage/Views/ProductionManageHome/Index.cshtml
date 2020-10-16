@@ -35,6 +35,9 @@
         loadThree1a();
         gridList3a();
         loadFour();
+
+        loop1();
+        loop2();
     }
     window.setInterval(function () {
         loadOne();
@@ -44,6 +47,56 @@
         gridList3a();
         loadFour();
     }, 1000 * 60 * 30);
+    function loop1() {
+        var div = $('#gridList1').closest('.ui-jqgrid-bdiv')[0], offsetHeight = div.offsetHeight//////////////
+            , scrollHeight = div.scrollHeight - offsetHeight, scrollTop = 0, timer = 0, ob3 = 30;
+        function scrollBody() {
+            timer = setInterval(function () {
+                scrollTop += 1;
+                div.scrollTop = scrollTop;
+                if (scrollTop >= scrollHeight) {//循环滚动
+                    scrollHeight = div.scrollHeight - offsetHeight;//如果在滚动过程中添加过数据，需要重新结算scrollHeight
+                    if (scrollTop >= (ob3 - 16) * 33) {
+                        scrollTop = 0; //循环滚动，重置滚动头即可
+                    }
+                }
+            }, 50);
+        }
+        $('#gridList1').mouseover(function () {//添加over事件，停止滚动
+            clearInterval(timer);
+        });
+        $('#gridList1').mouseout(function (e) {//添加mouseout事件，继续滚动
+            scrollBody();
+        });
+        if (ob3 > 16) {
+            scrollBody();///开始滚动jqgrid内容
+        }
+    }
+    function loop2() {
+        var div = $('#gridList2').closest('.ui-jqgrid-bdiv')[0], offsetHeight = div.offsetHeight//////////////
+            , scrollHeight = div.scrollHeight - offsetHeight, scrollTop = 0, timer = 0, ob3 = 20;
+        function scrollBody() {
+            timer = setInterval(function () {
+                scrollTop += 1;
+                div.scrollTop = scrollTop;
+                if (scrollTop >= scrollHeight) {//循环滚动
+                    scrollHeight = div.scrollHeight - offsetHeight;//如果在滚动过程中添加过数据，需要重新结算scrollHeight
+                    if (scrollTop >= (ob3 - 16) * 33) {
+                        scrollTop = 0; //循环滚动，重置滚动头即可
+                    }
+                }
+            }, 50);
+        }
+        $('#gridList2').mouseover(function () {//添加over事件，停止滚动
+            clearInterval(timer);
+        });
+        $('#gridList2').mouseout(function (e) {//添加mouseout事件，继续滚动
+            scrollBody();
+        });
+        if (ob3 > 16) {
+            scrollBody();///开始滚动jqgrid内容
+        }
+    }
     //function selectType(obj) {
     //    loadTwo();
     //}
