@@ -109,7 +109,7 @@ namespace NFine.Web.Areas.OperationMonitoring.Controllers
         {
             var data = new
             {
-                rows = cldApp.GetList(pagination, queryJson).Where(p => p.IsEffective == 1), //p.ListId.ToString() == t &&   级联控制
+                rows = cldApp.GetList(pagination, queryJson).Where(p => p.IsEffective == 1 && p.MoldState!= "已结案"), //p.ListId.ToString() == t &&   级联控制
                 total = pagination.total,
                 page = pagination.page,
                 records = pagination.records
