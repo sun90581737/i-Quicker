@@ -1262,7 +1262,7 @@ INSERT INTO Sys_SHToScheduleList(MoldNumber,PartNumber,PlannedEquipment,StartTim
 ('ILK9007','253055','GF01',GETDATE() ,GETDATE(),2,'Ineer','84.7',2)
 
 
-CREATE TABLE Sys_MHInventoryProfile --物料主页：库存概况
+CREATE TABLE Sys_MHInventoryProfile --物料主页(仓库管理主页)：库存概况
 (
 	id int identity (1,1) primary KEY,
 	DeviceType varchar(50)  NULL, --设备类型
@@ -1284,7 +1284,7 @@ INSERT INTO dbo.Sys_MHInventoryProfile(DeviceType,DeviceName,Number)VALUES  ('ED
 INSERT INTO dbo.Sys_MHInventoryProfile(DeviceType,DeviceName,Number)VALUES  ('钳工A组','产能',300)
 INSERT INTO dbo.Sys_MHInventoryProfile(DeviceType,DeviceName,Number)VALUES  ('钳工A组','负荷',200)
 
-CREATE table Sys_MHWorkpieceList  --物料主页:待备料工件清单 Or 外协工件清单
+CREATE table Sys_MHWorkpieceList  --物料主页(仓库管理主页):待备料工件清单 Or 外协工件清单
 (  
 id int identity (1,1) primary key , 
 MoldNumber varchar(50)  NULL,--模具号
@@ -1326,10 +1326,10 @@ CREATE table Sys_EMEquipmentList--设备管理:设备清单
 	id int identity (1,1) primary key , 
 	Number varchar(50)  NULL,--编号
 	Name varchar(50)  NULL,--名称
-	Brand varchar(50)  NULL,--标准工时
+	Brand varchar(50)  NULL,--品牌
 	Department  varchar(50)  NULL,--部门
 	State varchar(50)  NULL,--状态
-	DateArrival DATE,--入场日期
+	DateArrival DATE,--入厂日期
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 ) 
@@ -1734,13 +1734,14 @@ INSERT INTO Sys_EHPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-
 INSERT INTO Sys_EHPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-16','合格率',20,'2020-08-16')
 
 
-CREATE TABLE Sys_EHMonthlyPerformance --员工主页:合格率
+CREATE TABLE Sys_EHMonthlyPerformance --员工主页:月度绩效成绩
 (
 	id int identity (1,1) primary KEY,
 	DeviceType varchar(50)  NULL, --设备类型
 	DeviceName varchar(50)  NULL,--设备名
 	Number INT,--数据
-	Spare varchar(50)  NULL,--备用字段
+	Spare varchar(50)  NULL,--备用字段（出勤）
+	Spare1 varchar(50)  NULL,--备用字段（合格率）
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )
@@ -1784,3 +1785,246 @@ CREATE table Sys_PSWorkmanshipHomeList--工艺主页:列表
 INSERT INTO Sys_PSWorkmanshipHomeList(MoldNo,TENo,MoldType,ModelProtection,MoldState,StartDate,TestDate,PartNumber,PartName,Describe,Type,Number,
 MaterialScience,Hardness,Specifications,Formwork,ProductionDeliveryDate)VALUES('JDM-06s035','T1','修模','否','正常',GETDATE(),GETDATE(),'102-02',
 '精模型电极','','自制件',1,'','','','否','')
+
+
+
+CREATE table Sys_TeamTaskDetailsList--班组任务详情:列表   
+(  
+	id int identity (1,1) primary key , 
+	MoldNo varchar(50)  NULL, --模具编号
+	PartNumber varchar(50)  NULL, --零件编号
+	PlannedEquipment varchar(50)  NULL,--计划设备
+	StartTime DATETIME, --开始时间
+	ENDTime DATETIME, --结束时间
+	LatestStartTime DATETIME,--最晚开始时间
+	WorkingHours varchar(50)  NULL,--标准工时
+	Customer  varchar(50)  NULL,--客户
+	MoldKernelMaterial varchar(50)  NULL,--模仁材质
+	Category varchar(50)  NULL,--类别
+	Colour varchar(50)  NULL,  --灯的颜色
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_TeamTaskDetailsList(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,MoldKernelMaterial ,Category ,Colour)
+VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,8407 ,2 ,'#0000FF')
+INSERT INTO Sys_TeamTaskDetailsList(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,MoldKernelMaterial ,Category ,Colour)
+VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,8407 ,2 ,'#FF9900')
+
+
+
+CREATE TABLE Sys_TDDepartmentQualifiedRate --班组详情:各部门合格率
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_TDDepartmentQualifiedRate(DeviceType,DeviceName,Number)VALUES  ('CNC钢料A组','各部门合格率',72)
+INSERT INTO Sys_TDDepartmentQualifiedRate(DeviceType,DeviceName,Number)VALUES  ('CNC钢料B组','各部门合格率',62)
+INSERT INTO Sys_TDDepartmentQualifiedRate(DeviceType,DeviceName,Number)VALUES  ('CNC电极组','各部门合格率',40)
+INSERT INTO Sys_TDDepartmentQualifiedRate(DeviceType,DeviceName,Number)VALUES  ('EDM放电A组','各部门合格率',52)
+INSERT INTO Sys_TDDepartmentQualifiedRate(DeviceType,DeviceName,Number)VALUES  ('EDM放电B组','各部门合格率',19)
+
+CREATE TABLE Sys_TDDepartmentLoad --班组详情：各部门负载
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--合格率
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_TDDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('CNC钢料A组','产能',300)
+INSERT INTO Sys_TDDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('CNC钢料A组','负荷',200)
+INSERT INTO Sys_TDDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('CNC钢料B组','产能',250)
+INSERT INTO Sys_TDDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('CNC钢料B组','负荷',120)
+INSERT INTO Sys_TDDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('CNC电极组','产能',50)
+INSERT INTO Sys_TDDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('CNC电极组','负荷',120)
+INSERT INTO Sys_TDDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('EDM放电A组','产能',280)
+INSERT INTO Sys_TDDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('EDM放电A组','负荷',120)
+INSERT INTO Sys_TDDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('EDM放电B组','产能',280)
+INSERT INTO Sys_TDDepartmentLoad(DeviceType,DeviceName,Number)VALUES  ('EDM放电B组','负荷',120)
+
+
+CREATE TABLE Sys_TDJiadongRate --班组详情:稼动率
+(
+	id int identity (1,1) primary KEY,
+	Name varchar(50)  NULL,--客户名称
+	Number INT , --数量
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_TDJiadongRate(Name,Number)VALUES ('设备一',60)
+INSERT INTO Sys_TDJiadongRate(Name,Number)VALUES ('设备二',15) 
+INSERT INTO Sys_TDJiadongRate(Name,Number)VALUES ('设备三',10)
+INSERT INTO Sys_TDJiadongRate(Name,Number)VALUES ('设备四',15)
+
+
+CREATE TABLE Sys_TDJiadongRateTrend --班组详情:稼动率趋势
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	Spare varchar(50)  NULL,--备用字段（出勤）
+	Spare1 varchar(50)  NULL,--备用字段（合格率）
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_TDJiadongRateTrend(DeviceType,DeviceName,Number)VALUES  ('1','成绩',10)
+INSERT INTO Sys_TDJiadongRateTrend(DeviceType,DeviceName,Number)VALUES  ('2','成绩',89)
+INSERT INTO Sys_TDJiadongRateTrend(DeviceType,DeviceName,Number)VALUES  ('3','成绩',79)
+INSERT INTO Sys_TDJiadongRateTrend(DeviceType,DeviceName,Number)VALUES  ('4','成绩',99)
+INSERT INTO Sys_TDJiadongRateTrend(DeviceType,DeviceName,Number)VALUES  ('5','成绩',58)
+INSERT INTO Sys_TDJiadongRateTrend(DeviceType,DeviceName,Number)VALUES  ('6','成绩',82)
+INSERT INTO Sys_TDJiadongRateTrend(DeviceType,DeviceName,Number)VALUES  ('7','成绩',20)
+INSERT INTO Sys_TDJiadongRateTrend(DeviceType,DeviceName,Number)VALUES  ('8','成绩',100)
+INSERT INTO Sys_TDJiadongRateTrend(DeviceType,DeviceName,Number)VALUES  ('9','成绩',20)
+INSERT INTO Sys_TDJiadongRateTrend(DeviceType,DeviceName,Number)VALUES  ('10','成绩',50)
+INSERT INTO Sys_TDJiadongRateTrend(DeviceType,DeviceName,Number)VALUES  ('11','成绩',20)
+INSERT INTO Sys_TDJiadongRateTrend(DeviceType,DeviceName,Number)VALUES  ('12','成绩',10)
+
+CREATE table Sys_TDEquipmentList--班组详情:设备清单
+(  
+	id int identity (1,1) primary key , 
+	Number varchar(50)  NULL,--编号
+	Name varchar(50)  NULL,--名称
+	Brand varchar(50)  NULL,--品牌
+	Department  varchar(50)  NULL,--部门
+	State varchar(50)  NULL,--状态
+	DateArrival DATE,--入厂日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO  Sys_TDEquipmentList(Number,Name,Brand,Department,State,DateArrival)VALUES('20OC2003','车铣','APPIE','技术部','加工中',GETDATE())
+INSERT INTO  Sys_TDEquipmentList(Number,Name,Brand,Department,State,DateArrival)VALUES('20OC2003','车铣','HW','技术部','加工中',GETDATE())
+INSERT INTO  Sys_TDEquipmentList(Number,Name,Brand,Department,State,DateArrival)VALUES('20OC2003','车铣','APPIE','技术部','加工中',GETDATE())
+
+
+CREATE table Sys_TDDepartmentTasks--班组详情:部门任务概况
+(  
+	id int identity (1,1) primary key , 
+	RepairOrderNo varchar(50)  NULL,--报修单号
+	RepairDepartment varchar(50)  NULL,--报修部门
+	RepairEquipment  varchar(50)  NULL,--报修设备
+	RepairPersonnel varchar(50)  NULL,--报修人员
+	FaultDescription varchar(50)  NULL,--故障描述
+	ServiceNumber varchar(50)  NULL,--维修编号
+	ServiceType varchar(50)  NULL,--维修类型
+	Supplier varchar(50)  NULL,--维修人员/外修供应商
+	FaultCategory varchar(50)  NULL,--故障类别
+	MaintainPrice FLOAT,--外修价格
+	State varchar(50)  NULL,--状态
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_TDDepartmentTasks(RepairOrderNo,RepairDepartment,RepairEquipment,RepairPersonnel,FaultDescription,ServiceNumber,ServiceType,Supplier,FaultCategory,MaintainPrice,State)VALUES
+('BX190613001','加工中心','CNC03','张山','无法开机','WX190614003','内修','赵四','电气故障',3000,'已修好')
+INSERT INTO Sys_TDDepartmentTasks(RepairOrderNo,RepairDepartment,RepairEquipment,RepairPersonnel,FaultDescription,ServiceNumber,ServiceType,Supplier,FaultCategory,MaintainPrice,State)VALUES
+('BX190613001','火花机','EDM05','张山','油槽无法降升','WX190614003','外修','GF厂家','机械故障',10000,'已修好')
+
+
+CREATE TABLE Sys_SDDeliveryPassRate --供应商详情：按期交付率与交付合格率
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--合格率
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商一','按期交付率',79,'2020-10-19')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商一','交付合格率',39,'2020-10-19')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商二','按期交付率',80,'2020-10-20')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商二','交付合格率',52,'2020-10-20')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商三','按期交付率',52,'2020-10-21')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商三','交付合格率',25,'2020-10-21')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商四','按期交付率',62,'2020-10-21')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商四','交付合格率',25,'2020-10-21')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商五','按期交付率',80,'2020-10-21')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商五','交付合格率',25,'2020-10-21')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商六','按期交付率',41,'2020-10-21')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商六','交付合格率',25,'2020-10-21')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商七','按期交付率',50,'2020-10-21')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商七','交付合格率',25,'2020-10-21')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商八','按期交付率',19,'2020-10-22')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商八','交付合格率',25,'2020-10-22')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商九','按期交付率',62,'2020-10-22')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商九','交付合格率',40,'2020-10-22')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商十','按期交付率',62,'2020-10-22')
+INSERT INTO Sys_SDDeliveryPassRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('供应商十','交付合格率',25,'2020-10-22')
+
+
+
+CREATE table Sys_PSWorkpieceDetailsList--工件详情:列表   
+(  
+	id int identity (1,1) primary key , 
+	MoldNo varchar(50)  NULL, --模具编号
+	PartNumber varchar(50)  NULL, --零件编号
+	PlannedEquipment varchar(50)  NULL,--计划设备
+	StartTime DATETIME, --开始时间
+	ENDTime DATETIME, --结束时间
+	LatestStartTime DATETIME,--最晚开始时间
+	WorkingHours varchar(50)  NULL,--标准工时
+	Customer  varchar(50)  NULL,--客户
+	MoldKernelMaterial varchar(50)  NULL,--模仁材质
+	Category varchar(50)  NULL,--类别
+	Colour varchar(50)  NULL,  --灯的颜色
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_PSWorkpieceDetailsList(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,MoldKernelMaterial ,Category ,Colour)
+VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,8407 ,2 ,'#0000FF')
+INSERT INTO Sys_PSWorkpieceDetailsList(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,MoldKernelMaterial ,Category ,Colour)
+VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,8407 ,2 ,'#FF9900')
+
+--Sys_SHDepartmentLoad
+CREATE TABLE Sys_PSProcessDetailsList --工序详情：工序报工时与实际工时
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number varchar(50)  NULL,--工时
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序一','报工时',5)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序一','实际工时',3.9)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序二','报工时',8)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序二','实际工时',3.9)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序三','报工时',6.5)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序三','实际工时',2.5)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序四','报工时',4.5)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序四','实际工时',3.9)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序五','报工时',5.2)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序五','实际工时',3.9)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序六','报工时',6.4)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序六','实际工时',3.9)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序七','报工时',6.4)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序七','实际工时',6.4)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序八','报工时',4.5)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序八','实际工时',6)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序九','报工时',4.5)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序九','实际工时',6)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序十','报工时',4.5)
+INSERT INTO Sys_PSProcessDetailsList(DeviceType,DeviceName,Number)VALUES  ('工序十','实际工时',6)
+
+CREATE table Sys_QOExceptionDetailsList--异常单详情:列表
+(  
+	id int identity (1,1) primary key , 
+	ExceptionNumber varchar(50)  NULL, --异常编号
+	ExceptionModule varchar(50)  NULL, --异常模号
+	FaultDescription varchar(50)  NULL, --故障描述
+	Department varchar(50)  NULL, --所属部门
+	ResponsibleProcess varchar(50)  NULL, --责任工序
+	PersonLiable varchar(50)  NULL, --责任人
+	ResponsibleSupplier varchar(50)  NULL, --责任供应商
+	AnomalyTracking  varchar(50)  NULL, --异常追踪
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_QOExceptionDetailsList(ExceptionNumber,ExceptionModule,FaultDescription,Department,ResponsibleProcess,PersonLiable,ResponsibleSupplier,AnomalyTracking)VALUES
+('BX190613001','WX190614003','无法开机','总部','CNC','模德宝','广汽传祺','上市集团配送')
