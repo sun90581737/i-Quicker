@@ -2028,3 +2028,165 @@ CREATE table Sys_QOExceptionDetailsList--异常单详情:列表
 ) 
 INSERT INTO Sys_QOExceptionDetailsList(ExceptionNumber,ExceptionModule,FaultDescription,Department,ResponsibleProcess,PersonLiable,ResponsibleSupplier,AnomalyTracking)VALUES
 ('BX190613001','WX190614003','无法开机','总部','CNC','模德宝','广汽传祺','上市集团配送')
+
+
+CREATE TABLE Sys_CustomerDetailsRate  --客户详情:客户总的交易达成率
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_CustomerDetailsRate(DeviceType,DeviceName,Number)VALUES('客户一','客户总的交易达成率',90)
+INSERT INTO Sys_CustomerDetailsRate(DeviceType,DeviceName,Number)VALUES('客户二','客户总的交易达成率',94)
+INSERT INTO Sys_CustomerDetailsRate(DeviceType,DeviceName,Number)VALUES('客户三','客户总的交易达成率',18)
+INSERT INTO Sys_CustomerDetailsRate(DeviceType,DeviceName,Number)VALUES('客户四','客户总的交易达成率',39)
+INSERT INTO Sys_CustomerDetailsRate(DeviceType,DeviceName,Number)VALUES('客户五','客户总的交易达成率',74)
+INSERT INTO Sys_CustomerDetailsRate(DeviceType,DeviceName,Number)VALUES('客户六','客户总的交易达成率',43)
+INSERT INTO Sys_CustomerDetailsRate(DeviceType,DeviceName,Number)VALUES('客户七','客户总的交易达成率',74)
+INSERT INTO Sys_CustomerDetailsRate(DeviceType,DeviceName,Number)VALUES('客户八','客户总的交易达成率',41)
+INSERT INTO Sys_CustomerDetailsRate(DeviceType,DeviceName,Number)VALUES('客户九','客户总的交易达成率',70)
+INSERT INTO Sys_CustomerDetailsRate(DeviceType,DeviceName,Number)VALUES('客户十','客户总的交易达成率',82)
+
+CREATE table Sys_CustomerDetailsList--客户详情:客户清单   
+(  
+	id int identity (1,1) primary key , 
+	ParentId INT,		--父级  0父节点 大于0对应ID 子节点
+	CustomerName varchar(50)  NULL, --客户名称
+	OrderNumber varchar(50)  NULL, --订单编号
+	NumberOfOrders varchar(50)  NULL,--订单数
+	DieNumber  varchar(50)  NULL,--模具编号
+	ProjectLeader  varchar(50)  NULL,--项目负责人
+	StartTime DATETIME, --开始时间
+	EstimatedEndTime DATETIME, --预计结束时间
+	ActualEndTime DATETIME,--实际结束时间
+	NewOldModel varchar(50)  NULL,--新模/旧模
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_CustomerDetailsList(ParentId,CustomerName,OrderNumber,NumberOfOrders,DieNumber,ProjectLeader,StartTime,EstimatedEndTime,ActualEndTime,NewOldModel)VALUES
+(0,'APPLE','BX190613001','3','WX190614003','张三',GETDATE() ,GETDATE() ,GETDATE(),'新模')
+
+
+CREATE TABLE Sys_ODDeliveryCompletionRate --订单详情:已交付模具的交期达成率
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	AcctDate DATE,--数据日期 
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_ODDeliveryCompletionRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-10','已交付模具的交期达成率',40,'2020-08-10')
+INSERT INTO Sys_ODDeliveryCompletionRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-11','已交付模具的交期达成率',70,'2020-08-11')
+INSERT INTO Sys_ODDeliveryCompletionRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-12','已交付模具的交期达成率',60,'2020-08-12')
+INSERT INTO Sys_ODDeliveryCompletionRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-13','已交付模具的交期达成率',30,'2020-08-13')
+INSERT INTO Sys_ODDeliveryCompletionRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-14','已交付模具的交期达成率',10,'2020-08-14')
+INSERT INTO Sys_ODDeliveryCompletionRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-15','已交付模具的交期达成率',65,'2020-08-15')
+INSERT INTO Sys_ODDeliveryCompletionRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-16','已交付模具的交期达成率',40,'2020-08-16')
+
+
+CREATE TABLE Sys_ODMouldProgress --订单详情:在制模具进度
+(
+	id int identity (1,1) primary KEY,
+	Name varchar(50)  NULL,--客户名称
+	Number INT , --数量
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT Sys_ODMouldProgress(Name,Number)VALUES  ('进度正常',12)
+INSERT Sys_ODMouldProgress(Name,Number)VALUES  ('已过期',4) 
+INSERT Sys_ODMouldProgress(Name,Number)VALUES  ('生产延误',4)
+
+CREATE TABLE Sys_ODDelayMoldList  --订单详情:延期模具列表
+(
+	id int identity (1,1) primary key , 
+	MoldNo varchar(50)  NULL, --模具编号
+	Customers  varchar(50)  NULL,--客户
+	Type varchar(50)  NULL,--类型
+	PlannedDeliveryDate DATE, --计划交期
+	EarlyWarning VARCHAR(20),--预警 显示3个值，用;来分割数据。
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_ODDelayMoldList(MoldNo,Customers,Type,PlannedDeliveryDate,EarlyWarning)VALUES('IK19001','APPLE','交期',GETDATE(),'0.24;0.49')
+INSERT INTO Sys_ODDelayMoldList(MoldNo,Customers,Type,PlannedDeliveryDate,EarlyWarning)VALUES('IK19002','HW','生产',GETDATE(),'0.5')
+INSERT INTO Sys_ODDelayMoldList(MoldNo,Customers,Type,PlannedDeliveryDate,EarlyWarning)VALUES('IK19003','BMW','生产',GETDATE(),'0')
+
+
+CREATE TABLE Sys_ODOrderStatus --订单详情:订单状态
+(
+	id int identity (1,1) primary KEY,
+	Name varchar(50)  NULL,--客户名称
+	Number INT , --数量
+	AcctDate DATE,--数据日期 
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT Sys_ODOrderStatus(Name,Number,AcctDate)VALUES  ('已完成',20,'2020-08-10')
+INSERT Sys_ODOrderStatus(Name,Number,AcctDate)VALUES  ('未完成',8,'2020-08-10') 
+INSERT Sys_ODOrderStatus(Name,Number,AcctDate)VALUES  ('已完成',20,'2020-08-11')
+INSERT Sys_ODOrderStatus(Name,Number,AcctDate)VALUES  ('未完成',8,'2020-08-11') 
+
+CREATE TABLE Sys_ODDeliveryRatio  --订单详情:交付比率
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	AcctDate DATE,--数据日期 
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_ODDeliveryRatio(DeviceType,DeviceName,Number,AcctDate)VALUES('客户一','交付比率',90,'2020-08-10')
+INSERT INTO Sys_ODDeliveryRatio(DeviceType,DeviceName,Number,AcctDate)VALUES('客户二','交付比率',94,'2020-08-11')
+INSERT INTO Sys_ODDeliveryRatio(DeviceType,DeviceName,Number,AcctDate)VALUES('客户三','交付比率',18,'2020-08-12')
+INSERT INTO Sys_ODDeliveryRatio(DeviceType,DeviceName,Number,AcctDate)VALUES('客户四','交付比率',39,'2020-08-13')
+INSERT INTO Sys_ODDeliveryRatio(DeviceType,DeviceName,Number,AcctDate)VALUES('客户五','交付比率',74,'2020-08-14')
+INSERT INTO Sys_ODDeliveryRatio(DeviceType,DeviceName,Number,AcctDate)VALUES('客户一','交付比率',10,'2020-08-14')
+
+CREATE table Sys_ODMouldList--订单详情:模具清单
+(  
+	id int identity (1,1) primary key , 
+	WorkingProcedure varchar(50)  NULL,--工序
+	Workpiece varchar(50)  NULL,--工件
+	StartTime DATETIME,--开始时间
+	EndTime DATETIME,--结束时间
+	Duration INT,--时长
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_ODMouldList(WorkingProcedure,Workpiece,StartTime,EndTime,Duration)VALUES('铣床','/i-quicker/img/product/collection/cnc1.png',getdate(),getdate(),10)
+INSERT INTO Sys_ODMouldList(WorkingProcedure,Workpiece,StartTime,EndTime,Duration)VALUES('铣床','',getdate(),getdate(),30)
+
+CREATE TABLE Sys_MSDCostRatio --模具进度详情:按大类成本比例
+(
+	id int identity (1,1) primary KEY,
+	Name varchar(50)  NULL,--客户名称
+	Number INT , --数量
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT Sys_MSDCostRatio(Name,Number)VALUES  ('物料',60)
+INSERT Sys_MSDCostRatio(Name,Number)VALUES  ('外协',100) 
+INSERT Sys_MSDCostRatio(Name,Number)VALUES  ('自制',40)
+INSERT Sys_MSDCostRatio(Name,Number)VALUES  ('异常',66)
+
+
+--MoldDetails------------------------------------------------------
+--模具详情：模具加工合格率
+--模具详情：模具总成本
+--模具详情：模具加工进度%、状态
+--模具详情：工件类型按大类比例
+
+
+
+--DeviceDetails----------------------------------------------------
+--设备详情：设备信息
+--设备详情：设备稼动率趋势
+--设备详情：设备合格率趋势
+--设备详情：设备加工工件历史清单
+
+
