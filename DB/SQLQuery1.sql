@@ -2183,10 +2183,79 @@ INSERT Sys_MSDCostRatio(Name,Number)VALUES  ('异常',66)
 
 
 
+
 --DeviceDetails----------------------------------------------------
 --设备详情：设备信息
 --设备详情：设备稼动率趋势
 --设备详情：设备合格率趋势
 --设备详情：设备加工工件历史清单
 
+CREATE table Sys_DDDeviceInformation--设备详情:设备信息   设备管理:设备清单  Sys_EMEquipmentList
+(  
+	id int identity (1,1) primary key , 
+	Number varchar(50)  NULL,--编号
+	Name varchar(50)  NULL,--名称
+	Brand varchar(50)  NULL,--品牌
+	Department  varchar(50)  NULL,--部门
+	State varchar(50)  NULL,--状态
+	DateArrival DATE,--入厂日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO  Sys_DDDeviceInformation(Number,Name,Brand,Department,State,DateArrival)VALUES('20OC2003','车铣','车铣','技术部','加工中',GETDATE())
 
+CREATE TABLE Sys_DDJiaDongRateTrend --设备详情:设备稼动率趋势    
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_DDJiaDongRateTrend(DeviceType,DeviceName,Number)VALUES  ('设备一','稼动率',95)
+INSERT INTO Sys_DDJiaDongRateTrend(DeviceType,DeviceName,Number)VALUES  ('设备二','稼动率',89)
+INSERT INTO Sys_DDJiaDongRateTrend(DeviceType,DeviceName,Number)VALUES  ('设备三','稼动率',79)
+INSERT INTO Sys_DDJiaDongRateTrend(DeviceType,DeviceName,Number)VALUES  ('设备四','稼动率',99)
+INSERT INTO Sys_DDJiaDongRateTrend(DeviceType,DeviceName,Number)VALUES  ('设备五','稼动率',58)
+
+CREATE TABLE Sys_DDPassRateTrend --设备详情:设备合格率趋势     --员工主页:合格率  Sys_EHPassRate
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_DDPassRateTrend(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-10','合格率',95,'2020-08-10')
+INSERT INTO Sys_DDPassRateTrend(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-11','合格率',89,'2020-08-11')
+INSERT INTO Sys_DDPassRateTrend(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-12','合格率',79,'2020-08-12')
+INSERT INTO Sys_DDPassRateTrend(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-13','合格率',99,'2020-08-13')
+INSERT INTO Sys_DDPassRateTrend(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-14','合格率',58,'2020-08-14')
+INSERT INTO Sys_DDPassRateTrend(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-15','合格率',82,'2020-08-15')
+INSERT INTO Sys_DDPassRateTrend(DeviceType,DeviceName,Number,AcctDate)VALUES  ('2020-08-16','合格率',20,'2020-08-16')
+
+
+
+CREATE table Sys_DDEquipmentPartsList--设备详情:设备加工工件历史清单   --Sys_PSWorkpieceDetailsList--工件详情:列表   
+(  
+	id int identity (1,1) primary key , 
+	MoldNo varchar(50)  NULL, --模具编号
+	PartNumber varchar(50)  NULL, --零件编号
+	PlannedEquipment varchar(50)  NULL,--计划设备
+	StartTime DATETIME, --开始时间
+	ENDTime DATETIME, --结束时间
+	LatestStartTime DATETIME,--最晚开始时间
+	WorkingHours varchar(50)  NULL,--标准工时
+	Customer  varchar(50)  NULL,--客户
+	MoldKernelMaterial varchar(50)  NULL,--模仁材质
+	Category varchar(50)  NULL,--类别
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_DDEquipmentPartsList(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,MoldKernelMaterial ,Category)
+VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,8407 ,2)
+INSERT INTO Sys_DDEquipmentPartsList(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,MoldKernelMaterial ,Category)
+VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,8407 ,2)
