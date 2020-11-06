@@ -2175,22 +2175,87 @@ INSERT Sys_MSDCostRatio(Name,Number)VALUES  ('自制',40)
 INSERT Sys_MSDCostRatio(Name,Number)VALUES  ('异常',66)
 
 
---MoldDetails------------------------------------------------------
---模具详情：模具加工合格率
---模具详情：模具总成本
---模具详情：模具加工进度%、状态
---模具详情：工件类型按大类比例
+CREATE TABLE Sys_MDMoldPassRate  --模具详情:模具加工合格率
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_MDMoldPassRate(DeviceType,DeviceName,Number)VALUES('模具一','模具加工合格率',18)
+INSERT INTO Sys_MDMoldPassRate(DeviceType,DeviceName,Number)VALUES('模具二','模具加工合格率',78)
+INSERT INTO Sys_MDMoldPassRate(DeviceType,DeviceName,Number)VALUES('模具三','模具加工合格率',61)
+INSERT INTO Sys_MDMoldPassRate(DeviceType,DeviceName,Number)VALUES('模具四','模具加工合格率',30)
+INSERT INTO Sys_MDMoldPassRate(DeviceType,DeviceName,Number)VALUES('模具五','模具加工合格率',82)
+
+CREATE TABLE Sys_MDTotalMoldCost --模具详情:模具总成本    
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_MDTotalMoldCost(DeviceType,DeviceName,Number,AcctDate)VALUES  ('模具一','成本',95,'2020-08-10')
+INSERT INTO Sys_MDTotalMoldCost(DeviceType,DeviceName,Number,AcctDate)VALUES  ('模具二','成本',89,'2020-08-11')
+INSERT INTO Sys_MDTotalMoldCost(DeviceType,DeviceName,Number,AcctDate)VALUES  ('模具三','成本',79,'2020-08-12')
+INSERT INTO Sys_MDTotalMoldCost(DeviceType,DeviceName,Number,AcctDate)VALUES  ('模具四','成本',99,'2020-08-13')
+INSERT INTO Sys_MDTotalMoldCost(DeviceType,DeviceName,Number,AcctDate)VALUES  ('模具五','成本',58,'2020-08-14')
+
+CREATE TABLE Sys_MDMoldProcessingProgress --模具详情:模具加工进度
+(
+	id int identity (1,1) primary KEY,
+	Name varchar(50)  NULL,--客户名称
+	Number INT , --数量
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT Sys_MDMoldProcessingProgress(Name,Number)VALUES  ('按期',20)
+INSERT Sys_MDMoldProcessingProgress(Name,Number)VALUES  ('延期',8) 
+
+CREATE table Sys_MDMoldProcessingList  --模具详情:模具加工清单
+(  
+	id int identity (1,1) primary key , 
+	ModuleNumber varchar(50)  NULL,--模号
+	WorkpieceNo varchar(50)  NULL,--工件号
+	WorkingProcedure varchar(50)  NULL,--额外工序
+	Supplier varchar(50)  NULL,--供应商
+	PlannedDeliveryDate DATE, --计划交期
+	DaysOfExtension INT,--延期天数
+	OrderStatus VARCHAR(20), --状态
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_MDMoldProcessingList(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,OrderStatus)VALUES('20KK02003','201_1','铣床','DJ',GETDATE(),6,'加工中')
+INSERT INTO Sys_MDMoldProcessingList(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,OrderStatus)VALUES('20KK04013','202_2','热处理','KS',GETDATE(),3,'加工中')
+INSERT INTO Sys_MDMoldProcessingList(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,OrderStatus)VALUES('20KK04023','202_2','热处理','KS',GETDATE(),4,'加工中')
+INSERT INTO Sys_MDMoldProcessingList(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,OrderStatus)VALUES('20KK04033','202_2','热处理','KS',GETDATE(),4,'加工中')
+INSERT INTO Sys_MDMoldProcessingList(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,OrderStatus)VALUES('20KK04043','202_2','热处理','KS',GETDATE(),5,'加工中')
+INSERT INTO Sys_MDMoldProcessingList(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,OrderStatus)VALUES('20KK04053','202_2','热处理','KS',GETDATE(),5,'加工中')
+INSERT INTO Sys_MDMoldProcessingList(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,OrderStatus)VALUES('20KK04063','202_2','热处理','KS',GETDATE(),7,'加工中')
+INSERT INTO Sys_MDMoldProcessingList(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,OrderStatus)VALUES('20KK04073','202_2','热处理','KS',GETDATE(),5,'加工中')
+
+CREATE TABLE Sys_MDWorkpieceTypeProportion --模具详情:工件类型按大类比例
+(
+	id int identity (1,1) primary KEY,
+	Name varchar(50)  NULL,--物品
+	Cost FLOAT  , --成本
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT Sys_MDWorkpieceTypeProportion(Name,Cost,AcctDate)VALUES  ('CNC钢料A组',23,'2020-09-11')
+INSERT Sys_MDWorkpieceTypeProportion(Name,Cost,AcctDate)VALUES  ('CNC钢料B组',26,'2020-09-12')
+INSERT Sys_MDWorkpieceTypeProportion(Name,Cost,AcctDate)VALUES  ('CNC电极组',17,'2020-09-13')
+INSERT Sys_MDWorkpieceTypeProportion(Name,Cost,AcctDate)VALUES  ('EDM放电A组',34,'2020-09-14')
+INSERT Sys_MDWorkpieceTypeProportion(Name,Cost,AcctDate)VALUES  ('EDM放电B组',23,'2020-09-15')
 
 
-
-
---DeviceDetails----------------------------------------------------
---设备详情：设备信息
---设备详情：设备稼动率趋势
---设备详情：设备合格率趋势
---设备详情：设备加工工件历史清单
-
-CREATE table Sys_DDDeviceInformation--设备详情:设备信息   设备管理:设备清单  Sys_EMEquipmentList
+CREATE table Sys_DDDeviceInformation--设备详情:设备信息   
 (  
 	id int identity (1,1) primary key , 
 	Number varchar(50)  NULL,--编号
@@ -2219,7 +2284,7 @@ INSERT INTO Sys_DDJiaDongRateTrend(DeviceType,DeviceName,Number)VALUES  ('设备三
 INSERT INTO Sys_DDJiaDongRateTrend(DeviceType,DeviceName,Number)VALUES  ('设备四','稼动率',99)
 INSERT INTO Sys_DDJiaDongRateTrend(DeviceType,DeviceName,Number)VALUES  ('设备五','稼动率',58)
 
-CREATE TABLE Sys_DDPassRateTrend --设备详情:设备合格率趋势     --员工主页:合格率  Sys_EHPassRate
+CREATE TABLE Sys_DDPassRateTrend --设备详情:设备合格率趋势    
 (
 	id int identity (1,1) primary KEY,
 	DeviceType varchar(50)  NULL, --设备类型
@@ -2239,7 +2304,7 @@ INSERT INTO Sys_DDPassRateTrend(DeviceType,DeviceName,Number,AcctDate)VALUES  ('
 
 
 
-CREATE table Sys_DDEquipmentPartsList--设备详情:设备加工工件历史清单   --Sys_PSWorkpieceDetailsList--工件详情:列表   
+CREATE table Sys_DDEquipmentPartsList--设备详情:设备加工工件历史清单  
 (  
 	id int identity (1,1) primary key , 
 	MoldNo varchar(50)  NULL, --模具编号
