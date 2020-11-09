@@ -4,6 +4,7 @@ using NFine.Domain._04_IRepository.AutomationLine;
 using NFine.Repository.AutomationLine;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,8 @@ namespace NFine.Application.AutomationLine
 {
     public class RunningStateApp
     {
-        private IRunningStateRepository service = new RunningStateRepository();
+        private static string Str = ConfigurationManager.ConnectionStrings["NFineDbContextDetailed"].ConnectionString;
+        private IRunningStateRepository service = new RunningStateRepository(Str);
 
         public List<RunningStateEntity> GetList()
         {

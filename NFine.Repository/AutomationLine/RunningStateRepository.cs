@@ -10,6 +10,13 @@ using System.Threading.Tasks;
 namespace NFine.Repository.AutomationLine
 {
     public class RunningStateRepository : RepositoryBase<RunningStateEntity>, IRunningStateRepository
-    { 
+    {
+        public RunningStateRepository()
+        {
+        }
+        public RunningStateRepository(string connstr) : base(connstr)
+        {
+
+        }
     }
 }

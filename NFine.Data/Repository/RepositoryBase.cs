@@ -7,6 +7,7 @@
 using NFine.Code;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Common;
 using System.Data.Entity;
@@ -25,6 +26,16 @@ namespace NFine.Data
     {
         private NFineDbContext dbcontext = new NFineDbContext();
         private DbTransaction dbTransaction { get; set; }
+
+        public RepositoryBase()
+        {
+        }
+
+        public RepositoryBase(string connstr)
+        {
+            dbcontext.Database.Connection.ConnectionString = connstr;
+        }
+
         public IRepositoryBase BeginTrans()
         {
             DbConnection dbConnection = ((IObjectContextAdapter)dbcontext).ObjectContext.Connection;

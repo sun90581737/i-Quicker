@@ -7,6 +7,7 @@
 using NFine.Code;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Common;
 using System.Data.Entity;
 using System.Linq;
@@ -23,6 +24,16 @@ namespace NFine.Data
     public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : class,new()
     {
         public NFineDbContext dbcontext = new NFineDbContext();
+
+        public RepositoryBase()
+        {
+        }
+
+        public RepositoryBase(string connstr)
+        {
+            dbcontext.Database.Connection.ConnectionString = connstr;
+        }
+
         public int Insert(TEntity entity)
         {
             dbcontext.Entry<TEntity>(entity).State = EntityState.Added;
