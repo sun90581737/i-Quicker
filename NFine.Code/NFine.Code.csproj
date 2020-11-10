@@ -111,6 +111,7 @@
     <Compile Include="Licence.cs" />
     <Compile Include="Log\Log.cs" />
     <Compile Include="Log\LogFactory.cs" />
+    <Compile Include="Log\LogHelper.cs" />
     <Compile Include="Mail\MailHelper.cs" />
     <Compile Include="Net\HttpMethods.cs" />
     <Compile Include="Net\Net.cs" />

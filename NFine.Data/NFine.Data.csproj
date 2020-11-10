@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBContext\DbService.cs" />
     <Compile Include="DBContext\NFineDbContext.cs" />
     <Compile Include="Extensions\DbHelper.cs" />
     <Compile Include="Extensions\EntityInterfaceExtensions.cs" />

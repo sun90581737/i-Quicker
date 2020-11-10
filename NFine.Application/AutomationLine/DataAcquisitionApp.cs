@@ -26,5 +26,18 @@ namespace NFine.Application.AutomationLine
             expression = expression.And(t => t.IsEffective == 1);
             return service.FindList(expression, pagination);
         }
+        public void SubmitForm(DataAcquisitionEntity daEntity, string keyValue="")
+        {
+            if (!string.IsNullOrEmpty(keyValue))
+            {
+                daEntity.Modify(keyValue);
+                service.Update(daEntity);
+            }
+            else
+            {
+                daEntity.Create();
+                service.Insert(daEntity);
+            }
+        }
     }
 }

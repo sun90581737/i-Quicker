@@ -15,7 +15,7 @@ namespace NFine.Code
     /// </summary>
     public class DESEncrypt
     {
-        private static string DESKey = "nfine_desencrypt_2016";
+        private static string DESKey = "i-Quicker2020";
 
         #region ========加密========
         /// <summary>
