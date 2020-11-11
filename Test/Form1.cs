@@ -30,7 +30,7 @@ namespace Test
             DataAcquisitionResult result = new DataAcquisitionResult();
             List<DataAcquisitionEntity> dtos = new List<DataAcquisitionEntity>();
             DataAcquisitionEntity dto = new DataAcquisitionEntity();
-            dto.DeviceName = "CNC1发那科999";
+            dto.DeviceName = "CNC1发那科";
             dto.DeviceRunStatus = "运行中";
             dto.DeviceUrl = "";
             dto.DeviceLndicatorLight = "yellow";
@@ -43,13 +43,108 @@ namespace Test
             dto.LoadRatio = 10;
             dtos.Add(dto);
             dto = new DataAcquisitionEntity();
-            dto.DeviceName = "CNC2发那科888";
+            dto.DeviceName = "CNC2发那科";
             dto.DeviceRunStatus = "宕机";
             dto.DeviceUrl = "";
             dto.DeviceLndicatorLight = "red";
+            dto.TodayOutput = 0;
+            dto.TodayJiadong = 0;
+            dto.SpindleSpeed = 0;
+            dto.FeedSpeed = 0;
+            dto.SpindleRatio = 0;
+            dto.FeedRatio = 0;
+            dto.LoadRatio = 0;
             dtos.Add(dto);
             string server = "http://localhost:15988/api/AutomationLine/SaveDataAcquisition";
             DataAcquisitionAPIParameter param = new DataAcquisitionAPIParameter();
+            param.operator_name = "WebApi";
+            param.operator_time = GenerateTimeStamp(DateTime.Now);
+            param.sign = GenSign(param.operator_name, param.operator_time);
+            param.data = dtos;
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("operator_name", param.operator_name);
+            dic.Add("operator_time", param.operator_time);
+            dic.Add("sign", param.sign);
+            dic.Add("strdata", Serialize(param.data));
+
+            try
+            {
+                HttpWebResponse response = CreatePostHttpResponse(server, dic, null, null, Encoding.UTF8, null);
+                System.IO.StreamReader sr = new System.IO.StreamReader(response.GetResponseStream());
+                string responseContent = sr.ReadToEnd();
+                sr.Close();
+
+                DataAcquisitionResult rtn = Deserialize<DataAcquisitionResult>(responseContent);
+                if (rtn.code != "1000")
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DataAcquisitionResult result = new DataAcquisitionResult();
+            List<DataAcquisitionDetailDTO> dtos = new List<DataAcquisitionDetailDTO>();
+            DataAcquisitionDetailDTO dto = new DataAcquisitionDetailDTO();
+            dto.devicename = "CNC1发那科";
+            dto.spindlespeed = 1100;
+            dto.feedspeed = 8000;
+            dtos.Add(dto);
+            dto = new DataAcquisitionDetailDTO();
+            dto.devicename = "CNC2发那科";
+            dto.spindlespeed = 1100;
+            dto.feedspeed = 8000;
+            dtos.Add(dto);
+            string server = "http://localhost:15988/api/AutomationLine/SaveDataAcquisitionDetail";
+            DataAcquisitionDetailAPIParameter param = new DataAcquisitionDetailAPIParameter();
+            param.operator_name = "WebApi";
+            param.operator_time = GenerateTimeStamp(DateTime.Now);
+            param.sign = GenSign(param.operator_name, param.operator_time);
+            param.data = dtos;
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("operator_name", param.operator_name);
+            dic.Add("operator_time", param.operator_time);
+            dic.Add("sign", param.sign);
+            dic.Add("strdata", Serialize(param.data));
+
+            try
+            {
+                HttpWebResponse response = CreatePostHttpResponse(server, dic, null, null, Encoding.UTF8, null);
+                System.IO.StreamReader sr = new System.IO.StreamReader(response.GetResponseStream());
+                string responseContent = sr.ReadToEnd();
+                sr.Close();
+
+                DataAcquisitionResult rtn = Deserialize<DataAcquisitionResult>(responseContent);
+                if (rtn.code != "1000")
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+        }
+        private void button7_Click(object sender, EventArgs e)
+        {
+            DataAcquisitionResult result = new DataAcquisitionResult();
+            List<DataAcquisitionJiadongRateDTO> dtos = new List<DataAcquisitionJiadongRateDTO>();
+            DataAcquisitionJiadongRateDTO dto = new DataAcquisitionJiadongRateDTO();
+            dto.devicename = "CNC1发那科";
+            dto.todayoutput = 21;
+            dto.todayjiadong = 0.68;
+            dtos.Add(dto);
+            dto = new DataAcquisitionJiadongRateDTO();
+            dto.devicename = "CNC2发那科";
+            dto.todayoutput = 3;
+            dto.todayjiadong = 0.34;
+            dtos.Add(dto);
+            string server = "http://localhost:15988/api/AutomationLine/SaveDataAcquisitionJiadongRate";
+            DataAcquisitionJiadongRateAPIParameter param = new DataAcquisitionJiadongRateAPIParameter();
             param.operator_name = "WebApi";
             param.operator_time = GenerateTimeStamp(DateTime.Now);
             param.sign = GenSign(param.operator_name, param.operator_time);
@@ -353,5 +448,7 @@ namespace Test
                 return;
             }
         }
+
+        
     }
 }

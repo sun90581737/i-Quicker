@@ -35,6 +35,63 @@ namespace NFine.Domain._05_API
     }
     #endregion
 
+    #region 数据采集B
+    [DataContract]
+    public class DataAcquisitionDetailAPIParameter
+    {
+        [DataMember]
+        public string operator_name { get; set; }
+        [DataMember]
+        public string operator_time { get; set; }
+        [DataMember]
+        public string ip { get; set; }
+        [DataMember]
+        public string sign { get; set; }
+        [DataMember]
+        public string strdata { get; set; }
+        [DataMember]
+        public List<DataAcquisitionDetailDTO> data { get; set; }
+    }
+    public class DataAcquisitionDetailDTO
+    {
+        [DataMember]
+        public string devicename { get; set; }
+        [DataMember]
+        public int spindlespeed { get; set; }
+        [DataMember]
+        public int feedspeed { get; set; }
+    }
+
+    #endregion
+
+    #region  数据采集C
+    [DataContract]
+    public class DataAcquisitionJiadongRateAPIParameter
+    {
+        [DataMember]
+        public string operator_name { get; set; }
+        [DataMember]
+        public string operator_time { get; set; }
+        [DataMember]
+        public string ip { get; set; }
+        [DataMember]
+        public string sign { get; set; }
+        [DataMember]
+        public string strdata { get; set; }
+        [DataMember]
+        public List<DataAcquisitionJiadongRateDTO> data { get; set; }
+    }
+    public class DataAcquisitionJiadongRateDTO
+    {
+        [DataMember]
+        public string devicename { get; set; }
+        [DataMember]
+        public int todayoutput { get; set; }
+        [DataMember]
+        public double todayjiadong { get; set; }
+    }
+    #endregion
+
     #region 设备清单 更新灯 加工
     [DataContract]
     public class EquipmentListAPIParameterA 

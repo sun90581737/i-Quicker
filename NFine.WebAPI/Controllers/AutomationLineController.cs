@@ -73,27 +73,182 @@ namespace NFine.WebAPI.Controllers
             }
             return result;
         }
-
-        public static string Serialize(object obj)
+        [System.Web.Http.HttpPost]
+        public DataAcquisitionResult SaveDataAcquisitionDetail([FromBody]DataAcquisitionDetailAPIParameter param)
         {
-            if (obj == null)
+            DataAcquisitionResult result = new DataAcquisitionResult();
+            result.code = "1000";
+            result.msg = "success";
+            if (param == null)
             {
-                return string.Empty;
+                param = new DataAcquisitionDetailAPIParameter();
+                this.Request.GetQueryNameValuePairs();
+
+                HttpContextBase context = (HttpContextBase)Request.Properties["MS_HttpContext"];//获取传统context
+                HttpRequestBase request = context.Request;//定义传统request对象
+                param.operator_name = request.Form["operator_name"];
+                param.operator_time = request.Form["operator_time"];
+                param.sign = request.Form["sign"];
+                param.strdata = request.Form["strdata"];
+
+                LogHelper.Info("WebApi-SaveDataAcquisitionDetail param from forms");
             }
-            return JsonConvert.SerializeObject(obj);
+            //else LogHelper.Info(string.Format("WebApi-SaveDataAcquisition param from body{0}", Serialize(param)));
+            if (!VerifyMiddleSign(param.operator_name, param.operator_time, param.sign))
+            {
+                LogHelper.Info(string.Format("operator_name{0},operation_time{1},sign{2}", param.operator_name, param.operator_time, param.sign));
+                result.msg = "签名错误";
+                result.code = "1040";
+                return result;
+            }
+            List<DataAcquisitionDetailDTO> dto = new List<DataAcquisitionDetailDTO>();
+            try
+            {
+                dto = Deserialize<List<DataAcquisitionDetailDTO>>(param.strdata);
+                foreach (var item in dto)
+                {
+                    bool fla = InsertDataAcquisitionDetail(item);
+                    if (!fla)
+                    {
+                        LogHelper.Error(Serialize(item));
+                        result.msg = "数据插入失败";
+                        result.code = "1050";
+                        return result;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(ex.Message);
+                result.msg = ex.Message;
+                result.code = "1060";
+                return result;
+            }
+            return result;
+        }
+        [System.Web.Http.HttpPost]
+        public DataAcquisitionResult SaveDataAcquisitionJiadongRate([FromBody]DataAcquisitionJiadongRateAPIParameter param)
+        {
+            DataAcquisitionResult result = new DataAcquisitionResult();
+            result.code = "1000";
+            result.msg = "success";
+            if (param == null)
+            {
+                param = new DataAcquisitionJiadongRateAPIParameter();
+                this.Request.GetQueryNameValuePairs();
+
+                HttpContextBase context = (HttpContextBase)Request.Properties["MS_HttpContext"];//获取传统context
+                HttpRequestBase request = context.Request;//定义传统request对象
+                param.operator_name = request.Form["operator_name"];
+                param.operator_time = request.Form["operator_time"];
+                param.sign = request.Form["sign"];
+                param.strdata = request.Form["strdata"];
+
+                LogHelper.Info("WebApi-SaveDataAcquisition param from forms");
+            }
+            //else LogHelper.Info(string.Format("WebApi-SaveDataAcquisition param from body{0}", Serialize(param)));
+            if (!VerifyMiddleSign(param.operator_name, param.operator_time, param.sign))
+            {
+                LogHelper.Info(string.Format("operator_name{0},operation_time{1},sign{2}", param.operator_name, param.operator_time, param.sign));
+                result.msg = "签名错误";
+                result.code = "1040";
+                return result;
+            }
+            List<DataAcquisitionJiadongRateDTO> dto = new List<DataAcquisitionJiadongRateDTO>();
+            try
+            {
+                dto = Deserialize<List<DataAcquisitionJiadongRateDTO>>(param.strdata);
+                foreach (var item in dto)
+                {
+                    bool fla = UpdateDataAcquisitionJiadongRate(item);
+                    if (!fla)
+                    {
+                        LogHelper.Error(Serialize(item));
+                        result.msg = "数据更新失败";
+                        result.code = "1050";
+                        return result;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(ex.Message);
+                result.msg = ex.Message;
+                result.code = "1060";
+                return result;
+            }
+            return result;
         }
 
-        public static string dbnfin = GetValue("conn_nfinebase");//写入库
         [System.Web.Http.NonAction]
         public bool InsertDataAcquisition(DataAcquisitionEntity dto)
         {
             bool fla = false;
             try
             {
+                int re = 0; 
+                DbService ds = new DbService(dbnfin, "MySQL");
+                string str1 = string.Format(@"SELECT  *  from Sys_DataAcquisition WHERE DeviceName='{0}' AND IsEffective=1;", dto.DeviceName);
+                int sult1 = ds.ExecuteSql(str1);
+                if (sult1 > 0)
+                {
+                    string srt = string.Format(@"UPDATE Sys_DataAcquisition SET DeviceRunStatus='{0}',DeviceUrl='{1}',DeviceLndicatorLight='{2}',TodayOutput={3},TodayJiadong={4},SpindleSpeed={5},FeedSpeed={6},SpindleRatio={7},FeedRatio={8},LoadRatio={9} WHERE DeviceName='{10}'",
+                        dto.DeviceRunStatus, dto.DeviceUrl, dto.DeviceLndicatorLight, dto.TodayOutput, dto.TodayJiadong, dto.SpindleSpeed, dto.FeedSpeed, dto.SpindleRatio, dto.FeedRatio, dto.LoadRatio, dto.DeviceName);
+                    int sult = ds.InsertSql(srt, out re);
+                    if (sult > 0)
+                    {
+                        fla = true;
+                    }
+                }
+                else
+                {
+                    string srt = string.Format(@"INSERT INTO Sys_DataAcquisition(DeviceName,DeviceRunStatus,DeviceUrl,DeviceLndicatorLight,TodayOutput,TodayJiadong,SpindleSpeed,FeedSpeed,SpindleRatio,FeedRatio,LoadRatio,CreationTime)
+                    VALUES  ( '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}',NOW())", dto.DeviceName, dto.DeviceRunStatus, dto.DeviceUrl, dto.DeviceLndicatorLight, dto.TodayOutput, dto.TodayJiadong, dto.SpindleSpeed, dto.FeedSpeed, dto.SpindleRatio, dto.FeedRatio, dto.LoadRatio);
+                    int sult = ds.InsertSql(srt, out re);
+                    if (sult > 0)
+                    {
+                        fla = true;
+                    }
+                } 
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(ex.Message);
+            }
+            return fla;
+        }
+        [System.Web.Http.NonAction]
+        public bool InsertDataAcquisitionDetail(DataAcquisitionDetailDTO dto)
+        {
+            bool fla = false;
+            try
+            {
                 int re = 0;
                 DbService ds = new DbService(dbnfin, "MySQL");
-                string srt = string.Format(@"INSERT INTO Sys_DataAcquisition(DeviceName,DeviceRunStatus,DeviceUrl,DeviceLndicatorLight,TodayOutput,TodayJiadong,SpindleSpeed,FeedSpeed,SpindleRatio,FeedRatio,LoadRatio,CreationTime)
-                VALUES  ( '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}',NOW())", dto.DeviceName, dto.DeviceRunStatus, dto.DeviceUrl, dto.DeviceLndicatorLight, dto.TodayOutput, dto.TodayJiadong, dto.SpindleSpeed,dto.FeedSpeed,dto.SpindleRatio, dto.FeedRatio, dto.LoadRatio);
+                string srt = string.Format(@"INSERT INTO Sys_DataAcquisitionDetail(DeviceName,SpindleSpeed,FeedSpeed,CreationTime)
+                VALUES  ( '{0}',{1},{2},NOW())", dto.devicename, dto.spindlespeed, dto.feedspeed);
+                int sult = ds.InsertSql(srt, out re);
+                if (sult > 0)
+                {
+                    //ds.DeleteSql(string.Format("DELETE from Sys_DataAcquisitionDetail where CreationTime<{0}", DateTime.Now.AddHours(-1).ToShortDateString()));
+                    fla = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(ex.Message);
+            }
+            return fla;
+        }
+        [System.Web.Http.NonAction]
+        public bool UpdateDataAcquisitionJiadongRate(DataAcquisitionJiadongRateDTO dto)
+        {
+            bool fla = false;
+            try
+            {
+                int re = 0;
+                DbService ds = new DbService(dbnfin, "MySQL");
+                string srt = string.Format(@"UPDATE  Sys_DataAcquisition set  TodayOutput={0},TodayJiadong={1} where DeviceName='{2}'", dto.todayoutput, dto.todayjiadong, dto.devicename);
                 int sult = ds.InsertSql(srt, out re);
                 if (sult > 0)
                 {
@@ -106,7 +261,17 @@ namespace NFine.WebAPI.Controllers
             }
             return fla;
         }
+        #region
+        public static string Serialize(object obj)
+        {
+            if (obj == null)
+            {
+                return string.Empty;
+            }
+            return JsonConvert.SerializeObject(obj);
+        }
 
+        public static string dbnfin = GetValue("conn_nfinebase");//写入库
         // 根据Key取Value值
         public static string GetValue(string key)
         {
@@ -164,5 +329,6 @@ namespace NFine.WebAPI.Controllers
             TimeSpan ts = dt.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, 0);
             return Convert.ToInt64(ts.TotalSeconds).ToString();
         }
+        #endregion
     }
 }
