@@ -100,4 +100,31 @@ namespace NFine.Domain._05_API
 
     }
     #endregion
+    #region 任务清单 更新灯
+    [DataContract]
+    public class TaskListAPIParameter
+    {
+        [DataMember]
+        public string operator_name { get; set; }
+        [DataMember]
+        public string operator_time { get; set; }
+        [DataMember]
+        public string ip { get; set; }
+        [DataMember]
+        public string sign { get; set; }
+        [DataMember]
+        public string strdata { get; set; }
+
+        [DataMember]
+        public List<TaskListDTO> data { get; set; }
+    }
+    public class TaskListDTO
+    {
+        [DataMember]
+        public int processid { get; set; }
+        [DataMember]
+        public string colour { get; set; }
+    }
+    #endregion
+
 }

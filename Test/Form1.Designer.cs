@@ -79,10 +79,11 @@
             // 
             this.button5.Location = new System.Drawing.Point(61, 282);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(88, 33);
+            this.button5.Size = new System.Drawing.Size(137, 33);
             this.button5.TabIndex = 4;
-            this.button5.Text = "button5";
+            this.button5.Text = "任务清单-灯";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 

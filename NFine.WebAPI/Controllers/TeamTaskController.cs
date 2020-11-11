@@ -71,58 +71,110 @@ namespace NFine.WebAPI.Controllers
             }
             return result;
         }
-        //[System.Web.Http.HttpPost]
-        //public DataAcquisitionResult SaveEquipmentJiadongRate([FromBody]EquipmentListAPIParameterB param)
-        //{
-        //    DataAcquisitionResult result = new DataAcquisitionResult();
-        //    result.code = "1000";
-        //    result.msg = "success";
-        //    if (param == null)
-        //    {
-        //        param = new EquipmentListAPIParameterB();
-        //        this.Request.GetQueryNameValuePairs();
+        [System.Web.Http.HttpPost]
+        public DataAcquisitionResult SaveEquipmentJiadongRate([FromBody]EquipmentListAPIParameterB param)
+        {
+            DataAcquisitionResult result = new DataAcquisitionResult();
+            result.code = "1000";
+            result.msg = "success";
+            if (param == null)
+            {
+                param = new EquipmentListAPIParameterB();
+                this.Request.GetQueryNameValuePairs();
 
-        //        HttpContextBase context = (HttpContextBase)Request.Properties["MS_HttpContext"];//获取传统context
-        //        HttpRequestBase request = context.Request;//定义传统request对象
-        //        param.operator_name = request.Form["operator_name"];
-        //        param.operator_time = request.Form["operator_time"];
-        //        param.sign = request.Form["sign"];
-        //        param.strdata = request.Form["strdata"];
+                HttpContextBase context = (HttpContextBase)Request.Properties["MS_HttpContext"];//获取传统context
+                HttpRequestBase request = context.Request;//定义传统request对象
+                param.operator_name = request.Form["operator_name"];
+                param.operator_time = request.Form["operator_time"];
+                param.sign = request.Form["sign"];
+                param.strdata = request.Form["strdata"];
 
-        //        LogHelper.Info("WebApi-SaveEquipmentJiadongRate param from forms");
-        //    }
-        //    if (!VerifyMiddleSign(param.operator_name, param.operator_time, param.sign))
-        //    {
-        //        LogHelper.Info(string.Format("operator_name{0},operation_time{1},sign{2}", param.operator_name, param.operator_time, param.sign));
-        //        result.msg = "签名错误";
-        //        result.code = "1040";
-        //        return result;
-        //    }
-        //    List<EquipmentListTwoDTO> dto = new List<EquipmentListTwoDTO>();
-        //    try
-        //    {
-        //        dto = Deserialize<List<EquipmentListTwoDTO>>(param.strdata);
-        //        foreach (var item in dto)
-        //        {
-        //            bool fla = UpdateEquipmentListTwo(item);
-        //            if (!fla)
-        //            {
-        //                LogHelper.Error(Serialize(item));
-        //                result.msg = "数据更新失败";
-        //                result.code = "1050";
-        //                return result;
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        LogHelper.Error(ex.Message);
-        //        result.msg = ex.Message;
-        //        result.code = "1060";
-        //        return result;
-        //    }
-        //    return result;
-        //}
+                LogHelper.Info("WebApi-SaveEquipmentJiadongRate param from forms");
+            }
+            if (!VerifyMiddleSign(param.operator_name, param.operator_time, param.sign))
+            {
+                LogHelper.Info(string.Format("operator_name{0},operation_time{1},sign{2}", param.operator_name, param.operator_time, param.sign));
+                result.msg = "签名错误";
+                result.code = "1040";
+                return result;
+            }
+            List<EquipmentListTwoDTO> dto = new List<EquipmentListTwoDTO>();
+            try
+            {
+                dto = Deserialize<List<EquipmentListTwoDTO>>(param.strdata);
+                foreach (var item in dto)
+                {
+                    bool fla = UpdateEquipmentListTwo(item);
+                    if (!fla)
+                    {
+                        LogHelper.Error(Serialize(item));
+                        result.msg = "数据更新失败";
+                        result.code = "1050";
+                        return result;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(ex.Message);
+                result.msg = ex.Message;
+                result.code = "1060";
+                return result;
+            }
+            return result;
+        }
+        [System.Web.Http.HttpPost]
+        public DataAcquisitionResult SaveTaskListColour([FromBody]TaskListAPIParameter param)
+        {
+            DataAcquisitionResult result = new DataAcquisitionResult();
+            result.code = "1000";
+            result.msg = "success";
+            if (param == null)
+            {
+                param = new TaskListAPIParameter();
+                this.Request.GetQueryNameValuePairs();
+
+                HttpContextBase context = (HttpContextBase)Request.Properties["MS_HttpContext"];//获取传统context
+                HttpRequestBase request = context.Request;//定义传统request对象
+                param.operator_name = request.Form["operator_name"];
+                param.operator_time = request.Form["operator_time"];
+                param.sign = request.Form["sign"];
+                param.strdata = request.Form["strdata"];
+
+                LogHelper.Info("WebApi-SaveEquipmentMachining param from forms");
+            }
+            if (!VerifyMiddleSign(param.operator_name, param.operator_time, param.sign))
+            {
+                LogHelper.Info(string.Format("operator_name{0},operation_time{1},sign{2}", param.operator_name, param.operator_time, param.sign));
+                result.msg = "签名错误";
+                result.code = "1040";
+                return result;
+            }
+            List<TaskListDTO> dto = new List<TaskListDTO>();
+            try
+            {
+                dto = Deserialize<List<TaskListDTO>>(param.strdata);
+                foreach (var item in dto)
+                {
+                    bool fla = UpdateTaskListColour(item);
+                    if (!fla)
+                    {
+                        LogHelper.Error(Serialize(item));
+                        result.msg = "数据更新失败";
+                        result.code = "1050";
+                        return result;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(ex.Message);
+                result.msg = ex.Message;
+                result.code = "1060";
+                return result;
+            }
+            return result;
+        }
         [System.Web.Http.NonAction]
         public bool UpdateEquipmentListOne(EquipmentListOneDTO dto)
         {
@@ -145,26 +197,47 @@ namespace NFine.WebAPI.Controllers
             return fla;
         }
         [System.Web.Http.NonAction]
-        //public bool UpdateEquipmentListTwo(EquipmentListTwoDTO dto)
-        //{
-        //    bool fla = false;
-        //    try
-        //    {
-        //        int re = 0;
-        //        DbService ds = new DbService(dbnfin, "MySQL");
-        //        string srt = string.Format(@"UPDATE  Sys_EquipmentList set  Yield='{0}',Jiadong={1} where Equipment_Name='{2}' AND Team='{3}'", dto.yield, dto.Jiadong, dto.equipmentname, dto.team);
-        //        int sult = ds.InsertSql(srt, out re);
-        //        if (sult > 0)
-        //        {
-        //            fla = true;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        LogHelper.Error(ex.Message);
-        //    }
-        //    return fla;
-        //}
+        public bool UpdateEquipmentListTwo(EquipmentListTwoDTO dto)
+        {
+            bool fla = false;
+            try
+            {
+                int re = 0;
+                DbService ds = new DbService(dbnfin, "MySQL");
+                string srt = string.Format(@"UPDATE  Sys_EquipmentList set  Yield='{0}',Jiadong={1} where Equipment_Name='{2}' AND Team='{3}'", dto.yield, dto.Jiadong, dto.equipmentname, dto.team);
+                int sult = ds.InsertSql(srt, out re);
+                if (sult > 0)
+                {
+                    fla = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(ex.Message);
+            }
+            return fla;
+        }
+        [System.Web.Http.NonAction]
+        public bool UpdateTaskListColour(TaskListDTO dto)
+        {
+            bool fla = false;
+            try
+            {
+                int re = 0;
+                DbService ds = new DbService(dbnfin, "MySQL");
+                string srt = string.Format(@"UPDATE  Sys_TaskList set  Colour='{0}' where process_id={1}", dto.colour, dto.processid);
+                int sult = ds.InsertSql(srt, out re);
+                if (sult > 0)
+                {
+                    fla = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(ex.Message);
+            }
+            return fla;
+        }
         public static string Serialize(object obj)
         {
             if (obj == null)

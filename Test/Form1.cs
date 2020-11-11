@@ -310,5 +310,48 @@ namespace Test
                 return;
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DataAcquisitionResult result = new DataAcquisitionResult();
+            List<TaskListDTO> dtos = new List<TaskListDTO>();
+            TaskListDTO dto = new TaskListDTO();
+            dto.processid = 1008;
+            dto.colour = "yellow";
+            dtos.Add(dto);
+            dto = new TaskListDTO();
+            dto.processid = 1010;
+            dto.colour = "red";
+            dtos.Add(dto);
+            string server = "http://localhost:15988/api/TeamTask/SaveTaskListColour";
+            TaskListAPIParameter param = new TaskListAPIParameter();
+            param.operator_name = "WebApi";
+            param.operator_time = GenerateTimeStamp(DateTime.Now);
+            param.sign = GenSign(param.operator_name, param.operator_time);
+            param.data = dtos;
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("operator_name", param.operator_name);
+            dic.Add("operator_time", param.operator_time);
+            dic.Add("sign", param.sign);
+            dic.Add("strdata", Serialize(param.data));
+
+            try
+            {
+                HttpWebResponse response = CreatePostHttpResponse(server, dic, null, null, Encoding.UTF8, null);
+                System.IO.StreamReader sr = new System.IO.StreamReader(response.GetResponseStream());
+                string responseContent = sr.ReadToEnd();
+                sr.Close();
+
+                DataAcquisitionResult rtn = Deserialize<DataAcquisitionResult>(responseContent);
+                if (rtn.code != "1000")
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+        }
     }
 }
