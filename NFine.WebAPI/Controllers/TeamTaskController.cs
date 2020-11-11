@@ -141,7 +141,7 @@ namespace NFine.WebAPI.Controllers
                 param.sign = request.Form["sign"];
                 param.strdata = request.Form["strdata"];
 
-                LogHelper.Info("WebApi-SaveEquipmentMachining param from forms");
+                LogHelper.Info("WebApi-SaveTaskListColour param from forms");
             }
             if (!VerifyMiddleSign(param.operator_name, param.operator_time, param.sign))
             {

@@ -144,7 +144,7 @@ namespace NFine.WebAPI.Controllers
                 param.sign = request.Form["sign"];
                 param.strdata = request.Form["strdata"];
 
-                LogHelper.Info("WebApi-SaveDataAcquisition param from forms");
+                LogHelper.Info("WebApi-SaveDataAcquisitionJiadongRate param from forms");
             }
             //else LogHelper.Info(string.Format("WebApi-SaveDataAcquisition param from body{0}", Serialize(param)));
             if (!VerifyMiddleSign(param.operator_name, param.operator_time, param.sign))
@@ -283,8 +283,6 @@ namespace NFine.WebAPI.Controllers
         }
         public static bool VerifyMiddleSign(string customerId, string timeStamp, string dataSign)
         {
-            //Logger.Info("B2C.TMSService.WebApiBaseService.VerifyMiddleSign  " + string.Format("CustomerId{0} timeStamp {1} dataSign{2}", customerId, timeStamp, dataSign));
-
             try
             {
                 bool rtn = false;
