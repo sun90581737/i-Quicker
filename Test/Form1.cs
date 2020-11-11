@@ -50,10 +50,12 @@ namespace Test
             string server = "http://localhost:15988/api/AutomationLine/SaveDataAcquisition";
             DataAcquisitionAPIParameter param = new DataAcquisitionAPIParameter();
             param.operator_name = "WebApi";
-            param.sign = DESEncrypt.Encrypt("WebApi");
+            param.operator_time = GenerateTimeStamp(DateTime.Now);
+            param.sign = GenSign(param.operator_name, param.operator_time);
             param.data = dtos;
             Dictionary<string, string> dic = new Dictionary<string, string>();
             dic.Add("operator_name", param.operator_name);
+            dic.Add("operator_time", param.operator_time);
             dic.Add("sign", param.sign);
             dic.Add("strdata", Serialize(param.data));
 
@@ -76,6 +78,17 @@ namespace Test
             }
         }
 
+        public static string GenerateTimeStamp(DateTime dt)
+        {
+            // Default implementation of UNIX time of the current UTC time  
+            TimeSpan ts = dt.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            return Convert.ToInt64(ts.TotalSeconds).ToString();
+        }
+        public static string GenSign(string operatorName, string timeStamp)
+        {
+            string signStr = string.Format("{0}{1}", operatorName, timeStamp);
+            return DESEncrypt.Encrypt(signStr);
+        }
         /// <summary>
         /// 组装普通文本请求参数。
         /// </summary>

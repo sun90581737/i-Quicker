@@ -34,16 +34,16 @@ namespace NFine.WebAPI.Controllers
                 HttpContextBase context = (HttpContextBase)Request.Properties["MS_HttpContext"];//获取传统context
                 HttpRequestBase request = context.Request;//定义传统request对象
                 param.operator_name = request.Form["operator_name"];
+                param.operator_time = request.Form["operator_time"];
                 param.sign = request.Form["sign"];
                 param.strdata = request.Form["strdata"];
 
                 LogHelper.Info("WebApi-SaveDataAcquisition param from forms");
             }
-            else LogHelper.Info(string.Format("WebApi-SaveDataAcquisition param from body{0}", Serialize(param)));
-            string signStr = string.Format("{0}", param.operator_name);
-            if (DESEncrypt.Encrypt(signStr) != param.sign)
+            //else LogHelper.Info(string.Format("WebApi-SaveDataAcquisition param from body{0}", Serialize(param)));
+            if (!VerifyMiddleSign(param.operator_name, param.operator_time, param.sign))
             {
-                LogHelper.Info(string.Format("operator_name{0},sign{1}", param.operator_name, param.sign));
+                LogHelper.Info(string.Format("operator_name{0},operation_time{1},sign{2}", param.operator_name, param.operator_time, param.sign));
                 result.msg = "签名错误";
                 result.code = "1040";
                 return result;
@@ -115,6 +115,54 @@ namespace NFine.WebAPI.Controllers
         public static T Deserialize<T>(string jsonValue)
         {
             return JsonConvert.DeserializeObject<T>(jsonValue);
+        }
+        public static bool VerifyMiddleSign(string customerId, string timeStamp, string dataSign)
+        {
+            //Logger.Info("B2C.TMSService.WebApiBaseService.VerifyMiddleSign  " + string.Format("CustomerId{0} timeStamp {1} dataSign{2}", customerId, timeStamp, dataSign));
+
+            try
+            {
+                bool rtn = false;
+
+                var mySign = GenSign(customerId.ToString(),timeStamp);
+                //TODO 如果timestamp差异超过5分钟验证失败
+                var serverTimeStamp = GenerateTimeStamp(DateTime.Now);
+                long lServer, lClient;
+                if (!long.TryParse(timeStamp, out lClient))
+                {
+                    LogHelper.Error(string.Format("时间戳格式错误{0}", timeStamp));
+                    return false;
+                }
+                if (!long.TryParse(serverTimeStamp, out lServer))
+                {
+                    LogHelper.Error(string.Format("时间戳格式错误{0}", serverTimeStamp));
+                    return false;
+                }
+                if (Math.Abs(lServer - lClient) > 300)
+                {
+                    LogHelper.Error(string.Format("客户端与服务器的时间戳相差超过5分钟{0} {1}", timeStamp, serverTimeStamp));
+                    return false;
+                }
+
+                rtn = string.Compare(mySign, dataSign, true) == 0;
+                return rtn;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Info(ex.Message);
+                return false;
+            }
+        }
+        public static string GenSign(string operatorName, string timeStamp)
+        {
+            string signStr = string.Format("{0}{1}", operatorName, timeStamp);
+            return DESEncrypt.Encrypt(signStr);
+        }
+        public static string GenerateTimeStamp(DateTime dt)
+        {
+            // Default implementation of UNIX time of the current UTC time  
+            TimeSpan ts = dt.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            return Convert.ToInt64(ts.TotalSeconds).ToString();
         }
     }
 }
