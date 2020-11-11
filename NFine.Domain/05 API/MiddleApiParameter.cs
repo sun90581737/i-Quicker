@@ -9,21 +9,16 @@ using System.Threading.Tasks;
 namespace NFine.Domain._05_API
 {
 
+    #region  数据采集A
     [DataContract]
     public class DataAcquisitionAPIParameter
     {
         [DataMember]
         public string operator_name { get; set; }
-        /// <summary>
-        /// 时间戳
-        /// </summary>
         [DataMember]
         public string operator_time { get; set; }
         [DataMember]
         public string ip { get; set; }
-        /// <summary>
-        /// md5(operator_name, app_key, operator_time, app_secret)
-        /// </summary>
         [DataMember]
         public string sign { get; set; }
         [DataMember]
@@ -38,4 +33,40 @@ namespace NFine.Domain._05_API
         [DataMember]
         public string msg { get; set; }
     }
+    #endregion
+
+    #region
+    [DataContract]
+    public class EquipmentListAPIParameterA 
+    {
+        [DataMember]
+        public string operator_name { get; set; }
+        [DataMember]
+        public string operator_time { get; set; }
+        [DataMember]
+        public string ip { get; set; }
+        [DataMember]
+        public string sign { get; set; }
+        [DataMember]
+        public string strdata { get; set; }
+
+        [DataMember]
+        public List<EquipmentListOneDTO> data { get; set; }
+        
+    }
+    public class EquipmentListOneDTO
+    {
+        [DataMember]
+        public string equipmentname { get; set; }
+        [DataMember]
+        public string team { get; set; }
+        [DataMember]
+        public string moldno { get; set; }
+        [DataMember]
+        public string workpiecesname { get; set; }
+        [DataMember]
+        public string colour { get; set; }
+    }
+
+    #endregion
 }

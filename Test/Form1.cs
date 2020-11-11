@@ -42,6 +42,7 @@ namespace Test
             dto.FeedRatio = 10;
             dto.LoadRatio = 10;
             dtos.Add(dto);
+            dto = new DataAcquisitionEntity();
             dto.DeviceName = "CNC2发那科888";
             dto.DeviceRunStatus = "宕机";
             dto.DeviceUrl = "";
@@ -77,7 +78,7 @@ namespace Test
                 return;
             }
         }
-
+        #region
         public static string GenerateTimeStamp(DateTime dt)
         {
             // Default implementation of UNIX time of the current UTC time  
@@ -209,10 +210,58 @@ namespace Test
             }
             return request.GetResponse() as HttpWebResponse;
         }
-
         private static bool CheckValidationResult(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate, X509Chain chain, SslPolicyErrors errors)
         {
             return true; //总是接受  
+        }
+        #endregion
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DataAcquisitionResult result = new DataAcquisitionResult();
+            List<EquipmentListOneDTO> dtos = new List<EquipmentListOneDTO>();
+            EquipmentListOneDTO dto = new EquipmentListOneDTO();
+            dto.equipmentname = "CNC01";
+            dto.team = "CNC班组";
+            dto.moldno = "JD1";
+            dto.workpiecesname = "JDM-007";
+            dto.colour = "red";
+            dtos.Add(dto);
+            dto = new EquipmentListOneDTO();
+            dto.equipmentname = "CNC02";
+            dto.team = "CNC班组";
+            dto.moldno = "JD2";
+            dto.workpiecesname = "JDM-008";
+            dto.colour = "yellow";
+            dtos.Add(dto);
+            string server = "http://localhost:15988/api/TeamTask/SaveEquipmentMachining";
+            EquipmentListAPIParameterA param = new EquipmentListAPIParameterA();
+            param.operator_name = "WebApi";
+            param.operator_time = GenerateTimeStamp(DateTime.Now);
+            param.sign = GenSign(param.operator_name, param.operator_time);
+            param.data = dtos;
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("operator_name", param.operator_name);
+            dic.Add("operator_time", param.operator_time);
+            dic.Add("sign", param.sign);
+            dic.Add("strdata", Serialize(param.data));
+
+            try
+            {
+                HttpWebResponse response = CreatePostHttpResponse(server, dic, null, null, Encoding.UTF8, null);
+                System.IO.StreamReader sr = new System.IO.StreamReader(response.GetResponseStream());
+                string responseContent = sr.ReadToEnd();
+                sr.Close();
+
+                DataAcquisitionResult rtn = Deserialize<DataAcquisitionResult>(responseContent);
+                if (rtn.code != "1000")
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
         }
     }
 }
