@@ -263,5 +263,52 @@ namespace Test
                 return;
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DataAcquisitionResult result = new DataAcquisitionResult();
+            List<EquipmentListTwoDTO> dtos = new List<EquipmentListTwoDTO>();
+            EquipmentListTwoDTO dto = new EquipmentListTwoDTO();
+            dto.equipmentname = "CNC01";
+            dto.team = "CNC班组";
+            dto.yield = "8";
+            dto.Jiadong = 0.56;
+            dtos.Add(dto);
+            dto = new EquipmentListTwoDTO();
+            dto.equipmentname = "CNC02";
+            dto.team = "CNC班组";
+            dto.yield = "0";
+            dto.Jiadong = 1;
+            dtos.Add(dto);
+            string server = "http://localhost:15988/api/TeamTask/SaveEquipmentJiadongRate";
+            EquipmentListAPIParameterB param = new EquipmentListAPIParameterB();
+            param.operator_name = "WebApi";
+            param.operator_time = GenerateTimeStamp(DateTime.Now);
+            param.sign = GenSign(param.operator_name, param.operator_time);
+            param.data = dtos;
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("operator_name", param.operator_name);
+            dic.Add("operator_time", param.operator_time);
+            dic.Add("sign", param.sign);
+            dic.Add("strdata", Serialize(param.data));
+
+            try
+            {
+                HttpWebResponse response = CreatePostHttpResponse(server, dic, null, null, Encoding.UTF8, null);
+                System.IO.StreamReader sr = new System.IO.StreamReader(response.GetResponseStream());
+                string responseContent = sr.ReadToEnd();
+                sr.Close();
+
+                DataAcquisitionResult rtn = Deserialize<DataAcquisitionResult>(responseContent);
+                if (rtn.code != "1000")
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+        }
     }
 }

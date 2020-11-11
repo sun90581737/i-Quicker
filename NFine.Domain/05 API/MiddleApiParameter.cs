@@ -35,7 +35,7 @@ namespace NFine.Domain._05_API
     }
     #endregion
 
-    #region
+    #region 设备清单 更新灯 加工
     [DataContract]
     public class EquipmentListAPIParameterA 
     {
@@ -68,5 +68,36 @@ namespace NFine.Domain._05_API
         public string colour { get; set; }
     }
 
+    #endregion
+    #region 设备清单 更新产量  稼动率
+    [DataContract]
+    public class EquipmentListAPIParameterB
+    {
+        [DataMember]
+        public string operator_name { get; set; }
+        [DataMember]
+        public string operator_time { get; set; }
+        [DataMember]
+        public string ip { get; set; }
+        [DataMember]
+        public string sign { get; set; }
+        [DataMember]
+        public string strdata { get; set; }
+
+        [DataMember]
+        public List<EquipmentListTwoDTO> data { get; set; }
+    }
+    public class EquipmentListTwoDTO
+    {
+        [DataMember]
+        public string equipmentname { get; set; }
+        [DataMember]
+        public string team { get; set; }
+        [DataMember]
+        public string yield { get; set; }
+        [DataMember]
+        public double Jiadong { get; set; }
+
+    }
     #endregion
 }

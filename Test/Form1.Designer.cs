@@ -71,8 +71,9 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(137, 33);
             this.button4.TabIndex = 3;
-            this.button4.Text = "\r\n";
+            this.button4.Text = "设备清单-稼动率";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
