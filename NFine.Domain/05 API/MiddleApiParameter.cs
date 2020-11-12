@@ -60,6 +60,8 @@ namespace NFine.Domain._05_API
         public int spindlespeed { get; set; }
         [DataMember]
         public int feedspeed { get; set; }
+        [DataMember]
+        public string runtime { get; set; }
     }
 
     #endregion

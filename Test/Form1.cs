@@ -93,11 +93,13 @@ namespace Test
             dto.devicename = "CNC1发那科";
             dto.spindlespeed = 1100;
             dto.feedspeed = 8000;
+            dto.runtime = DateTime.Now.ToString();
             dtos.Add(dto);
             dto = new DataAcquisitionDetailDTO();
             dto.devicename = "CNC2发那科";
             dto.spindlespeed = 1100;
             dto.feedspeed = 8000;
+            dto.runtime = DateTime.Now.ToString();
             dtos.Add(dto);
             string server = "http://localhost:15988/api/AutomationLine/SaveDataAcquisitionDetail";
             DataAcquisitionDetailAPIParameter param = new DataAcquisitionDetailAPIParameter();

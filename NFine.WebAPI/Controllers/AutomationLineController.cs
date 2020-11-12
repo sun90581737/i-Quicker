@@ -225,8 +225,8 @@ namespace NFine.WebAPI.Controllers
             {
                 int re = 0;
                 DbService ds = new DbService(dbnfin, "MySQL");
-                string srt = string.Format(@"INSERT INTO Sys_DataAcquisitionDetail(DeviceName,SpindleSpeed,FeedSpeed,CreationTime)
-                VALUES  ( '{0}',{1},{2},NOW())", dto.devicename, dto.spindlespeed, dto.feedspeed);
+                string srt = string.Format(@"INSERT INTO Sys_DataAcquisitionDetail(DeviceName,SpindleSpeed,FeedSpeed,RunTime,CreationTime)
+                VALUES  ( '{0}',{1},{2},'{3}',NOW())", dto.devicename, dto.spindlespeed, dto.feedspeed, dto.runtime);
                 int sult = ds.InsertSql(srt, out re);
                 if (sult > 0)
                 {
