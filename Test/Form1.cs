@@ -451,6 +451,92 @@ namespace Test
             }
         }
 
-        
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DataAcquisitionResult result = new DataAcquisitionResult();
+            RunningStateDTOA dto = new RunningStateDTOA();
+            dto.Describe1 = "CNC1发那科<br>运行中";
+            dto.DescribeColor1 = "#23ab33";
+            dto.Describe2 = "CNC2发那科<br>运行中";
+            dto.DescribeColor2 = "#23ab33";
+            dto.Describe3 = "CNC3发那科<br>待机";
+            dto.DescribeColor3 = "yellow";
+            dto.Describe4 = "CMM2海克斯康<br>离线";
+            dto.DescribeColor4 = "#c8c8c8";
+            dto.Describe5 = "Robot<br>未就绪";
+            dto.DescribeColor5 = "#0fcdfd";
+            dto.Describe6 = "清洗机<br>待机";
+            dto.DescribeColor6 = "#0865e3";
+
+            string server = "http://localhost:15988/api/AutomationLine/SaveRunningState";
+            RunningStateAPIParameterA param = new RunningStateAPIParameterA();
+            param.operator_name = "WebApi";
+            param.operator_time = GenerateTimeStamp(DateTime.Now);
+            param.sign = GenSign(param.operator_name, param.operator_time);
+            param.data = dto;
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("operator_name", param.operator_name);
+            dic.Add("operator_time", param.operator_time);
+            dic.Add("sign", param.sign);
+            dic.Add("strdata", Serialize(param.data));
+
+            try
+            {
+                HttpWebResponse response = CreatePostHttpResponse(server, dic, null, null, Encoding.UTF8, null);
+                System.IO.StreamReader sr = new System.IO.StreamReader(response.GetResponseStream());
+                string responseContent = sr.ReadToEnd();
+                sr.Close();
+
+                DataAcquisitionResult rtn = Deserialize<DataAcquisitionResult>(responseContent);
+                if (rtn.code != "1000")
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            DataAcquisitionResult result = new DataAcquisitionResult();
+            RunningStateDTOB dto = new RunningStateDTOB();
+            dto.Describe7 = "38;2;3;0;0;10";
+            dto.DescribeColor7 = "#D24D57;#26A65B;#EB7347;#84AF9B;#FC9D99;#00CCFF";
+            dto.Describe8 = "39;0;29;0;0;20";
+            dto.DescribeColor8 = "#D24D57;#26A65B;#EB7347;#84AF9B;#FC9D99;#00CCFF";
+
+            string server = "http://localhost:15988/api/AutomationLine/SaveRunningStateStockBin";
+            RunningStateAPIParameterB param = new RunningStateAPIParameterB();
+            param.operator_name = "WebApi";
+            param.operator_time = GenerateTimeStamp(DateTime.Now);
+            param.sign = GenSign(param.operator_name, param.operator_time);
+            param.data = dto;
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("operator_name", param.operator_name);
+            dic.Add("operator_time", param.operator_time);
+            dic.Add("sign", param.sign);
+            dic.Add("strdata", Serialize(param.data));
+
+            try
+            {
+                HttpWebResponse response = CreatePostHttpResponse(server, dic, null, null, Encoding.UTF8, null);
+                System.IO.StreamReader sr = new System.IO.StreamReader(response.GetResponseStream());
+                string responseContent = sr.ReadToEnd();
+                sr.Close();
+
+                DataAcquisitionResult rtn = Deserialize<DataAcquisitionResult>(responseContent);
+                if (rtn.code != "1000")
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+        }
     }
 }

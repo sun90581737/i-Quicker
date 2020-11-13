@@ -94,6 +94,80 @@ namespace NFine.Domain._05_API
     }
     #endregion
 
+    #region 运行状态
+    [DataContract]
+    public class RunningStateAPIParameterA
+    {
+        [DataMember]
+        public string operator_name { get; set; }
+        [DataMember]
+        public string operator_time { get; set; }
+        [DataMember]
+        public string ip { get; set; }
+        [DataMember]
+        public string sign { get; set; }
+        [DataMember]
+        public string strdata { get; set; }
+        [DataMember]
+        public RunningStateDTOA data { get; set; }
+    }
+    public class RunningStateDTOA
+    {
+        [DataMember]
+        public string Describe1 { get; set; }
+        [DataMember]
+        public string DescribeColor1 { get; set; }
+        [DataMember]
+        public string Describe2 { get; set; }
+        [DataMember]
+        public string DescribeColor2 { get; set; }
+        [DataMember]
+        public string Describe3 { get; set; }
+        [DataMember]
+        public string DescribeColor3 { get; set; }
+        [DataMember]
+        public string Describe4 { get; set; }
+        [DataMember]
+        public string DescribeColor4 { get; set; }
+        [DataMember]
+        public string Describe5 { get; set; }
+        [DataMember]
+        public string DescribeColor5 { get; set; }
+        [DataMember]
+        public string Describe6 { get; set; }
+        [DataMember]
+        public string DescribeColor6 { get; set; }
+    }
+
+    [DataContract]
+    public class RunningStateAPIParameterB
+    {
+        [DataMember]
+        public string operator_name { get; set; }
+        [DataMember]
+        public string operator_time { get; set; }
+        [DataMember]
+        public string ip { get; set; }
+        [DataMember]
+        public string sign { get; set; }
+        [DataMember]
+        public string strdata { get; set; }
+        [DataMember]
+        public RunningStateDTOB data { get; set; }
+    }
+    public class RunningStateDTOB
+    {
+        [DataMember]
+        public string Describe7 { get; set; }
+        [DataMember]
+        public string DescribeColor7 { get; set; }
+        [DataMember]
+        public string Describe8 { get; set; }
+        [DataMember]
+        public string DescribeColor8 { get; set; }
+    }
+    #endregion
+
     #region 设备清单 更新灯 加工
     [DataContract]
     public class EquipmentListAPIParameterA 
