@@ -25,6 +25,7 @@ insert into Sys_Module(F_Id, F_ParentId, F_Layers, F_EnCode, F_FullName, F_Icon,
 CREATE table Sys_TaskList  --班组:任务清单
 (  
 id int identity (1,1) primary key , 
+Process_Id INT,--同步需要用到
 Mold_No varchar(50)  NULL, --模具编号
 Part_Number  varchar(50)  NULL,--零件编号
 Process_Name varchar(50)  NULL,--工序名称
