@@ -192,8 +192,6 @@ namespace NFine.Domain._05_API
         [DataMember]
         public string equipmentname { get; set; }
         [DataMember]
-        public string team { get; set; }
-        [DataMember]
         public string moldno { get; set; }
         [DataMember]
         public string workpiecesname { get; set; }
@@ -225,7 +223,37 @@ namespace NFine.Domain._05_API
         [DataMember]
         public string equipmentname { get; set; }
         [DataMember]
-        public string team { get; set; }
+        public string yield { get; set; }
+        [DataMember]
+        public double Jiadong { get; set; }
+
+    }
+
+    [DataContract]
+    public class EquipmentListAPIParameterC
+    {
+        [DataMember]
+        public string operator_name { get; set; }
+        [DataMember]
+        public string operator_time { get; set; }
+        [DataMember]
+        public string ip { get; set; }
+        [DataMember]
+        public string sign { get; set; }
+        [DataMember]
+        public string strdata { get; set; }
+
+        [DataMember]
+        public List<EquipmentListThreeDTO> data { get; set; }
+    }
+    public class EquipmentListThreeDTO
+    {
+        [DataMember]
+        public string equipmentname { get; set; }
+        [DataMember]
+        public string workpiecesname { get; set; }
+        [DataMember]
+        public string state { get; set; }
         [DataMember]
         public string yield { get; set; }
         [DataMember]
@@ -256,7 +284,26 @@ namespace NFine.Domain._05_API
         [DataMember]
         public int processid { get; set; }
         [DataMember]
-        public string colour { get; set; }
+        public string state { get; set; }
+    }
+    #endregion
+
+    #region Test
+    [DataContract]
+    public class TaskListTest
+    {
+        [DataMember]
+        public string type { get; set; }
+        [DataMember]
+        public string val { get; set; }
+
+        [DataMember]
+        public TaskListResult data { get; set; }
+    }
+    public class TaskListResult
+    {
+        [DataMember]
+        public string val { get; set; }
     }
     #endregion
 

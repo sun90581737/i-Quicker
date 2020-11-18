@@ -318,14 +318,12 @@ namespace Test
             List<EquipmentListOneDTO> dtos = new List<EquipmentListOneDTO>();
             EquipmentListOneDTO dto = new EquipmentListOneDTO();
             dto.equipmentname = "CNC01";
-            dto.team = "CNC班组";
             dto.moldno = "JD1";
             dto.workpiecesname = "JDM-007";
             dto.colour = "red";
             dtos.Add(dto);
             dto = new EquipmentListOneDTO();
             dto.equipmentname = "CNC02";
-            dto.team = "CNC班组";
             dto.moldno = "JD2";
             dto.workpiecesname = "JDM-008";
             dto.colour = "yellow";
@@ -367,13 +365,11 @@ namespace Test
             List<EquipmentListTwoDTO> dtos = new List<EquipmentListTwoDTO>();
             EquipmentListTwoDTO dto = new EquipmentListTwoDTO();
             dto.equipmentname = "CNC01";
-            dto.team = "CNC班组";
             dto.yield = "8";
             dto.Jiadong = 0.56;
             dtos.Add(dto);
             dto = new EquipmentListTwoDTO();
             dto.equipmentname = "CNC02";
-            dto.team = "CNC班组";
             dto.yield = "0";
             dto.Jiadong = 1;
             dtos.Add(dto);
@@ -414,11 +410,11 @@ namespace Test
             List<TaskListDTO> dtos = new List<TaskListDTO>();
             TaskListDTO dto = new TaskListDTO();
             dto.processid = 1008;
-            dto.colour = "yellow";
+            dto.state = "yellow";
             dtos.Add(dto);
             dto = new TaskListDTO();
             dto.processid = 1010;
-            dto.colour = "red";
+            dto.state = "red";
             dtos.Add(dto);
             string server = "http://localhost:15988/api/TeamTask/SaveTaskListColour";
             TaskListAPIParameter param = new TaskListAPIParameter();
@@ -532,6 +528,35 @@ namespace Test
                 {
                     return;
                 }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            TaskListResult result = new TaskListResult();
+            TaskListTest param = new TaskListTest();
+            string server = "http://localhost:15988/api/TeamTask/TestLink";
+           
+            param.type = "test";
+            param.val = "123654";
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("type", param.type);
+            dic.Add("val", param.val);
+
+            try
+            {
+                HttpWebResponse response = CreatePostHttpResponse(server, dic, null, null, Encoding.UTF8, null);
+                System.IO.StreamReader sr = new System.IO.StreamReader(response.GetResponseStream());
+                string responseContent = sr.ReadToEnd();
+                sr.Close();
+
+                TaskListResult rtn = Deserialize<TaskListResult>(responseContent);
+
+                MessageBox.Show(rtn.val);
             }
             catch (Exception ex)
             {

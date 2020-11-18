@@ -5,6 +5,7 @@ using NFine.Domain._05_API;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Web;
@@ -22,6 +23,11 @@ namespace NFine.WebAPI.Controllers
         [System.Web.Http.HttpPost]
         public DataAcquisitionResult SaveEquipmentMachining([FromBody]EquipmentListAPIParameterA param)
         {
+            //记时
+            LogHelper.Info("SaveEquipmentMachining--开始");
+            Stopwatch timeWatcher = new Stopwatch();
+            long checkTime = 0;
+            timeWatcher.Restart(); //开始计时
             DataAcquisitionResult result = new DataAcquisitionResult();
             result.code = "1000";
             result.msg = "success";
@@ -69,11 +75,19 @@ namespace NFine.WebAPI.Controllers
                 result.code = "1060";
                 return result;
             }
+            timeWatcher.Stop();//结束计时
+            checkTime = timeWatcher.ElapsedMilliseconds;
+            LogHelper.Info(string.Format("SaveEquipmentMachining--结束,执行时间：{0} ", checkTime));
             return result;
         }
         [System.Web.Http.HttpPost]
         public DataAcquisitionResult SaveEquipmentJiadongRate([FromBody]EquipmentListAPIParameterB param)
         {
+            //记时
+            LogHelper.Info("SaveEquipmentJiadongRate--开始");
+            Stopwatch timeWatcher = new Stopwatch();
+            long checkTime = 0;
+            timeWatcher.Restart(); //开始计时
             DataAcquisitionResult result = new DataAcquisitionResult();
             result.code = "1000";
             result.msg = "success";
@@ -121,11 +135,19 @@ namespace NFine.WebAPI.Controllers
                 result.code = "1060";
                 return result;
             }
+            timeWatcher.Stop();//结束计时
+            checkTime = timeWatcher.ElapsedMilliseconds;
+            LogHelper.Info(string.Format("SaveEquipmentJiadongRate--结束,执行时间：{0} ", checkTime));
             return result;
         }
         [System.Web.Http.HttpPost]
         public DataAcquisitionResult SaveTaskListColour([FromBody]TaskListAPIParameter param)
         {
+            //记时
+            LogHelper.Info("SaveTaskListColour--开始");
+            Stopwatch timeWatcher = new Stopwatch();
+            long checkTime = 0;
+            timeWatcher.Restart(); //开始计时
             DataAcquisitionResult result = new DataAcquisitionResult();
             result.code = "1000";
             result.msg = "success";
@@ -173,6 +195,9 @@ namespace NFine.WebAPI.Controllers
                 result.code = "1060";
                 return result;
             }
+            timeWatcher.Stop();//结束计时
+            checkTime = timeWatcher.ElapsedMilliseconds;
+            LogHelper.Info(string.Format("SaveTaskListColour--结束,执行时间：{0} ", checkTime));
             return result;
         }
         [System.Web.Http.NonAction]
@@ -183,7 +208,7 @@ namespace NFine.WebAPI.Controllers
             {
                 int re = 0;
                 DbService ds = new DbService(dbnfin, "MySQL");
-                string srt = string.Format(@"UPDATE  Sys_EquipmentList set  Mold_No='{0}',Workpieces_Name='{1}',Colour='{2}' where Equipment_Name='{3}' AND Team='{4}'", dto.moldno,dto.workpiecesname, dto.colour, dto.equipmentname, dto.team);
+                string srt = string.Format(@"UPDATE  Sys_EquipmentList set  Mold_No='{0}',Workpieces_Name='{1}',Colour='{2}' where Equipment_Name='{3}'", dto.moldno,dto.workpiecesname, dto.colour, dto.equipmentname);
                 int sult = ds.InsertSql(srt, out re);
                 if (sult > 0)
                 {
@@ -204,7 +229,28 @@ namespace NFine.WebAPI.Controllers
             {
                 int re = 0;
                 DbService ds = new DbService(dbnfin, "MySQL");
-                string srt = string.Format(@"UPDATE  Sys_EquipmentList set  Yield='{0}',Jiadong={1} where Equipment_Name='{2}' AND Team='{3}'", dto.yield, dto.Jiadong, dto.equipmentname, dto.team);
+                string srt = string.Format(@"UPDATE  Sys_EquipmentList set  Yield='{0}',Jiadong={1} where Equipment_Name='{2}'", dto.yield, dto.Jiadong, dto.equipmentname);
+                int sult = ds.InsertSql(srt, out re);
+                if (sult > 0)
+                {
+                    fla = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(ex.Message);
+            }
+            return fla;
+        }
+        [System.Web.Http.NonAction]
+        public bool UpdateEquipmentListThree(EquipmentListThreeDTO dto)
+        {
+            bool fla = false;
+            try
+            {
+                int re = 0;
+                DbService ds = new DbService(dbnfin, "MySQL");
+                string srt = string.Format(@"UPDATE  Sys_EquipmentList set Workpieces_Name='{0}',Colour='{1}', Yield='{2}',Jiadong={3} where Equipment_Name='{4}'", dto.workpiecesname, dto.state, dto.yield, dto.Jiadong, dto.equipmentname);
                 int sult = ds.InsertSql(srt, out re);
                 if (sult > 0)
                 {
@@ -225,7 +271,7 @@ namespace NFine.WebAPI.Controllers
             {
                 int re = 0;
                 DbService ds = new DbService(dbnfin, "MySQL");
-                string srt = string.Format(@"UPDATE  Sys_TaskList set  Colour='{0}' where process_id={1}", dto.colour, dto.processid);
+                string srt = string.Format(@"UPDATE  Sys_TaskList set  Colour='{0}' where process_id={1}", dto.state, dto.processid);
                 int sult = ds.InsertSql(srt, out re);
                 if (sult > 0)
                 {
@@ -304,6 +350,105 @@ namespace NFine.WebAPI.Controllers
             // Default implementation of UNIX time of the current UTC time  
             TimeSpan ts = dt.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, 0);
             return Convert.ToInt64(ts.TotalSeconds).ToString();
+        }
+        [System.Web.Http.HttpPost]
+        public TaskListResult TestLink([FromBody]TaskListTest param)
+        {
+            //记时
+            LogHelper.Info("TestLink--开始");
+            Stopwatch timeWatcher = new Stopwatch();
+            long checkTime = 0;
+            timeWatcher.Restart(); //开始计时
+            TaskListResult result = new TaskListResult();
+            result.val = "success";
+            if (param == null)
+            {
+                param = new TaskListTest();
+                this.Request.GetQueryNameValuePairs();
+
+                HttpContextBase context = (HttpContextBase)Request.Properties["MS_HttpContext"];//获取传统context
+                HttpRequestBase request = context.Request;//定义传统request对象
+                param.type = request.Form["type"];
+                param.val = request.Form["val"];
+
+                LogHelper.Info("WebApi-TestLink param from forms");
+            }
+            try
+            {
+                result.val = param.val;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(ex.Message);
+                result.val = ex.Message;
+                return result;
+            }
+            timeWatcher.Stop();//结束计时
+            checkTime = timeWatcher.ElapsedMilliseconds;
+            LogHelper.Info(string.Format("TestLink--结束,执行时间：{0} ", checkTime));
+
+            return result;
+        }
+
+        [System.Web.Http.HttpPost]
+        public DataAcquisitionResult SaveEquipmentList([FromBody]EquipmentListAPIParameterC param)
+        {
+            //记时
+            LogHelper.Info("SaveEquipmentList--开始");
+            Stopwatch timeWatcher = new Stopwatch();
+            long checkTime = 0;
+            timeWatcher.Restart(); //开始计时
+            DataAcquisitionResult result = new DataAcquisitionResult();
+            result.code = "1000";
+            result.msg = "success";
+            if (param == null)
+            {
+                param = new EquipmentListAPIParameterC();
+                this.Request.GetQueryNameValuePairs();
+
+                HttpContextBase context = (HttpContextBase)Request.Properties["MS_HttpContext"];//获取传统context
+                HttpRequestBase request = context.Request;//定义传统request对象
+                param.operator_name = request.Form["operator_name"];
+                param.operator_time = request.Form["operator_time"];
+                param.sign = request.Form["sign"];
+                param.strdata = request.Form["strdata"];
+
+                LogHelper.Info("WebApi-SaveEquipmentList param from forms");
+            }
+            if (!VerifyMiddleSign(param.operator_name, param.operator_time, param.sign))
+            {
+                LogHelper.Info(string.Format("operator_name{0},operation_time{1},sign{2}", param.operator_name, param.operator_time, param.sign));
+                result.msg = "签名错误";
+                result.code = "1040";
+                return result;
+            }
+            List<EquipmentListThreeDTO> dto = new List<EquipmentListThreeDTO>();
+            try
+            {
+                dto = Deserialize<List<EquipmentListThreeDTO>>(param.strdata);
+                foreach (var item in dto)
+                {
+                    bool fla = UpdateEquipmentListThree(item);
+                    if (!fla)
+                    {
+                        LogHelper.Error(Serialize(item));
+                        result.msg = "数据更新失败";
+                        result.code = "1050";
+                        return result;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(ex.Message);
+                result.msg = ex.Message;
+                result.code = "1060";
+                return result;
+            }
+            timeWatcher.Stop();//结束计时
+            checkTime = timeWatcher.ElapsedMilliseconds;
+            LogHelper.Info(string.Format("SaveEquipmentList--结束,执行时间：{0} ", checkTime));
+            return result;
         }
     }
 }
