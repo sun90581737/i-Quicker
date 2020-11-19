@@ -284,6 +284,27 @@ namespace NFine.WebAPI.Controllers
             }
             return fla;
         }
+        [System.Web.Http.NonAction]
+        public bool DeleteTaskList(TaskListBDTO dto)
+        {
+            bool fla = false;
+            try
+            {
+                int re = 0;
+                DbService ds = new DbService(dbnfin, "MySQL");
+                string srt = string.Format(@"delete  from Sys_TaskList where process_id={0}", dto.processid);
+                int sult = ds.DeleteSql(srt);
+                if (sult > 0)
+                {
+                    fla = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(ex.Message);
+            }
+            return fla;
+        }
         public static string Serialize(object obj)
         {
             if (obj == null)
@@ -448,6 +469,64 @@ namespace NFine.WebAPI.Controllers
             timeWatcher.Stop();//结束计时
             checkTime = timeWatcher.ElapsedMilliseconds;
             LogHelper.Info(string.Format("SaveEquipmentList--结束,执行时间：{0} ", checkTime));
+            return result;
+        }
+
+        [System.Web.Http.HttpPost]
+        public DataAcquisitionResult DeleteTaskList([FromBody]TaskListAPIParameterB param)
+        {
+            //记时
+            LogHelper.Info("DeleteTaskList--开始");
+            Stopwatch timeWatcher = new Stopwatch();
+            long checkTime = 0;
+            timeWatcher.Restart(); //开始计时
+            DataAcquisitionResult result = new DataAcquisitionResult();
+            result.code = "1000";
+            result.msg = "success";
+            if (param == null)
+            {
+                param = new TaskListAPIParameterB();
+                this.Request.GetQueryNameValuePairs();
+
+                HttpContextBase context = (HttpContextBase)Request.Properties["MS_HttpContext"];//获取传统context
+                HttpRequestBase request = context.Request;//定义传统request对象
+                param.operator_name = request.Form["operator_name"];
+                param.operator_time = request.Form["operator_time"];
+                param.sign = request.Form["sign"];
+                param.strdata = request.Form["strdata"];
+
+                LogHelper.Info("WebApi-DeleteTaskList param from forms");
+            }
+            if (!VerifyMiddleSign(param.operator_name, param.operator_time, param.sign))
+            {
+                LogHelper.Info(string.Format("operator_name{0},operation_time{1},sign{2}", param.operator_name, param.operator_time, param.sign));
+                result.msg = "签名错误";
+                result.code = "1040";
+                return result;
+            }
+            List<TaskListBDTO> dto = new List<TaskListBDTO>();
+            try
+            {
+                dto = Deserialize<List<TaskListBDTO>>(param.strdata);
+                foreach (var item in dto)
+                {
+                    bool fla = DeleteTaskList(item);
+                    if (!fla)
+                    {
+                        LogHelper.Error(string.Format(Serialize(item),"删除失败"));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error(ex.Message);
+                result.msg = ex.Message;
+                result.code = "1060";
+                return result;
+            }
+            timeWatcher.Stop();//结束计时
+            checkTime = timeWatcher.ElapsedMilliseconds;
+            LogHelper.Info(string.Format("DeleteTaskList--结束,执行时间：{0} ", checkTime));
             return result;
         }
     }

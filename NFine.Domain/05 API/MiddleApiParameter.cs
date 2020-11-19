@@ -286,6 +286,28 @@ namespace NFine.Domain._05_API
         [DataMember]
         public string state { get; set; }
     }
+
+    public class TaskListAPIParameterB
+    {
+        [DataMember]
+        public string operator_name { get; set; }
+        [DataMember]
+        public string operator_time { get; set; }
+        [DataMember]
+        public string ip { get; set; }
+        [DataMember]
+        public string sign { get; set; }
+        [DataMember]
+        public string strdata { get; set; }
+
+        [DataMember]
+        public List<TaskListBDTO> data { get; set; }
+    }
+    public class TaskListBDTO
+    {
+        [DataMember]
+        public int processid { get; set; }
+    }
     #endregion
 
     #region Test
