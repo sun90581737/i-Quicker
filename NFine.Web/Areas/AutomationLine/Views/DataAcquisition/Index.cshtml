@@ -214,8 +214,29 @@
     <script>
         $(function () {
             LoadAllData();
-            LoadAllDataB();
+            //LoadAllDataB();
         })
+
+        function Colour(DeviceRunStatus)
+        {
+            var colour = "#fff";
+            if (DeviceRunStatus == "离线") {
+                colour = "#c8c8c8";
+            } else if (DeviceRunStatus == "待机") {
+                colour = "#0865e3";
+            } else if (DeviceRunStatus == "运行中") {
+                colour = "#23ab33";
+            } else if (DeviceRunStatus == "暂停") {
+                colour = "#ffc000";
+            } else if (DeviceRunStatus == "报警") {
+                colour = "#ee5d5d";
+            } else if (DeviceRunStatus == "未就绪") {
+                colour = "#0fcdfd";
+            } else if (DeviceRunStatus == "停止") {
+                colour = "#fc9711";
+            }
+            return colour;
+        }
 
         function LoadAllData() {
             $.ajax({
@@ -226,18 +247,18 @@
                 success: function (da) {
                     if (da.length != 0) {
                         $(da).each(function (index, item) {
-                            if (index == 0) {
-                                $("#div1").css({ "background-image": "linear-gradient(" + item.DeviceLndicatorLight + ", #0b3447)" });
+                            if (item.DeviceName == "CNC1发那科") {        
+                                $("#div1").css({ "background-image": "linear-gradient(" + Colour(item.DeviceRunStatus) + ", #0b3447)" });
                                 //23ab33绿   f3961d黄     eb5c5d红   第二层颜色0b3447
                                 //$("#div1").css({ "background-image": "linear-gradient(#23ab33, #0b3447)" });
                                 $("#a1").text(item.DeviceName);
                                 $("#b1").text(item.DeviceRunStatus);
                                 $("#imageId1").css("display", "block");
-                                $("#imageId1").attr("src", item.DeviceUrl);
+                                $("#imageId1").attr("src", "/Content/img/product/collection/cnc1.png");
                                 $("#f1").text(item.TodayOutput);
                                 $("#g1").text(item.TodayJiadong*100);
-                                loadSpindle("maina", item.SpindleSpeed);
-                                loadFeed("mainb", item.FeedSpeed);
+                                item.DeviceRunStatus == "运行中" ? loadSpindle("maina", item.SpindleSpeed) : loadSpindle("maina", 0);
+                                item.DeviceRunStatus == "运行中" ? loadFeed("mainb", item.FeedSpeed) : loadFeed("mainb", 0);
                                 //if (item.SpindleSpeed != null && item.SpindleSpeed > 0) {
                                 //    $("#div1").css({ "background-image": "linear-gradient(" + item.DeviceLndicatorLight + ", #0b3447)" });
                                 //    $("#b1").text(item.DeviceRunStatus);
@@ -249,17 +270,17 @@
                                 $("#h1").text(item.SpindleRatio);
                                 $("#i1").text(item.FeedRatio);
                                 $("#j1").text(item.LoadRatio + "%");
-                            } else if (index == 1) {
-                                $("#div2").css({ "background-image": "linear-gradient(" + item.DeviceLndicatorLight + ", #0b3447)" });
+                            } else if (item.DeviceName == "CNC2发那科") {
+                                $("#div2").css({ "background-image": "linear-gradient(" + Colour(item.DeviceRunStatus) + ", #0b3447)" });
                                 //$("#div2").css({ "background-image": "linear-gradient(#f3961d, #0b3447)" });
                                 $("#a2").text(item.DeviceName);
                                 $("#b2").text(item.DeviceRunStatus);
                                 $("#imageId2").css("display", "block");
-                                $("#imageId2").attr("src", item.DeviceUrl);
+                                $("#imageId2").attr("src", "/Content/img/product/collection/cnc1.png");
                                 $("#f2").text(item.TodayOutput);
                                 $("#g2").text(item.TodayJiadong*100);
-                                loadSpindle("maina2", item.SpindleSpeed);
-                                loadFeed("mainb2", item.FeedSpeed);
+                                item.DeviceRunStatus == "运行中" ? loadSpindle("maina2", item.SpindleSpeed) : loadSpindle("maina2", 0);
+                                item.DeviceRunStatus == "运行中" ? loadFeed("mainb2", item.FeedSpeed) : loadFeed("mainb2", 0);
                                 //if (item.SpindleSpeed != null && item.SpindleSpeed > 0) {
                                 //    $("#div2").css({ "background-image": "linear-gradient(" + item.DeviceLndicatorLight + ", #0b3447)" });
                                 //    $("#b2").text(item.DeviceRunStatus);
@@ -271,17 +292,17 @@
                                 $("#h2").text(item.SpindleRatio);
                                 $("#i2").text(item.FeedRatio);
                                 $("#j2").text(item.LoadRatio + "%");
-                            } else if (index == 2) {
-                                $("#div3").css({ "background-image": "linear-gradient(" + item.DeviceLndicatorLight + ", #0b3447)" });
+                            } else if (item.DeviceName == "CNC3发那科") {
+                                $("#div3").css({ "background-image": "linear-gradient(" + Colour(item.DeviceRunStatus) + ", #0b3447)" });
                                 //$("#div3").css({ "background-image": "linear-gradient(#eb5c5d, #0b3447)" });
                                 $("#a3").text(item.DeviceName);
                                 $("#b3").text(item.DeviceRunStatus);
                                 $("#imageId3").css("display", "block");
-                                $("#imageId3").attr("src", item.DeviceUrl);
+                                $("#imageId3").attr("src", "/Content/img/product/collection/cnc1.png");
                                 $("#f3").text(item.TodayOutput);
                                 $("#g3").text(item.TodayJiadong*100);
-                                loadSpindle("maina3", item.SpindleSpeed);
-                                loadFeed("mainb3", item.FeedSpeed);
+                                item.DeviceRunStatus == "运行中" ? loadSpindle("maina3", item.SpindleSpeed) : loadSpindle("maina3", 0);
+                                item.DeviceRunStatus == "运行中" ? loadFeed("mainb3", item.FeedSpeed) : loadFeed("mainb3", 0);
                                 //if (item.SpindleSpeed != null && item.SpindleSpeed > 0) {
                                 //    $("#div3").css({ "background-image": "linear-gradient(" + item.DeviceLndicatorLight + ", #0b3447)" });
                                 //    $("#b3").text(item.DeviceRunStatus);
@@ -293,29 +314,7 @@
                                 $("#h3").text(item.SpindleRatio);
                                 $("#i3").text(item.FeedRatio);
                                 $("#j3").text(item.LoadRatio + "%");
-                            } else if (index == 3) {
-                                $("#div4").css({ "background-image": "linear-gradient(" + item.DeviceLndicatorLight + ", #0b3447)" });
-                                //$("#div4").css({ "background-image": "linear-gradient(#23ab33, #0b3447)" });
-                                $("#a4").text(item.DeviceName);
-                                $("#b4").text(item.DeviceRunStatus);
-                                $("#imageId4").css("display", "block");
-                                $("#imageId4").attr("src", item.DeviceUrl);
-                                $("#f4").text(item.TodayOutput);
-                                $("#g4").text(item.TodayJiadong);
-                                loadSpindle("maina4", item.SpindleSpeed);
-                                loadFeed("mainb4", item.FeedSpeed);
-                                //if (item.SpindleSpeed != null && item.SpindleSpeed > 0) {
-                                //    $("#div4").css({ "background-image": "linear-gradient(" + item.DeviceLndicatorLight + ", #0b3447)" });
-                                //    $("#b4").text(item.DeviceRunStatus);
-                                //}
-                                //else {
-                                //    $("#b4").text("暂停");
-                                //    $("#div4").css({ "background-image": "linear-gradient(#ffc000, #0b3447)" });
-                                //}
-                                $("#h4").text(item.SpindleRatio);
-                                $("#i4").text(item.FeedRatio);
-                                $("#j4").text(item.LoadRatio + "%");
-                            }
+                            } 
                         })
                     }
                 }
@@ -482,12 +481,13 @@
             //    }
             //}, 2000);
         }
+        //window.setInterval(function () {
+        //    LoadAllData();
+        //}, 1000 * 60 * 10);
         window.setInterval(function () {
             LoadAllData();
-        }, 1000 * 60 * 10);
-        window.setInterval(function () {
-            LoadAllDataB();
-        }, 1000 * 3);
+            //LoadAllDataB();
+        }, 1000);
         function LoadAllDataB()
         {
             $.ajax({
@@ -501,16 +501,16 @@
                             if (item.DeviceName == "CNC1发那科") {
                                 loadSpindle("maina", item.SpindleSpeed);
                                 loadFeed("mainb", item.FeedSpeed);
-                                if (item.SpindleSpeed != null && item.SpindleSpeed > 0) {
-                                    $("#div1").css({ "background-image": "linear-gradient(#23ab33, #0b3447)" });
-                                    //$("#b1").text(item.DeviceRunStatus);
-                                    $("#b1").text("运行中");
-                                }
-                                else {
-                                    $("#b1").text() == "运行中" ? $("#b1").text("暂停") : $("#b1").text($("#b1").text());
-                                    $("#b1").text() == "运行中" ? $("#div1").css({ "background-image": "linear-gradient(#23ab33, #0b3447)" }) : $("#div1").css({ "background-image": "linear-gradient(#ffc000, #0b3447)" });
-                                    //$("#div1").css({ "background-image": "linear-gradient(#ffc000, #0b3447)" });
-                                }
+                                //if (item.SpindleSpeed != null && item.SpindleSpeed > 0) {
+                                //    $("#div1").css({ "background-image": "linear-gradient(#23ab33, #0b3447)" });
+                                //    //$("#b1").text(item.DeviceRunStatus);
+                                //    $("#b1").text("运行中");
+                                //}
+                                //else {
+                                //    $("#b1").text() == "运行中" ? $("#b1").text("暂停") : $("#b1").text($("#b1").text());
+                                //    $("#b1").text() == "运行中" ? $("#div1").css({ "background-image": "linear-gradient(#23ab33, #0b3447)" }) : $("#div1").css({ "background-image": "linear-gradient(#ffc000, #0b3447)" });
+                                //    //$("#div1").css({ "background-image": "linear-gradient(#ffc000, #0b3447)" });
+                                //}
                                 if (item.SpindleRatio != null) {
                                     $("#h1").text(item.SpindleRatio);
                                 }
@@ -524,17 +524,17 @@
                             else if (item.DeviceName == "CNC2发那科") {
                                 loadSpindle("maina2", item.SpindleSpeed);
                                 loadFeed("mainb2", item.FeedSpeed);
-                                if (item.SpindleSpeed != null && item.SpindleSpeed > 0) {
-                                    $("#div2").css({ "background-image": "linear-gradient(#23ab33, #0b3447)" });
-                                    //$("#b2").text(item.DeviceRunStatus);
-                                    $("#b2").text("运行中");
-                                }
-                                else {
-                                    //$("#b2").text("暂停");
-                                    //$("#div2").css({ "background-image": "linear-gradient(#ffc000, #0b3447)" });
-                                    $("#b2").text() == "运行中" ? $("#b2").text("暂停") : $("#b2").text($("#b2").text());
-                                    $("#b2").text() == "运行中" ? $("#div2").css({ "background-image": "linear-gradient(#23ab33, #0b3447)" }) : $("#div2").css({ "background-image": "linear-gradient(#ffc000, #0b3447)" });
-                                }
+                                //if (item.SpindleSpeed != null && item.SpindleSpeed > 0) {
+                                //    $("#div2").css({ "background-image": "linear-gradient(#23ab33, #0b3447)" });
+                                //    //$("#b2").text(item.DeviceRunStatus);
+                                //    $("#b2").text("运行中");
+                                //}
+                                //else {
+                                //    //$("#b2").text("暂停");
+                                //    //$("#div2").css({ "background-image": "linear-gradient(#ffc000, #0b3447)" });
+                                //    $("#b2").text() == "运行中" ? $("#b2").text("暂停") : $("#b2").text($("#b2").text());
+                                //    $("#b2").text() == "运行中" ? $("#div2").css({ "background-image": "linear-gradient(#23ab33, #0b3447)" }) : $("#div2").css({ "background-image": "linear-gradient(#ffc000, #0b3447)" });
+                                //}
                                 if (item.SpindleRatio != null) {
                                     $("#h2").text(item.SpindleRatio);
                                 }
@@ -547,17 +547,17 @@
                             } else if (item.DeviceName == "CNC3发那科") {
                                 loadSpindle("maina3", item.SpindleSpeed);
                                 loadFeed("mainb3", item.FeedSpeed);
-                                if (item.SpindleSpeed != null && item.SpindleSpeed > 0) {
-                                    $("#div3").css({ "background-image": "linear-gradient(#23ab33, #0b3447)" });
-                                    //$("#b3").text(item.DeviceRunStatus);
-                                    $("#b3").text("运行中");
-                                }
-                                else {
-                                    //$("#b3").text("暂停");
-                                    //$("#div3").css({ "background-image": "linear-gradient(#ffc000, #0b3447)" });
-                                    $("#b3").text() == "运行中" ? $("#b3").text("暂停") : $("#b2").text($("#b2").text());
-                                    $("#b3").text() == "运行中" ? $("#div3").css({ "background-image": "linear-gradient(#23ab33, #0b3447)" }) : $("#div3").css({ "background-image": "linear-gradient(#ffc000, #0b3447)" });
-                                }
+                                //if (item.SpindleSpeed != null && item.SpindleSpeed > 0) {
+                                //    $("#div3").css({ "background-image": "linear-gradient(#23ab33, #0b3447)" });
+                                //    //$("#b3").text(item.DeviceRunStatus);
+                                //    $("#b3").text("运行中");
+                                //}
+                                //else {
+                                //    //$("#b3").text("暂停");
+                                //    //$("#div3").css({ "background-image": "linear-gradient(#ffc000, #0b3447)" });
+                                //    $("#b3").text() == "运行中" ? $("#b3").text("暂停") : $("#b2").text($("#b2").text());
+                                //    $("#b3").text() == "运行中" ? $("#div3").css({ "background-image": "linear-gradient(#23ab33, #0b3447)" }) : $("#div3").css({ "background-image": "linear-gradient(#ffc000, #0b3447)" });
+                                //}
                                 if (item.SpindleRatio != null) {
                                     $("#h3").text(item.SpindleRatio);
                                 }

@@ -51,6 +51,8 @@ namespace NFine.WebAPI.Controllers
             List<DataAcquisitionEntity> dto = new List<DataAcquisitionEntity>();
             try
             {
+                string o1 = ""; string o2 = ""; string o3 = ""; string o4 = ""; string o5 = ""; string o6 = "";
+                string c1 = ""; string c2 = ""; string c3 = ""; string c4 = ""; string c5 = ""; string c6 = "";
                 dto = Deserialize<List<DataAcquisitionEntity>>(param.strdata);
                 foreach (var item in dto)
                 {
@@ -62,7 +64,78 @@ namespace NFine.WebAPI.Controllers
                         //result.code = "1050";
                         //return result;
                     }
+                    if (item.DeviceName== "CNC1发那科")
+                    {
+                        o1 = item.DeviceName + "<br>" + item.DeviceRunStatus;
+                        c1 = Colour(item.DeviceRunStatus);
+                    }
+                    else if (item.DeviceName == "CNC2发那科")
+                    {
+                        o2 = item.DeviceName + "<br>" + item.DeviceRunStatus;
+                        c2 = Colour(item.DeviceRunStatus);
+                    }
+                    else if (item.DeviceName == "CNC3发那科")
+                    {
+                        o3 = item.DeviceName + "<br>" + item.DeviceRunStatus;
+                        c3 = Colour(item.DeviceRunStatus);
+                    }
+                    else if (item.DeviceName == "Robot")
+                    {
+                        o4 = item.DeviceName + "<br>" + item.DeviceRunStatus;
+                        c4 = Colour(item.DeviceRunStatus);
+                    }
+                    else if (item.DeviceName == "清洗机")
+                    {
+                        o5 = item.DeviceName + "<br>" + item.DeviceRunStatus;
+                        c5 = Colour(item.DeviceRunStatus);
+                    }
+                    else if (item.DeviceName == "CMM2海克斯康")
+                    {
+                        o6 = item.DeviceName + "<br>" + item.DeviceRunStatus;
+                        c6 = Colour(item.DeviceRunStatus);
+                    }
                 }
+
+                #region Sys_RunningState 运行状态
+                if (!string.IsNullOrEmpty(o1))
+                {
+                    try
+                    {
+                        int re = 0;
+                        DbService ds = new DbService(dbnfin, "MySQL");
+                        string str = string.Format(@"SELECT  *  from Sys_RunningState WHERE IsEffective=1;");
+                        bool sult = ds.IsExistRecord(str);
+                        if (sult)
+                        {
+                            string str1 = string.Format(@"UPDATE Sys_RunningState SET Describe1='{0}',DescribeColor1='{1}',Describe2='{2}',DescribeColor2='{3}',Describe3='{4}',DescribeColor3='{5}',
+                            Describe4='{6}',DescribeColor4='{7}',Describe5='{8}',DescribeColor5='{9}',Describe6='{10}',DescribeColor6='{11}' Where IsEffective=1",o1, c1, o2, c2, o3, c3, o4, c4, o5, c5, o6, c6);
+                            int sult1 = ds.InsertSql(str1, out re);
+                            if (sult1 > 0)
+                            {
+                                LogHelper.Error(string.Format(str1, "修改语句错误-Sys_RunningState"));
+                            }
+                        }
+                        else
+                        {
+                            string str1 = string.Format(@"INSERT INTO Sys_RunningState(Picture_Url,Describe1,DescribeColor1,Describe2,DescribeColor2,Describe3,DescribeColor3,Describe4,DescribeColor4,Describe5,DescribeColor5,Describe6,DescribeColor6,CreationTime)
+                            VALUES( '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}',NOW())", "/Content/img/product/runningstate/01.png", o1, c1, o2, c2, o3, c3, o4, c4, o5, c5, o6, c6);
+                            int sult1 = ds.InsertSql(str1, out re);
+                            if (sult1 > 0)
+                            {
+                                LogHelper.Error(string.Format(str1, "新增语句错误-Sys_RunningState"));
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        LogHelper.Error(ex.Message);
+                    }
+                }
+
+
+                #endregion
+
+
             }
             catch (Exception ex)
             {
@@ -291,6 +364,7 @@ namespace NFine.WebAPI.Controllers
             bool fla = false;
             try
             {
+                #region Sys_DataAcquisition 数据采集
                 int re = 0; 
                 DbService ds = new DbService(dbnfin, "MySQL");
                 string str1 = string.Format(@"SELECT  *  from Sys_DataAcquisition WHERE DeviceName='{0}' AND IsEffective=1;", dto.DeviceName);
@@ -314,7 +388,8 @@ namespace NFine.WebAPI.Controllers
                     {
                         fla = true;
                     }
-                } 
+                }
+                #endregion
             }
             catch (Exception ex)
             {
@@ -490,6 +565,40 @@ namespace NFine.WebAPI.Controllers
             TimeSpan ts = dt.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, 0);
             return Convert.ToInt64(ts.TotalSeconds).ToString();
         }
+        public string Colour(string DeviceRunStatus)
+        {
+            var colour = "#fff";
+            if (DeviceRunStatus == "离线")
+            {
+                colour = "#c8c8c8";
+            }
+            else if (DeviceRunStatus == "待机")
+            {
+                colour = "#0865e3";
+            }
+            else if (DeviceRunStatus == "运行中")
+            {
+                colour = "#23ab33";
+            }
+            else if (DeviceRunStatus == "暂停")
+            {
+                colour = "#ffc000";
+            }
+            else if (DeviceRunStatus == "报警")
+            {
+                colour = "#ee5d5d";
+            }
+            else if (DeviceRunStatus == "未就绪")
+            {
+                colour = "#0fcdfd";
+            }
+            else if (DeviceRunStatus == "停止")
+            {
+                colour = "#fc9711";
+            }
+            return colour;
+        }
+
         #endregion
     }
 }
