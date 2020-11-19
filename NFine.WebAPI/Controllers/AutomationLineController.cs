@@ -57,10 +57,10 @@ namespace NFine.WebAPI.Controllers
                     bool fla = InsertDataAcquisition(item);
                     if (!fla)
                     {
-                        LogHelper.Error(Serialize(item));
-                        result.msg = "数据插入失败";
-                        result.code = "1050";
-                        return result;
+                        LogHelper.Error(string.Format(Serialize(item), "新增失败-SaveDataAcquisition"));
+                        //result.msg = "数据插入失败";
+                        //result.code = "1050";
+                        //return result;
                     }
                 }
             }
@@ -110,10 +110,10 @@ namespace NFine.WebAPI.Controllers
                     bool fla = InsertDataAcquisitionDetail(item);
                     if (!fla)
                     {
-                        LogHelper.Error(Serialize(item));
-                        result.msg = "数据插入失败";
-                        result.code = "1050";
-                        return result;
+                        LogHelper.Error(string.Format(Serialize(item), "新增失败-SaveDataAcquisitionDetail"));
+                        //result.msg = "数据插入失败";
+                        //result.code = "1050";
+                        //return result;
                     }
                 }
             }
@@ -163,10 +163,10 @@ namespace NFine.WebAPI.Controllers
                     bool fla = UpdateDataAcquisitionJiadongRate(item);
                     if (!fla)
                     {
-                        LogHelper.Error(Serialize(item));
-                        result.msg = "数据更新失败";
-                        result.code = "1050";
-                        return result;
+                        LogHelper.Error(string.Format(Serialize(item), "更新失败-SaveDataAcquisitionJiadongRate"));
+                        //result.msg = "数据更新失败";
+                        //result.code = "1050";
+                        //return result;
                     }
                 }
             }
@@ -220,10 +220,10 @@ namespace NFine.WebAPI.Controllers
                 bool fla = InsertRunningState(dto);
                 if (!fla)
                 {
-                    LogHelper.Error(Serialize(dto));
-                    result.msg = "数据插入失败";
-                    result.code = "1050";
-                    return result;
+                    LogHelper.Error(string.Format(Serialize(dto), "新增失败-SaveRunningState"));
+                    //result.msg = "数据插入失败";
+                    //result.code = "1050";
+                    //return result;
                 }
             }
             catch (Exception ex)
@@ -270,10 +270,10 @@ namespace NFine.WebAPI.Controllers
                 bool fla = UpdateRunningStateStockBin(dto);
                 if (!fla)
                 {
-                    LogHelper.Error(Serialize(dto));
-                    result.msg = "数据插入失败";
-                    result.code = "1050";
-                    return result;
+                    LogHelper.Error(string.Format(Serialize(dto), "新增失败-SaveRunningStateStockBin"));
+                    //result.msg = "数据插入失败";
+                    //result.code = "1050";
+                    //return result;
                 }
             }
             catch (Exception ex)

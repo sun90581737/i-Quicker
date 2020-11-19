@@ -61,10 +61,10 @@ namespace NFine.WebAPI.Controllers
                     bool fla = UpdateEquipmentListOne(item);
                     if (!fla)
                     {
-                        LogHelper.Error(Serialize(item));
-                        result.msg = "数据更新失败";
-                        result.code = "1050";
-                        return result;
+                        LogHelper.Error(string.Format(Serialize(item), "更新失败-SaveEquipmentMachining"));
+                        //result.msg = "数据更新失败";
+                        //result.code = "1050";
+                        //return result;
                     }
                 }
             }
@@ -121,10 +121,10 @@ namespace NFine.WebAPI.Controllers
                     bool fla = UpdateEquipmentListTwo(item);
                     if (!fla)
                     {
-                        LogHelper.Error(Serialize(item));
-                        result.msg = "数据更新失败";
-                        result.code = "1050";
-                        return result;
+                        LogHelper.Error(string.Format(Serialize(item), "更新失败-SaveEquipmentJiadongRate"));
+                        //result.msg = "数据更新失败";
+                        //result.code = "1050";
+                        //return result;
                     }
                 }
             }
@@ -181,10 +181,11 @@ namespace NFine.WebAPI.Controllers
                     bool fla = UpdateTaskListColour(item);
                     if (!fla)
                     {
-                        LogHelper.Error(Serialize(item));
-                        result.msg = "数据更新失败";
-                        result.code = "1050";
-                        return result;
+                        LogHelper.Error(string.Format(Serialize(item), "更新失败-SaveTaskListColour"));
+                        //LogHelper.Error(Serialize(item));
+                        //result.msg = "数据更新失败";
+                        //result.code = "1050";
+                        //return result;
                     }
                 }
             }
@@ -452,10 +453,10 @@ namespace NFine.WebAPI.Controllers
                     bool fla = UpdateEquipmentListThree(item);
                     if (!fla)
                     {
-                        LogHelper.Error(Serialize(item));
-                        result.msg = "数据更新失败";
-                        result.code = "1050";
-                        return result;
+                        LogHelper.Error(string.Format(Serialize(item), "更新失败-SaveEquipmentList"));
+                        //result.msg = "数据更新失败";
+                        //result.code = "1050";
+                        //return result;
                     }
                 }
             }
@@ -513,7 +514,7 @@ namespace NFine.WebAPI.Controllers
                     bool fla = DeleteTaskList(item);
                     if (!fla)
                     {
-                        LogHelper.Error(string.Format(Serialize(item),"删除失败"));
+                        LogHelper.Error(string.Format(Serialize(item), "删除失败-DeleteTaskList"));
                     }
                 }
             }
