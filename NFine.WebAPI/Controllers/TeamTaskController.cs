@@ -61,7 +61,7 @@ namespace NFine.WebAPI.Controllers
                     bool fla = UpdateEquipmentListOne(item);
                     if (!fla)
                     {
-                        LogHelper.Error(string.Format(Serialize(item), "更新失败-SaveEquipmentMachining"));
+                        LogHelper.Error(string.Format("更新失败-SaveEquipmentMachining:{0}", Serialize(item)));
                         //result.msg = "数据更新失败";
                         //result.code = "1050";
                         //return result;
@@ -121,7 +121,7 @@ namespace NFine.WebAPI.Controllers
                     bool fla = UpdateEquipmentListTwo(item);
                     if (!fla)
                     {
-                        LogHelper.Error(string.Format(Serialize(item), "更新失败-SaveEquipmentJiadongRate"));
+                        LogHelper.Error(string.Format("更新失败-SaveEquipmentJiadongRate:{0}", Serialize(item)));
                         //result.msg = "数据更新失败";
                         //result.code = "1050";
                         //return result;
@@ -181,7 +181,7 @@ namespace NFine.WebAPI.Controllers
                     bool fla = UpdateTaskListColour(item);
                     if (!fla)
                     {
-                        LogHelper.Error(string.Format(Serialize(item), "更新失败-SaveTaskListColour"));
+                        LogHelper.Error(string.Format("更新失败-SaveTaskListColour:{0}", Serialize(item)));
                         //LogHelper.Error(Serialize(item));
                         //result.msg = "数据更新失败";
                         //result.code = "1050";
@@ -453,7 +453,7 @@ namespace NFine.WebAPI.Controllers
                     bool fla = UpdateEquipmentListThree(item);
                     if (!fla)
                     {
-                        LogHelper.Error(string.Format(Serialize(item), "更新失败-SaveEquipmentList"));
+                        LogHelper.Error(string.Format("更新失败-SaveEquipmentList:{0}", Serialize(item)));
                         //result.msg = "数据更新失败";
                         //result.code = "1050";
                         //return result;
@@ -514,7 +514,7 @@ namespace NFine.WebAPI.Controllers
                     bool fla = DeleteTaskList(item);
                     if (!fla)
                     {
-                        LogHelper.Error(string.Format(Serialize(item), "删除失败-DeleteTaskList"));
+                        LogHelper.Error(string.Format("删除失败-DeleteTaskList:{0}", Serialize(item)));
                     }
                 }
             }
