@@ -229,7 +229,7 @@ namespace FiveM
                 DbService ds13 = new DbService(EnStr, "MySQL");
                 string srt13 = string.Format(@"INSERT INTO test_nfinebase.Sys_QualityOExceptionalResults(Type,Cost,CreationTime)
                     (
-		                    SELECT exception_type,SUM(pass_rate),now() FROM test_mes_center.e03_exception_summary 
+		                    SELECT exception_type,SUM(pass_rate)*100,now() FROM test_mes_center.e03_exception_summary 
 		                    WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
 		                    GROUP BY exception_type
                     )");
