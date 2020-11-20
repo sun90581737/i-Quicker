@@ -542,7 +542,6 @@
             success: function (da) {
                 $(da).each(function (index, item) {
                     if (item.Month_Day != "") {
-                        debugger
                         listMonthDay.push(item.Month_Day.substring(2,7));
                         listDeviceName.push(item.Device_Name);
                         listAll.push(item);
@@ -694,33 +693,44 @@
         var listDeviceType = new Array();
         var listDeviceName = new Array();
         var listAll = new Array();
+        let colorListSon = [];
         $.ajax({
             url: "/QualityOptimization/QualityEngineering/GetDataQualityOHandleExceptionalResults",
             dataType: "json",
             async: false,
             success: function (data) {
                 $(data).each(function (index, item) {
-                    if (item.DeviceType != "") {
+                  
+                    if (item.DeviceType != "" && item.DeviceName == "已处理") {
                         listDeviceType.push(item.DeviceType);
                         listDeviceName.push(item.DeviceName);
                         listAll.push(item);
+                        if (item.DeviceType == "待处理") {
+                            colorListSon.push("#f513fd");
+                        }
+                        else {
+                            colorListSon.push("#00fdfe");
+                        }
                     }
                 })
             }
         });
         $.unique(listDeviceType);//日期
         $.unique(listDeviceName.sort());//设备名字
-
+        debugger;
         var series = [];
         $.each(listDeviceName, function (index, value) {
             var tempName = new Array();
+            var tempType = new Array();
             var tempArry = new Array();
             $.each(listAll, function (index1, value1) {
                 if (value == value1.DeviceName) {
                     tempName = value1.DeviceName;
+                    tempType = value1.DeviceType;
                     tempArry.push(value1.TrendRate);
                 }
             });
+            
             series.push({
                 name: tempName,
                 type: 'bar',
@@ -730,16 +740,29 @@
                 data: tempArry,
                 itemStyle: {
                     normal: {
-                        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
-                            offset: 0,
-                            color: tempName == "已处理" ? '#008fc1' : '#b108da'
-                        }, {
-                            offset: 0.5,
-                            color: tempName == "已处理" ? '#3bd1ea' : '#f631ff'
-                        }, {
-                            offset: 1,
-                            color: tempName == "已处理" ? '#00fdfe' : '#f513fd'
-                        }], false),
+                        //color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
+                        //    offset: 0,
+                        //    color: tempType != "未判定" ? '#008fc1' : '#b108da'
+                        //}, {
+                        //    offset: 0.5,
+                        //    color: tempType != "未判定" ? '#3bd1ea' : '#f631ff'
+                        //}, {
+                        //    offset: 1,
+                        //    color: tempType != "未判定" ? '#00fdfe' : '#f513fd'
+                        //}], false),
+                       
+                        color: function (params) {
+                            let colorList = colorListSon;
+                            //let colorList = [
+                            //    "#00fdfe",
+                            //    "#00fdfe",
+                            //    "#00fdfe",
+                            //    "#00fdfe",
+                            //    "#00fdfe",
+                            //    "#f513fd"
+                            //];
+                            return colorList[params.dataIndex];
+                        },
                         label: {
                             show: true, //开启显示
                             position: 'right', //在上方显示
@@ -752,10 +775,11 @@
                 }
             })
         });
-
+        
         var myChart = echarts.init(document.getElementById('chart4'));
         var option = {
-           // color: ['#3bd1ea', '#f631ff'],
+            //color: ['#3bd1ea', '#f631ff', '#ccff00', '#663366', '#FF00FF', '#C71585'],
+            color: ['#00fdfe'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {

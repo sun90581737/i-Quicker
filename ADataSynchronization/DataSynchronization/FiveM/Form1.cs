@@ -273,11 +273,11 @@ namespace FiveM
                 DbService ds15 = new DbService(EnStr, "MySQL");
                 string srt15 = string.Format(@"INSERT INTO test_nfinebase.Sys_QualityOHandleExceptionalResults(DeviceType,DeviceName,TrendRate,CreationTime)
                     (
-                        SELECT * from (
-		                    SELECT dept_name,'待处理',wait_num,now() from  test_mes_center.e05_dept_exception_result WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                       SELECT dept_name,aa,wait_num,time from (
+		                    SELECT dept_name,'待处理' aa,dept_code,wait_num,now() time from  test_mes_center.e05_dept_exception_result WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
 		                    UNION ALL
-		                    SELECT dept_name,'已处理',finish_num,now() from  test_mes_center.e05_dept_exception_result WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
-                        )b  ORDER BY dept_name
+		                    SELECT dept_name,'已处理' aa,dept_code,finish_num,now() time from  test_mes_center.e05_dept_exception_result WHERE acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
+                        )b  ORDER BY dept_code
                     )");
                 int sult15 = ds15.InsertSql(srt15, out re15);
                 if (sult15 > 0)
