@@ -95,7 +95,6 @@ namespace NFine.WebAPI.Controllers
                         c6 = Colour(item.DeviceRunStatus);
                     }
                 }
-
                 #region Sys_RunningState 运行状态
                 if (!string.IsNullOrEmpty(o1))
                 {
@@ -110,7 +109,7 @@ namespace NFine.WebAPI.Controllers
                             string str1 = string.Format(@"UPDATE Sys_RunningState SET Describe1='{0}',DescribeColor1='{1}',Describe2='{2}',DescribeColor2='{3}',Describe3='{4}',DescribeColor3='{5}',
                             Describe4='{6}',DescribeColor4='{7}',Describe5='{8}',DescribeColor5='{9}',Describe6='{10}',DescribeColor6='{11}' Where IsEffective=1",o1, c1, o2, c2, o3, c3, o4, c4, o5, c5, o6, c6);
                             int sult1 = ds.InsertSql(str1, out re);
-                            if (sult1 > 0)
+                            if (sult1 <= 0)
                             {
                                 LogHelper.Error(string.Format("修改语句错误-Sys_RunningState:{0}", str1));
                             }
@@ -120,7 +119,7 @@ namespace NFine.WebAPI.Controllers
                             string str1 = string.Format(@"INSERT INTO Sys_RunningState(Picture_Url,Describe1,DescribeColor1,Describe2,DescribeColor2,Describe3,DescribeColor3,Describe4,DescribeColor4,Describe5,DescribeColor5,Describe6,DescribeColor6,CreationTime)
                             VALUES( '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}',NOW())", "/Content/img/product/runningstate/01.png", o1, c1, o2, c2, o3, c3, o4, c4, o5, c5, o6, c6);
                             int sult1 = ds.InsertSql(str1, out re);
-                            if (sult1 > 0)
+                            if (sult1 <= 0)
                             {
                                 LogHelper.Error(string.Format("新增语句错误-Sys_RunningState:{0}", str1));
                             }
