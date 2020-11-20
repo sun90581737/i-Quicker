@@ -256,7 +256,7 @@
                                 $("#imageId1").css("display", "block");
                                 $("#imageId1").attr("src", "/Content/img/product/collection/cnc1.png");
                                 $("#f1").text(item.TodayOutput);
-                                $("#g1").text(item.TodayJiadong*100);
+                                $("#g1").text(item.TodayJiadong * 100 + "%");
                                 item.DeviceRunStatus == "运行中" ? loadSpindle("maina", item.SpindleSpeed) : loadSpindle("maina", 0);
                                 item.DeviceRunStatus == "运行中" ? loadFeed("mainb", item.FeedSpeed) : loadFeed("mainb", 0);
                                 //if (item.SpindleSpeed != null && item.SpindleSpeed > 0) {
@@ -278,7 +278,7 @@
                                 $("#imageId2").css("display", "block");
                                 $("#imageId2").attr("src", "/Content/img/product/collection/cnc1.png");
                                 $("#f2").text(item.TodayOutput);
-                                $("#g2").text(item.TodayJiadong*100);
+                                $("#g2").text(item.TodayJiadong * 100 + "%");
                                 item.DeviceRunStatus == "运行中" ? loadSpindle("maina2", item.SpindleSpeed) : loadSpindle("maina2", 0);
                                 item.DeviceRunStatus == "运行中" ? loadFeed("mainb2", item.FeedSpeed) : loadFeed("mainb2", 0);
                                 //if (item.SpindleSpeed != null && item.SpindleSpeed > 0) {
@@ -300,7 +300,7 @@
                                 $("#imageId3").css("display", "block");
                                 $("#imageId3").attr("src", "/Content/img/product/collection/cnc1.png");
                                 $("#f3").text(item.TodayOutput);
-                                $("#g3").text(item.TodayJiadong*100);
+                                $("#g3").text(item.TodayJiadong * 100 + "%");
                                 item.DeviceRunStatus == "运行中" ? loadSpindle("maina3", item.SpindleSpeed) : loadSpindle("maina3", 0);
                                 item.DeviceRunStatus == "运行中" ? loadFeed("mainb3", item.FeedSpeed) : loadFeed("mainb3", 0);
                                 //if (item.SpindleSpeed != null && item.SpindleSpeed > 0) {
