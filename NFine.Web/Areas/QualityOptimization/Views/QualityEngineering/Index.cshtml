@@ -40,6 +40,8 @@
         loadFourX();
         loadFourY();
         loadFour();
+
+        loop2();
     }
     window.setInterval(function () {
         loadOne();
@@ -50,6 +52,31 @@
         loadFourY();
         loadFour();
     }, 1000 * 60 * 5);
+    function loop2() {
+        var div = $('#gridList1').closest('.ui-jqgrid-bdiv')[0], offsetHeight = div.offsetHeight//////////////
+            , scrollHeight = div.scrollHeight - offsetHeight, scrollTop = 0, timer = 0, ob3 = 20;
+        function scrollBody() {
+            timer = setInterval(function () {
+                scrollTop += 1;
+                div.scrollTop = scrollTop;
+                if (scrollTop >= scrollHeight) {//循环滚动
+                    scrollHeight = div.scrollHeight - offsetHeight;//如果在滚动过程中添加过数据，需要重新结算scrollHeight
+                    if (scrollTop >= (ob3 - 16) * 33) {
+                        scrollTop = 0; //循环滚动，重置滚动头即可
+                    }
+                }
+            }, 50);
+        }
+        $('#gridList1').mouseover(function () {//添加over事件，停止滚动
+            clearInterval(timer);
+        });
+        $('#gridList1').mouseout(function (e) {//添加mouseout事件，继续滚动
+            scrollBody();
+        });
+        if (ob3 > 16) {
+            scrollBody();///开始滚动jqgrid内容
+        }
+    }
     function loadOne() {
         var listDeviceType = new Array();
         var listDeviceName = new Array();
@@ -809,8 +836,8 @@
             }
         });
         var myChart = echarts.init(document.getElementById('chart5'));
-        var value = finish_num/100;
-        var data = [value, value, value, ];
+        var value = finish_num / (finish_num + wait_num);
+        var data = [value];
         option = {
             title: [{
                 text: (value * 100).toFixed(0) + '{a|%}',
@@ -828,7 +855,7 @@
                 x: 'center',
                 y: '35%'
             }, {
-                text: (wait_num>0 ? Math.round((wait_num + finish_num) / wait_num): 0)+ "件",
+                text: (finish_num > 0 ? finish_num : 0) + "件",
                 textStyle: {
                     color: '#3bd1ea',
                     fontStyle: 'normal',
@@ -953,8 +980,8 @@
             }
         });
         var myChart = echarts.init(document.getElementById('chart6'));
-        var value = wait_num/100;
-        var data = [value, value, value, ];
+        var value = 1 - finish_num / (finish_num + wait_num);
+        var data = [value];
         option = {
             title: [{
                 text: (value * 100).toFixed(0) + '{a|%}',
@@ -972,7 +999,7 @@
                 x: 'center',
                 y: '35%'
             }, {
-                text: (finish_num>0 ? Math.round((wait_num + finish_num) / finish_num) : 0)+ "件",
+                text: (wait_num > 0 ? wait_num : 0) + "件",
                 textStyle: {
                     color: '#f631ff',
                     fontStyle: 'normal',
