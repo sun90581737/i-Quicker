@@ -251,7 +251,7 @@ namespace NFine.WebAPI.Controllers
             {
                 int re = 0;
                 DbService ds = new DbService(dbnfin, "MySQL");
-                string srt = string.Format(@"UPDATE  Sys_EquipmentList set Workpieces_Name='{0}',Colour='{1}', Yield='{2}',Jiadong={3} where Equipment_Name='{4}'", dto.workpiecesname, dto.state, dto.yield, dto.Jiadong, dto.equipmentname);
+                string srt = string.Format(@"UPDATE  Sys_EquipmentList set Workpieces_Name='{0}',Mold_No='{1}',Colour='{2}', Yield='{3}',Jiadong={4} where Equipment_Name='{5}'", dto.workpiecesname, dto.mold_no, dto.state, dto.yield, dto.Jiadong, dto.equipmentname);
                 int sult = ds.InsertSql(srt, out re);
                 if (sult > 0)
                 {

@@ -251,6 +251,8 @@ namespace NFine.Domain._05_API
         [DataMember]
         public string equipmentname { get; set; }
         [DataMember]
+        public string mold_no { get; set; }
+        [DataMember]
         public string workpiecesname { get; set; }
         [DataMember]
         public string state { get; set; }
