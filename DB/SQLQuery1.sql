@@ -2325,3 +2325,147 @@ INSERT INTO Sys_DDEquipmentPartsList(MoldNo ,PartNumber ,PlannedEquipment ,Start
 VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,8407 ,2)
 INSERT INTO Sys_DDEquipmentPartsList(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,MoldKernelMaterial ,Category)
 VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,8407 ,2)
+
+
+
+
+CREATE TABLE Sys_TODepartmentJiaDongRate --班组总览:各部门稼动率对比    Sys_DDJiaDongRateTrend  /EquipmentMaintain/DeviceDetails/Index
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_TODepartmentJiaDongRate(DeviceType,DeviceName,Number)VALUES  ('CNC钢材A组','稼动率',60)
+INSERT INTO Sys_TODepartmentJiaDongRate(DeviceType,DeviceName,Number)VALUES  ('CNC钢材B组','稼动率',50)
+INSERT INTO Sys_TODepartmentJiaDongRate(DeviceType,DeviceName,Number)VALUES  ('EDM钢材A组','稼动率',85)
+INSERT INTO Sys_TODepartmentJiaDongRate(DeviceType,DeviceName,Number)VALUES  ('EDM钢材B组','稼动率',40)
+INSERT INTO Sys_TODepartmentJiaDongRate(DeviceType,DeviceName,Number)VALUES  ('WE钢材A组','稼动率',79)
+
+
+CREATE TABLE Sys_TOTeamLoadRate --班组总览：各班组负载、合格率对比         Sys_TDDepartmentLoad   /TeamTask/TeamDetails/Index
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--合格率
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_TOTeamLoadRate(DeviceType,DeviceName,Number)VALUES  ('班组一','产能',62)
+INSERT INTO Sys_TOTeamLoadRate(DeviceType,DeviceName,Number)VALUES  ('班组一','负荷',45)
+INSERT INTO Sys_TOTeamLoadRate(DeviceType,DeviceName,Number)VALUES  ('班组一','合格率',65)
+INSERT INTO Sys_TOTeamLoadRate(DeviceType,DeviceName,Number)VALUES  ('班组二','产能',62)
+INSERT INTO Sys_TOTeamLoadRate(DeviceType,DeviceName,Number)VALUES  ('班组二','负荷',45)
+INSERT INTO Sys_TOTeamLoadRate(DeviceType,DeviceName,Number)VALUES  ('班组二','合格率',65)
+INSERT INTO Sys_TOTeamLoadRate(DeviceType,DeviceName,Number)VALUES  ('班组三','产能',62)
+INSERT INTO Sys_TOTeamLoadRate(DeviceType,DeviceName,Number)VALUES  ('班组三','负荷',45)
+INSERT INTO Sys_TOTeamLoadRate(DeviceType,DeviceName,Number)VALUES  ('班组三','合格率',65)
+INSERT INTO Sys_TOTeamLoadRate(DeviceType,DeviceName,Number)VALUES  ('班组四','产能',62)
+INSERT INTO Sys_TOTeamLoadRate(DeviceType,DeviceName,Number)VALUES  ('班组四','负荷',45)
+INSERT INTO Sys_TOTeamLoadRate(DeviceType,DeviceName,Number)VALUES  ('班组四','合格率',65)
+INSERT INTO Sys_TOTeamLoadRate(DeviceType,DeviceName,Number)VALUES  ('班组五','产能',62)
+INSERT INTO Sys_TOTeamLoadRate(DeviceType,DeviceName,Number)VALUES  ('班组五','负荷',45)
+INSERT INTO Sys_TOTeamLoadRate(DeviceType,DeviceName,Number)VALUES  ('班组五','合格率',65)
+
+
+CREATE table Sys_TOTeamOverviewList--班组总览:列表  
+(  
+	id int identity (1,1) primary key , 
+	TeamName varchar(50)  NULL, --班组
+	Personnel varchar(50)  NULL, --人员
+	Equipment varchar(50)  NULL,--设备
+	JDongRate INT ,  --稼动率
+	ProcessLoad  FLOAT NULL, --工序负载
+	PassRate FLOAT NULL,--合格率
+	TreatMachining varchar(50)  NULL,--待加工（件）
+	Processing varchar(50)  NULL,--加工中
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_TOTeamOverviewList(TeamName,Personnel,Equipment,JDongRate,ProcessLoad,PassRate,TreatMachining,Processing)VALUES('CNC','13','14',70,142.3,96.3,'12','8');
+
+CREATE table Sys_FitterHomepageList  -- 钳工主页:装配任务清单
+(  
+	id int identity (1,1) primary key , 
+	ProductName varchar(50)  NULL,--品名
+	MoldNumber  VARCHAR(50)  NULL,--模具号
+	ReceivingDate DATE, --接单日期
+	CustomerDelivery  DATE, --客户交期
+	MoldType varchar(50)  NULL, --模具类型
+	PlannedDeliveryDate DATE, --计划交期
+	MachineTonnage varchar(50)  NULL,--机台吨位
+	IsSlider varchar(50)  NULL,--是否有滑块
+	ProductSize varchar(50)  NULL,--产品尺寸
+	RunnerSystem varchar(50)  NULL,--流道系统
+	Fitter varchar(50)  NULL,--负责钳工
+	MoldStatus VARCHAR(50), --模具状态
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_FitterHomepageList(ProductName,MoldNumber,ReceivingDate,CustomerDelivery,MoldType,PlannedDeliveryDate,MachineTonnage,IsSlider,ProductSize,
+RunnerSystem,Fitter,MoldStatus)VALUES('BX190613001','WX190614003',GETDATE(),GETDATE(),'新模',GETDATE(),'400T','否','2','LNNER','','正常交付')
+
+
+--AssemblyDetails 
+
+
+CREATE table Sys_ADAbnormalProportion--装配详情:加工异常比例
+(  
+	id int identity (1,1) primary key , 
+	WorkingProcedure varchar(50)  NULL,--工序
+	Workpiece varchar(50)  NULL,--工件
+	StartTime DATETIME,--开始时间
+	EndTime DATETIME,--结束时间
+	Duration INT,--时长
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_ADAbnormalProportion(WorkingProcedure,Workpiece,StartTime,EndTime,Duration)VALUES('铣床','/i-quicker/img/product/collection/cnc1.png',getdate(),getdate(),10)
+INSERT INTO Sys_ADAbnormalProportion(WorkingProcedure,Workpiece,StartTime,EndTime,Duration)VALUES('铣床','',getdate(),getdate(),30)
+
+CREATE table Sys_ADOutsourcingPartsList  --装配详情:外协件清单及返厂时间
+(  
+	id int identity (1,1) primary key , 
+	MoldNo varchar(50)  NULL, --模具编号
+	WorkpieceNo varchar(50)  NULL,--工件编号
+	WorkpieceName varchar(50)  NULL,--工件名称
+	Material varchar(50)  NULL,--材料
+	Hardness varchar(50)  NULL, --硬度
+	Specifications varchar(50)  NULL, --规格
+	PlannedDeliveryDate DATE, --计划交期
+	ActualDeliveryDate DATE, --实际交期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_ADOutsourcingPartsList(MoldNo,WorkpieceNo,WorkpieceName,Material,Hardness,Specifications,PlannedDeliveryDate,ActualDeliveryDate)VALUES('20OC2003','111*1','','','','',GETDATE(),GETDATE())
+
+CREATE table Sys_ADBillOfMaterials--装配详情:物料清单及到货时间？自制件加工进度
+(  
+	id int identity (1,1) primary key , 
+	MoldNo varchar(50)  NULL, --模具编号
+	TENo varchar(50)  NULL, --T/E号
+	PartNumber varchar(50)  NULL, --零件编号
+	PartName  varchar(50)  NULL, --零件名称
+	Type varchar(50)  NULL, --类型
+	Number  int,--数量
+	Brand varchar(50)  NULL,--品牌
+	Material varchar(50)  NULL,--材料
+	Hardness varchar(50)  NULL, --硬度
+	Specifications varchar(50)  NULL, --规格
+	Receiver varchar(50)  NULL, --接收人员
+	ReceivingTime DATE, --接收时间
+	TableType varchar(10)  NULL, --物料清单及到货时间(WL)？自制件加工进度(ZZ)
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_ADBillOfMaterials(MoldNo,TENo,PartNumber,PartName,Type,Number,Brand,Material,Hardness,Specifications,Receiver,ReceivingTime,TableType)VALUES
+('20OC2003','A','5001','圆顶针01','自制件',2,'MISUMI','SKH51','','','',GETDATE(),'WL')
+INSERT INTO Sys_ADBillOfMaterials(MoldNo,TENo,PartNumber,PartName,Type,Number,Brand,Material,Hardness,Specifications,Receiver,ReceivingTime,TableType)VALUES
+('20OC2003','A','5002','圆顶针02','自制件',2,'MISUMI','SKH51','','','',GETDATE(),'WL')
+INSERT INTO Sys_ADBillOfMaterials(MoldNo,TENo,PartNumber,PartName,Type,Number,Brand,Material,Hardness,Specifications,Receiver,ReceivingTime,TableType)VALUES
+('20OC2003','A','5001','圆顶针01','自制件',2,'MISUMI','SKH51','','','',GETDATE(),'ZZ')
+INSERT INTO Sys_ADBillOfMaterials(MoldNo,TENo,PartNumber,PartName,Type,Number,Brand,Material,Hardness,Specifications,Receiver,ReceivingTime,TableType)VALUES
+('20OC2003','A','5002','圆顶针02','自制件',2,'MISUMI','SKH51','','','',GETDATE(),'ZZ')

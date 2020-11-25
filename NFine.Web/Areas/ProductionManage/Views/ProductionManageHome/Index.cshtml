@@ -380,6 +380,7 @@
     }
     function loadThree1a() {
         var listName = new Array();
+        var AQ = 0; var YQ = 0;
         var str = [];
         $.ajax({
             url: "/ProductionManage/ProductionManageHome/GetDataPMHomeOutsourcingRateWX",
@@ -388,13 +389,29 @@
             success: function (data) {
                 $(data).each(function (index, item) {
                     listName.push(item.Type);
-                    var str3 = new Object();
-                    str3.name = item.Type;
-                    str3.value = item.Cost;
-                    str[index] = str3;
+                    if (item.Type == "按期") {
+                        AQ = item.Cost;
+                    } else if (item.Type == "延期") {
+                        YQ = item.Cost;
+                    }
                 })
             }
         });
+        for (var i = 0; i < listName.length; i++) {
+            var str3 = new Object();
+            if (listName[i] == "按期") {
+                var a = (AQ / (AQ + YQ) * 100).toFixed(0);
+                str3.name = listName[i];
+                str3.value = a;
+                str[i] = str3;
+            }
+            else if (listName[i] == "延期") {
+                var a = (100 - AQ / (AQ + YQ) * 100).toFixed(0);
+                str3.name = listName[i];
+                str3.value = a;
+                str[i] = str3;
+            }
+        }
         var myChart1 = echarts.init(document.getElementById('chart3a'));
         var option1 = {
             tooltip: {
