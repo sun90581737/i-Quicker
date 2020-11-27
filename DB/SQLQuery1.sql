@@ -2408,10 +2408,6 @@ CREATE table Sys_FitterHomepageList  -- 钳工主页:装配任务清单
 INSERT INTO Sys_FitterHomepageList(ProductName,MoldNumber,ReceivingDate,CustomerDelivery,MoldType,PlannedDeliveryDate,MachineTonnage,IsSlider,ProductSize,
 RunnerSystem,Fitter,MoldStatus)VALUES('BX190613001','WX190614003',GETDATE(),GETDATE(),'新模',GETDATE(),'400T','否','2','LNNER','','正常交付')
 
-
---AssemblyDetails 
-
-
 CREATE table Sys_ADAbnormalProportion--装配详情:加工异常比例
 (  
 	id int identity (1,1) primary key , 
@@ -2469,3 +2465,123 @@ INSERT INTO Sys_ADBillOfMaterials(MoldNo,TENo,PartNumber,PartName,Type,Number,Br
 ('20OC2003','A','5001','圆顶针01','自制件',2,'MISUMI','SKH51','','','',GETDATE(),'ZZ')
 INSERT INTO Sys_ADBillOfMaterials(MoldNo,TENo,PartNumber,PartName,Type,Number,Brand,Material,Hardness,Specifications,Receiver,ReceivingTime,TableType)VALUES
 ('20OC2003','A','5002','圆顶针02','自制件',2,'MISUMI','SKH51','','','',GETDATE(),'ZZ')
+
+
+CREATE TABLE Sys_MQRStatisticalProportion --模具品质报表:统计比例
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	Type varchar(50)  NULL,--类型 (按班组、按人员、按设备)
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('班组一','统计比例',18,'按班组')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('班组二','统计比例',78,'按班组')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('班组三','统计比例',61,'按班组')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('班组四','统计比例',30,'按班组')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('班组五','统计比例',82,'按班组')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('班组六','统计比例',30,'按班组')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('班组七','统计比例',30,'按班组')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('班组八','统计比例',30,'按班组')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('人员一','统计比例',28,'按人员')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('人员二','统计比例',38,'按人员')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('人员三','统计比例',41,'按人员')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('人员四','统计比例',50,'按人员')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('人员五','统计比例',62,'按人员')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('人员六','统计比例',70,'按人员')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('人员七','统计比例',80,'按人员')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('人员八','统计比例',90,'按人员')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('设备一','统计比例',28,'按设备')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('设备二','统计比例',38,'按设备')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('设备三','统计比例',41,'按设备')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('设备四','统计比例',50,'按设备')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('设备五','统计比例',62,'按设备')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('设备六','统计比例',70,'按设备')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('设备七','统计比例',80,'按设备')
+INSERT INTO Sys_MQRStatisticalProportion(DeviceType,DeviceName,Number,Type)VALUES('设备八','统计比例',10,'按设备')
+
+
+CREATE TABLE Sys_MQRNumberOfAnomalies --模具品质报表:总异常数量
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO dbo.Sys_MQRNumberOfAnomalies(DeviceType,DeviceName,Number,AcctDate)VALUES  ('模仁','异常',45,'2020-11-25')
+INSERT INTO dbo.Sys_MQRNumberOfAnomalies(DeviceType,DeviceName,Number,AcctDate)VALUES  ('镶件','异常',60,'2020-11-25')
+INSERT INTO dbo.Sys_MQRNumberOfAnomalies(DeviceType,DeviceName,Number,AcctDate)VALUES  ('滑块','异常',30,'2020-11-25')
+INSERT INTO dbo.Sys_MQRNumberOfAnomalies(DeviceType,DeviceName,Number,AcctDate)VALUES  ('斜顶','异常',80,'2020-11-25')
+INSERT INTO dbo.Sys_MQRNumberOfAnomalies(DeviceType,DeviceName,Number,AcctDate)VALUES  ('模仁','异常',10,'2020-11-26')
+INSERT INTO dbo.Sys_MQRNumberOfAnomalies(DeviceType,DeviceName,Number,AcctDate)VALUES  ('镶件','异常',70,'2020-11-26')
+INSERT INTO dbo.Sys_MQRNumberOfAnomalies(DeviceType,DeviceName,Number,AcctDate)VALUES  ('滑块','异常',50,'2020-11-26')
+INSERT INTO dbo.Sys_MQRNumberOfAnomalies(DeviceType,DeviceName,Number,AcctDate)VALUES  ('斜顶','异常',90,'2020-11-26')
+
+
+CREATE table Sys_MQRAbnormalCostStatistics--模具品质报表:异常成本统计  
+(  
+	id int identity (1,1) primary key , 
+	MoldNo varchar(50)  NULL, --模具编号
+	PartNumber varchar(50)  NULL, --零件编号
+	PlannedEquipment varchar(50)  NULL,--计划设备
+	StartTime DATETIME, --开始时间
+	ENDTime DATETIME, --结束时间
+	LatestStartTime DATETIME,--最晚开始时间
+	WorkingHours varchar(50)  NULL,--标准工时
+	Customer  varchar(50)  NULL,--客户
+	MoldKernelMaterial varchar(50)  NULL,--模仁材质
+	Category varchar(50)  NULL,--类别
+    Colour varchar(50)  NULL,  --灯的颜色
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_MQRAbnormalCostStatistics(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,MoldKernelMaterial ,Category,Colour)
+VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,8407 ,2,'#0000FF')
+INSERT INTO Sys_MQRAbnormalCostStatistics(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,MoldKernelMaterial ,Category,Colour)
+VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,8407 ,2,'#FF9900')
+
+---QualityExceptionQuery
+
+CREATE table Sys_QualityExceptionQueryList--品质异常查询:List   
+(  
+	id int identity (1,1) primary key , 
+	ParentId INT,		--与SubID关联 
+	Department varchar(50)  NULL, --部门
+	Procedure varchar(50)  NULL, --工序
+	Pending INT,--待处理
+	TeCai  INT,--特采
+	Rework INT,--返工
+	Repair INT,--修补
+	Scrap  INT,--报废
+	Total  INT,--合计
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_QualityExceptionQueryList(ParentId,Department,Pending,TeCai,Rework,Repair,Scrap,Total)VALUES(2,'CNC','精加工',9,4,3,9,1,8) 
+INSERT INTO Sys_QualityExceptionQueryList(ParentId,Department,Pending,TeCai,Rework,Repair,Scrap,Total)VALUES(3,'CNC','精加工',1,2,3,4,5,6) 
+
+CREATE table Sys_QualityExceptionQueryDetailedList--品质异常查询:明细   
+(  
+	id int identity (1,1) primary key , 
+	SubID INT,		 
+	QualityNo varchar(50)  NULL, --品质单号
+	MoldNo varchar(50)  NULL, --模具编号
+	WorkpieceNo varchar(50)  NULL,--工件编号
+	WorkpieceName  varchar(50)  NULL,--工件名称
+	ProcessingProcedure  varchar(50)  NULL,--加工工序
+	ResponsibleDepartment  varchar(50)  NULL,--责任部门
+	PersonLiable  varchar(50)  NULL,--责任人
+	QualityInspectionType varchar(50)  NULL,--质检类型
+	TestContent varchar(100)  NULL,--检测内容
+	DetectionResult varchar(50)  NULL,--检测结果
+	Judge varchar(50)  NULL,--判定人
+	ExceptionType varchar(50)  NULL,--异常类型
+	ProcessingResults varchar(50)  NULL,--处理结果
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
