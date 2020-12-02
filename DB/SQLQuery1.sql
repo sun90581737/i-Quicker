@@ -2162,19 +2162,6 @@ CREATE table Sys_ODMouldList--订单详情:模具清单
 INSERT INTO Sys_ODMouldList(WorkingProcedure,Workpiece,StartTime,EndTime,Duration)VALUES('铣床','/i-quicker/img/product/collection/cnc1.png',getdate(),getdate(),10)
 INSERT INTO Sys_ODMouldList(WorkingProcedure,Workpiece,StartTime,EndTime,Duration)VALUES('铣床','',getdate(),getdate(),30)
 
-CREATE TABLE Sys_MSDCostRatio --模具进度详情:按大类成本比例
-(
-	id int identity (1,1) primary KEY,
-	Name varchar(50)  NULL,--客户名称
-	Number INT , --数量
-	CreationTime DATETIME not null default getdate(),--创建时间
-	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
-)
-INSERT Sys_MSDCostRatio(Name,Number)VALUES  ('物料',60)
-INSERT Sys_MSDCostRatio(Name,Number)VALUES  ('外协',100) 
-INSERT Sys_MSDCostRatio(Name,Number)VALUES  ('自制',40)
-INSERT Sys_MSDCostRatio(Name,Number)VALUES  ('异常',66)
-
 
 CREATE TABLE Sys_MDMoldPassRate  --模具详情:模具加工合格率
 (
@@ -2545,14 +2532,13 @@ VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,8
 INSERT INTO Sys_MQRAbnormalCostStatistics(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,MoldKernelMaterial ,Category,Colour)
 VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,8407 ,2,'#FF9900')
 
----QualityExceptionQuery
 
 CREATE table Sys_QualityExceptionQueryList--品质异常查询:List   
 (  
 	id int identity (1,1) primary key , 
 	ParentId INT,		--与SubID关联 
 	Department varchar(50)  NULL, --部门
-	Procedure varchar(50)  NULL, --工序
+	WorkingProcedure varchar(50)  NULL, --工序
 	Pending INT,--待处理
 	TeCai  INT,--特采
 	Rework INT,--返工
@@ -2562,8 +2548,8 @@ CREATE table Sys_QualityExceptionQueryList--品质异常查询:List
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 ) 
-INSERT INTO Sys_QualityExceptionQueryList(ParentId,Department,Pending,TeCai,Rework,Repair,Scrap,Total)VALUES(2,'CNC','精加工',9,4,3,9,1,8) 
-INSERT INTO Sys_QualityExceptionQueryList(ParentId,Department,Pending,TeCai,Rework,Repair,Scrap,Total)VALUES(3,'CNC','精加工',1,2,3,4,5,6) 
+INSERT INTO Sys_QualityExceptionQueryList(ParentId,Department,WorkingProcedure,Pending,TeCai,Rework,Repair,Scrap,Total)VALUES(2,'CNC','精加工',9,4,3,9,1,8) 
+INSERT INTO Sys_QualityExceptionQueryList(ParentId,Department,WorkingProcedure,Pending,TeCai,Rework,Repair,Scrap,Total)VALUES(3,'CNC','精加工',1,2,3,4,5,6) 
 
 CREATE table Sys_QualityExceptionQueryDetailedList--品质异常查询:明细   
 (  
@@ -2585,3 +2571,197 @@ CREATE table Sys_QualityExceptionQueryDetailedList--品质异常查询:明细
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 ) 
+INSERT INTO Sys_QualityExceptionQueryDetailedList(SubID,QualityNo,MoldNo,WorkpieceNo,WorkpieceName,ProcessingProcedure,ResponsibleDepartment,PersonLiable,
+QualityInspectionType,TestContent,DetectionResult,Judge,ExceptionType,ProcessingResults)VALUES(2,'QC20061004','20KK103DK[T0]','506-2','斜顶','一般精加工',
+'EDM组','123','品质专检','检测重要尺寸','不合格','123','尺寸超过公差要求','特采')
+INSERT INTO Sys_QualityExceptionQueryDetailedList(SubID,QualityNo,MoldNo,WorkpieceNo,WorkpieceName,ProcessingProcedure,ResponsibleDepartment,PersonLiable,
+QualityInspectionType,TestContent,DetectionResult,Judge,ExceptionType,ProcessingResults)VALUES(2,'QC20061004','20KK103DK[T0]','506-2','斜顶','一般精加工',
+'EDM组','456','品质专检','检测重要尺寸','不合格','123','尺寸超过公差要求','特采')
+INSERT INTO Sys_QualityExceptionQueryDetailedList(SubID,QualityNo,MoldNo,WorkpieceNo,WorkpieceName,ProcessingProcedure,ResponsibleDepartment,PersonLiable,
+QualityInspectionType,TestContent,DetectionResult,Judge,ExceptionType,ProcessingResults)VALUES(3,'QC20061004','20KK103DK[T0]','506-2','斜顶','一般精加工',
+'EDM组','789','品质专检','检测重要尺寸','不合格','123','尺寸超过公差要求','特采')
+
+
+-----------------------------------------------------------
+CREATE TABLE Sys_VDQualifizierteVerarbeitungsrate --版本详情:加工合格率？加工进度
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	Type varchar(50)  NULL,--类型 (HGL,JD)
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_VDQualifizierteVerarbeitungsrate(DeviceType,DeviceName,Number,Type)VALUES('T0','加工合格率',18,'HGL')
+INSERT INTO Sys_VDQualifizierteVerarbeitungsrate(DeviceType,DeviceName,Number,Type)VALUES('T1','加工合格率',78,'HGL')
+INSERT INTO Sys_VDQualifizierteVerarbeitungsrate(DeviceType,DeviceName,Number,Type)VALUES('T2','加工合格率',61,'HGL')
+INSERT INTO Sys_VDQualifizierteVerarbeitungsrate(DeviceType,DeviceName,Number,Type)VALUES('T3','加工合格率',30,'HGL')
+INSERT INTO Sys_VDQualifizierteVerarbeitungsrate(DeviceType,DeviceName,Number,Type)VALUES('T4','加工合格率',82,'HGL')
+INSERT INTO Sys_VDQualifizierteVerarbeitungsrate(DeviceType,DeviceName,Number,Type)VALUES('T5','加工合格率',30,'HGL')
+INSERT INTO Sys_VDQualifizierteVerarbeitungsrate(DeviceType,DeviceName,Number,Type)VALUES('T6','加工合格率',30,'HGL')
+INSERT INTO Sys_VDQualifizierteVerarbeitungsrate(DeviceType,DeviceName,Number,Type)VALUES('T0','加工进度',18,'JD')
+INSERT INTO Sys_VDQualifizierteVerarbeitungsrate(DeviceType,DeviceName,Number,Type)VALUES('T1','加工进度',78,'JD')
+INSERT INTO Sys_VDQualifizierteVerarbeitungsrate(DeviceType,DeviceName,Number,Type)VALUES('T2','加工进度',61,'JD')
+INSERT INTO Sys_VDQualifizierteVerarbeitungsrate(DeviceType,DeviceName,Number,Type)VALUES('T3','加工进度',30,'JD')
+INSERT INTO Sys_VDQualifizierteVerarbeitungsrate(DeviceType,DeviceName,Number,Type)VALUES('T4','加工进度',10,'JD')
+INSERT INTO Sys_VDQualifizierteVerarbeitungsrate(DeviceType,DeviceName,Number,Type)VALUES('T5','加工进度',30,'JD')
+INSERT INTO Sys_VDQualifizierteVerarbeitungsrate(DeviceType,DeviceName,Number,Type)VALUES('T6','加工进度',99,'JD')
+
+CREATE table Sys_VDKostenDerVerarbeitung  --版本详情:加工成本
+(  
+	id int identity (1,1) primary key , 
+	ModuleNumber varchar(50)  NULL,--模号
+	WorkpieceNo varchar(50)  NULL,--工件号
+	WorkingProcedure varchar(50)  NULL,--额外工序
+	Supplier varchar(50)  NULL,--供应商
+	PlannedDeliveryDate DATE, --计划交期
+	DaysOfExtension INT,--延期天数
+	OrderStatus VARCHAR(20), --状态
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_VDKostenDerVerarbeitung(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,OrderStatus)VALUES('20OC2003','202_1','铣床','K5',GETDATE(),6,'加工中')
+INSERT INTO Sys_VDKostenDerVerarbeitung(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,OrderStatus)VALUES('20OC2003','202_2','热处理','KS',GETDATE(),3,'加工中')
+INSERT INTO Sys_VDKostenDerVerarbeitung(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,OrderStatus)VALUES('20OC2003','202_2','热处理','KS',GETDATE(),4,'加工中')
+INSERT INTO Sys_VDKostenDerVerarbeitung(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,OrderStatus)VALUES('20OC2003','202_2','热处理','KS',GETDATE(),4,'加工中')
+INSERT INTO Sys_VDKostenDerVerarbeitung(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,OrderStatus)VALUES('20OC2003','202_2','热处理','KS',GETDATE(),5,'加工中')
+INSERT INTO Sys_VDKostenDerVerarbeitung(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,OrderStatus)VALUES('20OC2003','202_2','热处理','KS',GETDATE(),5,'加工中')
+INSERT INTO Sys_VDKostenDerVerarbeitung(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,OrderStatus)VALUES('20OC2003','202_2','热处理','KS',GETDATE(),7,'加工中')
+INSERT INTO Sys_VDKostenDerVerarbeitung(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,OrderStatus)VALUES('20OC2003','202_2','热处理','KS',GETDATE(),5,'加工中')
+
+
+CREATE TABLE Sys_VDWorkpieceTypeProportion --版本详情:工件类型按大类比例
+(
+	id int identity (1,1) primary KEY,
+	Name varchar(50)  NULL,--物品
+	Cost FLOAT  , --成本
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_VDWorkpieceTypeProportion(Name,Cost,AcctDate)VALUES  ('镶件',23,'2020-11-29')
+INSERT INTO Sys_VDWorkpieceTypeProportion(Name,Cost,AcctDate)VALUES  ('滑块',26,'2020-11-29')
+INSERT INTO Sys_VDWorkpieceTypeProportion(Name,Cost,AcctDate)VALUES  ('斜顶',17,'2020-11-29')
+INSERT INTO Sys_VDWorkpieceTypeProportion(Name,Cost,AcctDate)VALUES  ('模仁',34,'2020-11-29')
+INSERT INTO Sys_VDWorkpieceTypeProportion(Name,Cost,AcctDate)VALUES  ('镶件',10,'2020-11-30')
+INSERT INTO Sys_VDWorkpieceTypeProportion(Name,Cost,AcctDate)VALUES  ('滑块',20,'2020-11-30')
+INSERT INTO Sys_VDWorkpieceTypeProportion(Name,Cost,AcctDate)VALUES  ('斜顶',30,'2020-11-30')
+INSERT INTO Sys_VDWorkpieceTypeProportion(Name,Cost,AcctDate)VALUES  ('模仁',40,'2020-11-30')
+
+
+CREATE table Sys_VDWorkpieceScheduleList--版本详情:工件进度清单  
+(  
+	id int identity (1,1) primary key , 
+	MoldNo varchar(50)  NULL, --模具编号
+	PartNumber varchar(50)  NULL, --零件编号
+	PlannedEquipment varchar(50)  NULL,--计划设备
+	StartTime DATETIME, --开始时间
+	ENDTime DATETIME, --结束时间
+	LatestStartTime DATETIME,--最晚开始时间
+	WorkingHours varchar(50)  NULL,--标准工时
+	Customer  varchar(50)  NULL,--客户
+	EarlyWarning VARCHAR(20),--加工进度 显示3个值，用;来分割数据。
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_VDWorkpieceScheduleList(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,EarlyWarning)
+VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,'0.24;0.61')
+INSERT INTO Sys_VDWorkpieceScheduleList(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,EarlyWarning)
+VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,'0.92')
+
+-------------------------------------------
+--开始时间  结束时间 
+--（变更详情信息）设变时间   （版本清单）试模日期    (加工成本) 分配时间
+
+CREATE table Sys_MQMouldList--模具查询:模具清单                Sys_MQRAbnormalCostStatistics--模具品质报表:异常成本统计  
+(  
+	id int identity (1,1) primary key , 
+	MoldNo varchar(50)  NULL, --模具编号
+	PartNumber varchar(50)  NULL, --零件编号
+	PlannedEquipment varchar(50)  NULL,--计划设备
+	StartTime DATETIME, --开始时间
+	ENDTime DATETIME, --结束时间
+	LatestStartTime DATETIME,--最晚开始时间
+	WorkingHours varchar(50)  NULL,--标准工时
+	Customer  varchar(50)  NULL,--客户
+	MoldKernelMaterial varchar(50)  NULL,--模仁材质
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_MQMouldList(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,MoldKernelMaterial)
+VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,'已修好')
+INSERT INTO Sys_MQMouldList(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,MoldKernelMaterial)
+VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,'已修好')
+
+
+CREATE table Sys_MQDesignChangeDetails--新模设变详情:设变详细信息
+(  
+	id int identity (1,1) primary key , 
+	MoldNo varchar(50)  NULL, --模具编号
+	DCSource varchar(50)  NULL, --设变来源
+	DCContent varchar(50)  NULL, --设变内容
+	DCTime DATE, --设变时间
+	ChangeOrderNo varchar(50)  NULL, --更改单号
+	ChangeDescription varchar(50)  NULL,--更改内容描述
+	ReasonForChange varchar(50)  NULL,--更改原因
+	RelatedTests  varchar(50)  NULL,--相关测试情况
+	ChangeType varchar(50)  NULL,--更改类型
+	EstimatedTime DATE,--预计时间
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_MQDesignChangeDetails(MoldNo,DCSource,DCContent,DCTime,ChangeOrderNo,ChangeDescription,ReasonForChange,RelatedTests,ChangeType,EstimatedTime)VALUES
+('BX190613001','WX190614003','设变内容',GETDATE(),'新模','xx→oo','400T','否','2',GETDATE())
+
+
+CREATE table Sys_MQVersionList--新模设变详情:版本清单
+(  
+	id int identity (1,1) primary key , 
+	MoldNo varchar(50)  NULL,   --模具编号
+	Customer varchar(50)  NULL, --客户
+	MoldType varchar(50)  NULL, --模具类型
+	MoldOpeningDate DATE,       --开模日期
+	MoldTestDate DATE,          --试模日期
+	PersonInCharge varchar(50)  NULL, --负责人
+	MachineTonnage varchar(50)  NULL,--机台吨位
+	MoldTestTimes varchar(50)  NULL,--试模次数
+	FitterLeader  varchar(50)  NULL,--钳工组长
+	FitterInCharge varchar(50)  NULL,--负责钳工
+	IsApproval varchar(50)  NULL,--模具客户是否承认
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_MQVersionList(MoldNo,Customer,MoldType,MoldOpeningDate,MoldTestDate,PersonInCharge,MachineTonnage,MoldTestTimes,FitterLeader,FitterInCharge,IsApproval)VALUES
+('BX190613001','LNNER','新模',GETDATE(),GETDATE(),'张三','400T','否','2','新模','')
+
+CREATE table Sys_MQProcessingCost--新模设变详情:加工成本
+(  
+	id int identity (1,1) primary key , 
+	WorkingGroup varchar(50)    NULL,   --工作组
+	ProcessName varchar(50)  NULL,      --工序名称
+	Operator varchar(50)  NULL,         --作业员
+	MoldNo varchar(50)  NULL,           --模具编号
+	VersionNumber varchar(50)  NULL,    --版本号
+	WorkpieceNumber varchar(50)  NULL,  --工件编号
+	NumberOfWorkpieces INT,             --工件数量
+	PartName varchar(50) NULL,          --零件名称
+	ProcessManHour varchar(50) NULL,    --工艺工时
+	ActualWorkingHours varchar(50)  NULL,--实际工时
+	OutputHours  varchar(50)  NULL,     --产出工时
+	ProcessingEfficiency varchar(50) NULL,--加工效率
+	AssignPersonnel varchar(50) NULL,   --分配人员
+	AllocateTime DATETIME,              --分配时间
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_MQProcessingCost(WorkingGroup,ProcessName,Operator,MoldNo,VersionNumber,WorkpieceNumber,NumberOfWorkpieces,PartName,ProcessManHour,ActualWorkingHours,
+OutputHours,ProcessingEfficiency,AssignPersonnel,AllocateTime)VALUES('EDM组','EDM放电','张三','GGGG','1','111',10,'','1.0','0.14','0.10','58.83','',GETDATE())
+
+
+
+
+
+
+
+
