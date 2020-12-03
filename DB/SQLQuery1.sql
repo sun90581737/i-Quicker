@@ -2670,7 +2670,6 @@ VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,'
 INSERT INTO Sys_VDWorkpieceScheduleList(MoldNo ,PartNumber ,PlannedEquipment ,StartTime ,ENDTime ,LatestStartTime,WorkingHours ,Customer ,EarlyWarning)
 VALUES ('IK19001' ,'F01' ,'GF01' ,GETDATE() ,GETDATE() ,GETDATE() ,2 ,'INNER' ,'0.92')
 
--------------------------------------------
 --开始时间  结束时间 
 --（变更详情信息）设变时间   （版本清单）试模日期    (加工成本) 分配时间
 
@@ -2758,10 +2757,139 @@ CREATE table Sys_MQProcessingCost--新模设变详情:加工成本
 INSERT INTO Sys_MQProcessingCost(WorkingGroup,ProcessName,Operator,MoldNo,VersionNumber,WorkpieceNumber,NumberOfWorkpieces,PartName,ProcessManHour,ActualWorkingHours,
 OutputHours,ProcessingEfficiency,AssignPersonnel,AllocateTime)VALUES('EDM组','EDM放电','张三','GGGG','1','111',10,'','1.0','0.14','0.10','58.83','',GETDATE())
 
+-----------------------------------------------------------------------
 
 
+CREATE TABLE Sys_PDMonthlyPerformanceComparison --绩效详情：月度绩效横向对比
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--合格率
+	Type varchar(50)  NULL,--类型（）
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工一','月度绩效横向对比',79,'CNC','2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工二','月度绩效横向对比',39,'CNC','2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工三','月度绩效横向对比',80,'CNC','2020-09-20')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工四','月度绩效横向对比',52,'CNC','2020-09-20')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工五','月度绩效横向对比',52,'CNC','2020-09-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工六','月度绩效横向对比',25,'CNC','2020-09-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工七','月度绩效横向对比',62,'CNC','2020-09-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工八','月度绩效横向对比',25,'CNC','2020-09-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工九','月度绩效横向对比',80,'CNC','2020-09-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工十','月度绩效横向对比',25,'CNC','2020-09-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工一','月度绩效横向对比',79,'CNC','2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工二','月度绩效横向对比',39,'CNC','2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工三','月度绩效横向对比',80,'CNC','2020-10-20')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工四','月度绩效横向对比',52,'CNC','2020-10-20')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工五','月度绩效横向对比',52,'CNC','2020-10-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工六','月度绩效横向对比',25,'CNC','2020-10-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工七','月度绩效横向对比',62,'CNC','2020-10-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工八','月度绩效横向对比',25,'CNC','2020-10-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工九','月度绩效横向对比',80,'CNC','2020-10-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工十','月度绩效横向对比',25,'CNC','2020-10-21')
+
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工一','月度绩效横向对比',79,'EDM','2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工二','月度绩效横向对比',39,'EDM','2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工三','月度绩效横向对比',80,'EDM','2020-09-20')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工四','月度绩效横向对比',52,'EDM','2020-09-20')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工五','月度绩效横向对比',52,'EDM','2020-09-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工六','月度绩效横向对比',25,'EDM','2020-09-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工七','月度绩效横向对比',62,'EDM','2020-09-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工八','月度绩效横向对比',25,'EDM','2020-09-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工九','月度绩效横向对比',80,'EDM','2020-09-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工十','月度绩效横向对比',25,'EDM','2020-09-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工一','月度绩效横向对比',79,'EDM','2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工二','月度绩效横向对比',39,'EDM','2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工三','月度绩效横向对比',80,'EDM','2020-10-20')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工四','月度绩效横向对比',52,'EDM','2020-10-20')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工五','月度绩效横向对比',52,'EDM','2020-10-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工六','月度绩效横向对比',25,'EDM','2020-10-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工七','月度绩效横向对比',62,'EDM','2020-10-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工八','月度绩效横向对比',25,'EDM','2020-10-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工九','月度绩效横向对比',80,'EDM','2020-10-21')
+INSERT INTO Sys_PDMonthlyPerformanceComparison(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('员工十','月度绩效横向对比',25,'EDM','2020-10-21')
 
 
+CREATE TABLE Sys_PDMonthlyPerformance --绩效详情：月度绩效成绩
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--合格率
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
 
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工一','报工工时',58,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工一','产出工时',45,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工一','出勤时间',60,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工二','报工工时',58,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工二','产出工时',45,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工二','出勤时间',60,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工三','报工工时',58,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工三','产出工时',45,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工三','出勤时间',60,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工四','报工工时',58,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工四','产出工时',45,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工四','出勤时间',60,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工五','报工工时',58,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工五','产出工时',45,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工五','出勤时间',60,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工六','报工工时',58,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工六','产出工时',45,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工六','出勤时间',60,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工七','报工工时',58,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工七','产出工时',45,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工七','出勤时间',60,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工八','报工工时',58,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工八','产出工时',45,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工八','出勤时间',60,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工九','报工工时',58,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工九','产出工时',45,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工九','出勤时间',60,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工十','报工工时',58,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工十','产出工时',45,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工十','出勤时间',60,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工十一','报工工时',58,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工十一','产出工时',45,'2020-09-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工十一','出勤时间',60,'2020-09-19')
 
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工一','报工工时',58,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工一','产出工时',45,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工一','出勤时间',60,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工二','报工工时',58,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工二','产出工时',45,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工二','出勤时间',60,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工三','报工工时',58,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工三','产出工时',45,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工三','出勤时间',60,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工四','报工工时',58,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工四','产出工时',45,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工四','出勤时间',60,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工五','报工工时',58,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工五','产出工时',45,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工五','出勤时间',60,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工六','报工工时',58,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工六','产出工时',45,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工六','出勤时间',60,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工七','报工工时',58,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工七','产出工时',45,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工七','出勤时间',60,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工八','报工工时',58,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工八','产出工时',45,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工八','出勤时间',60,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工九','报工工时',58,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工九','产出工时',45,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工九','出勤时间',60,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工十','报工工时',58,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工十','产出工时',45,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工十','出勤时间',60,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工十一','报工工时',58,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工十一','产出工时',45,'2020-10-19')
+INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工十一','出勤时间',60,'2020-10-19')
 
