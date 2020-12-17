@@ -225,7 +225,7 @@
         $(el).children("div[class='tip-text']").html(opts.text);
         $(el).css("background", opts.color);
         $(el).children("span[class='tip-arrows']").css("border-color", " transparent transparent" + opts.color);
-        if (opts != null && opts.el == 6) {
+        if (opts != null && opts.el == 6 && (opts.color == "#fff" || opts.color == "#c8c8c8")) {
             $(el).css("color", "#000000");
         }
     }
