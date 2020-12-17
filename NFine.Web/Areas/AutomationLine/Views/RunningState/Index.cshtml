@@ -71,18 +71,18 @@
         }
 
         .tip-4 {
-            left: 22%;
-            top: 75%;
+            left: 51%;
+            top: 35%;
         }
 
         .tip-5 {
-            left: 50%;
-            top: 40%;
+            left: 69%;
+            top: 44%;
         }
 
         .tip-6 {
-            left: 71%;
-            top: 55%;
+            left: 25%;
+            top: 66%;
         }
 
         .iden {
@@ -225,6 +225,9 @@
         $(el).children("div[class='tip-text']").html(opts.text);
         $(el).css("background", opts.color);
         $(el).children("span[class='tip-arrows']").css("border-color", " transparent transparent" + opts.color);
+        if (opts != null && opts.el == 6) {
+            $(el).css("color", "#000000");
+        }
     }
     $(function () {
         ImgLoading(true);
