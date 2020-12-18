@@ -126,6 +126,7 @@
     <Compile Include="Areas\AutomationLine\AutomationLineAreaRegistration.cs" />
     <Compile Include="Areas\AutomationLine\Controllers\DataAcquisitionController.cs" />
     <Compile Include="Areas\AutomationLine\Controllers\RunningStateController.cs" />
+    <Compile Include="Areas\AutomationLine\Controllers\VideoController.cs" />
     <Compile Include="Areas\ExampleManage\Controllers\BarCodeController.cs" />
     <Compile Include="Areas\ExampleManage\Controllers\PrintController.cs" />
     <Compile Include="Areas\ExampleManage\Controllers\SendMailController.cs" />
@@ -768,6 +769,7 @@
     <Content Include="Areas\QualityOptimization\Views\QualityEngineering\Form4.cshtml" />
     <Content Include="packages.config" />
     <Content Include="Areas\OperationMonitoring\Views\BusinessOverview\Form.cshtml" />
+    <Content Include="Areas\AutomationLine\Views\Video\Index.cshtml" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
     <Content Include="Views\FastLogin\Index.cshtml" />
   </ItemGroup>
