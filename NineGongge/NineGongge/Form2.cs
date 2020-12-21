@@ -34,6 +34,15 @@ namespace NineGongge
             };
         }
         string IPUrl = GetValue("IPAddress");
+        string Url1 = GetValue("Url1");
+        string Url2 = GetValue("Url2");
+        string Url3 = GetValue("Url3");
+        string Url4 = GetValue("Url4");
+        string Url5 = GetValue("Url5");
+        string Url6 = GetValue("Url6");
+        string Url7 = GetValue("Url7");
+        string Url8 = GetValue("Url8");
+        string Url9 = GetValue("Url9");
         private void InitColor()
         {
             //int i = DateTime.Now.GetHashCode();
@@ -45,15 +54,15 @@ namespace NineGongge
             //    int b = rand.Next(0, 255);
             //    ctrl.BackColor = Color.FromArgb(255, r, g, b);
             //}
-            TempMethod(panel1, string.Format("{0}{1}", IPUrl, "/OperationMonitoring/EngineeringHomepage/Index")); 
-            TempMethod(panel2, string.Format("{0}{1}", IPUrl, "/AutomationLine/RunningState/Index"));
-            TempMethod(panel3, string.Format("{0}{1}", IPUrl, "/AutomationLine/DataAcquisition/Index"));
-            TempMethod(panel4, string.Format("{0}{1}", IPUrl, "/ProductionManage/ProductionManageHome/Index"));
-            TempMethod(panel5, string.Format("{0}{1}", IPUrl, "/OperationMonitoring/BusinessOverview/Form"));//
-            TempMethod(panel6, string.Format("{0}{1}", IPUrl, "/QualityOptimization/QualityEngineering/Index"));
-            TempMethod(panel7, string.Format("{0}{1}", IPUrl, "/TeamTask/CNCTeam/Index"));
-            TempMethod(panel8, string.Format("{0}{1}", IPUrl, "/TeamTask/EdmTeam/Index"));
-            TempMethod(panel9, string.Format("{0}{1}", IPUrl, "/TeamTask/WETeam/Index"));
+            TempMethod(panel1, string.Format("{0}{1}", IPUrl, Url1));
+            TempMethod(panel2, string.Format("{0}{1}", IPUrl, Url2));
+            TempMethod(panel3, string.Format("{0}{1}", IPUrl, Url3));
+            TempMethod(panel4, string.Format("{0}{1}", IPUrl, Url4));
+            TempMethod(panel5, string.Format("{0}{1}", IPUrl, Url5));
+            TempMethod(panel6, string.Format("{0}{1}", IPUrl, Url6));
+            TempMethod(panel7, string.Format("{0}{1}", IPUrl, Url7));
+            TempMethod(panel8, string.Format("{0}{1}", IPUrl, Url8));
+            TempMethod(panel9, string.Format("{0}{1}", IPUrl, Url9));
         }
 
         private void BestFitCells()

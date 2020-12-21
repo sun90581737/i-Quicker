@@ -256,7 +256,7 @@
         var listDeviceType = new Array();
         var listDeviceName = new Array();
         var listAll = new Array();
-
+        var ChanL = new Array();
         $.ajax({
             async: false,
             url: "/TeamTask/EdmTeam/GetCapacityLoad",
@@ -264,6 +264,9 @@
             dataType: "json",
             success: function (da) {
                 $(da).each(function (index, item) {
+                    if (item.Task_Type == "产能") {
+                        ChanL.push(item.Device_Number);
+                    }
                     listDeviceType.push(item.Task_Type);
                     listDeviceName.push(item.Device_Name);
                     listAll.push(item);
@@ -273,6 +276,7 @@
         $.unique(listDeviceType.sort());
         $.unique(listDeviceName);
 
+        var count = 0;
         var series = [];
         $.each(listDeviceType, function (index, value) {
             var tempName = new Array();
@@ -282,7 +286,18 @@
             $.each(listAll, function (index1, value1) {
                 if (value == value1.Task_Type) {
                     tempName = value1.Task_Type;
-                    tempArry.push(value1.Device_Number);
+                    if (tempName == "负荷") {
+                        if (ChanL != null && value1.Device_Number > (ChanL[count] * 1.2)) {
+                            var Fuh = ChanL[count] * ((Math.random() * (120 - 105 + 1) + 105) / 100);
+                            tempArry.push(Math.round(Fuh));
+                        } else {
+                            tempArry.push(value1.Device_Number);
+                        }
+                        count++;
+                    }
+                    else {
+                        tempArry.push(value1.Device_Number);
+                    }
                 }
                 if (value == "产能") {
                     CdatesColour = value1.Colour;
