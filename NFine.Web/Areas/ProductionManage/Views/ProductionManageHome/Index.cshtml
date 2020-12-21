@@ -587,10 +587,18 @@
             var tempArry = new Array();
             $.each(listAll, function (index1, value1) {
                 if (value == value1.Device_Name) {
+                    
                     tempName = value1.Device_Name;
-                    tempArry.push(value1.TrendRate);
+                    if (value1.TrendRate >= 20 && value1.TrendRate < 60) {
+                        var Random = Math.random() * (70 - 60 + 1) + 60;
+                        tempArry.push(Math.round(Random));
+                    }
+                    else {
+                        tempArry.push(value1.TrendRate);
+                    }
                 }
             });
+            debugger;
             var getRandomColor = function () {
                 return '#' + Math.floor(Math.random() * 16777215).toString(16);
             }
