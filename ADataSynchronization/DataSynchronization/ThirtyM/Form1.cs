@@ -649,9 +649,9 @@ namespace ThirtyM
                 #region  外协单据明细-生管主页
                 int re35 = 0;
                 DbService ds35 = new DbService(EnStr, "MySQL");
-                string srt35 = string.Format(@"INSERT INTO test_nfinebase.Sys_PMHomeOutsourcingDetail(ModuleNumber,WorkpieceNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,OrderStatus,CreationTime)
+                string srt35 = string.Format(@"INSERT INTO test_nfinebase.Sys_PMHomeOutsourcingDetail(ModuleNumber,WorkpieceNo,WxBillNo,WorkingProcedure,Supplier,PlannedDeliveryDate,DaysOfExtension,DaysOfExtensionColor,OrderStatus,CreationTime)
                     (
-                            SELECT  mold_no, part_sub_no, process_name, provider, plan_date, delay_days,CASE WHEN delay_days>{0} THEN '{1}' ELSE '' End  Color,wx_state, now()  from test_mes_center.c05_wx_plan_bill
+                            SELECT  mold_no, part_sub_no, wx_bill_no, process_name, provider, plan_date, delay_days,CASE WHEN delay_days>{0} THEN '{1}' ELSE '' End  Color,wx_state, now()  from test_mes_center.c05_wx_plan_bill
                             where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 7 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
                     )", wxdelaydays, wxdelaydayscolour);
                 int sult35 = ds35.InsertSql(srt35, out re35);

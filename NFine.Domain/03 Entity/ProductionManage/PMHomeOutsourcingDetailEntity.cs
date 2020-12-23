@@ -10,7 +10,8 @@ namespace NFine.Domain._03_Entity.ProductionManage
     {
         public int id { get; set; }
         public string ModuleNumber { get; set; }	
-        public string WorkpieceNo { get; set; }	
+        public string WorkpieceNo { get; set; }
+        public string WxBillNo { get; set; }
         public string WorkingProcedure { get; set; }
         public string Supplier { get; set; }
         public DateTime PlannedDeliveryDate { get; set; }

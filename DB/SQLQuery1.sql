@@ -773,6 +773,7 @@ CREATE table Sys_PMHomeOutsourcingDetail  --生管主页:外协按期交付追踪
 id int identity (1,1) primary key , 
 ModuleNumber varchar(50)  NULL,--模号
 WorkpieceNo varchar(50)  NULL,--工件号
+WxBillNo varchar(50)  NULL,--模具名称
 WorkingProcedure varchar(50)  NULL,--委外工序
 Supplier varchar(50)  NULL,--供应商
 PlannedDeliveryDate DATE, --计划交期

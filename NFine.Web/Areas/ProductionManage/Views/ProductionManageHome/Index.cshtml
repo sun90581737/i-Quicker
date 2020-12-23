@@ -496,7 +496,7 @@
             height: 270,
             colModel: [
                 {
-                    label: '模号', name: 'ModuleNumber', width: 58, align: 'center',
+                    label: '模号', name: 'ModuleNumber', width: 80, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.DaysOfExtensionColor != "") {
                             return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.ModuleNumber + '</font>';
@@ -505,7 +505,7 @@
                     }
                 },
                 {
-                    label: '工件号', name: 'WorkpieceNo', width: 45, align: 'center',
+                    label: '版本号', name: 'WorkpieceNo', width: 45, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.DaysOfExtensionColor != "") {
                             return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.WorkpieceNo + '</font>';
@@ -513,35 +513,22 @@
                         else { return '<font>' + index.WorkpieceNo + '</font>'; }
                     }
                 },
+                 {
+                     label: '模具名称', name: 'WxBillNo', width: 110, align: 'center',
+                     formatter: function (cellvalue, row, index) {
+                         if (index.DaysOfExtensionColor != "") {
+                             return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.WxBillNo + '</font>';
+                         }
+                         else { return '<font>' + index.WxBillNo + '</font>'; }
+                     }
+                 },
                 {
-                    label: '委外工序', name: 'WorkingProcedure', width: 60, align: 'center',
+                    label: '工序名称', name: 'WorkingProcedure', width: 60, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.DaysOfExtensionColor != "") {
                             return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.WorkingProcedure + '</font>';
                         }
                         else { return '<font>' + index.WorkingProcedure + '</font>'; }
-                    }
-                },
-                {
-                    label: '供应商', name: 'Supplier', width: 60, align: 'center',
-                    formatter: function (cellvalue, row, index) {
-                        if (index.DaysOfExtensionColor != "") {
-                            return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.Supplier + '</font>';
-                        }
-                        else { return '<font>' + index.Supplier + '</font>'; }
-                    }
-                },
-                {
-                    label: '计划交期', name: 'PlannedDeliveryDate', width: 60, align: 'center',
-                    formatter: "date", formatoptions: { srcformat: 'Y-m-d', newformat: 'Y-m-d' }
-                },
-                {
-                    label: '延期天数', name: 'DaysOfExtension', width: 45, align: 'center',
-                    formatter: function (cellvalue, row, index) {
-                        if (index.DaysOfExtensionColor != "") {
-                            return '<font style="color:' + index.DaysOfExtensionColor + '">' + index.DaysOfExtension + '</font>';
-                        }
-                        else { return '<font>' + index.DaysOfExtension + '</font>'; }
                     }
                 },
                 {
