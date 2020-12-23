@@ -104,7 +104,11 @@
             $.each(listAll, function (index1, value1) {
                 if (value == value1.DeviceName) {
                     tempName = value1.DeviceName;
-                    tempArry.push(value1.Number);
+                    if (value1.Number != null && value1.Number > 0) {
+                        tempArry.push(99);
+                    } else {
+                        tempArry.push(value1.Number);
+                    }
                 }
             });
         });
@@ -176,7 +180,7 @@
                 },
                 formatter: function (params, ticket, callback) {
                     const item = params[1]
-                    return item.name + ' : ' + item.value;
+                    return item.name + ' : ' + item.value + "%";
                 }
             },
             grid: {
@@ -352,7 +356,12 @@
                     }
                 },
                 itemStyle: {
-                    color: 'transparent',
+                    normal: {
+                        color: 'transparent',
+                        label: {
+                            formatter: '{c}%',
+                        },
+                    },
                 },
                 tooltip: {
 
@@ -365,6 +374,7 @@
     }
     function loadTwo() {
         var listName = new Array();
+        var Heg = 0;
         var str = [];
         $.ajax({
             url: "/QualityOptimization/QualityEngineering/GetDataQualityOExceptionalResults",
@@ -377,6 +387,22 @@
                     str3.name = item.Type;
                     str3.value = item.Cost;
                     str[index] = str3;
+
+                    //if (item.Type == "不合格") {
+                    //    if (item.Cost == 0) {
+                    //        Heg = 100;
+                    //    } else {
+                    //        heg = 99;
+                    //    }
+                    //    str3.name = item.Type;
+                    //    str3.value = 100 - Heg;
+                    //    str[index] = str3;
+                    //} else if (item.Type == "合格") {
+                    //    str3.name = item.Type;
+                    //    str3.value = Heg;
+                    //    str[index] = str3;
+                    //}
+                    
                 })
             }
         });
