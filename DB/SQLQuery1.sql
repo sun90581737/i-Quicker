@@ -2583,7 +2583,6 @@ QualityInspectionType,TestContent,DetectionResult,Judge,ExceptionType,Processing
 'EDM组','789','品质专检','检测重要尺寸','不合格','123','尺寸超过公差要求','特采')
 
 
------------------------------------------------------------
 CREATE TABLE Sys_VDQualifizierteVerarbeitungsrate --版本详情:加工合格率？加工进度
 (
 	id int identity (1,1) primary KEY,
@@ -2758,9 +2757,6 @@ CREATE table Sys_MQProcessingCost--新模设变详情:加工成本
 INSERT INTO Sys_MQProcessingCost(WorkingGroup,ProcessName,Operator,MoldNo,VersionNumber,WorkpieceNumber,NumberOfWorkpieces,PartName,ProcessManHour,ActualWorkingHours,
 OutputHours,ProcessingEfficiency,AssignPersonnel,AllocateTime)VALUES('EDM组','EDM放电','张三','GGGG','1','111',10,'','1.0','0.14','0.10','58.83','',GETDATE())
 
------------------------------------------------------------------------
-
-
 CREATE TABLE Sys_PDMonthlyPerformanceComparison --绩效详情：月度绩效横向对比
 (
 	id int identity (1,1) primary KEY,
@@ -2893,4 +2889,94 @@ INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUE
 INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工十一','报工工时',58,'2020-10-19')
 INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工十一','产出工时',45,'2020-10-19')
 INSERT INTO Sys_PDMonthlyPerformance(DeviceType,DeviceName,Number,AcctDate)VALUES  ('员工十一','出勤时间',60,'2020-10-19')
+
+-----------------------------------------------------------------------
+CREATE TABLE Sys_EOJiaDongRateContrast --设备总览：稼动率对比
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--稼动率
+	Type varchar(50)  NULL,--类型（）
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-10','稼动率',79,'设备一','2020-08-10')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-10','稼动率',10,'设备一','2020-08-10')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-11','稼动率',39,'设备一','2020-08-11')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-12','稼动率',80,'设备一','2020-08-12')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-13','稼动率',52,'设备一','2020-08-13')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-14','稼动率',52,'设备一','2020-08-14')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-15','稼动率',25,'设备一','2020-08-15')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-16','稼动率',62,'设备一','2020-08-16')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-17','稼动率',25,'设备一','2020-08-17')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-18','稼动率',80,'设备一','2020-08-18')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-19','稼动率',25,'设备一','2020-08-19')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-20','稼动率',79,'设备一','2020-08-20')
+
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-10','稼动率',29,'设备二','2020-08-10')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-10','稼动率',30,'设备二','2020-08-10')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-11','稼动率',39,'设备二','2020-08-11')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-12','稼动率',80,'设备二','2020-08-12')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-13','稼动率',52,'设备二','2020-08-13')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-14','稼动率',52,'设备二','2020-08-14')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-15','稼动率',25,'设备二','2020-08-15')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-16','稼动率',62,'设备二','2020-08-16')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-17','稼动率',25,'设备二','2020-08-17')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-18','稼动率',80,'设备二','2020-08-18')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-19','稼动率',25,'设备二','2020-08-19')
+INSERT INTO Sys_EOJiaDongRateContrast(DeviceType,DeviceName,Number,Type,AcctDate)VALUES  ('2020-08-20','稼动率',79,'设备二','2020-08-20')
+
+CREATE TABLE Sys_EOEquipmentJiaDongRate --设备总览：设备稼动率
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--设备稼动率
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_EOEquipmentJiaDongRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备一','设备稼动率',79,'2020-10-19')
+INSERT INTO Sys_EOEquipmentJiaDongRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备一','设备稼动率',10,'2020-10-19')
+INSERT INTO Sys_EOEquipmentJiaDongRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备二','设备稼动率',80,'2020-10-20')
+INSERT INTO Sys_EOEquipmentJiaDongRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备三','设备稼动率',52,'2020-10-21')
+INSERT INTO Sys_EOEquipmentJiaDongRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备四','设备稼动率',62,'2020-10-22')
+INSERT INTO Sys_EOEquipmentJiaDongRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备五','设备稼动率',80,'2020-10-23')
+INSERT INTO Sys_EOEquipmentJiaDongRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备六','设备稼动率',41,'2020-10-24')
+INSERT INTO Sys_EOEquipmentJiaDongRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备七','设备稼动率',50,'2020-10-25')
+INSERT INTO Sys_EOEquipmentJiaDongRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备八','设备稼动率',19,'2020-10-26')
+INSERT INTO Sys_EOEquipmentJiaDongRate(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备九','设备稼动率',62,'2020-10-27')
+
+CREATE TABLE Sys_EOEquipmentTimeAnalysis --设备总览：设备用时分析
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,
+	AcctDate DATE,--数据日期
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备一','运行',42,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备一','空闲',55,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备一','报警',0,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备一','离线',3,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备一','调试',0,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备二','运行',0,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备二','空闲',0,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备二','报警',0,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备二','离线',0,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备二','调试',0,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备三','运行',20,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备三','空闲',20,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备三','报警',20,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备三','离线',20,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备三','调试',20,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备四','运行',10,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备四','空闲',0,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备四','报警',80,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备四','离线',0,'2020-10-19')
+INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备四','调试',10,'2020-10-19')
 
