@@ -185,9 +185,9 @@ namespace FiveM
                 #region 班组合格率-品质工程
                 int re11 = 0;
                 DbService ds11 = new DbService(EnStr, "MySQL");
-                string srt11 = string.Format(@"INSERT INTO test_nfinebase.Sys_QualityOTeamPassRate(DeviceType,DeviceName,Number,Colour,CreationTime)
+                string srt11 = string.Format(@"INSERT INTO test_nfinebase.Sys_QualityOTeamPassRate(DeviceType,DeviceName,Number,PassNum,TotalNum,Colour,CreationTime)
                     (
-		                    SELECT dept_name,'合格率',pass_rate*100,CASE WHEN pass_rate>={0} THEN '{1}' ELSE '{2}' END Colour,now() FROM test_mes_center.e01_dept_pass_day 
+		                    SELECT dept_name,'合格率',pass_rate*100,pass_num,total_num,CASE WHEN pass_rate>={0} THEN '{1}' ELSE '{2}' END Colour,now() FROM test_mes_center.e01_dept_pass_day 
 		                    where acct_date >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 30 DAY), '%Y-%m-%d') and acct_date <= CURDATE()
                     )", pass_rate_days, DY_pass_rate_days_colour, XY_pass_rate_days_colour);
                 int sult11 = ds11.InsertSql(srt11, out re11);

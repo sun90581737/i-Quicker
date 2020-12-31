@@ -833,6 +833,8 @@ CREATE TABLE Sys_QualityOTeamPassRate --品质工程：班组合格率
 	DeviceType varchar(50)  NULL, --设备类型
 	DeviceName varchar(50)  NULL,--设备名
 	Number INT,--合格率
+	PassNum INT,
+	TotalNum INT,
 	Colour varchar(50)  NULL,  --颜色
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示

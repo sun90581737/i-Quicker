@@ -104,10 +104,17 @@
             $.each(listAll, function (index1, value1) {
                 if (value == value1.DeviceName) {
                     tempName = value1.DeviceName;
-                    if (value1.Number != null && value1.Number > 0) {
-                        tempArry.push(99);
-                    } else {
-                        tempArry.push(value1.Number);
+                    //if (value1.Number != null && value1.Number > 0) {
+                    //    tempArry.push(99);
+                    //} else {
+                    //    tempArry.push(value1.Number);
+                    //}
+                    if (value1.PassNum == value1.TotalNum) {
+                        tempArry.push(100);
+                    }
+                    else {
+                        var n = Math.min(99, Math.round(value1.PassNum / value1.TotalNum * 100));
+                        tempArry.push(n);
                     }
                 }
             });
@@ -384,25 +391,23 @@
                 $(data).each(function (index, item) {
                     listName.push(item.Type);
                     var str3 = new Object();
-                    str3.name = item.Type;
-                    str3.value = item.Cost;
-                    str[index] = str3;
-
-                    //if (item.Type == "不合格") {
-                    //    if (item.Cost == 0) {
-                    //        Heg = 100;
-                    //    } else {
-                    //        heg = 99;
-                    //    }
-                    //    str3.name = item.Type;
-                    //    str3.value = 100 - Heg;
-                    //    str[index] = str3;
-                    //} else if (item.Type == "合格") {
-                    //    str3.name = item.Type;
-                    //    str3.value = Heg;
-                    //    str[index] = str3;
-                    //}
-                    
+                    //str3.name = item.Type;
+                    //str3.value = item.Cost;
+                    //str[index] = str3;
+                    if (item.Type == "不合格数") {
+                        if (item.Cost == 0) {
+                            Heg = 100;
+                        } else {
+                            Heg = 99;
+                        }
+                        str3.name = item.Type;
+                        str3.value = 100 - Heg;
+                        str[index] = str3;
+                    } else if (item.Type == "合格数") {
+                        str3.name = item.Type;
+                        str3.value = Heg;
+                        str[index] = str3;
+                    }
                 })
             }
         });
@@ -464,13 +469,14 @@
                             }
                             percent = ((params.value / total) * 100).toFixed(0);
                             if (params.name !== '') {
-                                return '异常处理：' + params.name + '\n' + '\n' + '占百分比：' + percent + '%';
+                                return  params.name + '\n' + '\n' + percent + '%';
                             } else {
                                 return '';
                             }
                         },
                     },
                     labelLine: {
+                        smooth: 0.5,
                         length: 10,
                         length2: 51,
                         show: true,
