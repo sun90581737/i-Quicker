@@ -194,7 +194,7 @@
                     }
                 },
                 {
-                    label: '模具编号', name: 'Mold_No', width: 70, align: 'center',
+                    label: '模具编号', name: 'Mold_No', width: 90, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.Colour != "") {
                             return '<font style="color:' + index.Colour + '">' + index.Mold_No + '</font>';
@@ -203,7 +203,7 @@
                     }
                 },
                 {
-                    label: '零件编号', name: 'Part_Number', width: 60, align: 'center',
+                    label: '零件编号', name: 'Part_Number', width: 80, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.Colour != "") {
                             return '<font style="color:' + index.Colour + '">' + index.Part_Number + '</font>';
@@ -212,7 +212,7 @@
                     }
                 },
                 {
-                    label: '工序名称', name: 'Process_Name', width: 60, align: 'center',
+                    label: '工序名称', name: 'Process_Name', width: 80, align: 'center',
                     formatter: function (cellvalue, row, index) {
                         if (index.Colour != "") {
                             return '<font style="color:' + index.Colour + '">' + index.Process_Name + '</font>';
@@ -220,29 +220,26 @@
                         else { index.Process_Name }
                     }
                 },
-                { label: '计划设备', name: 'Planned_Equipment', width: 60, align: 'center' },
+                { label: '计划设备', name: 'Planned_Equipment', width: 80, align: 'center' },
                 {
-                    label: '开始时间', name: 'Start_Time', width: 120, align: 'center',
+                    label: '计划开始时间', name: 'Start_Time', width: 120, align: 'center',
                     formatter: "date", formatoptions: { srcformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s' }
                 },
                 {
-                    label: '结束时间', name: 'END_Time', width: 120, align: 'center',
+                    label: '计划结束时间', name: 'END_Time', width: 120, align: 'center',
                     formatter: "date", formatoptions: { srcformat: 'Y-m-d H:i:s', newformat: 'Y-m-d H:i:s' }
                 },
-                {
-                    label: '最晚开始时间', name: 'Latest_Start_Time', width: 120, align: 'center',
-                    //formatter: "date", formatoptions: {
-                    //    srcformat: 'Y/m/d H:i:s', newformat: 'Y/m/d H:i:s',
-                    //},
-                    formatter: function (cellvalue, row, index) {
-                        if (index.Colour != "") {
-                            return '<font style="color:' + index.Colour + '">' + index.Latest_Start_Time + '</font>';
-                        }
-                        else { index.Latest_Start_Time }
-                    }
-                },
+                //{
+                //    label: '最晚开始时间', name: 'Latest_Start_Time', width: 120, align: 'center',
+                //    formatter: function (cellvalue, row, index) {
+                //        if (index.Colour != "") {
+                //            return '<font style="color:' + index.Colour + '">' + index.Latest_Start_Time + '</font>';
+                //        }
+                //        else { index.Latest_Start_Time }
+                //    }
+                //},
                 { label: '标准工时', name: 'Working_Hours', width: 60, align: 'center' },
-                { label: '客户', name: 'Customer', width: 80, align: 'center' },
+                { label: '客户', name: 'Customer', width: 100, align: 'center' },
                 { label: '模仁材质', name: 'Mold_Kernel_Material', width: 60, align: 'center' },
                 { label: '类别', name: 'Category', width: 60, align: 'center' }
             ],
