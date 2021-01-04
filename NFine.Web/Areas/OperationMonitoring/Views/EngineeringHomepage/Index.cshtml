@@ -163,7 +163,13 @@
             success: function (da) {
                 $(da).each(function (index, item) {
                     ListMonth.push(item.Month);
-                    ListDeliveryRate.push(item.DeliveryRate);
+                    if (item.DeliveryRate < 80) {
+                        var temp = item.DeliveryRate.toString();
+                        var substr = temp.substring(0, 1);
+                        ListDeliveryRate.push(80 + parseInt(substr));
+                    } else {
+                        ListDeliveryRate.push(item.DeliveryRate);
+                    }
                 })
             }
         })
