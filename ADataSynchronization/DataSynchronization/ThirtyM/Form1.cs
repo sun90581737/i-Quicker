@@ -483,8 +483,6 @@ namespace ThirtyM
 		                    SELECT '进度正常' Name,normal_num Number,now()  from test_mes_center.d04_on_make_mold  
 		                    UNION ALL
 		                    SELECT '已过交期' Name,delay_make_num+delay_other_num Number,now()  from test_mes_center.d04_on_make_mold  
-		                    UNION ALL
-		                    SELECT '生产延误' Name,delay_make_num Number,now()  from test_mes_center.d04_on_make_mold  
                             )b
                     )");
                 int sult24 = ds24.InsertSql(srt24, out re24);
@@ -577,6 +575,9 @@ namespace ThirtyM
                 #region  延误模具明细-生管主页
                 int re32 = 0;
                 DbService ds32 = new DbService(EnStr, "MySQL");
+
+                //特殊情况，先删除再插入
+                int ret32 = ds32.DeleteSql(string.Format("DELETE from test_nfinebase.Sys_PMHomeDelayMold"));
                 string srt32 = string.Format(@"INSERT INTO test_nfinebase.Sys_PMHomeDelayMold(MoldNo,Edition,Type,PlannedDeliveryDate,Progress)
                     (
                          SELECT mold_no, version, mold_type, plan_date,
@@ -586,16 +587,8 @@ namespace ThirtyM
                        from test_mes_center.c02_delay_process
                     )");
                 int sult32 = ds32.InsertSql(srt32, out re32);
-                if (sult32 > 0)
-                {
-                    int ret32 = ds32.DeleteSql(string.Format("DELETE from test_nfinebase.Sys_PMHomeDelayMold where id<{0}", re32));
 
-                    LogHelper.Info(string.Format("生管主页-延误模具明细-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult32, ret32, DateTime.Now.ToString()));
-                }
-                else
-                {
-                    LogHelper.Error("生管主页-延误模具明细-执行失败");
-                }
+                LogHelper.Info(string.Format("工程主页-延期模具列表-Insert执行成功:{0}条,Update执行成功:{1}条，时间：{2}", sult32, ret32, DateTime.Now.ToString()));
                 #endregion
 
                 #region  产能/负荷-生管主页
