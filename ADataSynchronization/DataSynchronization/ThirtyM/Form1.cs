@@ -408,7 +408,7 @@ namespace ThirtyM
                     (
                     SELECT  MAX(CASE WHEN sort_id  = '1' THEN item_value END) AS Account,
 			                MAX(CASE WHEN sort_id  = '2' THEN item_value END) AS CustomerAmount,
-			                MAX(CASE WHEN sort_id  = '3' THEN item_value END) AS DeliveryCompletionRate,
+			                MAX(CASE WHEN sort_id  = '3' THEN item_value END)*100 AS DeliveryCompletionRate,
 			                MAX(CASE WHEN sort_id  = '4' THEN item_value END) AS OnTimeDeliveryMold,
 			                MAX(CASE WHEN sort_id  = '5' THEN item_value END) AS LateDeliveryMold,
 			                MAX(CASE WHEN sort_id  = '6' THEN item_value END) AS MoldInProcess,

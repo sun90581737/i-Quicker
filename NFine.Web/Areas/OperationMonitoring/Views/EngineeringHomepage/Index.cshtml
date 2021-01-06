@@ -136,7 +136,7 @@
                 $("#a1").text(item.Account);
                 $("#b1").text(item.CustomerAmount);
                 $("#b1").css({ "color": item.CustomerAmountColor });
-                $("#c1").text(item.DeliveryCompletionRate + "%");
+                $("#c1").text(item.DeliveryCompletionRate/100 + "%");
                 $("#c1").css({ "color": item.DeliveryCompletionRateColor });
                 $("#d1").text(item.OnTimeDeliveryMold);
                 $("#d1").css({ "color": item.OnTimeDeliveryMoldColor });
@@ -162,6 +162,7 @@
             dataType: "json",
             success: function (da) {
                 $(da).each(function (index, item) {
+                    item.DeliveryRate = item.DeliveryRate / 100;
                     ListMonth.push(item.Month);
                     if (item.DeliveryRate < 80) {
                         var temp = item.DeliveryRate.toString();

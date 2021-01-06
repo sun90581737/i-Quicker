@@ -247,7 +247,7 @@
             success: function (da) {
                 $(da).each(function (index, item) {
                     ListMonth.push(item.Month);
-                    ListDeliveryRate.push(item.DeliveryRate);
+                    ListDeliveryRate.push(item.DeliveryRate/100);
                 })
             }
         })

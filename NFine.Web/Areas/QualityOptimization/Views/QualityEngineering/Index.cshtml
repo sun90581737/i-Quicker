@@ -882,10 +882,10 @@
             async: false,
             success: function (data) {
                 $(data).each(function (index, item) {
-                    if (item.DeviceName == "待处理") {
+                    if (item.DeviceType == "待处理") {
                         wait_num += item.TrendRate;
                     }
-                    else if (item.DeviceName == "已处理") {
+                    else {
                         finish_num += item.TrendRate;
                     }
                 })
@@ -1026,10 +1026,10 @@
             async: false,
             success: function (data) {
                 $(data).each(function (index, item) {
-                    if (item.DeviceName == "待处理") {
+                    if (item.DeviceType == "待处理") {
                         wait_num += item.TrendRate;
                     }
-                    else if (item.DeviceName == "已处理") {
+                    else {
                         finish_num += item.TrendRate;
                     }
                 })
