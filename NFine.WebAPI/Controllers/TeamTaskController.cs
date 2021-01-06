@@ -209,7 +209,7 @@ namespace NFine.WebAPI.Controllers
             {
                 int re = 0;
                 DbService ds = new DbService(dbnfin, "MySQL");
-                string srt = string.Format(@"UPDATE  Sys_EquipmentList set  Mold_No='{0}',Workpieces_Name='{1}',Colour='{2}' where Equipment_Name='{3}'", dto.moldno,dto.workpiecesname, dto.colour, dto.equipmentname);
+                string srt = string.Format(@"UPDATE  Sys_EquipmentList set  Mold_No='{0}',Workpieces_Name='{1}',Colour='{2}' where Equipment_Name='{3}'", dto.moldno,dto.workpiecesname, Colour(dto.colour), dto.equipmentname);
                 int sult = ds.InsertSql(srt, out re);
                 if (sult > 0)
                 {
@@ -251,7 +251,7 @@ namespace NFine.WebAPI.Controllers
             {
                 int re = 0;
                 DbService ds = new DbService(dbnfin, "MySQL");
-                string srt = string.Format(@"UPDATE  Sys_EquipmentList set Workpieces_Name='{0}',Mold_No='{1}',Colour='{2}', Yield='{3}',Jiadong={4} where Equipment_Name='{5}'", dto.workpiecesname, dto.mold_no, dto.state, dto.yield, dto.Jiadong, dto.equipmentname);
+                string srt = string.Format(@"UPDATE  Sys_EquipmentList set Workpieces_Name='{0}',Mold_No='{1}',Colour='{2}', Yield='{3}',Jiadong={4} where Equipment_Name='{5}'", dto.workpiecesname, dto.mold_no, Colour(dto.state), dto.yield, dto.Jiadong, dto.equipmentname);
                 int sult = ds.InsertSql(srt, out re);
                 if (sult > 0)
                 {
@@ -272,7 +272,7 @@ namespace NFine.WebAPI.Controllers
             {
                 int re = 0;
                 DbService ds = new DbService(dbnfin, "MySQL");
-                string srt = string.Format(@"UPDATE  Sys_TaskList set  Colour='{0}' where process_id={1}", dto.state, dto.processid);
+                string srt = string.Format(@"UPDATE  Sys_TaskList set  Colour='{0}' where process_id={1}", Colour(dto.state), dto.processid);
                 int sult = ds.InsertSql(srt, out re);
                 if (sult > 0)
                 {
@@ -305,6 +305,27 @@ namespace NFine.WebAPI.Controllers
                 LogHelper.Error(ex.Message);
             }
             return fla;
+        }
+        public string Colour(string StrColour)
+        {
+            var colour = "#fff";
+            if (StrColour == "-1")
+            {
+                colour = "#FF0000";
+            }
+            else if (StrColour == "0")
+            {
+                colour = "#00FF00";
+            }
+            else if (StrColour == "1")
+            {
+                colour = "#00FFFF";
+            }
+            else if (StrColour == "2")
+            {
+                colour = "#C0C0C0";
+            }
+            return colour;
         }
         public static string Serialize(object obj)
         {
