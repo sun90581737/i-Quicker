@@ -312,8 +312,8 @@
                     normal: {
                         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                             offset: 0,
-                            color: tempName == "产能" ? CdatesColour : FdatesColour // 0% 处的颜色
-                            // color: tempName == "产能" ? '#1889ff' : '#fc2278' // 0% 处的颜色
+                            //color: tempName == "产能" ? CdatesColour : FdatesColour // 0% 处的颜色
+                            color: tempName == "产能" ? '#1889ff' : '#fc2278' // 0% 处的颜色
                         }, {
                             offset: 1,
                             color: tempName == "产能" ? '#10e2fb' : '#f25c5e'// 100% 处的颜色
@@ -453,22 +453,22 @@
                 type: "line",
                 symbolSize: 3,//标记的大小，可以设置成诸如 10 这样单一的数字，也可以用数组分开表示宽和高，例如 [20, 10] 表示标记宽为20，高为10[ default: 4 ]
                 symbol: 'circle',//标记的图形。ECharts 提供的标记类型包括 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow'
-                smooth: true, //是否平滑曲线显示
+                smooth: false, //是否平滑曲线显示
                 showSymbol: false, //是否显示 symbol, 如果 false 则只有在 tooltip hover 的时候显示
-                areaStyle: {
-                    normal: {
-                        //color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                        //    offset: 0,
-                        //    color: '#f25c5e'
-                        //}, {
-                        //    offset: 0.8,
-                        //    color: '#10e2fb'
-                        //}], false),
-                        shadowColor: 'transparent',
-                        shadowBlur: 10,
-                        opacity: 0.3,
-                    }
-                },
+                //areaStyle: {
+                //    normal: {
+                //        //color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                //        //    offset: 0,
+                //        //    color: '#f25c5e'
+                //        //}, {
+                //        //    offset: 0.8,
+                //        //    color: '#10e2fb'
+                //        //}], false),
+                //        shadowColor: 'transparent',
+                //        shadowBlur: 10,
+                //        opacity: 0.3,
+                //    }
+                //},
                 itemStyle: {
                     normal: {
                         color: getRandomColor(),

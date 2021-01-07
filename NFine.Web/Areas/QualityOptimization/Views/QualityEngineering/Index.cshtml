@@ -389,12 +389,13 @@
             async: false,
             success: function (data) {
                 $(data).each(function (index, item) {
+                    item.Cost = item.Cost / 100;
                     listName.push(item.Type);
                     var str3 = new Object();
                     //str3.name = item.Type;
                     //str3.value = item.Cost;
                     //str[index] = str3;
-                    if (item.Type == "不合格数") {
+                    if (item.Type == "不合格率" || item.Type == "不合格数") {
                         if (item.Cost == 0) {
                             Heg = 100;
                         } else {
@@ -403,7 +404,7 @@
                         str3.name = item.Type;
                         str3.value = 100 - Heg;
                         str[index] = str3;
-                    } else if (item.Type == "合格数") {
+                    } else if (item.Type == "合格率" || item.Type == "合格数") {
                         str3.name = item.Type;
                         str3.value = Heg;
                         str[index] = str3;
@@ -452,8 +453,8 @@
             name: '',
             type: 'pie',
             clockWise: false,
-            center: ['50%', '47%'],
-            radius: [115, 119],
+            center: ['50%', '52%'],
+            radius: [105, 109],
             hoverAnimation: false,
             itemStyle: {
                 normal: {
@@ -491,7 +492,7 @@
             color: color,
             title: {
                 text: '品质统计',
-                top: '44%',
+                top: '49%',
                 textAlign: "center",
                 left: "49%",
                 textStyle: {
@@ -510,7 +511,7 @@
                         height: 178
                     },
                     left: 'center',
-                    top: 60,//'center',
+                    top: 72,//'center',
                     position: [100, 100]
                 }]
             },
