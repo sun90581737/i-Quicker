@@ -56,9 +56,8 @@
             this.flowLayoutPanel1.Controls.Add(this.panel9);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(648, 389);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(486, 311);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // panel1
@@ -67,95 +66,95 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(211, 125);
+            this.panel1.Size = new System.Drawing.Size(158, 100);
             this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(211, 0);
+            this.panel2.Location = new System.Drawing.Point(158, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(211, 125);
+            this.panel2.Size = new System.Drawing.Size(158, 100);
             this.panel2.TabIndex = 1;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(422, 0);
+            this.panel3.Location = new System.Drawing.Point(316, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(211, 125);
+            this.panel3.Size = new System.Drawing.Size(158, 100);
             this.panel3.TabIndex = 1;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Location = new System.Drawing.Point(0, 125);
+            this.panel4.Location = new System.Drawing.Point(0, 100);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(211, 125);
+            this.panel4.Size = new System.Drawing.Size(158, 100);
             this.panel4.TabIndex = 2;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Location = new System.Drawing.Point(211, 125);
+            this.panel5.Location = new System.Drawing.Point(158, 100);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(211, 125);
+            this.panel5.Size = new System.Drawing.Size(158, 100);
             this.panel5.TabIndex = 3;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Location = new System.Drawing.Point(422, 125);
+            this.panel6.Location = new System.Drawing.Point(316, 100);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(211, 125);
+            this.panel6.Size = new System.Drawing.Size(158, 100);
             this.panel6.TabIndex = 4;
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Location = new System.Drawing.Point(0, 250);
+            this.panel7.Location = new System.Drawing.Point(0, 200);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(211, 125);
+            this.panel7.Size = new System.Drawing.Size(158, 100);
             this.panel7.TabIndex = 5;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.White;
-            this.panel8.Location = new System.Drawing.Point(211, 250);
+            this.panel8.Location = new System.Drawing.Point(158, 200);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(211, 125);
+            this.panel8.Size = new System.Drawing.Size(158, 100);
             this.panel8.TabIndex = 6;
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.White;
-            this.panel9.Location = new System.Drawing.Point(422, 250);
+            this.panel9.Location = new System.Drawing.Point(316, 200);
             this.panel9.Margin = new System.Windows.Forms.Padding(0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(211, 125);
+            this.panel9.Size = new System.Drawing.Size(158, 100);
             this.panel9.TabIndex = 7;
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 10000;
-            //this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 389);
+            this.ClientSize = new System.Drawing.Size(486, 311);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "建达";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
