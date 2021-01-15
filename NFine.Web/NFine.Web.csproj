@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -127,6 +128,8 @@
     <Compile Include="Areas\AutomationLine\Controllers\DataAcquisitionController.cs" />
     <Compile Include="Areas\AutomationLine\Controllers\RunningStateController.cs" />
     <Compile Include="Areas\AutomationLine\Controllers\VideoController.cs" />
+    <Compile Include="Areas\Electromechanical\ElectromechanicalAreaRegistration.cs" />
+    <Compile Include="Areas\Electromechanical\Controllers\AVICTableOneController.cs" />
     <Compile Include="Areas\ExampleManage\Controllers\BarCodeController.cs" />
     <Compile Include="Areas\ExampleManage\Controllers\PrintController.cs" />
     <Compile Include="Areas\ExampleManage\Controllers\SendMailController.cs" />
@@ -357,6 +360,7 @@
     <Content Include="Content\js\md5\jquery.md5.js" />
     <Content Include="Content\js\pages\AdminLTE.css" />
     <Content Include="Content\js\pages\AdminLTE.min.css" />
+    <Content Include="Content\js\pages\appbases.css" />
     <Content Include="Content\js\pages\appbase.css" />
     <Content Include="Content\js\pages\app.css" />
     <Content Include="Content\js\pages\app.js" />
@@ -367,6 +371,7 @@
     <Content Include="Content\js\pages\img\bg.png" />
     <Content Include="Content\js\pages\img\bg1.png" />
     <Content Include="Content\js\pages\img\bg2.png" />
+    <Content Include="Content\js\pages\img\bg3.png" />
     <Content Include="Content\js\pages\img\bk.png" />
     <Content Include="Content\js\pages\img\bk2.png" />
     <Content Include="Content\js\pages\img\BusinessOverview01.png" />
@@ -401,6 +406,18 @@
     <Content Include="Content\js\pages\img\QE\pz-yctj.png" />
     <Content Include="Content\js\pages\img\QE\pz-zj.png" />
     <Content Include="Content\js\pages\img\thumb.jpg" />
+    <Content Include="Content\js\pages\img\ZH\zh-bg1.png" />
+    <Content Include="Content\js\pages\img\ZH\zh-bg2.png" />
+    <Content Include="Content\js\pages\img\ZH\zh-bg3.png" />
+    <Content Include="Content\js\pages\img\ZH\zh-bg4.png" />
+    <Content Include="Content\js\pages\img\ZH\zh-bgc1.png" />
+    <Content Include="Content\js\pages\img\ZH\zh-bgc2.png" />
+    <Content Include="Content\js\pages\img\ZH\zh-bgc3.png" />
+    <Content Include="Content\js\pages\img\ZH\zh-bgk.png" />
+    <Content Include="Content\js\pages\img\ZH\zh-bgx.png" />
+    <Content Include="Content\js\pages\img\ZH\zh-icon1.png" />
+    <Content Include="Content\js\pages\img\ZH\zh-icon2.png" />
+    <Content Include="Content\js\pages\img\ZH\zh-icon3.png" />
     <Content Include="Content\js\pages\jquery.contip.js" />
     <Content Include="Content\js\pages\world.js" />
     <Content Include="Content\js\qrcode\jquery.qrcode.js" />
@@ -770,6 +787,8 @@
     <Content Include="packages.config" />
     <Content Include="Areas\OperationMonitoring\Views\BusinessOverview\Form.cshtml" />
     <Content Include="Areas\AutomationLine\Views\Video\Index.cshtml" />
+    <Content Include="Areas\Electromechanical\Views\AVICTableOne\Index.cshtml" />
+    <Content Include="Areas\Electromechanical\Views\Web.config" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
     <Content Include="Views\FastLogin\Index.cshtml" />
   </ItemGroup>
