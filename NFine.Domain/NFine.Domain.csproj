@@ -64,6 +64,12 @@
     <Compile Include="03 Entity\AutomationLine\DataAcquisitionDetailEntity.cs" />
     <Compile Include="03 Entity\AutomationLine\DataAcquisitionEntity.cs" />
     <Compile Include="03 Entity\AutomationLine\RunningStateEntity.cs" />
+    <Compile Include="03 Entity\Electromechanical\AVICAlarmEntity.cs" />
+    <Compile Include="03 Entity\Electromechanical\AVICDetailEntity.cs" />
+    <Compile Include="03 Entity\Electromechanical\AVICDeviceOutputEntity.cs" />
+    <Compile Include="03 Entity\Electromechanical\AVICJiaDongRateEntity.cs" />
+    <Compile Include="03 Entity\Electromechanical\AVICQualifiedAndCropRateEntity.cs" />
+    <Compile Include="03 Entity\Electromechanical\AVICTableEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\BOCapacityLoadEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\CostByDepartmentEntity.cs" />
     <Compile Include="03 Entity\OperationMonitoring\CustomerListDetailEntity.cs" />
@@ -105,6 +111,12 @@
     <Compile Include="04 IRepository\AutomationLine\IDataAcquisitionDetailRepository.cs" />
     <Compile Include="04 IRepository\AutomationLine\IDataAcquisitionRepository.cs" />
     <Compile Include="04 IRepository\AutomationLine\IRunningStateRepository.cs" />
+    <Compile Include="04 IRepository\Electromechanical\IAVICAlarmRepository.cs" />
+    <Compile Include="04 IRepository\Electromechanical\IAVICDetailRepository.cs" />
+    <Compile Include="04 IRepository\Electromechanical\IAVICDeviceOutputRepository.cs" />
+    <Compile Include="04 IRepository\Electromechanical\IAVICJiaDongRateRepository.cs" />
+    <Compile Include="04 IRepository\Electromechanical\IAVICQualifiedAndCropRateRepository.cs" />
+    <Compile Include="04 IRepository\Electromechanical\IAVICTableRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\IBOCapacityLoadRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\ICostByDepartmentRepository.cs" />
     <Compile Include="04 IRepository\OperationMonitoring\ICustomerListDetailRepository.cs" />

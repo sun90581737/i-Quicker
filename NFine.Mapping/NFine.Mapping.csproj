@@ -59,6 +59,12 @@
     <Compile Include="AutomationLine\DataAcquisitionDetailMap.cs" />
     <Compile Include="AutomationLine\DataAcquisitionMap.cs" />
     <Compile Include="AutomationLine\RunningStateMap.cs" />
+    <Compile Include="Electromechanical\AVICAlarmMap.cs" />
+    <Compile Include="Electromechanical\AVICDetailMap.cs" />
+    <Compile Include="Electromechanical\AVICDeviceOutputMap.cs" />
+    <Compile Include="Electromechanical\AVICJiaDongRateMap.cs" />
+    <Compile Include="Electromechanical\AVICQualifiedAndCropRateMap.cs" />
+    <Compile Include="Electromechanical\AVICTableMap.cs" />
     <Compile Include="OperationMonitoring\BOCapacityLoadMap.cs" />
     <Compile Include="OperationMonitoring\CostByDepartmentMap.cs" />
     <Compile Include="OperationMonitoring\CustomerListDetailMap.cs" />

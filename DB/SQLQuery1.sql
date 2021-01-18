@@ -2982,3 +2982,126 @@ INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VA
 INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备四','离线',0,'2020-10-19')
 INSERT INTO Sys_EOEquipmentTimeAnalysis(DeviceType,DeviceName,Number,AcctDate)VALUES  ('设备四','调试',10,'2020-10-19')
 
+-------------------------中航---------------------------------------------------
+CREATE TABLE Sys_AVICTable --中航机器
+(
+	id int identity (1,1) primary KEY,
+	DeviceName varchar(50)  NULL,--设备名(固定名称)
+	DeviceNameShow varchar(50)  NULL,--设备名(展示)
+    InProcess varchar(50)  NULL,--在制
+	DeviceLndicatorLight varchar(50)  NULL,  --设备指示灯(传状态或者颜色)
+	DeviceUrl varchar(50)  NULL,  --设备图片Url(固定则不传)
+	DeviceRunStatus varchar(50) NULL,--设备运行状态
+	DeviceRunTime varchar(50) NULL,--设备运行时间
+	TodayOutput INT, --今日产量（件）
+	Ident varchar(50) NULL,--标识（GF/牧野）对应2个页面
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_AVICTable(DeviceName,DeviceNameShow,InProcess,DeviceLndicatorLight,DeviceUrl,DeviceRunStatus,DeviceRunTime,TodayOutput,Ident)VALUES('EDM1','EDM1 GFP350','在制','red','','运行正常','8时13分',13,'GF')
+
+
+CREATE TABLE Sys_AVICJiaDongRate --中航:稼动率
+(
+	id int identity (1,1) primary KEY,
+	Date varchar(50)  NULL,--日期
+	JiaDongRate FLOAT , --稼动率
+	DeviceName varchar(50)  NULL,--设备名(固定名称)
+	Ident varchar(50) NULL,--标识（GF/牧野）对应2个页面
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+
+INSERT INTO Sys_AVICJiaDongRate(Date,JiaDongRate,DeviceName,Ident)VALUES('1.11',80,'EDM1','GF')
+INSERT INTO Sys_AVICJiaDongRate(Date,JiaDongRate,DeviceName,Ident)VALUES('1.12',60,'EDM1','GF')
+INSERT INTO Sys_AVICJiaDongRate(Date,JiaDongRate,DeviceName,Ident)VALUES('1.13',90,'EDM1','GF')
+INSERT INTO Sys_AVICJiaDongRate(Date,JiaDongRate,DeviceName,Ident)VALUES('1.14',50,'EDM1','GF')
+INSERT INTO Sys_AVICJiaDongRate(Date,JiaDongRate,DeviceName,Ident)VALUES('1.15',40,'EDM1','GF')
+INSERT INTO Sys_AVICJiaDongRate(Date,JiaDongRate,DeviceName,Ident)VALUES('1.16',70,'EDM1','GF')
+INSERT INTO Sys_AVICJiaDongRate(Date,JiaDongRate,DeviceName,Ident)VALUES('1.17',100,'EDM1','GF')
+
+
+CREATE table Sys_AVICDetail  --中航:明细
+(  
+id int identity (1,1) primary key , 
+AlarmNumber varchar(50)  NULL, --报警号
+AlarmContent  varchar(50)  NULL,--报警内容
+AlarmTime DATETIME, --报警时间
+ReleaseTime DATETIME, --解除时间
+TimeConsuming varchar(50)  NULL,--时间
+DeviceName varchar(50)  NULL,--设备名(固定名称)
+Ident varchar(50) NULL,--标识（GF/牧野）对应2个页面
+CreationTime DATETIME not null default getdate(),--创建时间
+IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Sys_AVICDetail(AlarmNumber,AlarmContent,AlarmTime,ReleaseTime,TimeConsuming,DeviceName,Ident)VALUES('110','01',GETDATE(),GETDATE(),'4H','EDM1','GF')
+INSERT INTO Sys_AVICDetail(AlarmNumber,AlarmContent,AlarmTime,ReleaseTime,TimeConsuming,DeviceName,Ident)VALUES('112','02',GETDATE(),GETDATE(),'5H','EDM1','GF')
+INSERT INTO Sys_AVICDetail(AlarmNumber,AlarmContent,AlarmTime,ReleaseTime,TimeConsuming,DeviceName,Ident)VALUES('120','03',GETDATE(),GETDATE(),'6H','EDM1','GF')
+INSERT INTO Sys_AVICDetail(AlarmNumber,AlarmContent,AlarmTime,ReleaseTime,TimeConsuming,DeviceName,Ident)VALUES('119','04',GETDATE(),GETDATE(),'7H','EDM1','GF')
+INSERT INTO Sys_AVICDetail(AlarmNumber,AlarmContent,AlarmTime,ReleaseTime,TimeConsuming,DeviceName,Ident)VALUES('122','05',GETDATE(),GETDATE(),'8H','EDM1','GF')
+
+
+CREATE TABLE Sys_AVICQualifiedAndCropRate --中航:合格率and稼动率
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number INT,--数据
+	Type varchar(50)  NULL,--类型（HG/JD）
+	Ident varchar(50) NULL,--标识（GF/牧野）对应2个页面
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO dbo.Sys_AVICQualifiedAndCropRate(DeviceType,DeviceName,Number,Type,Ident)VALUES  ('设备一','合格率',58,'HG','GF')
+INSERT INTO dbo.Sys_AVICQualifiedAndCropRate(DeviceType,DeviceName,Number,Type,Ident)VALUES  ('设备二','合格率',68,'HG','GF')
+INSERT INTO dbo.Sys_AVICQualifiedAndCropRate(DeviceType,DeviceName,Number,Type,Ident)VALUES  ('设备三','合格率',81,'HG','GF')
+INSERT INTO dbo.Sys_AVICQualifiedAndCropRate(DeviceType,DeviceName,Number,Type,Ident)VALUES  ('设备四','合格率',58,'HG','GF')
+INSERT INTO dbo.Sys_AVICQualifiedAndCropRate(DeviceType,DeviceName,Number,Type,Ident)VALUES  ('设备五','合格率',81,'HG','GF')
+INSERT INTO dbo.Sys_AVICQualifiedAndCropRate(DeviceType,DeviceName,Number,Type,Ident)VALUES  ('设备六','合格率',58,'HG','GF')
+
+INSERT INTO dbo.Sys_AVICQualifiedAndCropRate(DeviceType,DeviceName,Number,Type,Ident)VALUES  ('设备一','稼动率',58,'JD','GF')
+INSERT INTO dbo.Sys_AVICQualifiedAndCropRate(DeviceType,DeviceName,Number,Type,Ident)VALUES  ('设备二','稼动率',68,'JD','GF')
+INSERT INTO dbo.Sys_AVICQualifiedAndCropRate(DeviceType,DeviceName,Number,Type,Ident)VALUES  ('设备三','稼动率',81,'JD','GF')
+INSERT INTO dbo.Sys_AVICQualifiedAndCropRate(DeviceType,DeviceName,Number,Type,Ident)VALUES  ('设备四','稼动率',58,'JD','GF')
+INSERT INTO dbo.Sys_AVICQualifiedAndCropRate(DeviceType,DeviceName,Number,Type,Ident)VALUES  ('设备五','稼动率',81,'JD','GF')
+INSERT INTO dbo.Sys_AVICQualifiedAndCropRate(DeviceType,DeviceName,Number,Type,Ident)VALUES  ('设备六','稼动率',58,'JD','GF')
+
+
+CREATE TABLE Sys_AVICAlarm --中航:报警编号&报警次数
+(
+	id int identity (1,1) primary KEY,
+	Type varchar(50)  NULL,--类型
+	Cost INT , --成本
+	Ident varchar(50) NULL,--标识（GF/牧野）对应2个页面
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT dbo.Sys_AVICAlarm(Type,Cost,Ident)VALUES('101',68,'GF')
+INSERT dbo.Sys_AVICAlarm(Type,Cost,Ident)VALUES('102',12,'GF')
+INSERT dbo.Sys_AVICAlarm(Type,Cost,Ident)VALUES('103',17,'GF')
+INSERT dbo.Sys_AVICAlarm(Type,Cost,Ident)VALUES('104',3,'GF')
+
+CREATE TABLE Sys_AVICDeviceOutput --中航:设备产量(前一周)
+(
+	id int identity (1,1) primary KEY,
+	DeviceType varchar(50)  NULL, --设备类型
+	DeviceName varchar(50)  NULL,--(设备/产品)
+	Number INT,
+	Ident varchar(50) NULL,--标识（GF/牧野）对应2个页面
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Sys_AVICDeviceOutput(DeviceType,DeviceName,Number,Ident)VALUES('MAKIN01','设备',50,'GF')
+INSERT INTO Sys_AVICDeviceOutput(DeviceType,DeviceName,Number,Ident)VALUES('MAKIN02','设备',70,'GF')
+INSERT INTO Sys_AVICDeviceOutput(DeviceType,DeviceName,Number,Ident)VALUES('MAKIN03','设备',20,'GF')
+INSERT INTO Sys_AVICDeviceOutput(DeviceType,DeviceName,Number,Ident)VALUES('MAKIN04','设备',30,'GF')
+INSERT INTO Sys_AVICDeviceOutput(DeviceType,DeviceName,Number,Ident)VALUES('MAKIN05','设备',40,'GF')
+INSERT INTO Sys_AVICDeviceOutput(DeviceType,DeviceName,Number,Ident)VALUES('MAKIN06','设备',80,'GF')
+
+INSERT INTO Sys_AVICDeviceOutput(DeviceType,DeviceName,Number,Ident)VALUES('MAKIN01','产品',50,'GF')
+INSERT INTO Sys_AVICDeviceOutput(DeviceType,DeviceName,Number,Ident)VALUES('MAKIN02','产品',70,'GF')
+INSERT INTO Sys_AVICDeviceOutput(DeviceType,DeviceName,Number,Ident)VALUES('MAKIN03','产品',20,'GF')
+INSERT INTO Sys_AVICDeviceOutput(DeviceType,DeviceName,Number,Ident)VALUES('MAKIN04','产品',30,'GF')
+INSERT INTO Sys_AVICDeviceOutput(DeviceType,DeviceName,Number,Ident)VALUES('MAKIN05','产品',40,'GF')
+INSERT INTO Sys_AVICDeviceOutput(DeviceType,DeviceName,Number,Ident)VALUES('MAKIN06','产品',80,'GF')
+

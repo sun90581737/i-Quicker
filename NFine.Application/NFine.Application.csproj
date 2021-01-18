@@ -63,6 +63,12 @@
   <ItemGroup>
     <Compile Include="01 Infrastructure\DbLogType.cs" />
     <Compile Include="AutomationLine\DataAcquisitionDetailApp.cs" />
+    <Compile Include="Electromechanical\AVICAlarmApp.cs" />
+    <Compile Include="Electromechanical\AVICDetailApp.cs" />
+    <Compile Include="Electromechanical\AVICDeviceOutputApp.cs" />
+    <Compile Include="Electromechanical\AVICJiaDongRateApp.cs" />
+    <Compile Include="Electromechanical\AVICQualifiedAndCropRateApp.cs" />
+    <Compile Include="Electromechanical\AVICTableApp.cs" />
     <Compile Include="OperationMonitoring\BOCapacityLoadApp.cs" />
     <Compile Include="OperationMonitoring\CostByDepartmentApp.cs" />
     <Compile Include="AutomationLine\DataAcquisitionApp.cs" />

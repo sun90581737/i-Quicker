@@ -50,6 +50,12 @@
     <Compile Include="AutomationLine\DataAcquisitionDetailRepository.cs" />
     <Compile Include="AutomationLine\DataAcquisitionRepository.cs" />
     <Compile Include="AutomationLine\RunningStateRepository.cs" />
+    <Compile Include="Electromechanical\AVICAlarmRepository.cs" />
+    <Compile Include="Electromechanical\AVICDetailRepository.cs" />
+    <Compile Include="Electromechanical\AVICDeviceOutputRepository.cs" />
+    <Compile Include="Electromechanical\AVICJiaDongRateRepository.cs" />
+    <Compile Include="Electromechanical\AVICQualifiedAndCropRateRepository.cs" />
+    <Compile Include="Electromechanical\AVICTableRepository.cs" />
     <Compile Include="OperationMonitoring\BOCapacityLoadRepository.cs" />
     <Compile Include="OperationMonitoring\CostByDepartmentRepository.cs" />
     <Compile Include="OperationMonitoring\CustomerListDetailRepository.cs" />
