@@ -2989,7 +2989,7 @@ CREATE TABLE Sys_AVICTable --中航机器
 	DeviceName varchar(50)  NULL,--设备名(固定名称)
 	DeviceNameShow varchar(50)  NULL,--设备名(展示)
     InProcess varchar(50)  NULL,--在制
-	DeviceLndicatorLight varchar(50)  NULL,  --设备指示灯(传状态或者颜色)
+	DeviceLndicatorLight varchar(50)  NULL,  --设备指示灯(传状态或者颜色/只有固定red/yellow/green三种颜色否则灯不亮)
 	DeviceUrl varchar(50)  NULL,  --设备图片Url(固定则不传)
 	DeviceRunStatus varchar(50) NULL,--设备运行状态
 	DeviceRunTime varchar(50) NULL,--设备运行时间
@@ -2999,7 +2999,11 @@ CREATE TABLE Sys_AVICTable --中航机器
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )
 INSERT INTO Sys_AVICTable(DeviceName,DeviceNameShow,InProcess,DeviceLndicatorLight,DeviceUrl,DeviceRunStatus,DeviceRunTime,TodayOutput,Ident)VALUES('EDM1','EDM1 GFP350','在制','red','','运行正常','8时13分',13,'GF')
-
+INSERT INTO Sys_AVICTable(DeviceName,DeviceNameShow,InProcess,DeviceLndicatorLight,DeviceUrl,DeviceRunStatus,DeviceRunTime,TodayOutput,Ident)VALUES('EDM2','EDM1 GFP350','在制','red','','运行正常','8时13分',13,'GF')
+INSERT INTO Sys_AVICTable(DeviceName,DeviceNameShow,InProcess,DeviceLndicatorLight,DeviceUrl,DeviceRunStatus,DeviceRunTime,TodayOutput,Ident)VALUES('EDM3','EDM1 GFP350','在制','red','','运行正常','8时13分',13,'GF')
+INSERT INTO Sys_AVICTable(DeviceName,DeviceNameShow,InProcess,DeviceLndicatorLight,DeviceUrl,DeviceRunStatus,DeviceRunTime,TodayOutput,Ident)VALUES('EDM4','EDM1 GFP350','在制','red','','运行正常','8时13分',13,'GF')
+INSERT INTO Sys_AVICTable(DeviceName,DeviceNameShow,InProcess,DeviceLndicatorLight,DeviceUrl,DeviceRunStatus,DeviceRunTime,TodayOutput,Ident)VALUES('EDM5','EDM1 GFP350','在制','red','','运行正常','8时13分',13,'GF')
+INSERT INTO Sys_AVICTable(DeviceName,DeviceNameShow,InProcess,DeviceLndicatorLight,DeviceUrl,DeviceRunStatus,DeviceRunTime,TodayOutput,Ident)VALUES('EDM6','EDM1 GFP350','在制','red','','运行正常','8时13分',13,'GF')
 
 CREATE TABLE Sys_AVICJiaDongRate --中航:稼动率
 (

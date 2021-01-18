@@ -25,9 +25,9 @@ namespace NFine.Web.Areas.Electromechanical.Controllers
 
         [HttpGet]
         [HandlerAjaxOnly]
-        public ActionResult GetDataAVICTable(string keyValue)
+        public ActionResult GetDataAVICTable()
         {
-            var data = tApp.GetList().Where(p => p.IsEffective == 1 && p.Ident == "GF" && p.DeviceName == keyValue);
+            var data = tApp.GetList().Where(p => p.IsEffective == 1 && p.Ident == "GF");
             return Content(data.ToJson());
         }
         [HttpGet]
@@ -39,11 +39,11 @@ namespace NFine.Web.Areas.Electromechanical.Controllers
         }
         [HttpGet]
         [HandlerAjaxOnly]
-        public ActionResult GetGridJson(Pagination pagination, string queryJson, string keyValue)
+        public ActionResult GetGridJson(Pagination pagination, string queryJson, string t)
         {
             var data = new
             {
-                rows = dApp.GetList(pagination, queryJson, keyValue),
+                rows = dApp.GetList(pagination, queryJson, t),
                 total = pagination.total,
                 page = pagination.page,
                 records = pagination.records
