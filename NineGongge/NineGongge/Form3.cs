@@ -40,15 +40,15 @@ namespace NineGongge
         string Url4 = GetValue("Url4");
         private void InitColor()
         {
-            int i = DateTime.Now.GetHashCode();
-            foreach (Control ctrl in flowLayoutPanel1.Controls)
-            {
-                var rand = new Random(i);
-                int r = rand.Next(0, 255);
-                int g = rand.Next(0, 255);
-                int b = rand.Next(0, 255);
-                ctrl.BackColor = Color.FromArgb(255, r, g, b);
-            }
+            //int i = DateTime.Now.GetHashCode();
+            //foreach (Control ctrl in flowLayoutPanel1.Controls)
+            //{
+            //    var rand = new Random(i);
+            //    int r = rand.Next(0, 255);
+            //    int g = rand.Next(0, 255);
+            //    int b = rand.Next(0, 255);
+            //    ctrl.BackColor = Color.FromArgb(255, r, g, b);
+            //}
             TempMethod(panel1, string.Format("{0}{1}", IPUrl, Url1));
             TempMethod(panel2, string.Format("{0}{1}", IPUrl, Url2));
             TempMethod(panel3, string.Format("{0}{1}", IPUrl, Url3));
