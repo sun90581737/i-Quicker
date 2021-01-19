@@ -372,7 +372,7 @@
     })
     function loadA() {
         $.ajax({
-            url: "/Electromechanical/AVICTableOne/GetDataAVICTable",
+            url: "/Electromechanical/AVICTableTwo/GetDataAVICTable",
             //data: { keyword: "EDM1" },
             dataType: "json",
             async: false,
@@ -469,7 +469,7 @@
 
         $.ajax({
             async: false,
-            url: "/Electromechanical/AVICTableOne/GetDataAVICJiaDongRate",
+            url: "/Electromechanical/AVICTableTwo/GetDataAVICJiaDongRate",
             data: { keyValue: x },
             type: "get",
             dataType: "json",
@@ -595,7 +595,7 @@
     function gridList(t, r) {
         var $gridList = $("#" + r);
         $gridList.dataGrid({
-            url: "/Electromechanical/AVICTableOne/GetGridJson?t=" + t,
+            url: "/Electromechanical/AVICTableTwo/GetGridJson?t=" + t,
             height: 150,
             colModel: [
                 { label: '报警号', name: 'AlarmNumber', width: 30, align: 'center' },
@@ -614,7 +614,7 @@
         var listDeviceName = new Array();
         var listAll = new Array();
         $.ajax({
-            url: "/Electromechanical/AVICTableOne/GetDataAVICQualifiedAndCropRate",
+            url: "/Electromechanical/AVICTableTwo/GetDataAVICQualifiedAndCropRate",
             data: { keyValue: "HG" },
             dataType: "json",
             async: false,
@@ -748,7 +748,7 @@
         var listDeviceName = new Array();
         var listAll = new Array();
         $.ajax({
-            url: "/Electromechanical/AVICTableOne/GetDataAVICQualifiedAndCropRate",
+            url: "/Electromechanical/AVICTableTwo/GetDataAVICQualifiedAndCropRate",
             data: { keyValue: "JD" },
             dataType: "json",
             async: false,
@@ -1185,7 +1185,7 @@
         var ListCount = 0;
         var str = [];
         $.ajax({
-            url: "/Electromechanical/AVICTableOne/GetDataAVICAlarm",
+            url: "/Electromechanical/AVICTableTwo/GetDataAVICAlarm",
             dataType: "json",
             async: false,
             success: function (data) {
@@ -1286,7 +1286,7 @@
     function loadG(x, y) {
         var str = [];
         $.ajax({
-            url: "/Electromechanical/AVICTableOne/GetDataAVICDeviceOutput",
+            url: "/Electromechanical/AVICTableTwo/GetDataAVICDeviceOutput",
             data: { keyValue: x },
             dataType: "json",
             async: false,
