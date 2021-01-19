@@ -193,7 +193,7 @@
                 </div>
                 <div style="height:170px;">
                     <div style="text-align:center;font-size:13px;color:#79cbff;position: relative;bottom:18px;right:198px;">报警编号&报警次数</div>
-                    <div id="chart6" style="height:140px;"></div>
+                    <div id="chart6" style="height:140px;position: relative;bottom:18px;"></div>
                 </div>
 
             </div>
@@ -333,7 +333,12 @@
         <div class="box box-default">
             <div class="box-header with-border" style="height:374px">
                 <img style="position: relative; top: 15px;left:-15px;" src="~/Content/js/pages/img/ZH/zh-icon3.png" /><div style="position: relative; top: -12px; left: 18px; font-size: 16px; font-weight: 400; color: #a1d4f4">设备产量(前一周)</div>
-                <div id="chart4" style="height:150px;"></div>
+                <div style="float:left;width:50%">
+                    <div id="chart7" style="height:285px;"></div>
+                </div>
+                <div style="margin-left:50%;">
+                    <div id="chart8" style="height:285px;"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -359,6 +364,9 @@
         loadE(50, 'chart3');
         loadE(70, 'chart4');
         loadE(20, 'chart5');
+        loadF();
+        loadG('设备', 'chart7');
+        loadG('产品', 'chart8');
     })
     function loadA() {
         $.ajax({
@@ -1169,5 +1177,257 @@
             draw()
         }, 100);
 
+    }
+    function loadF() {
+        var listName = new Array();
+        var ListCount = 0;
+        var str = [];
+        $.ajax({
+            url: "/Electromechanical/AVICTableOne/GetDataAVICAlarm",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    listName.push(item.Type);
+                    var str3 = new Object();
+                    str3.name = item.Type;
+                    str3.value = item.Cost;
+                    str[index] = str3;
+                    ListCount += item.Cost;
+                })
+            }
+        });
+        var myChart = echarts.init(document.getElementById('chart6'));
+        // 指定图表的配置项和数据
+        var option = {
+            title: {//标题组件
+                text: ListCount + '次',
+                x: 'center',
+                y: 'center',
+                textStyle: {
+                    color: "#fff",
+                    fontSize: 15,
+                }
+            },
+            tooltip: { //提示框组件
+                trigger: 'item', //触发类型(饼状图片就是用这个)
+                //formatter: "{b} : ({c}万)"//"{a} <br/>{b} : {c} ({d}%)" //提示框浮层内容格式器
+                formatter: "{b} : ({d}%)"
+            },
+            color: ['#febf37', '#f18533', '#6d48e6', '#ff6139'],  //手动设置每个图例的颜色
+            series: [ //系列列表
+                {
+                    //name:'设备状态',  //系列名称
+                    type: 'pie',   //类型 pie表示饼图
+                    center: ['50%', '50%'], //设置饼的原心坐标 不设置就会默认在中心的位置
+                    radius: ['50%', '70%'],  //饼图的半径,第一项是内半径,第二项是外半径,内半径为0就是真的饼,不是环形
+                    itemStyle: {  //图形样式
+                        normal: { //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+                            borderWidth: 4,
+                           // borderColor: '#fff',
+                            //label: {  //饼图图形上的文本标签
+                            //    show: true,  //平常不显示
+                            //    formatter: '{c}%',
+                            //    position: 'inner'
+                            //},
+                            //labelLine: {     //标签的视觉引导线样式
+                            //    show: false  //平常不显示
+                            //}
+                            label: {
+                                //formatter: '{font|{c}}\n{hr|}\n{font|{d}%}',
+                                formatter: function (params) {
+                                    var percent = 0;
+                                    var total = 0;
+                                    for (var i = 0; i < str.length; i++) {
+                                        total += str[i].value;
+                                    }
+                                    percent = ((params.value / total) * 100).toFixed(0);
+                                    if (params.name !== '') {
+                                        //return params.name + '：' + params.value + '万' + '\n' + '\n' + percent + '%';
+                                        return params.name + '/' + percent + '次';
+                                    } else {
+                                        return '';
+                                    }
+                                },
+                                rich: {
+                                    font: {
+                                        fontSize: 14,
+                                        padding: [5, 0],
+                                        color: '#808080'
+                                    },
+                                    hr: {
+                                        height: 0,
+                                        borderWidth: 1,
+                                        width: '100%',
+                                        borderColor: '#808080'
+                                    }
+                                }
+                            },
+                            labelLine: {
+                                length: 15,
+                                length2: 20,
+                                show: true,
+                                color: '#00ffff'
+                            }
+                        },
+                    },
+                    data: str
+                }
+            ]
+        };
+        myChart.setOption(option);
+        // echarts 窗口缩放自适应
+        window.addEventListener("resize", function () {
+            myChart.resize();
+        });
+    }
+    function loadG(x,y) {
+        var str = [];
+        $.ajax({
+            url: "/Electromechanical/AVICTableOne/GetDataAVICDeviceOutput",
+            data: { keyValue: x},
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                $(data).each(function (index, item) {
+                    var str3 = new Object();
+                    str3.name = item.DeviceType;
+                    str3.value = item.Number;
+                    str[index] = str3;
+                })
+            }
+        });
+        var myChart = echarts.init(document.getElementById(y));
+        data = str;
+        getArrByKey = (data, k) => {
+            let key = k || "value";
+            let res = [];
+            if (data) {
+                data.forEach(function (t) {
+                    res.push(t[key]);
+                });
+            }
+            return res;
+        };
+        opt = {
+            index: 0
+        }
+        color = ['#FC619D', '#FF904D', '#48BFE3'];
+        data = data.sort((a, b) => {
+            return b.value - a.value
+        });
+        var option = {
+            grid: {
+                top: '0%',
+                bottom: 0,
+                right: 0,
+                left: '-10%',
+                containLabel: true
+            },
+            xAxis: {
+                show: false
+            },
+            yAxis: [{
+                triggerEvent: true,
+                show: true,
+                inverse: true,
+                data: getArrByKey(data, 'name'),
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                },
+                axisLabel: {
+                    interval: 0,
+                    color: '#fff',
+                    align: 'left',
+                    margin: 100,
+                    fontSize: 13,
+                    formatter: function (value, index) {
+                        if (opt.index === 0 && index < 3) {
+                            return '{idx' + index + '|' + (1 + index) + '} {title|' + value + '}'
+                        } else if (opt.index !== 0 && (index + opt.index) < 9) {
+                            return '{idx|0' + (1 + index + opt.index) + '} {title|' + value + '}'
+                        } else {
+                            return '{idx|' + (1 + index + opt.index) + '} {title|' + value + '}'
+                        }
+                    },
+                    rich: {
+                        idx0: {
+                            color: '#FB375E',
+                            backgroundColor: '#FFE8EC',
+                            borderRadius: 100,
+                            padding: [5, 8]
+                        },
+                        idx1: {
+                            color: '#FF9023',
+                            backgroundColor: '#FFEACF',
+                            borderRadius: 100,
+                            padding: [5, 8]
+                        },
+                        idx2: {
+                            color: '#01B599',
+                            backgroundColor: '#E1F7F3',
+                            borderRadius: 100,
+                            padding: [5, 8]
+                        },
+                        idx: {
+                            color: '#fff',
+                            borderRadius: 100,
+                            padding: [5, 8]
+                        },
+                        title: {
+                            width: 165
+                        }
+                    }
+                },
+            }, {
+                triggerEvent: true,
+                show: true,
+                inverse: true,
+                data: getArrByKey(data, 'name'),
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                },
+                axisLabel: {
+                    interval: 0,
+                    color: '#79cbff',
+                    align: 'left',
+                    margin: 20,
+                    fontSize: 13,
+                    formatter: function (value, index) {
+                        return  + data[index].value + '件'
+                    },
+                }
+            }],
+            series: [{
+                name: '条',
+                type: 'bar',
+                yAxisIndex: 0,
+                data: data,
+                barWidth: 10,
+                itemStyle: {
+                    color: (val) => {
+                        if (val.dataIndex < 3 && opt.index === 0) {
+                            return color[val.dataIndex];
+                        } else {
+                            return '#1990FF'
+                        }
+                    },
+                    barBorderRadius: 30,
+                }
+            }]
+        };
+        myChart.setOption(option);
     }
 </script>
