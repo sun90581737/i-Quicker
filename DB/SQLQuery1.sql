@@ -2994,7 +2994,7 @@ CREATE TABLE Sys_AVICTable --中航机器
 	DeviceRunStatus varchar(50) NULL,--设备运行状态
 	DeviceRunTime varchar(50) NULL,--设备运行时间
 	TodayOutput INT, --今日产量（件）
-	Ident varchar(50) NULL,--标识（GF/牧野）对应2个页面
+	Ident varchar(50) NULL,--标识（GF/MY）对应2个页面
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )
@@ -3011,7 +3011,7 @@ CREATE TABLE Sys_AVICJiaDongRate --中航:稼动率
 	Date varchar(50)  NULL,--日期
 	JiaDongRate FLOAT , --稼动率
 	DeviceName varchar(50)  NULL,--设备名(固定名称)
-	Ident varchar(50) NULL,--标识（GF/牧野）对应2个页面
+	Ident varchar(50) NULL,--标识（GF/MY）对应2个页面
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )
@@ -3034,7 +3034,7 @@ AlarmTime DATETIME, --报警时间
 ReleaseTime DATETIME, --解除时间
 TimeConsuming varchar(50)  NULL,--时间
 DeviceName varchar(50)  NULL,--设备名(固定名称)
-Ident varchar(50) NULL,--标识（GF/牧野）对应2个页面
+Ident varchar(50) NULL,--标识（GF/MY）对应2个页面
 CreationTime DATETIME not null default getdate(),--创建时间
 IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 ) 
@@ -3052,7 +3052,7 @@ CREATE TABLE Sys_AVICQualifiedAndCropRate --中航:合格率and稼动率
 	DeviceName varchar(50)  NULL,--设备名
 	Number INT,--数据
 	Type varchar(50)  NULL,--类型（HG/JD）
-	Ident varchar(50) NULL,--标识（GF/牧野）对应2个页面
+	Ident varchar(50) NULL,--标识（GF/MY）对应2个页面
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )
@@ -3076,7 +3076,7 @@ CREATE TABLE Sys_AVICAlarm --中航:报警编号&报警次数
 	id int identity (1,1) primary KEY,
 	Type varchar(50)  NULL,--类型
 	Cost INT , --成本
-	Ident varchar(50) NULL,--标识（GF/牧野）对应2个页面
+	Ident varchar(50) NULL,--标识（GF/MY）对应2个页面
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )
@@ -3091,7 +3091,7 @@ CREATE TABLE Sys_AVICDeviceOutput --中航:设备产量(前一周)
 	DeviceType varchar(50)  NULL, --设备类型
 	DeviceName varchar(50)  NULL,--(设备/产品)
 	Number INT,
-	Ident varchar(50) NULL,--标识（GF/牧野）对应2个页面
+	Ident varchar(50) NULL,--标识（GF/MY）对应2个页面
 	CreationTime DATETIME not null default getdate(),--创建时间
 	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
 )

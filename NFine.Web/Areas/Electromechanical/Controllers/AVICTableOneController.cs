@@ -43,7 +43,7 @@ namespace NFine.Web.Areas.Electromechanical.Controllers
         {
             var data = new
             {
-                rows = dApp.GetList(pagination, queryJson, t),
+                rows = dApp.GetListGF(pagination, queryJson, t),
                 total = pagination.total,
                 page = pagination.page,
                 records = pagination.records

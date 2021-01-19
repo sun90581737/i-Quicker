@@ -19,11 +19,18 @@ namespace NFine.Application.Electromechanical
             return service.IQueryable().ToList();
         }
 
-        public List<AVICDetailEntity> GetList(Pagination pagination, string queryJson,string keyValue)
+        public List<AVICDetailEntity> GetListGF(Pagination pagination, string queryJson,string keyValue)
         {
             var expression = ExtLinq.True<AVICDetailEntity>();
             var queryParam = queryJson.ToJObject();
             expression = expression.And(t => t.IsEffective == 1 && t.Ident == "GF" && t.DeviceName == keyValue);
+            return service.FindList(expression, pagination);
+        }
+        public List<AVICDetailEntity> GetListMY(Pagination pagination, string queryJson, string keyValue)
+        {
+            var expression = ExtLinq.True<AVICDetailEntity>();
+            var queryParam = queryJson.ToJObject();
+            expression = expression.And(t => t.IsEffective == 1 && t.Ident == "MY" && t.DeviceName == keyValue);
             return service.FindList(expression, pagination);
         }
     }
