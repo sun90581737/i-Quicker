@@ -128,6 +128,7 @@
     <Compile Include="Areas\AutomationLine\Controllers\DataAcquisitionController.cs" />
     <Compile Include="Areas\AutomationLine\Controllers\RunningStateController.cs" />
     <Compile Include="Areas\AutomationLine\Controllers\VideoController.cs" />
+    <Compile Include="Areas\Electromechanical\Controllers\AVICTableTwoController.cs" />
     <Compile Include="Areas\Electromechanical\ElectromechanicalAreaRegistration.cs" />
     <Compile Include="Areas\Electromechanical\Controllers\AVICTableOneController.cs" />
     <Compile Include="Areas\ExampleManage\Controllers\BarCodeController.cs" />
@@ -360,6 +361,7 @@
     <Content Include="Content\js\md5\jquery.md5.js" />
     <Content Include="Content\js\pages\AdminLTE.css" />
     <Content Include="Content\js\pages\AdminLTE.min.css" />
+    <Content Include="Content\js\pages\appbasesOn.css" />
     <Content Include="Content\js\pages\appbases.css" />
     <Content Include="Content\js\pages\appbase.css" />
     <Content Include="Content\js\pages\app.css" />
@@ -791,6 +793,7 @@
     <Content Include="Areas\AutomationLine\Views\Video\Index.cshtml" />
     <Content Include="Areas\Electromechanical\Views\AVICTableOne\Index.cshtml" />
     <Content Include="Areas\Electromechanical\Views\Web.config" />
+    <Content Include="Areas\Electromechanical\Views\AVICTableTwo\Index.cshtml" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
     <Content Include="Views\FastLogin\Index.cshtml" />
   </ItemGroup>
