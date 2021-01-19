@@ -29,7 +29,7 @@
     }
 </style>
 <div class="row">
-    <section class="col-lg-6 connectedSortable" style="width:20%;background: url('../../../../Content/js/pages/img/ZH/zh-bg1.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 30px 0px 0px 70px;">
+    <section class="col-lg-6 connectedSortable" style="width:20%;background: url('../../../../Content/js/pages/img/ZH/zh-bg1.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 30px 0px 0px 60px;">
         <div class="box box-default">
             <div id="div1" style="width:295px;height:40px;position: relative;top:3px;left:-13px;">
                 <div id="a1" style="position:absolute; z-index:2; left:45%;top:-4%;font-weight:600;font-size:13px;text-align:center;display:inline-block;margin:7px;color: #ffffff"></div>
@@ -158,32 +158,52 @@
         </div>
     </section>
 
-    <section class="col-lg-6 connectedSortable" style="width:15.2%;background: url('../../../../Content/js/pages/img/ZH/zh-bg2.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 30px 0px 0px 10px;">
+    <section class="col-lg-6 connectedSortable" style="width:17.1%;background: url('../../../../Content/js/pages/img/ZH/zh-bg2.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 90px 0px 0px 10px;">
         <div class="box box-default">
-            <div class="box-header with-border" style="height:280px">
+            <div class="box-header with-border" style="height:250px">
                 <img style="position: relative; top: 8px;left:-17px;" src="~/Content/js/pages/img/ZH/zh-icon1.png" /><div style="position: relative; top: -18px; left: 18px; font-size: 16px; font-weight: 400; color: #a1d4f4">合格率</div>
-                <div id="chart1" style="height:150px;"></div>
+                <div id="chart1" style="height:180px;"></div>
             </div>
         </div>
     </section>
-    <section class="col-lg-6 connectedSortable" style="width:15.2%;background: url('../../../../Content/js/pages/img/ZH/zh-bg2.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 30px 0px 0px 10px;">
+    <section class="col-lg-6 connectedSortable" style="width:17.1%;background: url('../../../../Content/js/pages/img/ZH/zh-bg2.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 90px 0px 0px 10px;">
         <div class="box box-default">
-            <div class="box-header with-border" style="height:280px">
+            <div class="box-header with-border" style="height:250px">
                 <img style="position: relative; top: 8px;left:-17px;" src="~/Content/js/pages/img/ZH/zh-icon2.png" /><div style="position: relative; top: -18px; left: 18px; font-size: 16px; font-weight: 400; color: #a1d4f4">稼动率</div>
-                <div id="chart2" style="height:150px;"></div>
+                <div id="chart2" style="height:180px;"></div>
             </div>
         </div>
     </section>
-    <section class="col-lg-6 connectedSortable" style="width:31.5%;background: url('../../../../Content/js/pages/img/ZH/zh-bg3.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 5px 0px 0px 0px;">
+    <section class="col-lg-6 connectedSortable" style="width:35.2%;background: url('../../../../Content/js/pages/img/ZH/zh-bg3.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 5px 0px 0px 0px;">
         <div class="box box-default">
-            <div class="box-header with-border" style="height:290px">
-                <div style="width: 100%;height:50%;position: relative;top:126px; background: url('../../../../Content/js/pages/img/ZH/zh-bgk.png')0 0 / 100% 100% no-repeat;"></div>
-                <div id="chart3" style="height:150px;"></div>
+            <div class="box-header with-border" style="height:340px">
+                @* <div style="width: 100%;height:50%;position: relative;top:126px; background: url('../../../../Content/js/pages/img/ZH/zh-bgk.png')0 0 / 100% 100% no-repeat;"></div>*@
+                @*<div id="chart3" style="height:150px;"></div>*@
+
+                <div style="height:170px">
+                    <div style="float:left;width:37.5%;">
+                        <div id="chart3" style="height:150px; "></div>
+                        <div style="text-align:center;font-size:13px;color:#79cbff;position: relative;top:-25px;">整线合格率</div>
+                    </div>
+                    <div style="float:left;width:25%;">
+                        <div id="chart4" style="height:150px;"></div>
+                        <div style="text-align:center;font-size:13px;color:#79cbff;position: relative;top:-25px;">稼动率</div>
+                    </div>
+                    <div style="margin-left:62.5%;width:auto;">
+                        <div id="chart5" style="height:150px;"></div>
+                        <div style="text-align:center;font-size:13px;color:#79cbff;position: relative;top:-25px;">过去一周产量（件）</div>
+                    </div>
+                </div>
+                <div style="height:170px;">
+                    <div style="text-align:center;font-size:13px;color:#79cbff;position: relative;bottom:18px;right:198px;">报警编号&报警次数</div>
+                    <div id="chart6" style="height:140px;"></div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section class="col-lg-6 connectedSortable" style="top: -62px; width: 20%; background: url('../../../../Content/js/pages/img/ZH/zh-bg1.png') 0 0 / 100% 100% no-repeat; position: relative; margin: 0px 0px 0px 70px;">
+    <section class="col-lg-6 connectedSortable" style="top: -143px; width: 20%; background: url('../../../../Content/js/pages/img/ZH/zh-bg1.png') 0 0 / 100% 100% no-repeat; position: relative; margin: 0px 0px 0px 60px;">
         <div class="box box-default">
             <div id="div1" style="width:295px;height:40px;position: relative;top:3px;left:-13px;">
                 <div id="a4" style="position:absolute; z-index:2; left:45%;top:-4%;font-weight:600;font-size:13px;text-align:center;display:inline-block;margin:7px;color: #ffffff"></div>
@@ -226,7 +246,7 @@
         </div>
     </section>
 
-    <section class="col-lg-6 connectedSortable" style="top: -62px; width: 20%; background: url('../../../../Content/js/pages/img/ZH/zh-bg1.png') 0 0 / 100% 100% no-repeat; position: relative; margin: 0px 0px 0px 10px;">
+    <section class="col-lg-6 connectedSortable" style="top: -143px; width: 20%; background: url('../../../../Content/js/pages/img/ZH/zh-bg1.png') 0 0 / 100% 100% no-repeat; position: relative; margin: 0px 0px 0px 10px;">
         <div class="box box-default">
             <div id="div1" style="width:295px;height:40px;position: relative;top:3px;left:-13px;">
                 <div id="a5" style="position:absolute; z-index:2; left:45%;top:-4%;font-weight:600;font-size:13px;text-align:center;display:inline-block;margin:7px;color: #ffffff"></div>
@@ -269,7 +289,7 @@
         </div>
     </section>
 
-    <section class="col-lg-6 connectedSortable" style="top: -62px; width: 20%; background: url('../../../../Content/js/pages/img/ZH/zh-bg1.png') 0 0 / 100% 100% no-repeat; position: relative; margin: 0px 0px 0px 10px;">
+    <section class="col-lg-6 connectedSortable" style="top: -143px; width: 20%; background: url('../../../../Content/js/pages/img/ZH/zh-bg1.png') 0 0 / 100% 100% no-repeat; position: relative; margin: 0px 0px 0px 10px;">
         <div class="box box-default">
             <div id="div1" style="width:295px;height:40px;position: relative;top:3px;left:-13px;">
                 <div id="a6" style="position:absolute; z-index:2; left:45%;top:-4%;font-weight:600;font-size:13px;text-align:center;display:inline-block;margin:7px;color: #ffffff"></div>
@@ -312,9 +332,9 @@
         </div>
     </section>
 
-    <section class="col-lg-6 connectedSortable" style="width:31.5%;background: url('../../../../Content/js/pages/img/ZH/zh-bg4.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 0px 0px 0px 5px;">
+    <section class="col-lg-6 connectedSortable" style="width:35.2%;background: url('../../../../Content/js/pages/img/ZH/zh-bg4.png') 0 0 / 100% 100% no-repeat;position: relative;margin : 0px 0px 0px 5px;">
         <div class="box box-default">
-            <div class="box-header with-border" style="height:450px">
+            <div class="box-header with-border" style="height:374px">
                 <img style="position: relative; top: 15px;left:-15px;" src="~/Content/js/pages/img/ZH/zh-icon3.png" /><div style="position: relative; top: -12px; left: 18px; font-size: 16px; font-weight: 400; color: #a1d4f4">设备产量(前一周)</div>
                 <div id="chart4" style="height:150px;"></div>
             </div>
@@ -337,6 +357,11 @@
         gridList('EDM4', 'gridList_h4');
         gridList('EDM5', 'gridList_h5');
         gridList('EDM6', 'gridList_h6');
+        loadC();
+        loadD();
+        loadE(50, 'chart3');
+        loadE(70, 'chart4');
+        loadE(20, 'chart5');
     })
     function loadA() {
         $.ajax({
@@ -460,7 +485,7 @@
             grid: {
                 top: 8,
                 left: 40,
-                right: 15,
+                right: 0,
                 bottom: 50,
                 containLabel: false
             },
@@ -547,9 +572,9 @@
                     },
                     itemStyle: {
                         normal: {
-                            color: '#00ffff', //改变折线点的颜色
+                            color: '#06cec3', //改变折线点的颜色
                             lineStyle: {
-                                color: '#00ffff' //改变折线颜色
+                                color: '#06cec3' //改变折线颜色
                             }
                         }
                     },
@@ -576,5 +601,576 @@
             sortname: 'AlarmNumber desc',
             viewrecords: true
         }); 
+    }
+    function loadC() {
+        var listDeviceType = new Array();
+        var listDeviceName = new Array();
+        var listAll = new Array();
+        $.ajax({
+            url: "/Electromechanical/AVICTableOne/GetDataAVICQualifiedAndCropRate",
+            data: { keyValue: "HG" },
+            dataType: "json",
+            async: false,
+            success: function (da) {
+                $(da).each(function (index, item) {
+                    listDeviceType.push(item.DeviceType);
+                    listDeviceName.push(item.DeviceName);
+                    listAll.push(item);
+                })
+            }
+        })
+
+        $.unique(listDeviceType);
+        $.unique(listDeviceName.sort());
+
+        var series = [];
+        $.each(listDeviceName, function (index, value) {
+            var tempName = new Array();
+            var tempArry = new Array();
+            $.each(listAll, function (index1, value1) {
+                if (value == value1.DeviceName) {
+                    tempName = value1.DeviceName;
+                    tempArry.push(value1.Number);
+                }
+            });
+
+            series.push({
+                name: tempName,
+                type: 'bar',
+                barWidth: '30%',
+                barGap: '80%',
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: '#0ad2fa' // 0% 处的颜色
+                        }, {
+                            offset: 1,
+                            color: '#006efa'// 100% 处的颜色
+                        }], false),
+                       // barBorderRadius: [30, 30, 30, 30],
+                        shadowColor: 'transparent',
+                        shadowBlur: 4,
+                        label: {
+                            show: true, //开启显示
+                            position: 'top', //在上方显示
+                            textStyle: { //数值样式
+                                color: '#0be3fb',
+                                fontSize: 12
+                            },
+                            formatter: '{c}%',
+                        }
+                    }
+                },
+                data: tempArry
+            })
+        });
+
+        var myChart = echarts.init(document.getElementById('chart1'));
+
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            grid: {
+                left: '0%',
+                right: '0%',
+                bottom: '0%',
+                top: '10%',
+                containLabel: true
+            },
+            xAxis: [{
+                type: 'category',
+                data: listDeviceType,
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: '#0be3fb',
+
+                    }
+                },
+                axisLabel: {
+                     interval: 0,
+                     rotate: 40,
+                    textStyle: {
+                        fontSize: '11'
+                    }
+                },
+                axisTick: { //y轴刻度线
+                    show: false
+                },
+            }],
+            yAxis: [{
+                type: 'value',
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: '#0be3fb'
+                    }
+                },
+                splitLine: {
+                    show: false,
+                    lineStyle: {
+                        color: "#57617B"
+                    }
+                },
+                axisTick: { //y轴刻度线
+                    show: false
+                },
+                axisLabel: {
+                    formatter: function (value) {
+                        return value + "%";
+                    },
+                    show: true,
+                    textStyle: {
+                        color: '#0be3fb'
+                    }
+                }
+            }],
+            series: series
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option, true);
+    }
+    function loadD() {
+        var listDeviceType = new Array();
+        var listDeviceName = new Array();
+        var listAll = new Array();
+        $.ajax({
+            url: "/Electromechanical/AVICTableOne/GetDataAVICQualifiedAndCropRate",
+            data: { keyValue: "JD" },
+            dataType: "json",
+            async: false,
+            success: function (da) {
+                $(da).each(function (index, item) {
+                    listDeviceType.push(item.DeviceType);
+                    listDeviceName.push(item.DeviceName);
+                    listAll.push(item);
+                })
+            }
+        })
+
+        $.unique(listDeviceType);
+        $.unique(listDeviceName.sort());
+
+        var series = [];
+        $.each(listDeviceName, function (index, value) {
+            var tempName = new Array();
+            var tempArry = new Array();
+            $.each(listAll, function (index1, value1) {
+                if (value == value1.DeviceName) {
+                    tempName = value1.DeviceName;
+                    tempArry.push(value1.Number);
+                }
+            });
+
+            series.push({
+                name: tempName,
+                type: 'bar',
+                barWidth: '30%',
+                barGap: '80%',
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: '#feed2b' // 0% 处的颜色
+                        }, {
+                            offset: 1,
+                            color: '#e1a902'// 100% 处的颜色
+                        }], false),
+                        // barBorderRadius: [30, 30, 30, 30],
+                        shadowColor: 'transparent',
+                        shadowBlur: 4,
+                        label: {
+                            show: true, //开启显示
+                            position: 'top', //在上方显示
+                            textStyle: { //数值样式
+                                color: '#0be3fb',
+                                fontSize: 12
+                            },
+                            formatter: '{c}%',
+                        }
+                    }
+                },
+                data: tempArry
+            })
+        });
+
+        var myChart = echarts.init(document.getElementById('chart2'));
+
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            grid: {
+                left: '0%',
+                right: '0%',
+                bottom: '0%',
+                top: '10%',
+                containLabel: true
+            },
+            xAxis: [{
+                type: 'category',
+                data: listDeviceType,
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: '#0be3fb',
+
+                    }
+                },
+                axisLabel: {
+                    interval: 0,
+                    rotate: 40,
+                    textStyle: {
+                        fontSize: '11'
+                    }
+                },
+                axisTick: { //y轴刻度线
+                    show: false
+                },
+            }],
+            yAxis: [{
+                type: 'value',
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: '#0be3fb'
+                    }
+                },
+                splitLine: {
+                    show: false,
+                    lineStyle: {
+                        color: "#57617B"
+                    }
+                },
+                axisTick: { //y轴刻度线
+                    show: false
+                },
+                axisLabel: {
+                    formatter: function (value) {
+                        return value + "%";
+                    },
+                    show: true,
+                    textStyle: {
+                        color: '#0be3fb'
+                    }
+                }
+            }],
+            series: series
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option, true);
+    }
+    function loadE(x,y) {
+        var myChart = echarts.init(document.getElementById(y));
+        let angle = 0;//角度，用来做简单的动画效果的
+        let value = x;
+        var option = {
+            title: {
+                text: '{a|' + value + '}{c|%}',
+                x: 'center',
+                y: 'center',
+                textStyle: {
+                    rich: {
+                        a: {
+                            fontSize: 20,
+                            color: '#ffb956'
+                        },
+
+                        c: {
+                            fontSize: 20,
+                            color: '#ffb956',
+                            // padding: [5,0]
+                        }
+                    }
+                }
+            },
+            legend: {
+                type: "plain",
+                orient: "vertical",
+                right: 0,
+                top: "10%",
+                align: "auto",
+                data: [{
+                    name: '涨价后没吃过',
+                    icon: "circle"
+                }, {
+                    name: '天天吃',
+                    icon: "circle"
+                }, {
+                    name: '三五天吃一次',
+                    icon: "circle"
+                }, {
+                    name: '半个月吃一次',
+                    icon: "circle"
+                }],
+                textStyle: {
+                    color: "white",
+                    fontSize: 16,
+                    padding: [10, 1, 10, 0]
+                },
+                selectedMode: false
+            },
+            series: [{
+                name: "ring5",
+                type: 'custom',
+                coordinateSystem: "none",
+                renderItem: function (params, api) {
+                    return {
+                        type: 'arc',
+                        shape: {
+                            cx: api.getWidth() / 2,
+                            cy: api.getHeight() / 2,
+                            r: Math.min(api.getWidth(), api.getHeight()) / 2 * 0.6,
+                            startAngle: (0 + angle) * Math.PI / 180,
+                            endAngle: (90 + angle) * Math.PI / 180
+                        },
+                        style: {
+                            stroke: "#0CD3DB",
+                            fill: "transparent",
+                            lineWidth: 1.5
+                        },
+                        silent: true
+                    };
+                },
+                data: [0]
+            }, {
+                name: "ring5",
+                type: 'custom',
+                coordinateSystem: "none",
+                renderItem: function (params, api) {
+                    return {
+                        type: 'arc',
+                        shape: {
+                            cx: api.getWidth() / 2,
+                            cy: api.getHeight() / 2,
+                            r: Math.min(api.getWidth(), api.getHeight()) / 2 * 0.6,
+                            startAngle: (180 + angle) * Math.PI / 180,
+                            endAngle: (270 + angle) * Math.PI / 180
+                        },
+                        style: {
+                            stroke: "#0CD3DB",
+                            fill: "transparent",
+                            lineWidth: 1.5
+                        },
+                        silent: true
+                    };
+                },
+                data: [0]
+            }, {
+                name: "ring5",
+                type: 'custom',
+                coordinateSystem: "none",
+                renderItem: function (params, api) {
+                    return {
+                        type: 'arc',
+                        shape: {
+                            cx: api.getWidth() / 2,
+                            cy: api.getHeight() / 2,
+                            r: Math.min(api.getWidth(), api.getHeight()) / 2 * 0.65,
+                            startAngle: (270 + -angle) * Math.PI / 180,
+                            endAngle: (40 + -angle) * Math.PI / 180
+                        },
+                        style: {
+                            stroke: "#0CD3DB",
+                            fill: "transparent",
+                            lineWidth: 1.5
+                        },
+                        silent: true
+                    };
+                },
+                data: [0]
+            }, {
+                name: "ring5",
+                type: 'custom',
+                coordinateSystem: "none",
+                renderItem: function (params, api) {
+                    return {
+                        type: 'arc',
+                        shape: {
+                            cx: api.getWidth() / 2,
+                            cy: api.getHeight() / 2,
+                            r: Math.min(api.getWidth(), api.getHeight()) / 2 * 0.65,
+                            startAngle: (90 + -angle) * Math.PI / 180,
+                            endAngle: (220 + -angle) * Math.PI / 180
+                        },
+                        style: {
+                            stroke: "#0CD3DB",
+                            fill: "transparent",
+                            lineWidth: 1.5
+                        },
+                        silent: true
+                    };
+                },
+                data: [0]
+            }, {
+                name: "ring5",
+                type: 'custom',
+                coordinateSystem: "none",
+                renderItem: function (params, api) {
+                    let x0 = api.getWidth() / 2;
+                    let y0 = api.getHeight() / 2;
+                    let r = Math.min(api.getWidth(), api.getHeight()) / 2 * 0.65;
+                    let point = getCirlPoint(x0, y0, r, (90 + -angle))
+                    return {
+                        type: 'circle',
+                        shape: {
+                            cx: point.x,
+                            cy: point.y,
+                            r: 4
+                        },
+                        style: {
+                            stroke: "#0CD3DB",//粉
+                            fill: "#0CD3DB"
+                        },
+                        silent: true
+                    };
+                },
+                data: [0]
+            }, {
+                name: "ring5",  //绿点
+                type: 'custom',
+                coordinateSystem: "none",
+                renderItem: function (params, api) {
+                    let x0 = api.getWidth() / 2;
+                    let y0 = api.getHeight() / 2;
+                    let r = Math.min(api.getWidth(), api.getHeight()) / 2 * 0.65;
+                    let point = getCirlPoint(x0, y0, r, (270 + -angle))
+                    return {
+                        type: 'circle',
+                        shape: {
+                            cx: point.x,
+                            cy: point.y,
+                            r: 4
+                        },
+                        style: {
+                            stroke: "#0CD3DB",      //绿
+                            fill: "#0CD3DB"
+                        },
+                        silent: true
+                    };
+                },
+                data: [0]
+            }, {
+                name: '吃猪肉频率',
+                type: 'pie',
+                radius: ['58%', '45%'],
+                silent: true,
+                clockwise: true,
+                startAngle: 90,
+                z: 0,
+                zlevel: 0,
+                label: {
+                    normal: {
+                        position: "center",
+
+                    }
+                },
+                data: [{
+                    value: value,
+                    name: "",
+                    itemStyle: {
+                        normal: {
+                            color: { // 完成的圆环的颜色
+                                colorStops: [{
+                                    offset: 0,
+                                    color: '#4FADFD' // 0% 处的颜色
+                                }, {
+                                    offset: 1,
+                                    color: '#28E8FA' // 100% 处的颜色
+                                }]
+                            },
+                        }
+                    }
+                },
+                {
+                    value: 100 - value,
+                    name: "",
+                    label: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: "#173164"
+                        }
+                    }
+                }
+                ]
+            },
+
+            {
+                name: "",
+                type: "gauge",
+                radius: "58%",
+                center: ['50%', '50%'],
+                startAngle: 0,
+                endAngle: 359.9,
+                splitNumber: 8,
+                hoverAnimation: true,
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    length: 60,
+                    lineStyle: {
+                        width: 5,
+                        color: "#061740"
+                    }
+                },
+                axisLabel: {
+                    show: false
+                },
+                pointer: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        opacity: 0
+                    }
+                },
+                detail: {
+                    show: false
+                },
+                data: [{
+                    value: 0,
+                    name: ""
+                }]
+            },
+
+            ]
+        };
+
+        //获取圆上面某点的坐标(x0,y0表示坐标，r半径，angle角度)
+        function getCirlPoint(x0, y0, r, angle) {
+            let x1 = x0 + r * Math.cos(angle * Math.PI / 180)
+            let y1 = y0 + r * Math.sin(angle * Math.PI / 180)
+            return {
+                x: x1,
+                y: y1
+            }
+        }
+
+        function draw() {
+            angle = angle + 3
+            myChart.setOption(option, true)
+            //window.requestAnimationFrame(draw);
+        }
+
+        setInterval(function () {
+            //用setInterval做动画感觉有问题
+            draw()
+        }, 100);
+
     }
 </script>
