@@ -64,6 +64,10 @@
     <Compile Include="03 Entity\AutomationLine\DataAcquisitionDetailEntity.cs" />
     <Compile Include="03 Entity\AutomationLine\DataAcquisitionEntity.cs" />
     <Compile Include="03 Entity\AutomationLine\RunningStateEntity.cs" />
+    <Compile Include="03 Entity\Bamt\LineChartEntity.cs" />
+    <Compile Include="03 Entity\Bamt\MainDetailsEntity.cs" />
+    <Compile Include="03 Entity\Bamt\QualifiedNumberEntity.cs" />
+    <Compile Include="03 Entity\Bamt\SonDetailsEntity.cs" />
     <Compile Include="03 Entity\Electromechanical\AVICAlarmEntity.cs" />
     <Compile Include="03 Entity\Electromechanical\AVICDetailEntity.cs" />
     <Compile Include="03 Entity\Electromechanical\AVICDeviceOutputEntity.cs" />
@@ -158,6 +162,7 @@
     <Compile Include="04 IRepository\TeamTask\IEquipmentListRepository.cs" />
     <Compile Include="04 IRepository\TeamTask\ITeamTaskRepository.cs" />
     <Compile Include="04 IRepository\TeamTask\ITrendRepository.cs" />
+    <Compile Include="05 API\AppletsApiParameter.cs" />
     <Compile Include="05 API\MiddleApiParameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

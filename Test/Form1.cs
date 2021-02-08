@@ -604,5 +604,39 @@ namespace Test
                 return;
             }
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            QualifiedNumberResult result = new QualifiedNumberResult();
+
+            string server = "http://localhost:15988/api/Applets/MainDetails";
+            APIParameter param = new APIParameter();
+            param.operator_name = "WebApi";
+            param.operator_time = GenerateTimeStamp(DateTime.Now);
+            param.sign = GenSign(param.operator_name, param.operator_time);
+
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("operator_name", param.operator_name);
+            dic.Add("operator_time", param.operator_time);
+            dic.Add("sign", param.sign);
+
+            try
+            {
+                HttpWebResponse response = CreatePostHttpResponse(server, dic, null, null, Encoding.UTF8, null);
+                System.IO.StreamReader sr = new System.IO.StreamReader(response.GetResponseStream());
+                string responseContent = sr.ReadToEnd();
+                sr.Close();
+
+                QualifiedNumberResult rtn = Deserialize<QualifiedNumberResult>(responseContent);
+                if (rtn.code != "1000")
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+        }
     }
 }

@@ -3109,3 +3109,107 @@ INSERT INTO Sys_AVICDeviceOutput(DeviceType,DeviceName,Number,Ident)VALUES('MAKI
 INSERT INTO Sys_AVICDeviceOutput(DeviceType,DeviceName,Number,Ident)VALUES('MAKIN05','产品',40,'GF')
 INSERT INTO Sys_AVICDeviceOutput(DeviceType,DeviceName,Number,Ident)VALUES('MAKIN06','产品',80,'GF')
 
+
+--------------------------------巴奥米特----------------------------------- 
+CREATE TABLE Bamt_QualifiedNumber
+(
+	id int identity (1,1) primary KEY,
+	Type varchar(50)  NULL,
+	Number INT,
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT dbo.Bamt_QualifiedNumber(Type,Number)VALUES('合格数',43)
+INSERT dbo.Bamt_QualifiedNumber(Type,Number)VALUES('不合格数',12)
+
+
+CREATE table Bamt_MainDetails  --主明细
+(  
+id int identity (1,1) primary key , 
+DeviceName  VARCHAR(50)  NULL, --设备名称
+DeviceModel VARCHAR(50)  NULL, --设备型号(隐藏)
+Place       VARCHAR(50)  NULL, --放置地点(隐藏)
+DeviceNumber VARCHAR(50)  NULL, --设备编号(隐藏)
+DeviceUrl   varchar(100) NULL, --设备图片(隐藏)
+Result varchar(50)  NULL,--结果
+XFlatness FLOAT, --X平面度
+YFlatness FLOAT, --Y平面度
+XZRightAngle FLOAT, --XZ直角
+YZRightAngle FLOAT, --YZ直角
+XYRightAngle FLOAT, --XY直角
+XRepeatPrecision FLOAT, --X重复精度
+YRepeatPrecision FLOAT, --Y重复精度
+ZRepeatPrecision FLOAT, --Z重复精度
+Time varchar(50)  NULL,--时间
+CreationTime DATETIME not null default getdate(),--创建时间
+IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Bamt_MainDetails(DeviceName,DeviceModel,Place,DeviceNumber,DeviceUrl,Result,XFlatness,YFlatness,XZRightAngle,YZRightAngle,XYRightAngle,XRepeatPrecision,YRepeatPrecision,ZRepeatPrecision,Time)VALUES
+('WX190614001','HEM500U','植入区','ZBJ41-03/ABJ41-01','','OK',0.001,0.002,0.003,0.004,0.005,0.006,0.007,0.008,'2021-2-7 13:10:22')
+INSERT INTO Bamt_MainDetails(DeviceName,DeviceModel,Place,DeviceNumber,DeviceUrl,Result,XFlatness,YFlatness,XZRightAngle,YZRightAngle,XYRightAngle,XRepeatPrecision,YRepeatPrecision,ZRepeatPrecision,Time)VALUES
+('WX190614002','HEM502U','植入区','ZBJ41-03/ABJ41-02','','OK',0.011,0.012,0.013,0.014,0.015,0.016,0.017,0.018,'2021-02-07 13:10:22')
+INSERT INTO Bamt_MainDetails(DeviceName,DeviceModel,Place,DeviceNumber,DeviceUrl,Result,XFlatness,YFlatness,XZRightAngle,YZRightAngle,XYRightAngle,XRepeatPrecision,YRepeatPrecision,ZRepeatPrecision,Time)VALUES
+('WX190614003','HEM503U','植入区','ZBJ41-03/ABJ41-03','','NG',0.011,0.012,0.013,0.014,0.015,0.016,0.017,0.018,'2021-02-07 13:10:22')
+
+CREATE TABLE Bamt_LineChart --折线图
+(
+	id int identity (1,1) primary KEY,
+	Name   varchar(50)  NULL,    --名称(隐藏,条件) 
+	DeviceType varchar(50)  NULL,--设备类型
+	DeviceName varchar(50)  NULL,--设备名
+	Number FLOAT,				 --数据
+	AcctDate DATE,				 --数据日期
+	Type varchar(50)  NULL,      --类型(1-8)
+	CreationTime DATETIME not null default getdate(),--创建时间
+	IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+)
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.10','',0.002,'2020-08-10','1')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.11','',0.002,'2020-08-11','1')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.12','',0.002,'2020-08-12','1')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.13','',0.002,'2020-08-13','1')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.14','',0.002,'2020-08-14','1')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.15','',0.002,'2020-08-15','1')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.16','',0.002,'2020-08-16','1')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.17','',0.002,'2020-08-17','1')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.10','',0.002,'2020-08-10','2')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.11','',0.002,'2020-08-11','2')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.12','',0.002,'2020-08-12','2')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.13','',0.002,'2020-08-13','2')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.14','',0.002,'2020-08-14','2')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.15','',0.002,'2020-08-15','2')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.16','',0.002,'2020-08-16','2')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.17','',0.002,'2020-08-17','2')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.10','',0.002,'2020-08-10','3')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.11','',0.002,'2020-08-11','3')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.12','',0.002,'2020-08-12','3')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.13','',0.002,'2020-08-13','3')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.14','',0.002,'2020-08-14','3')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.15','',0.002,'2020-08-15','3')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.16','',0.002,'2020-08-16','3')
+INSERT INTO Bamt_LineChart(Name,DeviceType,DeviceName,Number,AcctDate,Type)VALUES  ('WX190614001','2020.08.17','',0.002,'2020-08-17','3')
+
+CREATE table Bamt_SonDetails  --子明细
+(  
+id int identity (1,1) primary key , 
+DeviceName varchar(50)  NULL, --设备名称(隐藏,条件)
+Time varchar(50)  NULL,--时间
+Result varchar(50)  NULL,--结果
+XFlatness FLOAT, --X平面度
+YFlatness FLOAT, --Y平面度
+XZRightAngle FLOAT, --XZ直角
+YZRightAngle FLOAT, --YZ直角
+XYRightAngle FLOAT, --XY直角
+XRepeatPrecision FLOAT, --X重复精度
+YRepeatPrecision FLOAT, --Y重复精度
+ZRepeatPrecision FLOAT, --Z重复精度
+CreationTime DATETIME not null default getdate(),--创建时间
+IsEffective int DEFAULT 1 -- 0 无效 1 有效 1显示
+) 
+INSERT INTO Bamt_SonDetails(DeviceName,Time,Result,XFlatness,YFlatness,XZRightAngle,YZRightAngle,XYRightAngle,XRepeatPrecision,YRepeatPrecision,ZRepeatPrecision)VALUES
+('WX190614001','2020.08.10','OK',0.001,0.002,0.003,0.004,0.005,0.006,0.007,0.008)
+INSERT INTO Bamt_SonDetails(DeviceName,Time,Result,XFlatness,YFlatness,XZRightAngle,YZRightAngle,XYRightAngle,XRepeatPrecision,YRepeatPrecision,ZRepeatPrecision)VALUES
+('WX190614001','2020.08.10','NG',0.001,0.002,0.003,0.004,0.005,0.006,0.007,0.008)
+INSERT INTO Bamt_SonDetails(DeviceName,Time,Result,XFlatness,YFlatness,XZRightAngle,YZRightAngle,XYRightAngle,XRepeatPrecision,YRepeatPrecision,ZRepeatPrecision)VALUES
+('WX190614001','2020.08.10','NG',0.001,0.002,0.003,0.004,0.005,0.006,0.007,0.008)
+INSERT INTO Bamt_SonDetails(DeviceName,Time,Result,XFlatness,YFlatness,XZRightAngle,YZRightAngle,XYRightAngle,XRepeatPrecision,YRepeatPrecision,ZRepeatPrecision)VALUES
+('WX190614001','2020.08.10','OK',0.001,0.002,0.003,0.004,0.005,0.006,0.007,0.008)
